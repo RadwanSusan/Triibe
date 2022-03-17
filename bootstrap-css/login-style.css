@@ -21,7 +21,6 @@ body {
 .img1 {
   width: 127px;
   height: 104px;
-  margin-left: -27px;
   color: #0d0d0d;
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
