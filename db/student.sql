@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2022 at 08:10 PM
+-- Generation Time: Mar 18, 2022 at 08:20 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `student` (
   `std_id` bigint(12) NOT NULL,
+  `std_pass` varchar(30) NOT NULL,
   `std_fname` varchar(15) NOT NULL,
   `std_lname` varchar(15) NOT NULL,
   `loc` varchar(15) NOT NULL,
@@ -45,8 +46,8 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`std_id`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `birthday`, `email`, `status`, `created_date`, `account_id`) VALUES
-(120180612100, 'omar', 'thaer', 'amman', 'IT', 1, '2000-06-04', '120180612100@st.ahu.edu.jo', 0, '2022-03-18', 99999999999);
+INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `birthday`, `email`, `status`, `created_date`, `account_id`) VALUES
+(120180612100, '0799317489', 'omar', 'thaer', 'amman', 'IT', 1, '2000-06-04', '120180612100@st.ahu.edu.jo', 0, '2022-03-18', 99999999999);
 
 --
 -- Indexes for dumped tables
