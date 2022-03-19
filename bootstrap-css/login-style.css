@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-width: 430px;
+  min-width: 485px;
   height: 100vh;
   background-color: #f0f2f5;
 }
@@ -36,6 +36,15 @@ body {
 
   .box {
     margin: auto;
+  }
+}
+@media (min-width: 950px) {
+  .left {
+    margin-top: -190px;
+    margin-left: 7px;
+  }
+  .right {
+    margin-left: -7px;
   }
 }
 
@@ -80,8 +89,9 @@ form {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 29px;
   line-height: 38px;
+  width: 400px;
 
   color: #716969;
 }
