@@ -97,6 +97,8 @@ form {
 }
 .right {
   width: 400px;
+  position: relative;
+  top: -570px;
 }
 form {
   width: 400px;
