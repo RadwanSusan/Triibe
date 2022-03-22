@@ -52,6 +52,13 @@ form {
   height: 104px;
   color: #0d0d0d;
 }
+.svg-img{
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 .left p {
   font-family: "Roboto";
   font-style: normal;
