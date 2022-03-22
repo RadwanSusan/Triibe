@@ -7,10 +7,10 @@ const typed = new Typed(".typed", {
 	loop: false,
 	startDelay: 1100,
 }); // typed.js
-let removeClass = (name, className) => {
-	// remove class from element with class name
-	if (window.innerWidth < 950) {
+let removeClass = (name, className, width) => {
+	// remove class from element with class name if the window is smaller than the width that the class is set for
+	if (window.innerWidth < width) {
 		name.classList.remove(className);
 	}
 };
-removeClass(document.querySelector(".right"), "animate__backInDown");
+removeClass(document.querySelector(".right"), "animate__backInDown", 950);
