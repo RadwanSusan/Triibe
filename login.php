@@ -12,26 +12,26 @@ $conn = new mysqli($servername, "root","" ,"triibe");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }else{
-echo "Connected successfully" . "<br>";
+// echo "Connected successfully" . "<br>";
 }
 
 session_start();
-   
+
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-      
+      // username and password sent from form
+
       $myusername = mysqli_real_escape_string($conn,$_POST['uname']);
-      $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
-      
+      $mypassword = mysqli_real_escape_string($conn,$_POST['password']);
+
       $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_assoc($result);
       //$active = $row['active'];
-      
+
       $count = mysqli_num_rows($result);
-      
+
       // If result matched $myusername and $mypassword, table row must be 1 row
-		
+
       if($count == 1) {
          //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
@@ -41,7 +41,7 @@ session_start();
          echo"Your Login Name or Password is invalid";
       }
     }
-   
+
 ?>
 
 <!DOCTYPE html>
@@ -53,20 +53,19 @@ session_start();
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
     <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
     <link rel="stylesheet" href="bootstrap-css/login-style.css" />
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="bootstrap-js/login.js"></script>
   </head>
   <body>
     <div class="container1">
       <div class="left">
         <div class="box">
-          <img src="Design/Image/Untitled-1.svg" alt="Triibe" />
+          <img class="animate__animated animate__rollIn" src="Design/Image/logo.svg" style="transform: rotate(20deg);" alt="Triibe"/>
           <h1>Triibe</h1>
         </div>
-        <p>Connect With Your Friends Inside The University On Triibe .</p>
+        <p class="typed"></p>
       </div>
-      <div class="right">
+      <div class="right animate__animated animate__backInDown">
         <form action="" method="POST">
           <input type="text" name="uname" placeholder="Email Or student number" />
           <input type="password" name="password" placeholder="Password" />
@@ -80,5 +79,8 @@ session_start();
     </div>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="node_modules/typed.js/src/typed.js"></script>
+    <script type="module" src="bootstrap-js/login.js"></script>
   </body>
-</html>
+  </html>

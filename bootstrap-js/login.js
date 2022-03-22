@@ -1,28 +1,16 @@
-// jquery code to hide h1
-$(document).ready(function () {
-  $(".right").animate({
-    top: '18px',  
-    AnimationEffect: 'linear',
-  }, 700);
-  $(".right").animate(
-    {
-      top: "8px",
-      AnimationEffect: 'linear',
-    },
-    100
-  );
-  $(".right").animate(
-    {
-      top: "18px",
-      AnimationEffect: "linear",
-    },
-    300
-  );
-  $(".left img ").animate({
-    transform: '',
-  }, 1000
-  );
-
-
-
-});
+// jshint esversion: 6
+import Typed from "../node_modules/typed.js/src/typed.js";
+const typed = new Typed(".typed", {
+	strings: ["Connect With Your Friends Inside The University On Triibe ."],
+	showCursor: false,
+	typeSpeed: 30,
+	loop: false,
+	startDelay: 1100,
+}); // typed.js
+let removeClass = (name, className) => {
+	// remove class from element with class name
+	if (window.innerWidth < 950) {
+		name.classList.remove(className);
+	}
+};
+removeClass(document.querySelector(".right"), "animate__backInDown");
