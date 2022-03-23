@@ -59,7 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <img class="svg-img animate__animated animate__rollIn" src="Design/Image/logo.svg" style="transform: rotate(20deg);" alt="Triibe"/>
           <h1>Triibe</h1>
         </div>
-        <p class="typed"></p>
+        <p>
+          <span class="typed"></span>
+        </p>
       </div>
       <div class="right animate__animated animate__backInDown">
         <form action="" method="POST">
