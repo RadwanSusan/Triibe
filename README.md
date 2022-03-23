@@ -1,5 +1,5 @@
 # Triibe
- **Social-media Website For A Uni Graduation Project**
+ **Social-media Website For A University Graduation Project**
 ## Guidelines For This Project:
  - Only Commit Changes To The Dev_Branch **[ Never Commit To Main]** .
 ## Tools For This Project:
