@@ -60,6 +60,8 @@ form {
     -ms-user-select: none;
 }
 .left p {
+  position: absolute;
+  top: 45%;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
