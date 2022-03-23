@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container1">
       <div class="left">
         <div class="box">
-          <img class="animate__animated animate__rollIn" src="Design/Image/logo.svg" style="transform: rotate(20deg);" alt="Triibe"/>
+          <img class="svg-img animate__animated animate__rollIn" src="Design/Image/logo.svg" style="transform: rotate(20deg);" alt="Triibe"/>
           <h1>Triibe</h1>
         </div>
         <p>
