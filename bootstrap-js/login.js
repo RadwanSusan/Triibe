@@ -2,9 +2,9 @@
 import Typed from "../node_modules/typed.js/src/typed.js";
 const typed = new Typed(".typed", {
 	strings: ["Connect With Your Friends Inside The University On Triibe ."],
-	showCursor: false,
-	typeSpeed: 30,
-	loop: false,
+	showCursor: true,
+	cursorChar: "|",
+	typeSpeed: 40,
 	startDelay: 1100,
 }); // typed.js
 let removeClass = (name, className, width) => {

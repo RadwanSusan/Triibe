@@ -60,6 +60,8 @@ form {
   -ms-user-select: none;
 }
 .left p {
+  position: absolute;
+  top: 47%;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -403,3 +405,6 @@ form-1 .gender-details .category{
 }
 } 
 
+=======
+}
+>>>>>>> 3b4fe5cd8e0eeb045c5a862a59d32cff3a75bc06
