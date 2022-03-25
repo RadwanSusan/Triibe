@@ -11,6 +11,6 @@
 ## Team Members & Functionalities:
  - [Radwan Susan](https://github.com/RadwanSusan) | Documentation & General Support
  - [Zaid Altamari](https://github.com/ZaidAltamari) | Front-End & Design
- - Omar Thaer | Back-End & Database
+ - [Omar Thaer](https://github.com/OmarThaerQ) | Back-End & Database
  - Doaa  Abd Aljbar | Documentation
  - Hamza KH | Back-End & Database
