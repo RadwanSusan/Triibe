@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2022 at 08:20 PM
+-- Generation Time: Mar 25, 2022 at 01:44 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -35,7 +35,7 @@ CREATE TABLE `student` (
   `loc` varchar(15) NOT NULL,
   `collage` varchar(25) NOT NULL,
   `gender` int(1) NOT NULL,
-  `birthday` date NOT NULL,
+  `College_Year` int(11) NOT NULL,
   `email` varchar(35) NOT NULL,
   `status` int(1) NOT NULL,
   `created_date` date NOT NULL,
@@ -46,8 +46,8 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `birthday`, `email`, `status`, `created_date`, `account_id`) VALUES
-(120180612100, '0799317489', 'omar', 'thaer', 'amman', 'IT', 1, '2000-06-04', '120180612100@st.ahu.edu.jo', 0, '2022-03-18', 99999999999);
+INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `College_Year`, `email`, `status`, `created_date`, `account_id`) VALUES
+(120180612100, '0799317489', 'omar', 'thaer', 'amman', 'IT', 1, 4, '120180612100@st.ahu.edu.jo', 0, '2022-03-18', 99999999999);
 
 --
 -- Indexes for dumped tables

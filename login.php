@@ -1,19 +1,6 @@
 <?php
-//include "loginphp.php";
-$servername = $_SERVER['SERVER_NAME'];
-$username = "username";
-$password = "password";
+include "connection.php";
 
-// Create connection
-$conn = new mysqli($servername, "root", "", "triibe");
-
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
-else {
-	// echo "Connected successfully" . "<br>";
-}
 
 session_start();
 
@@ -32,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if ($count == 1) {
 		//session_register("myusername");
 		$_SESSION['login_user'] = $myusername;
-		echo "<p>looged in</p>";
+		echo "<p>looged in</p>" .  $row['account_id'];
 		// header("location: homepage.php");
 	}
 	else {
