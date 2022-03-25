@@ -48,7 +48,7 @@ session_start();
           if ($count == 1) {
               //session_register("myusername");
               $_SESSION["login_user"] = $myusername;
-              echo "<p>looged in</p>" . $row["account_id"];
+              // echo "<p>looged in</p>" . $row["account_id"];
               // header("location: homepage.php");
           } else {
               echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>';
