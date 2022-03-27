@@ -38,7 +38,6 @@ session_start();
           // username and password sent from form
           $myusername = mysqli_real_escape_string($conn, $_POST["uname"]);
           $mypassword = mysqli_real_escape_string($conn, $_POST["password"]);
-
           $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'";
           $result = mysqli_query($conn, $sql);
           $row = mysqli_fetch_assoc($result);
@@ -57,7 +56,9 @@ session_start();
       <div class="right animate__animated animate__backInDown">
         <form action="" method="POST">
           <input type="text" name="uname" placeholder="Student number or Email" />
-          <input type="password" name="password" placeholder="Password" />
+          <input class="password" type="password" name="password" placeholder="Password" />
+            <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
+            <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />
           <button type="submit" href="" class="loginBtn">Log In</button>
           <a href="" class="forget">Forgotten password?</a>
           <div class="sign-up">
@@ -66,6 +67,11 @@ session_start();
         </form>
       </div>
     </div>
+    <div class="wave animate__animated animate__fadeInUp">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+</div>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
