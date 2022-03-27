@@ -1,36 +1,36 @@
 <?php
 
 // Include file which makes the
-// Database Connection.  
+// Database Connection.
 include "connection.php";
 
-$showAlert = false; 
-$showError = false; 
+$showAlert = false;
+$showError = false;
 $exists=false;
 
-    
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $username = $_POST["id"]; 
-    $password = $_POST["pass"]; 
+    $username = $_POST["id"];
+    $password = $_POST["pass"];
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $gender = $_POST["gender"];
     $year = $_POST["year"];
     $email = $_POST["email"];
     $date = date("Y-m-d",time());
-    
 
-            
-    
+
+
+
     $sql = "Select * from users where std_id='$username'";
-    
+
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $num = mysqli_num_rows($result); 
-    
+    $num = mysqli_num_rows($result);
+
     // This sql query is use to check if
-    // the username is already present 
+    // the username is already present
     // or not in our Database
     if ($num == 0) {
         if ($exists==false) {
@@ -39,30 +39,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           while ($account_id == $row['account_id']){
             $account_id = rand(100000000,999999999);
           }
-    
-           // $hash = password_hash($password, 
+
+           // $hash = password_hash($password,
              //                   PASSWORD_DEFAULT);
-                
-            // Password Hashing is used here. 
+
+            // Password Hashing is used here.
             $sql = "INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `College_Year`, `email`, `status`, `created_date`, `account_id`) VALUES
             ( $username , $password , $fname , $lname , 'maan' , 'IT' , $gender , $year , $email , 1 , $date , $account_id )";
-    
+
             $result = mysqli_query($conn, $sql);
-    
+
             if ($result) {
-                $showAlert = true; 
+                $showAlert = true;
             }
-        } 
-        else { 
-            $showError = "Passwords do not match"; 
-        }      
-    }// end if 
-    
-   if ($num>0) 
+        }
+        else {
+            $showError = "Passwords do not match";
+        }
+    }// end if
+
+   if ($num>0)
    {
-      $exists="Username not available"; 
-   } 
-    
+      $exists="Username not available";
+   }
+
 }
 
 ?>
@@ -80,30 +80,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   </head>
   <body>
     <div class="container2">
-      
+
       <div class="right-1">
         <div class="title2">Registration</div>
         <form-1 action="" method= "POST">
           <div class="user-details">
             <div class="input-box">
               <span class="details">First Name</span>
-              <input type="text" placeholder="Enter your First name" name="fname" />
+              <input type="text" placeholder="Enter your First name" name="fname" required/>
             </div>
             <div class="input-box">
               <span class="details">Last Name</span>
-              <input type="text" placeholder="Enter your Last name" name="lname"/>
+              <input type="text" placeholder="Enter your Last name" name="lname" required/>
             </div>
             <div class="input-box">
               <span class="details">Email</span>
-              <input type="email" placeholder="Enter your Email" name="email"/>
+              <input type="email" placeholder="Enter your Email" name="email" required/>
             </div>
             <div class="input-box">
               <span class="details">Student Number</span>
-              <input type="text" placeholder="Enter your Student Number" name="id" />
+              <input type="text" placeholder="Enter your Student Number" name="id" required/>
             </div>
             <div class="input-box">
               <span class="details">Password</span>
-              <input type="password" placeholder="Enter your Password" name="pass"/>
+              <input type="password" placeholder="Enter your Password" name="pass" required/>
             </div>
             <div class="input-box">
               <span class="details">College Year</span>
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           </div>
           </div>
           <div class="button-1">
-            <input type="submit" value="sign up" />
+            <input type="submit" value="sign up" required/>
           </div>
         </form-1>
       </div>
