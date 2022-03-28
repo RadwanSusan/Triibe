@@ -49,8 +49,8 @@ session_start();
               $_SESSION["login_user"] = $myusername; // register the session
               $_SESSION["std_fname"] = $row["std_fname"];
               $_SESSION["std_lname"] = $row["std_lname"];
-              $_SESSION["std_email"] = $row["std_email"];
-              $_SESSION["college"] = $row["college"];
+              $_SESSION["email"] = $row["email"];
+              $_SESSION["collage"] = $row["collage"];
               $_SESSION["gender"] = $row["gender"];
               $_SESSION["account_id"] = $row["account_id"];
               $_SESSION["created_date"] = $row["created_date"];
