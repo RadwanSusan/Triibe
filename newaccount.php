@@ -1,88 +1,63 @@
-<?php
-
-// Include file which makes the
-// Database Connection.
-include "connection.php";
-
-$showAlert = false;
-$showError = false;
-$exists=false;
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    $username = $_POST["id"];
-    $password = $_POST["pass"];
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $gender = $_POST["gender"];
-    $year = $_POST["year"];
-    $email = $_POST["email"];
-    $date = date("Y-m-d",time());
-
-
-
-
-    $sql = "Select * from users where std_id='$username'";
-
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $num = mysqli_num_rows($result);
-
-    // This sql query is use to check if
-    // the username is already present
-    // or not in our Database
-    if ($num == 0) {
-        if ($exists==false) {
-
-          $account_id = rand(100000000,999999999);
-          while ($account_id == $row['account_id']){
-            $account_id = rand(100000000,999999999);
-          }
-
-           // $hash = password_hash($password,
-             //                   PASSWORD_DEFAULT);
-
-            // Password Hashing is used here.
-            $sql = "INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `College_Year`, `email`, `status`, `created_date`, `account_id`) VALUES
-            ( $username , $password , $fname , $lname , 'maan' , 'IT' , $gender , $year , $email , 1 , $date , $account_id )";
-
-            $result = mysqli_query($conn, $sql);
-
-            if ($result) {
-                $showAlert = true;
-            }
-        }
-        else {
-            $showError = "Passwords do not match";
-        }
-    }// end if
-
-   if ($num>0)
-   {
-      $exists="Username not available";
-   }
-
-}
-
-?>
+<?php include_once "connection.php";?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SignUp</title>
+    <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon">
     <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
     <link rel="stylesheet" href="bootstrap-css/all.min.css" />
     <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+    <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
     <link rel="stylesheet" href="bootstrap-css/login-style.css" />
+    <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
+    <script type="text/javascript">
+      function alert(message){
+        alertify.defaults.glossary.title = 'My Title';
+        alertify.alert("Triibe",message);
+      }
+    </script>
   </head>
   <body>
     <div class="container2">
-
       <div class="right-1">
         <div class="title2">Registration</div>
+          <?php
+          $exists = false; // variable to check if the account already exists
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+              // if the form has been submitted
+              $username = $_POST["id"]; // get the username
+              $password = $_POST["pass"]; // get the password
+              $fname = $_POST["fname"]; // get the first name
+              $lname = $_POST["lname"]; // get the last name
+              $gender = $_POST["gender"]; // get the gender
+              $year = $_POST["year"]; // get the year
+              $email = $_POST["email"]; // get the email
+              $date = date("Y-m-d", time()); // get the date
+              $sql = "Select * from student where std_id='$username'"; // query the database
+              $result = mysqli_query($conn, $sql); // execute the query
+              $row = mysqli_fetch_assoc($result); // fetch the result
+              $num = mysqli_num_rows($result); // count the number of rows in the result
+              if ($num == 0) { // if there is no account with the same ID
+                  if ($exists == false) { // if the account doesn't exist
+                      $account_id = rand(100000000, 999999999); // generate an account ID for the new account
+                      while ($account_id == $row["account_id"]) { // if the generated account ID is the same as the one in the database generate a new one
+                          $account_id = rand(100000000, 999999999); // generate another account ID
+                      }
+                      // $hashedPassword = password_hash($password,PASSWORD_DEFAULT); // password hash for the password to be stored in the database
+                      $sql = "INSERT INTO student (std_id,std_pass,std_fname,std_lname,loc,collage,gender,College_Year,email,created_date,account_id) VALUES ('$username','$password','$fname','$lname','maan','IT','$gender','$year','$email','$date','$account_id')";
+                      $result = mysqli_query($conn, $sql);
+                      echo '<script type="text/javascript">alert("Account Created Successfully");</script>';
+                      // header("Location: login.php"); // redirect to the login page
+                  }
+              } else {
+                  echo '<script type="text/javascript">alert("Account already exists!");</script>';
+              }
+          }
+          ?>
         <form action="" method= "POST" class="form2">
           <div class="user-details">
             <div class="input-box">
@@ -95,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             </div>
             <div class="input-box">
               <span class="details">Email</span>
-              <input type="email" placeholder="Enter your Email" name="email" required/>
+              <input type="text" placeholder="Enter your Email" name="email" required/>
             </div>
             <div class="input-box">
               <span class="details">Student Number</span>
@@ -132,12 +107,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
           </div>
           </div>
           <div class="button-1">
-            <input type="submit" value="sign up" required/>
+            <button type="submit" value="sign up" >sign up</button>
           </div>
-        </form-1>
+        </form>
       </div>
     </div>
-
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
