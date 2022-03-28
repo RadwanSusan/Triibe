@@ -37,16 +37,27 @@
               $year = $_POST["year"]; // get the year
               $email = $_POST["email"]; // get the email
               $date = date("Y-m-d", time()); // get the date
+
+
               $sql = "Select * from student where std_id='$username'"; // query the database
               $result = mysqli_query($conn, $sql); // execute the query
               $row = mysqli_fetch_assoc($result); // fetch the result
               $num = mysqli_num_rows($result); // count the number of rows in the result
+
+
               if ($num == 0) { // if there is no account with the same ID
                   if ($exists == false) { // if the account doesn't exist
-                      $account_id = rand(100000000, 999999999); // generate an account ID for the new account
-                      while ($account_id == $row["account_id"]) { // if the generated account ID is the same as the one in the database generate a new one
-                          $account_id = rand(100000000, 999999999); // generate another account ID
+                      $account_id = rand(100000000, 999999999);
+                      $sql = "Select * from student where account_id='$account_id'"; // query the database
+                      $result = mysqli_query($conn, $sql); 
+                      $num = mysqli_num_rows($result); 
+                      while ($num != 0) { // if the account ID already exists
+                          $account_id = rand(100000000, 999999999); // generate a new account ID
+                          $sql = "Select * from student where account_id='$account_id'"; // query the database
+                          $result = mysqli_query($conn, $sql); 
+                          $num = mysqli_num_rows($result); 
                       }
+                      
                       // $hashedPassword = password_hash($password,PASSWORD_DEFAULT); // password hash for the password to be stored in the database
                       $sql = "INSERT INTO student (std_id,std_pass,std_fname,std_lname,loc,collage,gender,College_Year,email,created_date,account_id) VALUES ('$username','$password','$fname','$lname','maan','IT','$gender','$year','$email','$date','$account_id')";
                       $result = mysqli_query($conn, $sql);
