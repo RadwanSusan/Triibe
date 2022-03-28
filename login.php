@@ -55,7 +55,7 @@ session_start();
               $_SESSION["account_id"] = $row["account_id"]; 
               $_SESSION["created_date"] = $row["created_date"];
               
-               echo "<p>looged in</p>" . $row["account_id"];
+              // echo "<p>looged in</p>" . $row["account_id"];
               // header("location: homepage.php");
           } else {
               echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
