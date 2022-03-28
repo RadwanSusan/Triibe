@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
       <div class="right-1">
         <div class="title2">Registration</div>
-        <form-1 action="" method= "POST">
+        <form action="" method= "POST" class="form2">
           <div class="user-details">
             <div class="input-box">
               <span class="details">First Name</span>

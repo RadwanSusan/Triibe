@@ -55,7 +55,7 @@ session_start();
           }
       } ?>
       <div class="right animate__animated animate__backInDown">
-        <form action="" method="POST">
+        <form  action="" method="POST" class="form1">
           <input type="text" name="uname" placeholder="Student number or Email" />
           <input class="password" type="password" name="password" placeholder="Password" />
             <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
