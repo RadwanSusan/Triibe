@@ -47,7 +47,7 @@ session_start();
           if ($count == 1) { // if the result matched
               //session_register("myusername");
               $_SESSION["login_user"] = $myusername; // register the session
-              // echo "<p>looged in</p>" . $row["account_id"];
+               echo "<p>looged in</p>" . $row["account_id"];
               // header("location: homepage.php");
           } else {
               echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
