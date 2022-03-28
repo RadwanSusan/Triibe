@@ -52,9 +52,9 @@ session_start();
               $_SESSION["std_email"] = $row["std_email"];
               $_SESSION["college"] = $row["college"];
               $_SESSION["gender"] = $row["gender"];
-              $_SESSION["account_id"] = $row["account_id"]; 
+              $_SESSION["account_id"] = $row["account_id"];
               $_SESSION["created_date"] = $row["created_date"];
-              
+
               // echo "<p>looged in</p>" . $row["account_id"];
               // header("location: homepage.php");
           } else {
