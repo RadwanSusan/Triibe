@@ -363,6 +363,28 @@ form-1 .button-1 input:hover {
 .wave .shape-fill {
  fill: #c4c4c4;
 }
+.openEye {
+ display: none;
+ position: absolute;
+ right: 34px;
+ top: 100px;
+ cursor: pointer;
+}
+.closedEye {
+ display: none;
+ position: absolute;
+ right: 34px;
+ top: 96px;
+ cursor: pointer;
+}
+body::-webkit-scrollbar {
+  /* width: 0.5em; */
+  display:none;
+}
+/* body::-webkit-scrollbar-thumb {
+  background-color: rgb(201, 201, 201);
+  outline: 1px solid rgb(158, 165, 172);
+} */
 @media (max-width: 950px) {
  .wave {
   display: none;
@@ -386,18 +408,4 @@ form-1 .button-1 input:hover {
  .user-details::-webkit-scrollbar {
   width: 0;
  }
-}
-.openEye {
- display: none;
- position: absolute;
- right: 34px;
- top: 100px;
- cursor: pointer;
-}
-.closedEye {
- display: none;
- position: absolute;
- right: 34px;
- top: 96px;
- cursor: pointer;
 }
