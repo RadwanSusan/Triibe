@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pridi&display=swap");
 ::selection {
   background-color: #8c8c8c;
   color: white;
@@ -81,11 +83,11 @@ body {
 .form1 {
   width: 400px;
   height: 400px;
-  background-color: linear-gradient(
-    180.01deg,
-    rgba(166, 166, 166, 0.56) 0.01%,
-    rgba(255, 255, 255, 0) 102.36%
-  );
+  background: linear-gradient(
+		180.0deg,
+		rgba(220, 220, 220, 0.56) 0.01%,
+		rgba(255, 255, 255, 0) 102.36%
+	);
   border-radius: 10px;
   display: flex;
   padding: 20px;
@@ -118,16 +120,16 @@ body {
   line-height: 32px;
   font-style: normal;
   transition: 0.5s;
-  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
 }
-.loginBtn:hover {
+/* .loginBtn:hover {
   background-color: rgba(92, 91, 91, 0.54);
   color: #1e1e1e;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+} */
 .forget {
   margin: 20px 0 10px 0;
-  color: #8f8e8e;
+  color: #747474;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -136,7 +138,7 @@ body {
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 .forget:hover {
-  color: #494b4d;
+  color: #444444;
 }
 .sign-up {
   position: relative;
@@ -170,7 +172,6 @@ body {
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 .sign-up-btn:hover {
-  padding: 16px;
   color: #1e1e1e;
 }
 @media (max-width: 376px) {
@@ -206,6 +207,7 @@ body {
     margin-left: -7px;
   }
 }
+/*----------------------------------SignUp-CSS------------------------------------*/
 .container2 {
   width: 100%;
   height: 100vh;
@@ -358,7 +360,7 @@ body {
   position: relative;
   display: block;
   width: calc(167% + 1.3px);
-  height: 109px;
+  height: 80px;
 }
 .wave .shape-fill {
   fill: #c4c4c4;

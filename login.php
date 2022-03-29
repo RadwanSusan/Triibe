@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="node_modules/animate.css/animate.css">
     <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
     <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+    <link href="node_modules/hover.css/css/hover-min.css" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap-css/login-style.css" />
     <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
     <script type="text/javascript">
@@ -67,10 +68,10 @@ session_start();
           <input class="password" type="password" name="password" placeholder="Password" />
             <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
             <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />
-          <button type="submit" href="" class="loginBtn">Log In</button>
+          <button type="submit" href="" class="loginBtn hvr-underline-from-center">Log In</button>
           <a href="" class="forget">Forgotten password?</a>
           <div class="sign-up">
-            <a href="newaccount.php" class="sign-up-btn">Create New Account</a>
+            <a href="newaccount.php" class="sign-up-btn hvr-underline-from-center">Create New Account</a>
           </div>
         </form>
       </div>
