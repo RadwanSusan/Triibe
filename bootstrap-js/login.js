@@ -12,6 +12,7 @@ let removeClass = (name, className, width) => {
 	}
 };
 removeClass(document.querySelector(".right"), "animate__backInDown", 950);
+
 let showPassword = () => {
 	let password = document.querySelector(".password");
 	let closedEye = document.querySelector(".closedEye");

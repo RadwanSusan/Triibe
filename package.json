@@ -3,6 +3,7 @@
     "alertifyjs": "^1.13.1",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.3",
+    "hover.css": "^2.3.2",
     "jquery": "^3.6.0",
     "typed.js": "^2.0.12"
   }
