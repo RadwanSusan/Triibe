@@ -29,7 +29,7 @@ session_start();
     <div class="container1">
       <div class="left">
         <div class="box">
-          <img class="svg-img animate__animated animate__rollIn" src="Design/Image/logo.svg" alt="Triibe"/>
+          <img class="svg-img LeftLogo animate__animated animate__rollIn" src="Design/Image/logo.svg" alt="Triibe"/>
           <h1>Triibe</h1>
         </div>
         <p>
@@ -37,31 +37,32 @@ session_start();
         </p>
       </div>
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { // if the form has been submitted
-          $myusername = mysqli_real_escape_string($conn, $_POST["uname"]); // get the username
-          $mypassword = mysqli_real_escape_string($conn, $_POST["password"]); // get the password
-          $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'"; // query the database
-          $result = mysqli_query($conn, $sql); // execute the query
-          $row = mysqli_fetch_assoc($result); // fetch the result
-          //$active = $row['active'];
-          $count = mysqli_num_rows($result); // count the number of rows in the result
-          // If result matched $myusername and $mypassword, table row must be 1 row
-          if ($count == 1) { // if the result matched
-              //session_register("myusername");
-              $_SESSION["login_user"] = $myusername; // register the session
-              $_SESSION["std_fname"] = $row["std_fname"];
-              $_SESSION["std_lname"] = $row["std_lname"];
-              $_SESSION["email"] = $row["email"];
-              $_SESSION["collage"] = $row["collage"];
-              $_SESSION["gender"] = $row["gender"];
-              $_SESSION["account_id"] = $row["account_id"];
-              $_SESSION["created_date"] = $row["created_date"];
+    $myusername = mysqli_real_escape_string($conn, $_POST["uname"]); // get the username
+    $mypassword = mysqli_real_escape_string($conn, $_POST["password"]); // get the password
+    $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'"; // query the database
+    $result = mysqli_query($conn, $sql); // execute the query
+    $row = mysqli_fetch_assoc($result); // fetch the result
+    //$active = $row['active'];
+    $count = mysqli_num_rows($result); // count the number of rows in the result
+    // If result matched $myusername and $mypassword, table row must be 1 row
+    if ($count == 1) { // if the result matched
+        //session_register("myusername");
+        $_SESSION["login_user"] = $myusername; // register the session
+        $_SESSION["std_fname"] = $row["std_fname"];
+        $_SESSION["std_lname"] = $row["std_lname"];
+        $_SESSION["email"] = $row["email"];
+        $_SESSION["collage"] = $row["collage"];
+        $_SESSION["gender"] = $row["gender"];
+        $_SESSION["account_id"] = $row["account_id"];
+        $_SESSION["created_date"] = $row["created_date"];
+        // echo "<p>looged in</p>" . $row["account_id"];
+        // header("location: homepage.php");
 
-              // echo "<p>looged in</p>" . $row["account_id"];
-              // header("location: homepage.php");
-          } else {
-              echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
-          }
-      } ?>
+    } else {
+        echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
+
+    }
+} ?>
       <div class="right animate__animated animate__backInDown">
         <form  action="" method="POST" class="form1">
           <input type="text" name="uname" placeholder="Student number or Email" />
