@@ -499,6 +499,22 @@ span.gender {
 	cursor: pointer;
 }
 
+.openEye2 {
+	display: none;
+	position: absolute;
+	right: 31px;
+	top: 300px;
+	cursor: pointer;
+}
+
+.closedEye2 {
+	display: none;
+	position: absolute;
+	right: 31px;
+	top: 295px;
+	cursor: pointer;
+}
+
 body::-webkit-scrollbar {
 	/* width: 0.5em; */
 	display: none;
@@ -562,5 +578,14 @@ body::-webkit-scrollbar {
 
 	.user-details::-webkit-scrollbar {
 		width: 0;
+	}
+	.openEye2 {
+	right: 31px;
+	top: 445px;
+	}
+
+.closedEye2 {
+	right: 31px;
+	top: 440px;
 	}
 }
