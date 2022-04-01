@@ -421,7 +421,7 @@ span.gender {
 	position: relative;
 	width: 575px;
 	height: 2px;
-	bottom: -5px;
+	bottom: -3px;
 	background-color: rgba(0, 0, 0, 0.213);
 	border-radius: 30px;
 }
