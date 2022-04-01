@@ -39,9 +39,28 @@ session_start();
       <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { // if the form has been submitted
     $myusername = mysqli_real_escape_string($conn, $_POST["uname"]); // get the username
     $mypassword = mysqli_real_escape_string($conn, $_POST["password"]); // get the password
+
+
     $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'"; // query the database
     $result = mysqli_query($conn, $sql); // execute the query
     $row = mysqli_fetch_assoc($result); // fetch the result
+    
+    //////////////////////////////////////////////////////////////////
+    //get the student's image
+
+    $imgid = $row["img_id"];
+    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+    $resultimg = mysqli_query($conn, $sqlimg);
+    $rowimg = mysqli_fetch_assoc($resultimg);
+
+    //////////////////////////////////////////////////////////////////
+    //get the student's friends
+
+    $sqlfriends = "SELECT * FROM friends WHERE user_id = '$myusername'";
+    $resultfriends = mysqli_query($conn, $sqlfriends);
+    $rowfriends = mysqli_fetch_assoc($resultfriends);
+
+    /////////////////////////////////////////////////////////////////
     //$active = $row['active'];
     $count = mysqli_num_rows($result); // count the number of rows in the result
     // If result matched $myusername and $mypassword, table row must be 1 row
@@ -55,8 +74,10 @@ session_start();
         $_SESSION["gender"] = $row["gender"];
         $_SESSION["account_id"] = $row["account_id"];
         $_SESSION["created_date"] = $row["created_date"];
+        $_SESSION["img_name"] = $rowimg["img_name"];
+        $_SESSION["friends"] = $rowfriends;
         // echo "<p>looged in</p>" . $row["account_id"];
-        // header("location: homepage.php");
+        header("location: home.php");
 
     } else {
         echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message

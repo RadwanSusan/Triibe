@@ -1,3 +1,7 @@
+<?php
+include_once "connection.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,8 +61,8 @@
           </li>
         </ul>
         <div class="nav-user-icon online">
-          <img src="Design/Image/home image/images/radwan.jpg" alt="r" />
-          <div class="name">Radwan</div>
+          <img src="<?php echo $_SESSION["img_name"] ?>" alt="r" />
+          <div class="name"><?php echo $_SESSION["std_fname"] ?></div>
         </div>
       </div>
     </nav>
@@ -69,57 +73,28 @@
          <a href="#"><img src="Design/Image/home image/images/Groups.png" alt=""><span>Groups</span></a>
           <div class="group-page">
              <p>Friends</p>
-            <a href="#"
-              ><img
-                src="Design/Image/home image/images/zaid.png"
-                alt=""
-              />Zaid Al-Tamari</a
-            >
-            <a href="#"
-              ><img
-                src="Design/Image/home image/images/hamza.png"
-                alt=""
-              />Hamza KH</a
-            </a>
-            <a href=""
-              ><img
-                src="Design/Image/home image/images/omar.png"
-                alt=""
-            />Ømar Thaer</a>
-            <a href="#"
-              ><img
-                src="Design/Image/home image/images/zaid.png"
-                alt=""
-              />Zaid Al-Tamari</a
-            >
-            <a href="#"
-              ><img
-                src="Design/Image/home image/images/hamza.png"
-                alt=""
-              />Hamza KH</a
-            </a>
-            <a href=""
-              ><img
-                src="Design/Image/home image/images/omar.png"
-                alt=""
-            />Ømar Thaer</a>
-            <a href="#"
-              ><img
-                src="Design/Image/home image/images/zaid.png"
-                alt=""
-              />Zaid Al-Tamari</a
-            >
-            <a href="#"
-              ><img
-                src="Design/Image/home image/images/hamza.png"
-                alt=""
-              />Hamza KH</a
-            </a>
-            <a href=""
-              ><img
-                src="Design/Image/home image/images/omar.png"
-                alt=""
-            />Ømar Thaer</a>
+             <?php
+             //print all friends
+              $sql = "SELECT * FROM friends WHERE user_id = '".$_SESSION["login_user"]."'";
+              $result = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                  $sql1 = "SELECT * FROM student WHERE std_id = '".$row["friend_id"]."'";
+                  $result1 = mysqli_query($conn, $sql1);
+                  if (mysqli_num_rows($result1) > 0) {
+                    while($row1 = mysqli_fetch_assoc($result1)) {
+                      
+                      $imgid = $row1["img_id"];
+                      $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                      $resultimg = mysqli_query($conn, $sqlimg);
+                      $rowimg = mysqli_fetch_assoc($resultimg);
+                      echo  "<a href='#'><img src='".$rowimg["img_name"]."' alt=''/>".$row1["std_fname"]."</a>";
+                    }
+                  }
+                }
+              }
+             
+              ?>
           </div>
         </div>
       </div>
