@@ -88,13 +88,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" placeholder="Enter your Student Number" name="id" required/>
                     </div>
                     <div class="input-box">
-                        <input type="password" placeholder="Enter your Password" name="pass" required/>
+                        <input class="CreatePass1" type="password" placeholder="Enter your Password" name="pass" required/>
                     </div>
                     <div class="input-box">
-                        <input type="password" placeholder="Confirm your password" name="pass2" required/>
+                        <input class="CreatePass2" type="password" placeholder="Confirm your password" name="pass2" required/>
+                        <img class="closedEye2" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
+                        <img class="openEye2" src="Design/Image/Password-OpenEye.svg" alt="eye" />
                     </div>
                     <div class="input-box">
-                      <select class="select-1" name="year" required>
+                      <select class="select-1" name="year">
                         <option value="none" disabled selected>Collage year</option>
                         <option value="1">First Year</option>
                         <option value="2">Second Year</option>
@@ -139,6 +141,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="node_modules/typed.js/src/typed.js"></script>
-    <script type="module" src="bootstrap-js/login.js"></script>
+    <script type="module" src="bootstrap-js/signUp.js"></script>
 </body>
 </html>
