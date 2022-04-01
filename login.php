@@ -75,10 +75,7 @@ session_start();
         $_SESSION["account_id"] = $row["account_id"];
         $_SESSION["created_date"] = $row["created_date"];
         $_SESSION["img_name"] = $rowimg["img_name"];
-<<<<<<< HEAD
         $_SESSION["friends"] = $rowfriends;
-=======
->>>>>>> 20b34329eabcc16ea9cb66aa5758399bb8237bd5
         // echo "<p>looged in</p>" . $row["account_id"];
         header("location: home.php");
 
