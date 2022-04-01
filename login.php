@@ -44,7 +44,7 @@ session_start();
     $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'"; // query the database
     $result = mysqli_query($conn, $sql); // execute the query
     $row = mysqli_fetch_assoc($result); // fetch the result
-    
+
     //////////////////////////////////////////////////////////////////
     //get the student's image
 
@@ -86,8 +86,8 @@ session_start();
 } ?>
       <div class="right animate__animated animate__backInDown">
         <form  action="" method="POST" class="form1">
-          <input type="text" name="uname" placeholder="Student number or Email" />
-          <input class="password" type="password" name="password" placeholder="Password" />
+          <input type="text" name="uname" placeholder="Student number or Email" required/>
+          <input class="password" type="password" name="password" placeholder="Password" required/>
             <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
             <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />
           <button type="submit" href="" class="loginBtn hvr-underline-from-center">Log In</button>
