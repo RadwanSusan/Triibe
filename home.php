@@ -88,7 +88,7 @@ session_start();
                       $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                       $resultimg = mysqli_query($conn, $sqlimg);
                       $rowimg = mysqli_fetch_assoc($resultimg);
-                      echo  "<a href='#'><img src='".$rowimg["img_name"]."' alt=''/>".$row1["std_fname"]."</a>";
+                      echo  "<a href='#'><img src='".$rowimg["img_name"]."' alt=''/>".$row1["std_fname"]." ".$row1["std_lname"]."</a>";
                     }
                   }
                 }
