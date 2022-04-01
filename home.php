@@ -1,3 +1,7 @@
+<?php
+include_once "connection.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,8 +61,8 @@
           </li>
         </ul>
         <div class="nav-user-icon online">
-          <img src="Design/Image/home image/images/radwan.jpg" alt="r" />
-          <div class="name">Radwan</div>
+          <img src="<?php echo $_SESSION["img_name"] ?>" alt="r" />
+          <div class="name"><?php echo $_SESSION["std_fname"] ?></div>
         </div>
       </div>
     </nav>

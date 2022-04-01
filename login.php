@@ -42,6 +42,16 @@ session_start();
     $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'"; // query the database
     $result = mysqli_query($conn, $sql); // execute the query
     $row = mysqli_fetch_assoc($result); // fetch the result
+    
+    //////////////////////////////////////////////////////////////////
+
+    $imgid = $row["img_id"];
+    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+    $resultimg = mysqli_query($conn, $sqlimg);
+    $rowimg = mysqli_fetch_assoc($resultimg);
+
+    //////////////////////////////////////////////////////////////////
+
     //$active = $row['active'];
     $count = mysqli_num_rows($result); // count the number of rows in the result
     // If result matched $myusername and $mypassword, table row must be 1 row
@@ -55,8 +65,9 @@ session_start();
         $_SESSION["gender"] = $row["gender"];
         $_SESSION["account_id"] = $row["account_id"];
         $_SESSION["created_date"] = $row["created_date"];
+        $_SESSION["img_name"] = $rowimg["img_name"];
         // echo "<p>looged in</p>" . $row["account_id"];
-        // header("location: homepage.php");
+        header("location: home.php");
 
     } else {
         echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
