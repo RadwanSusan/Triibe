@@ -102,28 +102,31 @@ session_start();
         <div class="story-gallery">
           <div class="story">
             <img src="Design/Image/home image/images/upload.png" alt="">
-            <p>Zaid Al-Tamari</p>
+            <p><?php  echo $_SESSION["std_fname"] ." ". $_SESSION["std_lname"] ?></p>
           </div>
-          <div class="story">
-            <img src="Design/Image/home image/images/upload.png" alt="">
-            <p>Ømar Thær</p>
-          </div>
-          <div class="story">
-            <img src="Design/Image/home image/images/upload.png" alt="">
-            <p>Hamza KH</p>
-          </div>
-          <div class="story">
-            <img src="Design/Image/home image/images/upload.png" alt="">
-            <p>Fadi Al-Tamari</p>
-          </div>
-          <div class="story">
-            <img src="Design/Image/home image/images/upload.png" alt="">
-            <p>Moath Smoor</p>
-          </div>
+
+          <?php
+             //print all friends
+              $sql = "SELECT * FROM friends WHERE user_id = '".$_SESSION["login_user"]."'";
+              $result = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                  $sql1 = "SELECT * FROM student WHERE std_id = '".$row["friend_id"]."'";
+                  $result1 = mysqli_query($conn, $sql1);
+                  if (mysqli_num_rows($result1) > 0) {
+                    while($row1 = mysqli_fetch_assoc($result1)) {
+                      echo "<div class='story'><img src='Design/Image/home image/images/upload.png' alt=''><p>".$row1["std_fname"]." ".$row1["std_lname"]."</p></div>";
+                    }
+                  }
+                }
+              }
+             
+              ?>
+          
         </div>
         <div class="write-post-container">
           <div class="user-profile">
-            <!-- <img src="Design/Image/home image/images/profile-pic.png" alt=""> -->
+             <!-- <img src="Design/Image/home image/images/profile-pic.png" alt=""> -->
           </div>
         </div>
 

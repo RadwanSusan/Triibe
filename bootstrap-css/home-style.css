@@ -312,10 +312,11 @@ height: 34px;
 }
 .story-gallery {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 .story {
+  margin-left: 15px;
   flex-basis: 18%;
   padding-top: 25%;
   position: relative;
