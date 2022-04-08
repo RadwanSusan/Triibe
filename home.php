@@ -106,7 +106,6 @@ session_start();
           </div>
 
           <?php
-             //print all friends
               $sql = "SELECT * FROM friends WHERE user_id = '".$_SESSION["login_user"]."'";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
@@ -126,60 +125,113 @@ session_start();
         </div>
         <div class="write-post-container">
           <div class="user-profile">
-             <img src="Design/Image/home image/images/radwan.jpg" alt="">
+             <img src="<?php echo $_SESSION["img_name"]?>" alt="">
              <div class="write-post-input" >
              <textarea class="write-post" rows="3" placeholder="What`s on your mind, Radwan"></textarea>
              </div>
           </div>
-          <div class="post">
-            <div class="top-post">
-              <div class="left-post">
-                <div class="name-photo">
-              <img src="Design/Image/home image/images/radwan.jpg" alt="">
-                <div class="name">Radwan Susan</div>
+
+          <?php 
+          $sql = "SELECT * FROM post ";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+              $sql1 = "SELECT * FROM student WHERE std_id = '".$row["author"]."'";
+              $sql2 = "SELECT * FROM img WHERE img_id = '".$row["img_id"]."'";
+              $result1 = mysqli_query($conn, $sql1);
+              $result2 = mysqli_query($conn, $sql2);
+              if (mysqli_num_rows($result1) > 0) {
+                while($row1 = mysqli_fetch_assoc($result1)) {
+                  $imgid = $row1["img_id"];
+                  $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                  $resultimg = mysqli_query($conn, $sqlimg);
+                  $rowimg = mysqli_fetch_assoc($resultimg);
+          echo "
+          <div class='post'>
+            <div class='top-post'>
+              <div class='left-post'>
+                <div class='name-photo'>
+              <img src='".$rowimg["img_name"]."' alt=''>
+                <div class='name'>".$row1["std_fname"]." ".$row1["std_lname"]."</div>
             </div>
-              <div class="inside-top">
-                10h
-              <img src="Design/Image/home image/images/ball.png" alt="">
-            </div>
-            </div>
-            <div class="right-post">
-              <img src="Design/Image/home image/images/Dots.png" alt="">
-            </div>
-            </div>
-            <div class="mid-post">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ut mollitia nisi quis nemo ex adipisci impedit dolorem. Explicabo repellat omnis ex, hic velit assumenda doloremque eius vero eos saepe.</p>
-            </div>
-            <div class="end-post">
-              <div class="content-end">
-              <div class="photo-post">
-              <img src="Design/Image/home image/images/unsplash_XRpylzmblLk.png" alt="">
-            </div>
-              </div>
-              <div class="likes">
-                <div class="like">
-                  <img src="Design/Image/home image/images/like1.png" alt="">
-                  <p>Like</p>
-                </div>
-                <div class="comment">
-                  <img src="Design/Image/home image/images/comment.png" alt="">
-                  <p>Comment</p>
-                </div>
-                <div class="share">
-                  <img src="Design/Image/home image/images/share2.png" alt="">
-                  <p>Share</p>
-                </div>
-                <div class="save">
-                  <img src="Design/Image/home image/images/save.png" alt="">
-                  <p>Save</p>
-                </div>
+              <div class='inside-top'>
+                ".$row["created_date"]."              
+              <img src='Design/Image/home image/images/ball.png' alt=''>
             </div>
             </div>
-          </div>
+            <div class='right-post'>
+              <img src='Design/Image/home image/images/Dots.png' alt=''>
+            </div>
+            </div>
+            <div class='mid-post'> 
+              <p>".$row["content"]."</p>
+            </div>
+        ";
+      }
+    }
+    if(mysqli_num_rows($result2) > 0){
+      while($row2 = mysqli_fetch_assoc($result2)){
+
+        echo  "<div class='end-post>
+        <div class='content-end'>
+        <div class='photo-post'>
+        <img src='".$row2["img_name"]."' alt=''>
+      </div>
         </div>
+        <div class='likes'>
+          <div class='like'>
+            <img src='Design/Image/home image/images/like1.png' alt=''>
+            <p>Like</p>
+          </div>
+          <div class='comment'>
+            <img src='Design/Image/home image/images/comment.png' alt=''>
+            <p>Comment</p>
+          </div>
+          <div class='share'>
+            <img src='Design/Image/home image/images/share2.png'' alt=''>
+            <p>Share</p>
+          </div>
+          <div class='save'>
+            <img src='Design/Image/home image/images/save.png' alt=''>
+            <p>Save</p>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>";
 
+      }
+    }
+    else{
+      echo  "<div class='end-post>
+      <div class='content-end'>
+      </div>
+      <div class='likes'>
+        <div class='like'>
+          <img src='Design/Image/home image/images/like1.png' alt=''>
+          <p>Like</p>
+        </div>
+        <div class='comment'>
+          <img src='Design/Image/home image/images/comment.png' alt=''>
+          <p>Comment</p>
+        </div>
+        <div class='share'>
+          <img src='Design/Image/home image/images/share2.png'' alt=''>
+          <p>Share</p>
+        </div>
+        <div class='save'>
+          <img src='Design/Image/home image/images/save.png' alt=''>
+          <p>Save</p>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>";
 
-
+    }
+  }
+}
+        ?>
       </div>
       <div class="right-sidebar">
         <div class="imp-link">
