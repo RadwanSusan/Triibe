@@ -233,9 +233,9 @@ session_start();
 }
         ?>
       </div>
+</div>
       
-      
-    </div>
+    
     <div class="right-sidebar">
         <div class="imp-link">
           <a href="#"
@@ -283,6 +283,7 @@ session_start();
           
           
         </div>
+      </div>
       </div>
 
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
