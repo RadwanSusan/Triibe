@@ -126,9 +126,58 @@ session_start();
         </div>
         <div class="write-post-container">
           <div class="user-profile">
-             <!-- <img src="Design/Image/home image/images/profile-pic.png" alt=""> -->
+             <img src="Design/Image/home image/images/radwan.jpg" alt="">
+             <div class="write-post-input" >
+             <textarea class="write-post" rows="3" placeholder="What`s on your mind, Radwan"></textarea>
+             </div>
+          </div>
+          <div class="post">
+            <div class="top-post">
+              <div class="left-post">
+                <div class="name-photo">
+              <img src="Design/Image/home image/images/radwan.jpg" alt="">
+                <div class="name">Radwan Susan</div>
+            </div>
+              <div class="inside-top">
+                10h
+              <img src="Design/Image/home image/images/ball.png" alt="">
+            </div>
+            </div>
+            <div class="right-post">
+              <img src="Design/Image/home image/images/Dots.png" alt="">
+            </div>
+            </div>
+            <div class="mid-post">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, ut mollitia nisi quis nemo ex adipisci impedit dolorem. Explicabo repellat omnis ex, hic velit assumenda doloremque eius vero eos saepe.</p>
+            </div>
+            <div class="end-post">
+              <div class="content-end">
+              <div class="photo-post">
+              <img src="Design/Image/home image/images/unsplash_XRpylzmblLk.png" alt="">
+            </div>
+              </div>
+              <div class="likes">
+                <div class="like">
+                  <img src="Design/Image/home image/images/like1.png" alt="">
+                  <p>Like</p>
+                </div>
+                <div class="comment">
+                  <img src="Design/Image/home image/images/comment.png" alt="">
+                  <p>Comment</p>
+                </div>
+                <div class="share">
+                  <img src="Design/Image/home image/images/share2.png" alt="">
+                  <p>Share</p>
+                </div>
+                <div class="save">
+                  <img src="Design/Image/home image/images/save.png" alt="">
+                  <p>Save</p>
+                </div>
+            </div>
+            </div>
           </div>
         </div>
+
 
 
       </div>
