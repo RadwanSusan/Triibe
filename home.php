@@ -233,7 +233,10 @@ session_start();
 }
         ?>
       </div>
-      <div class="right-sidebar">
+      
+      
+    </div>
+    <div class="right-sidebar">
         <div class="imp-link">
           <a href="#"
             ><img src="Design/Image/home image/images/Icons1.png" alt="" /><span
@@ -281,7 +284,6 @@ session_start();
           
         </div>
       </div>
-    </div>
 
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
