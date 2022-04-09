@@ -70,8 +70,8 @@
                </li>
             </ul>
             <div class="nav-user-icon online">
-               <img src="<?php echo $_SESSION["img_name"]; ?>" alt="usrImg" />
-               <div class="name"><?php echo $_SESSION["std_fname"]; ?></div>
+               <img src="<?php echo $_SESSION["img_name"];?>" alt="usrImg"/>
+               <div class="name"><?php echo $_SESSION["std_fname"];?></div>
             </div>
          </div>
       </nav>
