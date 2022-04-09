@@ -208,29 +208,29 @@
                           }
                           else{
                               echo "<div class='end-post>
-                                                <div class='content-end'>
-                                                </div>
-                                                <div class='likes'>
-                                                  <div class='like'>
-                                                    <img src='Design/Image/home-images/images/like1.png' alt=''>
-                                                    <p>Like</p>
-                                                  </div>
-                                                  <div class='comment'>
-                                                    <img src='Design/Image/home-images/images/comment.png' alt=''>
-                                                    <p>Comment</p>
-                                                  </div>
-                                                  <div class='share'>
-                                                    <img src='Design/Image/home-images/images/share2.png'' alt=''>
-                                                    <p>Share</p>
-                                                  </div>
-                                                  <div class='save'>
-                                                    <img src='Design/Image/home-images/images/save.png' alt=''>
-                                                    <p>Save</p>
-                                                  </div>
-                                              </div>
-                                              </div>
-                                            </div>
-                                          </div>";
+                              <div class='content-end'>
+                              </div>
+                              <div class='likes'>
+                                 <div class='like'>
+                                    <img src='Design/Image/home-images/images/like1.png' alt=''>
+                                    <p>Like</p>
+                                 </div>
+                                 <div class='comment'>
+                                    <img src='Design/Image/home-images/images/comment.png' alt=''>
+                                    <p>Comment</p>
+                                 </div>
+                                 <div class='share'>
+                                    <img src='Design/Image/home-images/images/share2.png'' alt=''>
+                                    <p>Share</p>
+                                 </div>
+                                 <div class='save'>
+                                    <img src='Design/Image/home-images/images/save.png' alt=''>
+                                    <p>Save</p>
+                                 </div>
+                              </div>
+                              </div>
+                           </div>
+                        </div>";
                           }
                       }
                   }?>
