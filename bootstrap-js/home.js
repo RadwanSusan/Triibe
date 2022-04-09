@@ -83,7 +83,6 @@ document.querySelector(".themeDark").addEventListener("click", function () {
 	document.querySelector(".dropDownIcon-Light").style.display = "block";
 	document.querySelector(".dropDownIcon-Dark").style.display = "none";
 });
-
 document.querySelector(".themeLight").addEventListener("click", function () {
 	localStorage.setItem("theme", "light"); // set the theme to light
 });

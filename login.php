@@ -68,7 +68,7 @@
             $_SESSION["friends"] = $rowfriends;
             header("location: home.php");
             } else {
-                echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
+              echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
             }
             }?>
          <div class="right animate__animated animate__backInDown">
