@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (groupPage.children.length === 1) {
 		// if there is only one child, it's the group-page-header
 		groupPage.style.height = "100px"; // set the height to 100px
+		let noFriends = document.createElement("span"); // create a span element
+		noFriends.innerHTML = "You have no friends yet!"; // set the innerHTML to "You have no friends yet!"
+		groupPage.appendChild(noFriends); // append the span to the group-page
 	}
-	let noFriends = document.createElement("span"); // create a span element
-	noFriends.innerHTML = "You have no friends yet!"; // set the innerHTML to "You have no friends yet!"
-	groupPage.appendChild(noFriends); // append the span to the group-page
 });
 document.querySelector(".themeLight").addEventListener("click", function () {
 	let theme = document.querySelector("#theme"); // get the theme element
