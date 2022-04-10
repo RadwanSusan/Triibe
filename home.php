@@ -225,7 +225,6 @@
                                     <img src='Design/Image/home-images/images/save.png' alt=''>
                                     <p>Save</p>
                                  </div>
-                              </div>
                               </div>";
                           }
                       }
