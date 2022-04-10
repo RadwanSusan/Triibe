@@ -153,7 +153,7 @@
                                   $resultimg = mysqli_query($conn, $sqlimg); // execute the query
                                   $rowimg = mysqli_fetch_assoc($resultimg); // get the image of the friend
                             echo "
-                            <div class='post'>
+                            <div class= 'post'>
                               <div class='top-post'>
                                 <div class='left-post'>
                                   <div class='name-photo'>
@@ -201,9 +201,7 @@
                               <p>Save</p>
                             </div>
                         </div>
-                        </div>
-                      </div>
-                    </div>";
+                        </div>";
                             }
                           }
                           else{
@@ -228,15 +226,13 @@
                                     <p>Save</p>
                                  </div>
                               </div>
-                              </div>
-                           </div>
-                        </div>";
+                              </div>";
                           }
                       }
                   }?>
-            </div>
+               </div>
          </div>
-         <div class="right-sidebar">
+          <div class="right-sidebar">
             <div class="imp-link">
                <a href="#">
                <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" alt="" />
@@ -275,7 +271,7 @@
                <img class="dropDownIcon-Dark" src="Design/Image/home-images/images/dropDown-icon2.svg" alt="">
                </a>
             </div>
-         </div>
+          </div>
       </div>
       <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
       <script src="bootstrap-js/all.min.js"></script>
