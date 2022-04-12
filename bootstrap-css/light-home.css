@@ -143,6 +143,10 @@ nav {
   outline: none;
   border: 0;
 }
+.liked{
+  background-color: #ff0000;
+
+}
 
 .online {
   position: relative;
