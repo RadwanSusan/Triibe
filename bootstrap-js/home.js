@@ -97,3 +97,7 @@ if (localStorage.getItem("theme") === "dark") {
 	// if the theme is dark
 	document.querySelector(".themeDark").click(); // click the dark theme button
 }
+document.querySelector().addEventListener("click", function () {
+	
+}
+
