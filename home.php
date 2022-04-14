@@ -1,5 +1,6 @@
 <?php
    include_once "connection.php";
+   include "like.php";
    session_start();
    ?>
 <!DOCTYPE html>
@@ -16,7 +17,43 @@
       <title>Triibe Home</title>
    </head>
    <body>
-      <nav>
+      <div class="post-card">
+               <div class="top-card">
+                  <div class="left-top-card">
+                     <div class="card-name-photo">
+                                <img src="Design/Image/home-images/images/omar.png" alt="">
+                                  <div class="card-name">omar thaer
+                                     </div>
+                              </div>
+                              <div class="card-inside-top">
+                                <img src="Design/Image/home-images/images/ball.png" alt="">
+                                 <img src="Design/Image/home-images/images/card-down.svg" alt="">
+                              </div>
+                  </div>
+                  <div class="right-top-card">
+                     <!-- <img src="Design/Image/home-images/images/Ellipse 8.png" alt=""> -->
+                     <img src="Design/Image/home-images/images/exit-card.png" alt="">
+                  </div>
+               </div>
+               <div class="mid-card">
+                  <textarea class="card-write-post" rows="3" placeholder="Write A Post ..."></textarea>
+               </div>
+               <div class="down-card">
+                  <div class="left-down-card">
+                  <p>Add to your post</p>
+                  <div class="icon-down">
+                     <img src="Design/Image/home-images/images/card7.png" alt="">
+                     <img src="Design/Image/home-images/images/card2.png" alt="">
+                     <img src="Design/Image/home-images/images/card3.png" alt="">
+                     <img src="Design/Image/home-images/images/card4.png" alt="">
+                     <img src="Design/Image/home-images/images/card5.png" alt="">
+                     
+                  </div>
+                  </div>
+                  <button class="post-write">Post</button>
+               </div>
+            </div>
+      <nav class="nav">
          <div class="nav-left">
             <div class="box">
                <img
@@ -110,6 +147,10 @@
             </div>
          </div>
          <div class="main-content">
+
+            
+
+
             <div class="story-gallery">
                <div class="story">
                   <img src="Design/Image/home-images/images/upload.png" alt="">
@@ -138,7 +179,10 @@
                      <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
                   </div>
                </div>
-               <?php $sql = "SELECT * FROM post "; // select all posts from the database
+               <?php 
+               $likenum =0;
+
+               $sql = "SELECT * FROM post "; // select all posts from the database
                   $result = mysqli_query($conn, $sql); // execute the query
                   if (mysqli_num_rows($result) > 0){ // if there are any posts
                       while ($row = mysqli_fetch_assoc($result)){ //print all posts
@@ -146,6 +190,12 @@
                           $sql2 = "SELECT * FROM img WHERE img_id = '" . $row["img_id"] . "'";  // select the image of the post
                           $result1 = mysqli_query($conn, $sql1); // execute the query
                           $result2 = mysqli_query($conn, $sql2); // execute the query
+
+                          $sqllikenum = "SELECT COUNT(*) FROM post_likes WHERE post_id = '" . $row["post_id"] . "'";
+                          $resultlikenum = mysqli_query($conn, $sqllikenum);
+                          $rowlikenum = mysqli_fetch_assoc($resultlikenum);
+                          $likenum = $rowlikenum["COUNT(*)"];
+                          
                           if (mysqli_num_rows($result1) > 0){ // if there are any friends
                               while ($row1 = mysqli_fetch_assoc($result1)){ //print all friends
                                   $imgid = $row1["img_id"]; // get the image id of the friend
@@ -153,12 +203,13 @@
                                   $resultimg = mysqli_query($conn, $sqlimg); // execute the query
                                   $rowimg = mysqli_fetch_assoc($resultimg); // get the image of the friend
                             echo "
-                            <div class='post'>
+                            <div class= 'post'>
                               <div class='top-post'>
                                 <div class='left-post'>
                                   <div class='name-photo'>
                                 <img src='" . $rowimg["img_name"] . "' alt=''>
-                                  <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
+                                  <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "
+                              </div>
                               </div>
                                 <div class='inside-top'>
                                   " . $row["created_date"] . "
@@ -171,10 +222,10 @@
                               </div>
                               <div class='mid-post'>
                                 <p>" . $row["content"] . "</p>
-                              </div>
-                          ";
+                              </div> ";
                             }
                           }
+
                           if (mysqli_num_rows($result2) > 0){ // if there are any friends
                               while ($row2 = mysqli_fetch_assoc($result2)){ //print all friends
                           echo "<div class='end-post>
@@ -183,27 +234,31 @@
                           <img src='" . $row2["img_name"] . "' alt=''>
                         </div>
                           </div>
+
                           <div class='likes'>
                             <div class='like'>
                               <img src='Design/Image/home-images/images/like1.png' alt=''>
-                              <p>Like</p>
+                              <p class='like1' >like " .$likenum."</p>
                             </div>
                             <div class='comment'>
                               <img src='Design/Image/home-images/images/comment.png' alt=''>
-                              <p>Comment</p>
+                              <p>comment</p>
                             </div>
                             <div class='share'>
                               <img src='Design/Image/home-images/images/share2.png'' alt=''>
-                              <p>Share</p>
+                              <p>share</p>
                             </div>
                             <div class='save'>
                               <img src='Design/Image/home-images/images/save.png' alt=''>
-                              <p>Save</p>
+                              <p>save</p>
                             </div>
                         </div>
                         </div>
-                      </div>
-                    </div>";
+                        <script>
+                        document.querySelector('.like1').addEventListener('click',function () {
+                         this.classList.toggle('liked');
+                      });
+                        </script>";
                             }
                           }
                           else{
@@ -213,30 +268,29 @@
                               <div class='likes'>
                                  <div class='like'>
                                     <img src='Design/Image/home-images/images/like1.png' alt=''>
-                                    <p>Like</p>
+                                    <p>like ".$likenum."</p>
                                  </div>
                                  <div class='comment'>
                                     <img src='Design/Image/home-images/images/comment.png' alt=''>
-                                    <p>Comment</p>
+                                    <p>comment</p>
                                  </div>
                                  <div class='share'>
                                     <img src='Design/Image/home-images/images/share2.png'' alt=''>
-                                    <p>Share</p>
+                                    <p>share</p>
                                  </div>
                                  <div class='save'>
                                     <img src='Design/Image/home-images/images/save.png' alt=''>
-                                    <p>Save</p>
+                                    <p>save</p>
                                  </div>
                               </div>
-                              </div>
-                           </div>
-                        </div>";
+                              </div>";
                           }
                       }
-                  }?>
-            </div>
+                  }
+                  ?>
+               </div>
          </div>
-         <div class="right-sidebar">
+          <div class="right-sidebar">
             <div class="imp-link">
                <a href="#">
                <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" alt="" />
@@ -275,7 +329,7 @@
                <img class="dropDownIcon-Dark" src="Design/Image/home-images/images/dropDown-icon2.svg" alt="">
                </a>
             </div>
-         </div>
+          </div>
       </div>
       <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
       <script src="bootstrap-js/all.min.js"></script>
