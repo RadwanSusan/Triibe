@@ -1,21 +1,20 @@
 // jshint esversion: 6
 document.addEventListener("DOMContentLoaded", function () {
-	let groupPage = document.querySelector(".group-page");
+	const groupPage = document.querySelector(".group-page");
 	if (groupPage.children.length === 1) {
-		// if there is only one child, it's the group-page-header
-		groupPage.style.height = "100px"; // set the height to 100px
-		let noFriends = document.createElement("span"); // create a span element
-		noFriends.innerHTML = "You have no friends yet!"; // set the innerHTML to "You have no friends yet!"
-		groupPage.appendChild(noFriends); // append the span to the group-page
+		groupPage.style.height = "100px";
+		const noFriends = document.createElement("span");
+		noFriends.innerHTML = "You have no friends yet!";
+		groupPage.appendChild(noFriends);
 	}
 });
 document.querySelector(".themeLight").addEventListener("click", function () {
-	let theme = document.querySelector("#theme"); // get the theme element
-	theme.setAttribute("href", "bootstrap-css/dark-home.css"); //dark theme
-	document.querySelector(".themeLight").style.display = "none"; // hide light theme button
-	document.querySelector(".themeDark").style.display = "block"; // show the dark theme button
-	document.querySelector(".logoDark").style.display = "block"; // show the dark logo
-	document.querySelector(".logoLight").style.display = "none"; // hide the light logo
+	const theme = document.querySelector("#theme");
+	theme.setAttribute("href", "bootstrap-css/dark-home.css");
+	document.querySelector(".themeLight").style.display = "none";
+	document.querySelector(".themeDark").style.display = "block";
+	document.querySelector(".logoDark").style.display = "block";
+	document.querySelector(".logoLight").style.display = "none";
 	document.querySelector(".chatDark").style.display = "block";
 	document.querySelector(".chatLight").style.display = "none";
 	document.querySelector(".notificationIcon-dark").style.display = "block";
@@ -46,14 +45,14 @@ document.querySelector(".themeLight").addEventListener("click", function () {
 	document.querySelector(".dropDownIcon-Light").style.display = "none";
 });
 document.querySelector(".themeDark").addEventListener("click", function () {
-	let theme = document.querySelector("#theme"); // get the theme element
-	theme.setAttribute("href", "bootstrap-css/light-home.css"); // bootstrap-css/light-home.css
-	document.querySelector(".themeDark").style.display = "none"; // hide the dark theme button
-	document.querySelector(".themeLight").style.display = "block"; // show the light theme button
+	const theme = document.querySelector("#theme");
+	theme.setAttribute("href", "bootstrap-css/light-home.css");
+	document.querySelector(".themeDark").style.display = "none";
+	document.querySelector(".themeLight").style.display = "block";
 	document.querySelector(".logoLight").style.display = "block";
 	document.querySelector(".logoDark").style.display = "none";
-	document.querySelector(".logoLight").style.display = "block"; // show the light logo
-	document.querySelector(".logoDark").style.display = "none"; // hide the dark logo
+	document.querySelector(".logoLight").style.display = "block";
+	document.querySelector(".logoDark").style.display = "none";
 	document.querySelector(".chatLight").style.display = "block";
 	document.querySelector(".chatDark").style.display = "none";
 	document.querySelector(".notificationIcon-light").style.display = "block";
@@ -84,19 +83,111 @@ document.querySelector(".themeDark").addEventListener("click", function () {
 	document.querySelector(".dropDownIcon-Dark").style.display = "none";
 });
 document.querySelector(".themeLight").addEventListener("click", function () {
-	localStorage.setItem("theme", "light"); // set the theme to light
+	localStorage.setItem("theme", "light");
 });
 document.querySelector(".themeDark").addEventListener("click", function () {
-	localStorage.setItem("theme", "dark"); // save in local storage the theme selected
+	localStorage.setItem("theme", "dark");
 });
 if (localStorage.getItem("theme") === "light") {
-	// if the theme is light
-	document.querySelector(".themeLight").click(); // click the light theme button
+	document.querySelector(".themeLight").click();
 }
 if (localStorage.getItem("theme") === "dark") {
-	// if the theme is dark
-	document.querySelector(".themeDark").click(); // click the dark theme button
+	document.querySelector(".themeDark").click();
 }
- 
- 
- 
+window.onload = function () {
+	if (localStorage.getItem("like") === "liked") {
+		document.querySelector(".like").classList.add("liked");
+	}
+};
+document.querySelector(".like").addEventListener("click", function () {
+	if (localStorage.getItem("like") === "liked") {
+		localStorage.setItem("like", "notLiked");
+	} else {
+		localStorage.setItem("like", "liked");
+	}
+});
+$(document).ready(function () {
+	$(".LikeParagraph").on("click", function () {
+		const post_id = $(this).attr("post_id");
+		const std_id = $(this).attr("std_id");
+		$.ajax({
+			url: "like.php",
+			type: "post",
+			data: {
+				liked: 1,
+				post_id,
+				std_id,
+			},
+			success(response) {
+				$(".LikeParagraph").hide();
+				$(".UnLikeParagraph").show();
+				$(".likeHollow").hide();
+				$(".likeFilled").show();
+				localStorage.setItem("like", "liked");
+			},
+		});
+	});
+	$(".UnLikeParagraph").on("click", function () {
+		const post_id = $(this).attr("post_id");
+		const std_id = $(this).attr("std_id");
+		$.ajax({
+			url: "like.php",
+			type: "post",
+			data: {
+				unliked: 1,
+				post_id,
+				std_id,
+			},
+			success(response) {
+				$(".UnLikeParagraph").hide();
+				$(".LikeParagraph").show();
+				$(".likeFilled").hide();
+				$(".likeHollow").show();
+				localStorage.setItem("like", "notLiked");
+			},
+		});
+	});
+	// 	setInterval(function () {
+	// 		$.ajax({
+	// 			url: "home.php",
+	// 			type: "post",
+	// 			data: {
+	// 				check_like: 1,
+	// 			},
+	// 			success(response) {
+	// 				if (response == "liked") {
+	// 					$(".LikeParagraph").hide();
+	// 					$(".UnLikeParagraph").show();
+	// 					$(".likeHollow").hide();
+	// 					$(".likeFilled").show();
+	// 					localStorage.setItem("like", "liked");
+	// 				} else if (response == "notLiked") {
+	// 					$(".UnLikeParagraph").hide();
+	// 					$(".LikeParagraph").show();
+	// 					$(".likeFilled").hide();
+	// 					$(".likeHollow").show();
+	// 					localStorage.setItem("like", "notLiked");
+	// 				}
+	// 			},
+	// 		});
+	// 	}, 100);
+	// });
+	const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+	const rootElement = document.documentElement;
+	const handleScroll = () => {
+		const scrollTotal = 1700;
+		if (rootElement.scrollTop / scrollTotal > 0.8) {
+			scrollToTopBtn.classList.add("showBtn");
+		} else {
+			scrollToTopBtn.classList.remove("showBtn");
+		}
+	};
+	const scrollToTop = () => {
+		rootElement.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+	scrollToTopBtn.addEventListener("click", scrollToTop);
+	document.addEventListener("scroll", handleScroll);
+});
