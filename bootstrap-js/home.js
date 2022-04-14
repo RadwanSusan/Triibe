@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     noFriends.innerHTML = "You have no friends yet!"; // set the innerHTML to "You have no friends yet!"
     groupPage.appendChild(noFriends); // append the span to the group-page
   }
-});  
+});
 document.querySelector(".themeLight").addEventListener("click", function () {
   let theme = document.querySelector("#theme"); // get the theme element
   theme.setAttribute("href", "bootstrap-css/dark-home.css"); //dark theme
@@ -100,7 +100,14 @@ if (localStorage.getItem("theme") === "dark") {
 document
   .querySelector(".write-post-input")
   .addEventListener("click", function () {
-	  document.querySelector(".container1").style.opacity = "20%";
-	  document.querySelector(".nav").style.opacity = "20%";
+    document.querySelector(".container1").style.opacity = "20%";
+    document.querySelector(".nav").style.opacity = "20%";
     document.querySelector(".post-card").style.display = "block";
+  });
+document
+  .querySelector(".right-top-card")
+  .addEventListener("click", function () {
+    document.querySelector(".container1").style.opacity = "100%";
+    document.querySelector(".nav").style.opacity = "100%";
+    document.querySelector(".post-card").style.display = "none";
   });
