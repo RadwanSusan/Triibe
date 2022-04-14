@@ -50,7 +50,7 @@
           <a href="#"> <img class="Groups-Light" src="Design/Image/home-images/images/Groups.svg" alt=""> <img class="Groups-Dark" src="Design/Image/home-images/images/Groups2.svg" alt=""><span>Groups</span> </a>
           <div class="group-page">
             <p>Friends</p>
-            <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["login_user"] . "'";
+            <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0)
               {
@@ -84,7 +84,7 @@
                 ?>
             </p>
           </div>
-          <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["login_user"] . "'";
+          <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0)
             {
@@ -119,10 +119,10 @@
                     $sql2 = "SELECT * FROM img WHERE img_id = '" . $row["img_id"] . "'";
                     $result1 = mysqli_query($conn, $sql1);
                     $result2 = mysqli_query($conn, $sql2);
-                    $sqllikenum = "SELECT likes_count FROM post WHERE post_id = '".$row["post_id"]."'";
+                    $sqllikenum = "SELECT COUNT(*) FROM post_likes WHERE post_id = '".$row["post_id"]."'";
                     $resultlikenum = mysqli_query($conn, $sqllikenum);
                     $rowlikenum = mysqli_fetch_assoc($resultlikenum);
-                    $likenum = $rowlikenum["likes_count"];
+                    $likenum = $rowlikenum["COUNT(*)"];
                     if (mysqli_num_rows($result1) > 0){
                         while ($row1 = mysqli_fetch_assoc($result1)){
                             $imgid = $row1["img_id"];
