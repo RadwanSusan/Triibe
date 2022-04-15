@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		groupPage.appendChild(noFriends);
 	}
 });
-document.querySelector(".themeLight").addEventListener("click", function () {
+document.querySelector(".themeLight").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
 	theme.setAttribute("href", "bootstrap-css/dark-home.css");
 	document.querySelector(".themeLight").style.display = "none";
@@ -44,7 +44,7 @@ document.querySelector(".themeLight").addEventListener("click", function () {
 	document.querySelector(".dropDownIcon-Dark").style.display = "block";
 	document.querySelector(".dropDownIcon-Light").style.display = "none";
 });
-document.querySelector(".themeDark").addEventListener("click", function () {
+document.querySelector(".themeDark").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
 	theme.setAttribute("href", "bootstrap-css/light-home.css");
 	document.querySelector(".themeDark").style.display = "none";
@@ -106,7 +106,7 @@ document.querySelector(".like").addEventListener("click", () => {
 		localStorage.setItem("like", "liked");
 	}
 });
-$(document).ready(function () {
+$(document).ready(() => {
 	$(".LikeParagraph").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
@@ -118,7 +118,7 @@ $(document).ready(function () {
 				post_id,
 				std_id,
 			},
-			success(response) {
+			success() {
 				$(".LikeParagraph").hide();
 				$(".UnLikeParagraph").show();
 				$(".likeHollow").hide();
@@ -138,7 +138,7 @@ $(document).ready(function () {
 				post_id,
 				std_id,
 			},
-			success(response) {
+			success() {
 				$(".UnLikeParagraph").hide();
 				$(".LikeParagraph").show();
 				$(".likeFilled").hide();

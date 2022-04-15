@@ -3,6 +3,10 @@
 	color: white;
 }
 
+::-ms-reveal {
+	display: none;
+}
+
 html {
 	scroll-behavior: smooth;
 }
