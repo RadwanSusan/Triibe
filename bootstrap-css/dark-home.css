@@ -1,547 +1,551 @@
 ::selection {
-  background-color: #747474;
-  color: white;
+	background-color: #747474;
+	color: white;
+}
+
+::-ms-reveal {
+	display: none;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "poppins", sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: "poppins", sans-serif;
 }
 
 body {
-  background: #00010A;
+	background: #00010a;
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(25, 30, 37, 0.54);
-  padding: 5px 2%;
-  border: 1px solid #464646;
-  border-radius: 10px;
-  margin: 5px;
-  margin-left: 13px;
-  margin-right: 13px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(50px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: rgba(25, 30, 37, 0.54);
+	padding: 5px 2%;
+	border: 1px solid #464646;
+	border-radius: 10px;
+	margin: 5px;
+	margin-left: 13px;
+	margin-right: 13px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	backdrop-filter: blur(50px);
 }
 
 .box {
-  display: flex;
-  margin-right: 45px;
-  align-items: center;
-  position: relative;
+	display: flex;
+	margin-right: 45px;
+	align-items: center;
+	position: relative;
 }
 
 .box::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 39px;
-  right: -22px;
-  background: #D4D4D4;
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 39px;
+	right: -22px;
+	background: #d4d4d4;
 }
 
 .box p {
-  margin: auto;
-  color: white;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-style: normal;
-  font-size: 34px;
-  line-height: 53px;
-  font-weight: 400;
-  font-family: pridi;
-  cursor: pointer;
+	margin: auto;
+	color: white;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-style: normal;
+	font-size: 34px;
+	line-height: 53px;
+	font-weight: 400;
+	font-family: pridi;
+	cursor: pointer;
 }
 
 .logoDark {
-  width: 52px;
-  height: 44px;
-  margin-right: 8px;
-  /* margin-left: -21px; */
-  margin-top: 6px;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  cursor: pointer;
-  display: none;
+	width: 52px;
+	height: 44px;
+	margin-right: 8px;
+	/* margin-left: -21px; */
+	margin-top: 6px;
+	/* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+	cursor: pointer;
+	display: none;
 }
 
 .nav-left,
 .nav-right {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .nav-right ul {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .nav-right ul li {
-  display: inline-block;
-  list-style: none;
-  background: #3C3C3C;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  position: relative;
-  top: 3px;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	display: inline-block;
+	list-style: none;
+	background: #3c3c3c;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+	top: 3px;
+	cursor: pointer;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .nav-right ul li img {
-  width: 26px;
-  height: 26px;
-  margin: 0 15px;
-  position: absolute;
-  top: 10px;
-  left: -8px;
+	width: 26px;
+	height: 26px;
+	margin: 0 15px;
+	position: absolute;
+	top: 10px;
+	left: -8px;
 }
 
 .nav-right ul li:hover {
-  background-color: #5b5b5b;
+	background-color: #5b5b5b;
 }
 
 .nav-user-icon img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-right: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin-right: 10px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .nav-user-icon {
-  margin-left: 30px;
+	margin-left: 30px;
 }
 
 .search-box {
-  background-color: #3C3C3C;
-  /* width: 350px; */
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  padding: 2px 14px 0px 14px;
+	background-color: #3c3c3c;
+	/* width: 350px; */
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	padding: 2px 14px 0px 14px;
 }
 
 .search-box img {
-  width: 20px;
+	width: 20px;
 }
 
 .search-box input {
-  width: 100%;
-  background-color: transparent;
-  padding: 10px;
-  outline: none;
-  border: 0;
-  color: white;
+	width: 100%;
+	background-color: transparent;
+	padding: 10px;
+	outline: none;
+	border: 0;
+	color: white;
 }
 
 .search-box input::placeholder {
-  color: rgb(161, 161, 161);
+	color: rgb(161, 161, 161);
 }
 
 .online {
-  position: relative;
-  display: flex;
-  align-items: center;
+	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .name {
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 42px;
-  color: white;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 42px;
+	color: white;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
 }
 
 .online::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 45px;
-  background: rgba(0, 0, 0, 0.51);
-  left: -16px;
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 45px;
+	background: rgba(0, 0, 0, 0.51);
+	left: -16px;
 }
 
 .online::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background-color: #41db51;
-  position: absolute;
-  top: 0;
-  right: 90px;
+	content: "";
+	width: 7px;
+	height: 7px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	background-color: #41db51;
+	position: absolute;
+	top: 0;
+	right: 90px;
 }
 
 .container1 {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px;
+	display: flex;
+	justify-content: space-between;
+	padding: 12px;
 }
 
 .left-sidebar {
-  flex-basis: 22%;
-  position: sticky;
-  top: 70px;
-  align-self: flex-start;
-  background-color: #3C3C3C;
-  border-radius: 20px;
-  box-shadow: 3px 8px 7px rgba(0, 0, 0, 0.5);
+	flex-basis: 22%;
+	position: sticky;
+	top: 70px;
+	align-self: flex-start;
+	background-color: #3c3c3c;
+	border-radius: 20px;
+	box-shadow: 3px 8px 7px rgba(0, 0, 0, 0.5);
 }
 
 .right-sidebar {
-  flex-basis: 22%;
-  position: sticky;
-  top: 70px;
-  align-self: flex-start;
-  border-radius: 20px;
-  background: #3C3C3C;
-  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+	flex-basis: 22%;
+	position: sticky;
+	top: 70px;
+	align-self: flex-start;
+	border-radius: 20px;
+	background: #3c3c3c;
+	box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .main-content {
-  flex-basis: 52%;
+	flex-basis: 52%;
 }
 
 .imp-link {
-  padding: 10px;
+	padding: 10px;
 }
 
 .imp-link a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  width: 100%;
-  height: 50px;
-  background-color: #3C3C3C;
-  border-radius: 10px;
-  background: #10151B;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 14px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  line-height: 39px;
-  color: #000000;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	width: 100%;
+	height: 50px;
+	background-color: #3c3c3c;
+	border-radius: 10px;
+	background: #10151b;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 14px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	line-height: 39px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .imp-link a:hover {
-  background-color: #5b5b5b;
+	background-color: #5b5b5b;
 }
 
 .imp-link a span {
-  color: white;
-  margin: auto;
-  transform: translateX(-40px);
-  overflow: hidden;
-  white-space: nowrap;
+	color: white;
+	margin: auto;
+	transform: translateX(-40px);
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .imp-link a .other-link {
-  color: white;
-  transform: translateX(-8px);
+	color: white;
+	transform: translateX(-8px);
 }
 
 .imp-link a img {
-  width: 25px;
-  margin-left: 10px;
-  margin-right: 30px;
-  margin-top: 3px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+	width: 25px;
+	margin-left: 10px;
+	margin-right: 30px;
+	margin-top: 3px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
 
 .imp-link a:last-child {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .group-list {
-  padding: 10px;
+	padding: 10px;
 }
 
-.group-list>a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  color: #626262;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  background: #10151B;
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  border-radius: 14px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 40px;
-  color: white;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+.group-list > a {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	color: #626262;
+	width: 100%;
+	height: 50px;
+	border-radius: 10px;
+	background: #10151b;
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+	border-radius: 14px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .group-list a img {
-  width: 30px;
-  margin-left: 10px;
-  margin-right: 30px;
-  margin-top: 3px;
+	width: 30px;
+	margin-left: 10px;
+	margin-right: 30px;
+	margin-top: 3px;
 }
 
 .group-list a span {
-  margin: auto;
-  transform: translateX(-40px);
-  white-space: nowrap;
+	margin: auto;
+	transform: translateX(-40px);
+	white-space: nowrap;
 }
 
 .group-page {
-  background: #10151B;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  /* padding: 5px; */
-  /* margin-bottom: 30px; */
-  width: 100%;
-  border-radius: 14px;
+	background: #10151b;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	/* padding: 5px; */
+	/* margin-bottom: 30px; */
+	width: 100%;
+	border-radius: 14px;
 }
 
 .group-page span {
-  margin-top: 24px;
-  display: block;
-  text-align: center;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 300;
-  color: white;
-  white-space: nowrap;
+	margin-top: 24px;
+	display: block;
+	text-align: center;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 300;
+	color: white;
+	white-space: nowrap;
 }
 
 .group-page p {
-  position: relative;
-  top: 10px;
-  left: 10px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 27px;
-  line-height: 42px;
-  color: white;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  white-space: nowrap;
+	position: relative;
+	top: 10px;
+	left: 10px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 27px;
+	line-height: 42px;
+	color: white;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	white-space: nowrap;
 }
 
 .group-page p::after {
-  content: "";
-  position: absolute;
-  top: 45px;
-  left: 0px;
-  width: 95%;
-  height: 1px;
-  background: #bcbcbc;
-  box-shadow: 0px 4px 4px rgba(157, 157, 157, 0.25);
+	content: "";
+	position: absolute;
+	top: 45px;
+	left: 0px;
+	width: 95%;
+	height: 1px;
+	background: #bcbcbc;
+	box-shadow: 0px 4px 4px rgba(157, 157, 157, 0.25);
 }
 
 .group-page a {
-  position: relative;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 31px;
-  color: #000000;
+	position: relative;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 31px;
+	color: #000000;
 }
 
 .group-page a::after {
-  content: "";
-  position: absolute;
-  top: 50px;
-  left: 10px;
-  width: 95%;
-  height: 1px;
-  background: #d5d5d5;
+	content: "";
+	position: absolute;
+	top: 50px;
+	left: 10px;
+	width: 95%;
+	height: 1px;
+	background: #d5d5d5;
 }
 
 .group-page a img {
-  width: 34px;
-  height: 34px;
+	width: 34px;
+	height: 34px;
 }
 
 .story-gallery {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 20px;
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 20px;
 }
 
 .story {
-  /* margin-left: 15px; */
-  flex-basis: 18%;
-  padding-top: 25%;
-  position: relative;
-  background-image: linear-gradient(transparent, rgba(236, 236, 236, 0.3)), url("/Design/Image/radwan.jpg");
-  background-position: center;
-  border-radius: 10px;
-  background-size: cover;
+	/* margin-left: 15px; */
+	flex-basis: 18%;
+	padding-top: 25%;
+	position: relative;
+	background-image: linear-gradient(transparent, rgba(236, 236, 236, 0.3)),
+		url("/Design/Image/radwan.jpg");
+	background-position: center;
+	border-radius: 10px;
+	background-size: cover;
 }
 
 .story img {
-  position: absolute;
-  width: 45px;
-  border-radius: 50%;
-  top: 10px;
-  left: 10px;
-  border-radius: 5px solid #626262;
+	position: absolute;
+	width: 45px;
+	border-radius: 50%;
+	top: 10px;
+	left: 10px;
+	border-radius: 5px solid #626262;
 }
 
 .story p {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
 }
 
 .user-profile {
-  display: flex;
-  align-items: center;
-  background: #3C3C3C;
-  width: 100%;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 27px;
+	display: flex;
+	align-items: center;
+	background: #3c3c3c;
+	width: 100%;
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 27px;
 }
 
 .user-profile img {
-  box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.25);
-  width: 35px;
-  height: 35px;
-  padding: 1px;
-  border-radius: 50%;
+	box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.25);
+	width: 35px;
+	height: 35px;
+	padding: 1px;
+	border-radius: 50%;
 }
 
 .write-post-input {
-  margin-left: 5px;
+	margin-left: 5px;
 }
 
 .write-post {
-  padding-left: 15px;
-  height: 30px;
-  width: 400px;
-  background: #10151B;
-  border-radius: 82px;
-  display: flex;
-  align-items: center;
-  line-height: 28px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  color: #696969;
+	padding-left: 15px;
+	height: 30px;
+	width: 400px;
+	background: #10151b;
+	border-radius: 82px;
+	display: flex;
+	align-items: center;
+	line-height: 28px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #696969;
 }
 
 .write-post-container {
-  background: #10151B;
-  border-radius: 8px;
-  height: 100%;
-  padding: 8px;
+	background: #10151b;
+	border-radius: 8px;
+	height: 100%;
+	padding: 8px;
 }
 
 .post {
-  margin-top: 12px;
-  border: 1px solid rgba(30, 30, 30, 0.5);
-  box-sizing: border-box;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  width: 100%;
-  height: 100%;
+	margin-top: 12px;
+	border: 1px solid rgba(30, 30, 30, 0.5);
+	box-sizing: border-box;
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	width: 100%;
+	height: 100%;
 }
 
 .left-post .name-photo img {
-  width: 28px;
-  height: 28px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	border-radius: 50%;
 }
 
 .top-post {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .name-photo {
-  display: flex;
-  align-items: center;
-  padding-right: 10px;
-  background: #dcdcdc;
-  border: 2px solid #b9b9b9;
-  box-sizing: border-box;
-  border-radius: 35px;
-  height: 33px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	background: #dcdcdc;
+	border: 2px solid #b9b9b9;
+	box-sizing: border-box;
+	border-radius: 35px;
+	height: 33px;
 }
 
 .left-post .name {
-  color: #000000;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  margin-left: 5px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	margin-left: 5px;
 }
 
 .left-post {
-  display: flex;
-  align-items: center;
-  background: #b9b9b9;
-  border-radius: 200px;
+	display: flex;
+	align-items: center;
+	background: #b9b9b9;
+	border-radius: 200px;
 }
 
 .inside-top {
-  margin-left: 0px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  color: #000000;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	margin-left: 0px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 26px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .inside-top img {
-  padding-right: 5px;
-  margin-top: 2px;
+	padding-right: 5px;
+	margin-top: 2px;
 }
 
 .right-post img {
-  height: 25px;
-  margin-right: 5px;
-  color: #525252;
+	height: 25px;
+	margin-right: 5px;
+	color: #525252;
 }
 
 .mid-post p {
-  padding: 10px;
-  margin-top: -10px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  color: #000000;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	padding: 10px;
+	margin-top: -10px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
-
 
 /* .end-post {
   background: #dcdcdc;
@@ -550,251 +554,251 @@ nav {
 } */
 
 .content-end {
-  background: #dcdcdc;
-  border: 1px solid rgba(0, 0, 0, 0.21);
-  border-radius: 7px;
-  margin: 0 10px 0 10px;
+	background: #dcdcdc;
+	border: 1px solid rgba(0, 0, 0, 0.21);
+	border-radius: 7px;
+	margin: 0 10px 0 10px;
 }
 
 .photo-post {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .end-post img {
-  height: fit-content;
-  width: fit-content;
+	height: fit-content;
+	width: fit-content;
 }
 
 .likes {
-  display: flex;
-  justify-content: space-between;
-  background: #e7e7e7;
-  box-sizing: border-box;
-  border-radius: 0px 0px 8px 5px;
-  margin: 15px 0 0 0;
-  height: 30px;
-  padding: 19px;
-  position: relative;
+	display: flex;
+	justify-content: space-between;
+	background: #e7e7e7;
+	box-sizing: border-box;
+	border-radius: 0px 0px 8px 5px;
+	margin: 15px 0 0 0;
+	height: 30px;
+	padding: 19px;
+	position: relative;
 }
 
 .likes::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #838383;
-  top: 0;
-  left: 0;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #838383;
+	top: 0;
+	left: 0;
 }
 
 .like,
 .comment,
 .share,
 .save {
-  display: flex;
-  align-items: center;
-  position: relative;
+	display: flex;
+	align-items: center;
+	position: relative;
 }
 
 .like img,
 .comment img,
 .share img,
 .save img {
-  width: 20px;
-  height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 .comment::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background-color: #838383;
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	background-color: #838383;
 }
 
 .share img,
 .save img {
-  margin-top: 3px;
+	margin-top: 3px;
 }
 
 .like p,
 .comment p,
 .share p,
 .save p {
-  margin: 0;
-  font-size: 14px;
-  margin-left: 3px;
+	margin: 0;
+	font-size: 14px;
+	margin-left: 3px;
 }
 
 .chatLight {
-  display: none;
+	display: none;
 }
 
 .notificationIcon-light {
-  display: none;
+	display: none;
 }
 
 .mapIcon-Light {
-  display: none;
+	display: none;
 }
 
 .SettingsIcon-Light {
-  display: none;
+	display: none;
 }
 
 .pagesIcon-light {
-  display: none;
+	display: none;
 }
 
 .Groups-Light {
-  display: none;
+	display: none;
 }
 
 .savedPosts-Light {
-  display: none;
+	display: none;
 }
 
 .marketIcon-Light {
-  display: none;
+	display: none;
 }
 
 .housingIcon-Light {
-  display: none;
+	display: none;
 }
 
 .elearningIcon-Light {
-  display: none;
+	display: none;
 }
 
 .infoIcon-Light {
-  display: none;
+	display: none;
 }
 
 .regIcon-Light {
-  display: none;
+	display: none;
 }
 .left-top-card {
-  display: flex;
-  align-items: center;
-background: #D8D8D8;
-border-radius: 200px;
+	display: flex;
+	align-items: center;
+	background: #d8d8d8;
+	border-radius: 200px;
 }
 .down-card p {
-  position: relative;
-  margin-bottom: 0px;
-  font-size: 18px;
-  font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-color: #000000;
-text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+	position: relative;
+	margin-bottom: 0px;
+	font-size: 18px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	color: #000000;
+	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.down-card p::after{
-  content: "";
-    position: absolute;
-    width: 1px;
-    height: 100%;
-    background: #686868;
-    right: -22px;
-    top: 2px;
+.down-card p::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background: #686868;
+	right: -22px;
+	top: 2px;
 }
 .post-card {
- position: absolute;
- /* visibility: hidden; */
- display: none;
- /* display: block; */
-    /* display: flex; */
-    width: 513px;
-    height: 315px;
-    background: #FFFFFF;
-    border: 1px solid #7B7B7B;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
-    border-radius: 16px;
-    justify-content: space-between;
-    flex-direction: column;
-    z-index: 500;
-    left: 26%;
-    top: 20%;
+	position: absolute;
+	/* visibility: hidden; */
+	display: none;
+	/* display: block; */
+	/* display: flex; */
+	width: 513px;
+	height: 315px;
+	background: #ffffff;
+	border: 1px solid #7b7b7b;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+	border-radius: 16px;
+	justify-content: space-between;
+	flex-direction: column;
+	z-index: 500;
+	left: 26%;
+	top: 20%;
 }
 .card-write-post {
-  width: 100%;
-  height: 100%;
-  background: #D8D8D8;
-border-radius: 9px;
-padding: 6px;
+	width: 100%;
+	height: 100%;
+	background: #d8d8d8;
+	border-radius: 9px;
+	padding: 6px;
 }
 .mid-card {
-  height: 50%;
-  margin: 10px 10px 10px 10px;
+	height: 50%;
+	margin: 10px 10px 10px 10px;
 }
 .down-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px 3px 10px 3px;
-  padding: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 3px 10px 3px;
+	padding: 6px;
 }
 .left-down-card {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  background: #D8D8D8;
-  padding: 13px;
-  border-radius: 9px;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	width: 80%;
+	background: #d8d8d8;
+	padding: 13px;
+	border-radius: 9px;
+	justify-content: space-between;
 }
 .top-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px 10px 10px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 10px 10px 10px;
 }
 .card-inside-top {
-  padding: 6px;
+	padding: 6px;
 }
 .post-write {
-  padding: 13px 25px 13px 25px;
-  background: #FFFFFF;
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 9px;
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-/* line-height: 37px; */
-color: #000000;
-text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	padding: 13px 25px 13px 25px;
+	background: #ffffff;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	border-radius: 9px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	/* line-height: 37px; */
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .card-name-photo {
-  display: flex;
-  align-items: center;
-  background-color:#FFFFFF;
-  border-radius: 200px;
-  margin: 2px;
-  padding-right: 10px;
+	display: flex;
+	align-items: center;
+	background-color: #ffffff;
+	border-radius: 200px;
+	margin: 2px;
+	padding-right: 10px;
 }
 .right-top-card img {
-  background: #D8D8D8;
-    padding: 9px;
-    border-radius: 50%;
-    cursor: pointer;
+	background: #d8d8d8;
+	padding: 9px;
+	border-radius: 50%;
+	cursor: pointer;
 }
 .icon-down img {
-  margin-right: 17px;
-    width: 20px;
+	margin-right: 17px;
+	width: 20px;
 }
 .card-name {
-  font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-/* identical to box height */
-color: #000000;
-text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	/* identical to box height */
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .post-write:hover {
-  background-color: #D8D8D8;
+	background-color: #d8d8d8;
 }

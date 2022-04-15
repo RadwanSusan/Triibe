@@ -11,6 +11,10 @@
 	color: white;
 }
 
+::-ms-reveal {
+	display: none;
+}
+
 body {
 	display: flex;
 	justify-content: center;
