@@ -876,6 +876,8 @@ body {
 	padding: 9px;
 	border-radius: 50%;
 	cursor: pointer;
+	width: 38px;
+	height: 38px;
 }
 .icon-down img {
 	margin-right: 16px;

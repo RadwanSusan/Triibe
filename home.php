@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="right-top-card">
-          <img src="Design/Image/home-images/images/exit-card.png" alt="">
+          <img src="Design/Image/home-images/images/exit-card.svg" alt="">
         </div>
       </div>
       <div class="mid-card">
