@@ -36,27 +36,22 @@
                <span class="typed"></span>
             </p>
          </div>
-         <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { // if the form has been submitted
-            $myusername = mysqli_real_escape_string($conn, $_POST["uname"]); // get the username
-            $mypassword = mysqli_real_escape_string($conn, $_POST["password"]); // get the password
-            $sql = "SELECT * FROM student WHERE std_id = '$myusername' and std_pass = '$mypassword'"; // query to check if the user exists
+         <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $student_number = mysqli_real_escape_string($conn, $_POST["uname"]);
+            $mypassword = mysqli_real_escape_string($conn, $_POST["password"]);
+            $sql = "SELECT * FROM student WHERE std_id = '$student_number' and std_pass = '$mypassword'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
-            //$active = $row['active'];
-            $count = mysqli_num_rows($result); // count the number of rows in the result
-            // If result matched $myusername and $mypassword, table row must be 1 row
-            if ($count == 1) { // if the result matched
-            //session_register("myusername");
-            //get the student's image
-            $imgid = $row["img_id"]; // get the image id
+            $count = mysqli_num_rows($result);
+            if ($count == 1) {
+            $imgid = $row["img_id"];
             $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
             $resultimg = mysqli_query($conn, $sqlimg);
             $rowimg = mysqli_fetch_assoc($resultimg);
-            //get the student's friends
-            $sqlfriends = "SELECT * FROM friends WHERE user_id = '$myusername'";
+            $sqlfriends = "SELECT * FROM friends WHERE user_id = '$student_number'";
             $resultfriends = mysqli_query($conn, $sqlfriends);
             $rowfriends = mysqli_fetch_assoc($resultfriends);
-            $_SESSION["login_user"] = $myusername; // register the session
+            $_SESSION["std_id"] = $row["std_id"];
             $_SESSION["std_fname"] = $row["std_fname"];
             $_SESSION["std_lname"] = $row["std_lname"];
             $_SESSION["email"] = $row["email"];
@@ -68,12 +63,12 @@
             $_SESSION["friends"] = $rowfriends;
             header("location: home.php");
             } else {
-              echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>'; // if the result didn't match then output an error message
+              echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>';
             }
             }?>
          <div class="right animate__animated animate__backInDown">
             <form  action="" method="POST" class="form1">
-               <input type="text" name="uname" placeholder="Student number or Email" required/>
+               <input type="text" name="uname" placeholder="Student number" required/>
                <input class="password" type="password" name="password" placeholder="Password" required/>
                <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
                <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />
@@ -86,7 +81,7 @@
          </div>
       </div>
       <div class="wave animate__animated animate__fadeInUp">
-         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+         <svg data-name="Layer 1" xmlns="http:
             <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
          </svg>
       </div>
