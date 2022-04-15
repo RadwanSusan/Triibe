@@ -1,6 +1,5 @@
 // jshint esversion: 6
 document.addEventListener("DOMContentLoaded", function () {
-<<<<<<< HEAD
   let groupPage = document.querySelector(".group-page");
   if (groupPage.children.length === 1) {
     // if there is only one child, it's the group-page-header
@@ -112,15 +111,13 @@ document
     document.querySelector(".nav").style.opacity = "100%";
     document.querySelector(".post-card").style.display = "none";
   });
-=======
 	const groupPage = document.querySelector(".group-page");
 	if (groupPage.children.length === 1) {
 		groupPage.style.height = "100px";
 		const noFriends = document.createElement("span");
 		noFriends.innerHTML = "You have no friends yet!";
 		groupPage.appendChild(noFriends);
-	}
-});
+	};
 document.querySelector(".themeLight").addEventListener("click", function () {
 	const theme = document.querySelector("#theme");
 	theme.setAttribute("href", "bootstrap-css/dark-home.css");
@@ -304,4 +301,3 @@ $(document).ready(function () {
 	scrollToTopBtn.addEventListener("click", scrollToTop);
 	document.addEventListener("scroll", handleScroll);
 });
->>>>>>> 71232fa96fc34bab37383ff5e35765d386bdb724
