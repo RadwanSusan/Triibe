@@ -122,7 +122,7 @@
           </div>
         </div>
       </div>
-      <div class="main-content animate__animated animate__fadeIn animate__slower">
+      <div class="main-content animate__animated animate__fadeIn animate__slow">
         <div class="story-gallery">
           <div class="story">
             <img src="Design/Image/home-images/images/upload.png" alt="">
