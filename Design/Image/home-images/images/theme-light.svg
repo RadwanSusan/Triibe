@@ -1,17 +1,1 @@
-<svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_70_136)">
-<path d="M18 0C15.0333 0 12.1332 0.879735 9.66645 2.52796C7.19972 4.17618 5.27713 6.51886 4.14181 9.25975C3.0065 12.0006 2.70945 15.0166 3.28823 17.9264C3.86701 20.8361 5.29562 23.5088 7.3934 25.6066C9.49119 27.7044 12.1639 29.133 15.0736 29.7118C17.9834 30.2906 20.9994 29.9935 23.7403 28.8582C26.4811 27.7229 28.8238 25.8003 30.472 23.3335C32.1203 20.8668 33 17.9667 33 15C33 14.2333 32.9333 13.4667 32.8333 12.7333C32.0005 13.9011 30.9002 14.8524 29.6244 15.5077C28.3485 16.1631 26.9343 16.5033 25.5 16.5C23.592 16.5 21.7333 15.8941 20.192 14.7694C18.6507 13.6448 17.5064 12.0597 16.9242 10.2427C16.342 8.42568 16.352 6.47071 16.9528 4.65976C17.5535 2.84881 18.7139 1.27547 20.2667 0.166666C19.5333 0.0666665 18.7667 0 18 0Z" fill="black"/>
-</g>
-<defs>
-<filter id="filter0_d_70_136" x="0" y="0" width="36" height="37" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="1.5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_70_136"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_70_136" result="shape"/>
-</filter>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="37" fill="none" viewBox="0 0 36 37"><g filter="url(#filter0_d_70_136)"><path fill="#000" d="M18 0C15.0333 0 12.1332 0.879735 9.66645 2.52796C7.19972 4.17618 5.27713 6.51886 4.14181 9.25975C3.0065 12.0006 2.70945 15.0166 3.28823 17.9264C3.86701 20.8361 5.29562 23.5088 7.3934 25.6066C9.49119 27.7044 12.1639 29.133 15.0736 29.7118C17.9834 30.2906 20.9994 29.9935 23.7403 28.8582C26.4811 27.7229 28.8238 25.8003 30.472 23.3335C32.1203 20.8668 33 17.9667 33 15C33 14.2333 32.9333 13.4667 32.8333 12.7333C32.0005 13.9011 30.9002 14.8524 29.6244 15.5077C28.3485 16.1631 26.9343 16.5033 25.5 16.5C23.592 16.5 21.7333 15.8941 20.192 14.7694C18.6507 13.6448 17.5064 12.0597 16.9242 10.2427C16.342 8.42568 16.352 6.47071 16.9528 4.65976C17.5535 2.84881 18.7139 1.27547 20.2667 0.166666C19.5333 0.0666665 18.7667 0 18 0Z"/></g><defs><filter id="filter0_d_70_136" width="36" height="37" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dy="4"/><feGaussianBlur stdDeviation="1.5"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/><feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_70_136"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_70_136" mode="normal" result="shape"/></filter></defs></svg>

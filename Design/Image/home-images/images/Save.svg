@@ -1,17 +1,1 @@
-<svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_150_14)">
-<path d="M4.375 5.375V28.1562C4.37489 28.3028 4.41294 28.4468 4.4854 28.5741C4.55787 28.7015 4.66224 28.8078 4.78825 28.8825C4.91427 28.9573 5.05758 28.9979 5.20408 29.0005C5.35058 29.003 5.49521 28.9674 5.62375 28.8971L14.5 24.0539L23.3763 28.8971C23.5048 28.9674 23.6494 29.003 23.7959 29.0005C23.9424 28.9979 24.0857 28.9573 24.2117 28.8825C24.3378 28.8078 24.4421 28.7015 24.5146 28.5741C24.5871 28.4468 24.6251 28.3028 24.625 28.1562V5.375C24.625 4.47989 24.2694 3.62145 23.6365 2.98851C23.0035 2.35558 22.1451 2 21.25 2H7.75C6.85489 2 5.99645 2.35558 5.36351 2.98851C4.73058 3.62145 4.375 4.47989 4.375 5.375V5.375Z" fill="#525252"/>
-</g>
-<defs>
-<filter id="filter0_d_150_14" x="0.375" y="0" width="28.25" height="35.0006" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="2"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_150_14"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_150_14" result="shape"/>
-</filter>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="35" fill="none" viewBox="0 0 29 35"><g filter="url(#filter0_d_150_14)"><path fill="#525252" d="M4.375 5.375V28.1562C4.37489 28.3028 4.41294 28.4468 4.4854 28.5741C4.55787 28.7015 4.66224 28.8078 4.78825 28.8825C4.91427 28.9573 5.05758 28.9979 5.20408 29.0005C5.35058 29.003 5.49521 28.9674 5.62375 28.8971L14.5 24.0539L23.3763 28.8971C23.5048 28.9674 23.6494 29.003 23.7959 29.0005C23.9424 28.9979 24.0857 28.9573 24.2117 28.8825C24.3378 28.8078 24.4421 28.7015 24.5146 28.5741C24.5871 28.4468 24.6251 28.3028 24.625 28.1562V5.375C24.625 4.47989 24.2694 3.62145 23.6365 2.98851C23.0035 2.35558 22.1451 2 21.25 2H7.75C6.85489 2 5.99645 2.35558 5.36351 2.98851C4.73058 3.62145 4.375 4.47989 4.375 5.375V5.375Z"/></g><defs><filter id="filter0_d_150_14" width="28.25" height="35.001" x=".375" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dy="2"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend in2="BackgroundImageFix" mode="normal" result="effect1_dropShadow_150_14"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_150_14" mode="normal" result="shape"/></filter></defs></svg>
