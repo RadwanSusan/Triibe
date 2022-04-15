@@ -17,7 +17,7 @@
     <title>Triibe Home</title>
   </head>
   <body>
-    <div class="post-card">
+    <div class="post-card slide-in-elliptic-top-fwd">
       <div class="top-card">
         <div class="left-top-card">
           <div class="card-name-photo">
