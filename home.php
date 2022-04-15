@@ -5,6 +5,7 @@
   ?>
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
    <head>
       <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
       <link rel="stylesheet" href="bootstrap-css/all.min.css" />
@@ -21,8 +22,8 @@
                <div class="top-card">
                   <div class="left-top-card">
                      <div class="card-name-photo">
-                                <img src="<?php echo $_SESSION["img_name"]?>" alt="">
-                                  <div class="card-name"> <?php echo $_SESSION["std_fname"] ." ". $_SESSION["std_lname"]?>
+                                <img src="Design/Image/home-images/images/omar.png" alt="">
+                                  <div class="card-name">omar thaer
                                      </div>
                               </div>
                               <div class="card-inside-top">
@@ -52,7 +53,7 @@
                   </div>
                   <button class="post-write">Post</button>
                </div>
-   </div>
+            </div>
       <nav class="nav">
          <div class="nav-left">
             <div class="box">
@@ -112,6 +113,101 @@
             </div>
          </div>
       </nav>
+      <div class="container1">
+         <div class="left-sidebar">
+            <div class="group-list">
+               <a href="#">
+               <img class="pagesIcon-Light" src="Design/Image/home-images/images/pages-icon.svg" alt="pages-icon">
+               <img class="pagesIcon-Dark" src="Design/Image/home-images/images/pages-icon2.svg" alt="pages-icon2">
+               <span>Pages</span>
+               </a>
+               <a href="#">
+               <img class="Groups-Light" src="Design/Image/home-images/images/Groups.svg" alt="">
+               <img class="Groups-Dark" src="Design/Image/home-images/images/Groups2.svg" alt=""><span>Groups</span>
+               </a>
+               <div class="group-page">
+                  <p>Friends</p>
+                  <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["login_user"] . "'"; // select all friends of the user from the database
+                     $result = mysqli_query($conn, $sql); // execute the query
+                     if (mysqli_num_rows($result) > 0){ // if there are any friends
+                         while ($row = mysqli_fetch_assoc($result)){ //print all friends
+                             $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'"; // select all friends of the user from the database
+                             $result1 = mysqli_query($conn, $sql1); // execute the query
+                             if (mysqli_num_rows($result1) > 0){ // if there are any friends
+                                 while ($row1 = mysqli_fetch_assoc($result1)){ //print all friends
+                                     $imgid = $row1["img_id"]; // get the image id of the friend
+                                     $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'"; // select the image of the friend
+                                     $resultimg = mysqli_query($conn, $sqlimg); // execute the query
+                                     $rowimg = mysqli_fetch_assoc($resultimg); // get the image of the friend
+                                     echo "<a href='#'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>"; // print the friend
+                                 }
+                             }
+                         }
+                     }?>
+               </div>
+            </div>
+         </div>
+         <div class="main-content">
+
+            
+
+
+            <div class="story-gallery">
+               <div class="story">
+                  <img src="Design/Image/home-images/images/upload.png" alt="">
+                  <p><?php
+                     echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"]; // print the name of the user
+                     ?></p>
+               </div>
+               <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["login_user"] . "'"; // select all friends of the user from the database
+                  $result = mysqli_query($conn, $sql); // execute the query
+                  if (mysqli_num_rows($result) > 0){ // if there are any friends
+                      while ($row = mysqli_fetch_assoc($result)){ //print all friends
+                          $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'"; // select all friends of the user from the database
+                          $result1 = mysqli_query($conn, $sql1); // execute the query
+                          if (mysqli_num_rows($result1) > 0){ // if there are any friends
+                              while ($row1 = mysqli_fetch_assoc($result1)){ //print all friends
+                                  echo "<div class='story'><img src='Design/Image/home-images/images/upload.png' alt=''><p>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</p></div>"; // print the friend
+                              }
+=======
+  <head>
+    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+    <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon">
+    <title>Triibe Home</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <div class="box">
+          <img src="Design/Image/home-images/images/logo.svg" alt="logoLight" class="logoLight" /> <img src="Design/Image/home-images/images/logo2.svg" alt="logoDark" class="logoDark" />
+          <p>Triibe</p>
+        </div>
+        <div class="search-box"> <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search" />
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li> <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" /> <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" /> </li>
+          <li> <img class="mapIcon-Light" src="Design/Image/home-images/images/mapIcon.svg" alt="mapIcon" /> <img class="mapIcon-Dark" src="Design/Image/home-images/images/mapIcon2.svg" alt="mapIcon" /> </li>
+          <li> <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" /> <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" /> </li>
+          <li> <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" /> <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" /> </li>
+          <li> <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" /> <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" /> </li>
+        </ul>
+        <div class="nav-user-icon online">
+          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="usrImg" />
+          <div class="name">
+            <?php echo $_SESSION["std_fname"]; ?>
+          </div>
+        </div>
+      </div>
+    </nav>
     <div class="container1">
       <div class="left-sidebar">
         <div class="group-list">
@@ -136,7 +232,7 @@
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
                               echo "<a href='#'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
-
+>>>>>>> 71232fa96fc34bab37383ff5e35765d386bdb724
                           }
                       }
                   }
@@ -156,12 +252,16 @@
           </div>
           <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
             $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0){
-                while ($row = mysqli_fetch_assoc($result)) {
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
                     $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
                     $result1 = mysqli_query($conn, $sql1);
-                    if (mysqli_num_rows($result1) > 0){
-                        while ($row1 = mysqli_fetch_assoc($result1)){
+                    if (mysqli_num_rows($result1) > 0)
+                    {
+                        while ($row1 = mysqli_fetch_assoc($result1))
+                        {
                             echo "<div class='story'><img src='Design/Image/home-images/images/upload.png' alt=''><p>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</p></div>";
                         }
                     }
