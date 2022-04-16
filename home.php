@@ -64,7 +64,7 @@
             <img src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
-        <input type="submit" class="post-write"> 
+        <input type="submit" class="post-write">
       </div>
     </form>
     </div>
@@ -102,7 +102,7 @@
           </li>
         </ul>
         <div class="nav-user-icon online">
-          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="usrImg" />
+          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="" />
           <div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
           </div>
