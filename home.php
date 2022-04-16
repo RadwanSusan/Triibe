@@ -64,7 +64,7 @@
             <img src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
-        <input type="submit" class="post-write">
+        <input type="submit" class="post-write" value="POST">
       </div>
     </form>
     </div>
