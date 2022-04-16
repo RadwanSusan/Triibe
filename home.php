@@ -40,7 +40,7 @@
           $date = date("Y-m-d H:i:s", time());
           $sql = "INSERT INTO post ( content , created_date , author , form_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1  )";
           if(mysqli_query($conn, $sql)){
-            echo "<script>alert('Post Successfully');</script>";
+            header("Location: home.php");
           }
           else{
             echo "<script>alert('Post Failed');</script>";
