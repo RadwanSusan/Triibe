@@ -39,15 +39,15 @@
         if(key_exists("upload", $_POST)){
 
           $filename = $_FILES["uploadfile"]["name"];
-          $tempname = $_FILES["uploadfile"]["tmp_name"];	
+          $tempname = $_FILES["uploadfile"]["tmp_name"];
             $folder = "image/".$filename;
-                        
+
             // Get all the submitted data from the form
             $sqlimg = "INSERT INTO img (img_name) VALUES ('$filename')";
-        
+
             // Execute query
             mysqli_query($conn, $sqlimg);
-            
+
             // Now let's move the uploaded image into the folder: image
             if (move_uploaded_file($tempname, $folder)) {
               $msg = "Image uploaded successfully";
@@ -319,17 +319,17 @@
           <img class="housingIcon-Light" src="Design/Image/home-images/images/housing-icon.svg" alt=""/>
           <img class="housingIcon-Dark" src="Design/Image/home-images/images/housing-icon2.svg" alt=""/>
           <span>Housing</span></a>
-          <a href="https://elearning.ahu.edu.jo/login/index.php">
+          <a href="http://elearning.ahu.edu.jo/login/index.php">
           <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" alt=""/>
           <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt=""/>
           <span>E-Learning</span>
           </a>
-          <a href="#">
+          <a href="http://sis.ahu.edu.jo/">
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" alt=""/>
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" alt=""/>
           <span>Student information system</span>
           </a>
-          <a href="#">
+          <a href="http://reg.ahu.edu.jo/">
           <img class="regIcon-Light" src="Design/Image/home-images/images/RegIcon.svg" alt=""/>
           <img class="regIcon-Dark" src="Design/Image/home-images/images/RegIcon2.svg" alt=""/>
           <span>Student registration system</span>
