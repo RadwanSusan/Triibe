@@ -296,7 +296,7 @@
           <img class="housingIcon-Light" src="Design/Image/home-images/images/housing-icon.svg" alt=""/>
           <img class="housingIcon-Dark" src="Design/Image/home-images/images/housing-icon2.svg" alt=""/>
           <span>Housing</span></a>
-          <a href="#">
+          <a href="https://elearning.ahu.edu.jo/login/index.php">
           <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" alt=""/>
           <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt=""/>
           <span>E-Learning</span>
