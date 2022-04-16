@@ -33,8 +33,25 @@
           <img src="Design/Image/home-images/images/exit-card.svg" alt="">
         </div>
       </div>
+      <?php
+      if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST["content"])){
+          $post = $_POST["content"];
+          $date = date("Y-m-d H:i:s", time());
+          $sql = "INSERT INTO post ( content , created_date , author , form_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1  )";
+          if(mysqli_query($conn, $sql)){
+            echo "<script>alert('Post Successfully');</script>";
+          }
+          else{
+            echo "<script>alert('Post Failed');</script>";
+          }
+        }
+      }
+      ?>
+
+     <form method = "POST">
       <div class="mid-card">
-        <textarea class="card-write-post" rows="3" placeholder="Write A Post ..."></textarea>
+        <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
       </div>
       <div class="down-card">
         <div class="left-down-card">
@@ -47,8 +64,9 @@
             <img src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
-        <button class="post-write">Post</button>
+        <input type="submit" class="post-write"> 
       </div>
+    </form>
     </div>
     <nav class="nav">
       <div class="nav-left">
