@@ -34,11 +34,35 @@
         </div>
       </div>
       <?php
+      $img_id = null;
       if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST["content"])){
+        if(key_exists("upload", $_POST)){
+
+          $filename = $_FILES["uploadfile"]["name"];
+          $tempname = $_FILES["uploadfile"]["tmp_name"];	
+            $folder = "image/".$filename;
+                        
+            // Get all the submitted data from the form
+            $sqlimg = "INSERT INTO img (img_name) VALUES ('$filename')";
+        
+            // Execute query
+            mysqli_query($conn, $sqlimg);
+            
+            // Now let's move the uploaded image into the folder: image
+            if (move_uploaded_file($tempname, $folder)) {
+              $msg = "Image uploaded successfully";
+            }else{
+              $msg = "Failed to upload image";
+        }
+
+        $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$filename'");
+        $row = mysqli_fetch_array($result);
+        $img_id = $row["img_id"];
+      }
+        if(isset($_POST["post"])){
           $post = $_POST["content"];
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1  )";
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";          }
           if(mysqli_query($conn, $sql)){
             header("Location: home.php");
           }
@@ -46,7 +70,6 @@
             echo "<script>alert('Post Failed');</script>";
           }
         }
-      }
       ?>
 
      <form method = "POST">
@@ -57,14 +80,14 @@
         <div class="left-down-card">
           <p>Add to your post</p>
           <div class="icon-down">
-            <img src="Design/Image/home-images/images/ImageIcon.svg" alt="">
+            <button type="upload" name="upload"><img src="Design/Image/home-images/images/ImageIcon.svg" alt=""></button>
             <img src="Design/Image/home-images/images/tagIcon.svg" alt="">
             <img src="Design/Image/home-images/images/locIcon.svg" alt="">
             <img src="Design/Image/home-images/images/GIFicon.svg" alt="">
             <img src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
-        <input type="submit" class="post-write">
+        <input type="submit" class="post-write" value="POST" name="post">
       </div>
     </form>
     </div>
