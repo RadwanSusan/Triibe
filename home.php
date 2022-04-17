@@ -36,7 +36,7 @@
       <?php
       $img_id = null;
       if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(key_exists("upload", $_POST)){
+        if(isset($_POST["upload"])){
 
           $filename = $_FILES["uploadfile"]["name"];
           $tempname = $_FILES["uploadfile"]["tmp_name"];
