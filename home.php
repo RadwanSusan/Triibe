@@ -36,11 +36,11 @@
       <?php
       $img_id = null;
       if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST["upload"])){
+        if(key_exists("upload", $_POST)){
 
           $filename = $_FILES["uploadfile"]["name"];
           $tempname = $_FILES["uploadfile"]["tmp_name"];
-            $folder = "image/".$filename;
+            $folder = "db_img/".$filename;
 
             // Get all the submitted data from the form
             $sqlimg = "INSERT INTO img (img_name) VALUES ('$filename')";
@@ -51,8 +51,10 @@
             // Now let's move the uploaded image into the folder: image
             if (move_uploaded_file($tempname, $folder)) {
               $msg = "Image uploaded successfully";
+              echo "<script>alert('$msg');</script>";
             }else{
               $msg = "Failed to upload image";
+              echo "<script>alert('$msg');</script>";
         }
 
         $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$filename'");
@@ -80,7 +82,8 @@
         <div class="left-down-card">
           <p>Add to your post</p>
           <div class="icon-down">
-            <button type="upload" name="upload"><img src="Design/Image/home-images/images/ImageIcon.svg" alt=""></button>
+          <img src="Design/Image/home-images/images/ImageIcon.svg" alt="" for = "upload">
+            <input type="file" name="upload" id="uploadfile">
             <img src="Design/Image/home-images/images/tagIcon.svg" alt="">
             <img src="Design/Image/home-images/images/locIcon.svg" alt="">
             <img src="Design/Image/home-images/images/GIFicon.svg" alt="">
