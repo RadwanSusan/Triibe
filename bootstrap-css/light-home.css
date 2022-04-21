@@ -87,7 +87,9 @@ body {
 	margin-top: 6px;
 	cursor: pointer;
 }
-
+.logoDark {
+	display: none;
+}
 .nav-left,
 .nav-right {
 	display: flex;

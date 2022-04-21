@@ -72,6 +72,9 @@ nav {
 	cursor: pointer;
 	display: none;
 }
+.logoLight {
+	display: none;
+}
 
 .nav-left,
 .nav-right {
