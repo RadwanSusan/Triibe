@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+    <link id="theme" rel="stylesheet" href="bootstrap-css/personal.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triibe</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="box">
+          <img
+            src="Design/Image/home-images/images/logo.svg"
+            alt="logoLight"
+            class="logoLight"
+          />
+          <img
+            src="Design/Image/home-images/images/logo2.svg"
+            alt="logoDark"
+            class="logoDark"
+          />
+          <p>Triibe</p>
+        </div>
+        <div class="search-box">
+          <img
+            src="Design/Image/home-images/images/Search-Icon.svg"
+            alt="search"
+          />
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li>
+            <img
+              class="SettingsIcon-Light"
+              src="Design/Image/home-images/images/Settings-icon.svg"
+              alt="settingIcon"
+            />
+            <img
+              class="SettingsIcon-Dark"
+              src="Design/Image/home-images/images/Settings-icon2.svg"
+              alt="settingIcon"
+            />
+          </li>
+          <li>
+            <img
+              class="mapIcon-Light"
+              src="Design/Image/home-images/images/mapIcon.svg"
+              alt="mapIcon"
+            />
+            <img
+              class="mapIcon-Dark"
+              src="Design/Image/home-images/images/mapIcon2.svg"
+              alt="mapIcon"
+            />
+          </li>
+          <li>
+            <img
+              class="themeLight"
+              src="Design/Image/home-images/images/theme-light.svg"
+              alt="themeLight"
+            />
+            <img
+              class="themeDark"
+              src="Design/Image/home-images/images/theme-dark.svg"
+              alt="themeDark"
+            />
+          </li>
+          <li>
+            <img
+              class="notificationIcon-light"
+              src="Design/Image/home-images/images/notification-logo.svg"
+              alt="notificationIcon"
+            />
+            <img
+              class="notificationIcon-dark"
+              src="Design/Image/home-images/images/notification-logo2.svg"
+              alt="notificationIcon1"
+            />
+          </li>
+          <li>
+            <img
+              class="chatLight"
+              src="Design/Image/home-images/images/chat-icon.svg"
+              alt="image"
+            />
+            <img
+              class="chatDark"
+              src="Design/Image/home-images/images/chat-icon2.svg"
+              alt="image"
+            />
+          </li>
+        </ul>
+        <div class="nav-user-icon online">
+          <img src="<?php echo $_SESSION["img_name"]; ?>" alt = "" />
+          <div class="name">
+            <?php echo $_SESSION["std_fname"]; ?>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="top">
+        <img src="Design/Image/home-images/images/farme.svg" alt="" />
+
+        <!-- <img src="Design/Image/home-images/images/Linear_Layer.svg" alt=""> -->
+      </div>
+      <div class="bottom">
+        <div class="left-bottom">
+          <img src="Design/Image/home-images/images/radwan.jpg" alt="" />
+          <div class="name-bottom"><p>Radwan Susan</p></div>
+          <div class="number-friends">221 Friends</div>
+        </div>
+        <div class="right-bottom">
+          <div class="add-friends">
+            <img src="Design/Image/home-images/images/Group-add.svg" alt="" />
+            <p>Add Friends</p>
+          </div>
+          <div class="edit-profile">
+            <img src="Design/Image/home-images/images/Group-edit.svg" alt="" />
+            <p>Edit Profile</p>
+          </div>
+        </div>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap-js/all.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="bootstrap-js/personal.js"></script>
+  </body>
+</html>

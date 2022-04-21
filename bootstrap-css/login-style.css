@@ -14,6 +14,11 @@
 ::-ms-reveal {
 	display: none;
 }
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
 body {
 	display: flex;
@@ -23,12 +28,6 @@ body {
 	min-width: 485px;
 	height: 100vh;
 	background: #f8f8f8;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
 }
 
 .container1 {
