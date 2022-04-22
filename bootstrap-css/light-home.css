@@ -627,7 +627,7 @@ body {
 
 .likes {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	box-sizing: border-box;
 	border-radius: 0px 0px 14px 14px;
 	margin: 15px 0 0 0;
@@ -692,12 +692,81 @@ body {
 	cursor: pointer;
 }
 
+.like::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 37px;
+	background-color: #838383;
+	bottom: -19px;
+	left: 9.7rem;
+}
+
 .comment::after {
 	content: "";
 	position: absolute;
-	width: 2px;
-	height: 100%;
+	width: 1px;
+	height: 37px;
 	background-color: #838383;
+	bottom: -19px;
+	left: 9.7rem;
+}
+
+.share::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 37px;
+	background-color: #838383;
+	bottom: -19px;
+	left: 9.7rem;
+}
+@media screen and (max-width: 1700px) {
+	.like::after {
+		left: 7.5rem;
+	}
+	.comment::after {
+		left: 9rem;
+	}
+	.share::after {
+		left: 7.8rem;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	.like::after {
+		left: 6.3rem;
+	}
+	.comment::after {
+		left: 7.5rem;
+	}
+	.share::after {
+		left: 6.3rem;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.like::after {
+		left: 5.3rem;
+	}
+	.comment::after {
+		left: 6.5rem;
+	}
+	.share::after {
+		left: 5.4rem;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.like::after {
+		left: 5rem;
+	}
+	.comment::after {
+		left: 6.3rem;
+	}
+	.share::after {
+		left: 5.2rem;
+	}
 }
 
 .share img,
