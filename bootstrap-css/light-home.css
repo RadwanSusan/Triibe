@@ -985,3 +985,7 @@ body {
 		opacity: 1;
 	}
 }
+
+.fileUpload_Button {
+	display: none;
+}
