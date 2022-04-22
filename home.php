@@ -38,12 +38,13 @@
       if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(key_exists("upload", $_POST)){
 
-          $filename = $_FILES["uploadfile"]["name"];
-          $tempname = $_FILES["uploadfile"]["tmp_name"];
-            $folder = "db_img/".$filename;
+          $filename = $_FILES["upload"]["name"];
+          $tempname = $_FILES["upload"]["tmp_name"];
+            $folder = "Design/Image/home-images/images/".$filename;
+            move_uploaded_file($tempname, $folder);
 
             // Get all the submitted data from the form
-            $sqlimg = "INSERT INTO img (img_name) VALUES ('$filename')";
+            $sqlimg = "INSERT INTO img (img_name) VALUES ('$folder')";
 
             // Execute query
             mysqli_query($conn, $sqlimg);
@@ -51,13 +52,13 @@
             // Now let's move the uploaded image into the folder: image
             if (move_uploaded_file($tempname, $folder)) {
               $msg = "Image uploaded successfully";
-              echo "<script>alert('$msg');</script>";
+              echo "<script>alert('".$msg."');</script>";
             }else{
               $msg = "Failed to upload image";
-              echo "<script>alert('$msg');</script>";
+              echo "<script>alert('".$msg."');</script>";
         }
 
-        $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$filename'");
+        $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$folder'");
         $row = mysqli_fetch_array($result);
         $img_id = $row["img_id"];
       }
@@ -82,7 +83,7 @@
         <div class="left-down-card">
           <p>Add to your post</p>
           <div class="icon-down">
-          <img src="Design/Image/home-images/images/ImageIcon.svg" alt="" for = "upload">
+          <img src="Design/Image/home-images/images/ImageIcon.svg" alt="">
             <input type="file" name="upload" id="uploadfile">
             <img src="Design/Image/home-images/images/tagIcon.svg" alt="">
             <img src="Design/Image/home-images/images/locIcon.svg" alt="">
