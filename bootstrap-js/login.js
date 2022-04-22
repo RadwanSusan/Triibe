@@ -6,16 +6,16 @@ const typed = new Typed(".typed", {
 	typeSpeed: 37,
 	startDelay: 1100,
 });
-let removeClass = (name, className, width) => {
+const removeClass = (name, className, width) => {
 	if (window.innerWidth < width) {
 		name.classList.remove(className);
 	}
 };
 removeClass(document.querySelector(".right"), "animate__backInDown", 950);
-let showPassword = () => {
-	let password = document.querySelector(".password");
-	let closedEye = document.querySelector(".closedEye");
-	let openEye = document.querySelector(".openEye");
+const showPassword = () => {
+	const password = document.querySelector(".password");
+	const closedEye = document.querySelector(".closedEye");
+	const openEye = document.querySelector(".openEye");
 	if (password.type === "password") {
 		password.type = "text";
 		closedEye.style.display = "none";

@@ -99,6 +99,52 @@ window.onload = function () {
 		document.querySelector(".like").classList.add("liked");
 	}
 };
+const hoverAnimation = (
+	hoverElement,
+	eventType,
+	animationElement,
+	animationName,
+) => {
+	document.querySelector(hoverElement).addEventListener(eventType, () => {
+		document
+			.querySelector(animationElement)
+			.classList.add("animate__animated", animationName);
+	});
+};
+const hoverAnimationOut = (
+	hoverElement,
+	eventType,
+	animationElement,
+	animationName,
+) => {
+	document.querySelector(hoverElement).addEventListener(eventType, () => {
+		document
+			.querySelector(animationElement)
+			.classList.remove("animate__animated", animationName);
+	});
+};
+hoverAnimation(
+	".right-top-card",
+	"mouseover",
+	".exitCard",
+	"animate__headShake",
+);
+hoverAnimationOut(
+	".right-top-card",
+	"mouseout",
+	".exitCard",
+	"animate__headShake",
+);
+hoverAnimation(".uploadLabel", "mouseover", ".imgIcon", "animate__heartBeat");
+hoverAnimationOut(".uploadLabel", "mouseout", ".imgIcon", "animate__heartBeat");
+hoverAnimation(".tagIcon", "mouseover", ".tagIcon", "animate__heartBeat");
+hoverAnimationOut(".tagIcon", "mouseout", ".tagIcon", "animate__heartBeat");
+hoverAnimation(".locIcon", "mouseover", ".locIcon", "animate__heartBeat");
+hoverAnimationOut(".locIcon", "mouseout", ".locIcon", "animate__heartBeat");
+hoverAnimation(".gifIcon", "mouseover", ".gifIcon", "animate__heartBeat");
+hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
+hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
+hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
 document.querySelector(".like").addEventListener("click", () => {
 	if (localStorage.getItem("like") === "liked") {
 		localStorage.setItem("like", "notLiked");

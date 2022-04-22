@@ -6,15 +6,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
-    <link rel="stylesheet" href="bootstrap-css/all.min.css" />
-    <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
-    <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon">
     <title>Triibe</title>
+    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+    <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+    <link href="node_modules/hover.css/css/hover-min.css" rel="stylesheet">
+    <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
   </head>
   <body>
     <div class="post-card slide-in-elliptic-top-fwd">
@@ -30,7 +33,7 @@
           </div>
         </div>
         <div class="right-top-card">
-          <img src="Design/Image/home-images/images/exit-card.svg" alt="">
+          <img class="exitCard" src="Design/Image/home-images/images/exit-card.svg" alt="">
         </div>
       </div>
       <?php
@@ -83,14 +86,14 @@
         <div class="left-down-card">
           <p>Add to your post</p>
           <div class="icon-down">
-            <label for="uploadfile">
-              <img src="Design/Image/home-images/images/ImageIcon.svg" alt="">
+            <label class="uploadLabel" for="uploadfile">
+              <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
             </label>
             <input class="fileUpload_Button" type="file" name="upload" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
-            <img src="Design/Image/home-images/images/tagIcon.svg" alt="">
-            <img src="Design/Image/home-images/images/locIcon.svg" alt="">
-            <img src="Design/Image/home-images/images/GIFicon.svg" alt="">
-            <img src="Design/Image/home-images/images/flagIcon.svg" alt="">
+            <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
+            <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
+            <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
+            <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
         <input type="submit" class="post-write" value="POST" name="post">
