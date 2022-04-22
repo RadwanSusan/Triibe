@@ -76,7 +76,6 @@ body {
 	line-height: 53px;
 	font-weight: 400;
 	font-family: pridi;
-	cursor: pointer;
 }
 
 .logoLight {
@@ -85,7 +84,6 @@ body {
 	margin-right: 8px;
 	margin-left: -21px;
 	margin-top: 6px;
-	cursor: pointer;
 }
 .logoDark {
 	display: none;
