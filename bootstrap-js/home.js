@@ -114,7 +114,7 @@ $(document).ready(() => {
 			url: "like.php",
 			type: "post",
 			data: {
-				liked: 1,
+				like: 1,
 				post_id,
 				std_id,
 			},
@@ -134,7 +134,7 @@ $(document).ready(() => {
 			url: "like.php",
 			type: "post",
 			data: {
-				unliked: 1,
+				unlike: 1,
 				post_id,
 				std_id,
 			},
