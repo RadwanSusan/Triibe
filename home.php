@@ -83,7 +83,7 @@
         <div class="left-down-card">
           <p>Add to your post</p>
           <div class="icon-down">
-            <label for="uploadfile" class="custom-file-upload">
+            <label for="uploadfile">
               <img src="Design/Image/home-images/images/ImageIcon.svg" alt="">
             </label>
             <input class="fileUpload_Button" type="file" name="upload" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
