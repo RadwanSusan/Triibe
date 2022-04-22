@@ -39,36 +39,35 @@
       <?php
       $img_id = null;
       if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(key_exists("upload", $_POST)){
+           $file = $_FILES['file']; // file is the name of the input field
+           $fileName = $_FILES['file']['name']; // name of the file
+           $fileTmpName = $_FILES['file']['tmp_name']; // temporary location
+           $fileSize = $_FILES['file']['size']; // in bytes
+           $fileError = $_FILES['file']['error']; // 0 = no error, 1 = error
+           $fileExt = explode('.', $fileName); // explode the file name
+           $fileActualExt = strtolower(end($fileExt)); // get the extension of the file
+              if($fileError === 0){ // if there is no error
+                 if($fileSize < 50000000){ // if the file size is less than 50mb
+                    $fileNameNew = uniqid('', true).".".$fileActualExt; // create a new file name
+                    $fileDestination = 'db_images/'.$fileNameNew; // destination of the file
+                    $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                    mysqli_query($conn, $sqlimg);
+                    move_uploaded_file($fileTmpName, $fileDestination); // move the file to the destination
+                    // header("Location: home.php"); // redirect to index.php
+                 }else{
+                    echo "<script>alert('Your file is too big!')</script>"; // if the file size is greater than 50mb
+                 }
+              }else{
+                 echo "<script>alert('There was an error uploading your file!')</script>"; // if there is an error
+              }
+              $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
+              $row = mysqli_fetch_array($result);
+              $img_id = $row["img_id"];
+              header("Location: home.php");
 
-          $filename = $_FILES["upload"]["name"];
-          $tempname = $_FILES["upload"]["tmp_name"];
-            $folder = "Design/Image/home-images/images/".$filename;
-            move_uploaded_file($tempname, $folder);
-
-            // Get all the submitted data from the form
-            $sqlimg = "INSERT INTO img (img_name) VALUES ('$folder')";
-
-            // Execute query
-            mysqli_query($conn, $sqlimg);
-
-            // Now let's move the uploaded image into the folder: image
-            if (move_uploaded_file($tempname, $folder)) {
-              $msg = "Image uploaded successfully";
-              echo "<script>alert('".$msg."');</script>";
-            }else{
-              $msg = "Failed to upload image";
-              echo "<script>alert('".$msg."');</script>";
-        }
-
-        $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$folder'");
-        $row = mysqli_fetch_array($result);
-        $img_id = $row["img_id"];
-      }
-        if(isset($_POST["post"])){
           $post = $_POST["content"];
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";          }
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";          
           if(mysqli_query($conn, $sql)){
             header("Location: home.php");
           }
@@ -78,7 +77,7 @@
         }
       ?>
 
-     <form method = "POST">
+     <form method = "POST"  enctype="multipart/form-data">
       <div class="mid-card">
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
       </div>
@@ -89,7 +88,7 @@
             <label class="uploadLabel" for="uploadfile">
               <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
             </label>
-            <input class="fileUpload_Button" type="file" name="upload" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
+            <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
             <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
             <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
             <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
@@ -209,7 +208,7 @@
           </div>
           <?php
             $likenum = 0;
-            $sql = "SELECT * FROM post ";
+            $sql = "SELECT * FROM post order by  created_date desc";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0){
                 while ($row = mysqli_fetch_assoc($result)){
