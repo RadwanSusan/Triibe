@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@rive-app/webgl": "^1.0.43",
     "alertifyjs": "^1.13.1",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.3",

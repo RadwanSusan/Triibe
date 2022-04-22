@@ -24,8 +24,9 @@
 </head>
 <body>
     <div class="container2">
-      <div class="left">
-          <img class="svg-img LeftImg animate__animated animate__fadeIn animate__delay-1s" src="Design/Image/SignUpIMG.svg" alt="SignUpIMG"/>
+      <div class="left2">
+          <!-- <img class="svg-img LeftImg animate__animated animate__fadeIn animate__delay-1s" src="Design/Image/SignUpIMG.svg" alt="SignUpIMG"/> -->
+          <canvas class="rive1 animate__animated animate__fadeIn animate__delay-1s animate__slow" id="canvas" width="700" height="700"></canvas>
       </div>
         <div class="right-1  animate__animated animate__backInDown">
         <?php
@@ -139,6 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="module" src="node_modules/typed.js/src/typed.js"></script>
+    <script src="https://unpkg.com/@rive-app/webgl"></script>
     <script type="module" src="bootstrap-js/signUp.js"></script>
 </body>
 </html>

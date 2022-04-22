@@ -1,4 +1,9 @@
 // jshint esversion: 6
+new rive.Rive({
+	src: "./Design/Rive Files/manRidingABike.riv",
+	canvas: document.getElementById("canvas"),
+	autoplay: true,
+});
 let showPassword2 = () => {
 	let password2 = document.querySelector(".CreatePass1");
 	let password3 = document.querySelector(".CreatePass2");
@@ -34,3 +39,9 @@ document.querySelector(".closedEye2").addEventListener("click", () => {
 document.querySelector(".openEye2").addEventListener("click", () => {
 	showPassword2("text");
 });
+const removeElement = (name, width) => {
+	if (window.innerWidth < width) {
+		document.querySelector(name).style.display = "none";
+	}
+};
+removeElement(document.querySelector(".left2"), 1250);
