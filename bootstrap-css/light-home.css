@@ -316,6 +316,9 @@ body {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+.group-list > a:hover {
+	background-color: #d5d5d5;
+}
 
 .group-list a img {
 	width: 30px;
@@ -823,6 +826,7 @@ body {
 	align-items: center;
 	background: #d8d8d8;
 	border-radius: 200px;
+	user-select: none;
 }
 .down-card p {
 	position: relative;
@@ -870,6 +874,7 @@ body {
 	font-family: "Pridi";
 	border: none;
 	resize: none;
+	user-select: none;
 }
 .card-write-post:focus {
 	outline: none;
@@ -894,6 +899,7 @@ body {
 	padding: 13px;
 	border-radius: 9px;
 	justify-content: space-between;
+	user-select: none;
 }
 .top-card {
 	display: flex;
@@ -937,6 +943,7 @@ body {
 	cursor: pointer;
 	width: 38px;
 	height: 38px;
+	user-select: none;
 }
 .icon-down img {
 	margin-right: 11px;
