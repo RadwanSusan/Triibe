@@ -247,3 +247,5 @@ document.querySelector(".right-top-card").addEventListener("click", () => {
 	document.querySelector(".nav").style.opacity = "100%";
 	document.querySelector(".post-card").style.display = "none";
 });
+
+$(".post-image").on("contextmenu", (e) => false);

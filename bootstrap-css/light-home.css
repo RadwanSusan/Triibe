@@ -618,9 +618,8 @@ body {
 .photo-post {
 	display: flex;
 	justify-content: center;
-}
-.photo-post img {
-	border-radius: 7px;
+	background-color: white;
+	border-radius: 6px;
 }
 
 .likes {
@@ -987,4 +986,12 @@ body {
 
 .fileUpload_Button {
 	display: none;
+}
+
+.post-image {
+	max-width: 70%;
+	height: auto;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }

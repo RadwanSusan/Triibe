@@ -67,7 +67,7 @@
 
           $post = $_POST["content"];
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";          
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";
           if(mysqli_query($conn, $sql)){
             header("Location: home.php");
           }
@@ -253,7 +253,7 @@
                             echo "<div class='end-post'>
                                     <div class='content-end'>
                                     <div class='photo-post'>
-                                    <img src='" . $row2["img_name"] . "' alt=''>
+                                    <img class='post-image' src='" . $row2["img_name"] . "' alt=''>
                                     </div>
                                     </div>
                                     <div class='likes'>
