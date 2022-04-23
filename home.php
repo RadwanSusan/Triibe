@@ -252,7 +252,7 @@
                             echo "<div class='end-post'>
                                     <div class='content-end'>
                                     <div class='photo-post'>
-                                    <img class='post-image' src='" . $row2["img_name"] . "' alt=''>
+                                      <img class='post-image' src='" . $row2["img_name"] . "' alt=''>
                                     </div>
                                     </div>
                                     <div class='likes'>
@@ -350,6 +350,10 @@
           </a>
         </div>
       </div>
+    </div>
+    <div class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
     </div>
     <button class="scrollToTopBtn">☝️</button>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>

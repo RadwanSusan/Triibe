@@ -247,5 +247,16 @@ document.querySelector(".right-top-card").addEventListener("click", () => {
 	document.querySelector(".nav").style.opacity = "100%";
 	document.querySelector(".post-card").style.display = "none";
 });
-
 $(".post-image").on("contextmenu", (e) => false);
+const modal = document.querySelector(".modal");
+const img = document.querySelector(".post-image");
+const modalImg = document.querySelector(".modal-content");
+img.onclick = () => {
+	modal.style.display = "block";
+	modalImg.src = img.src;
+};
+const span = document.getElementsByClassName("close")[0];
+span.onclick = () => {
+	modal.style.display = "none";
+	modalImg.src = "";
+};
