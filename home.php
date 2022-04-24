@@ -88,7 +88,37 @@
               <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
             </label>
             <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
+            <label class="uploadLabel" for="tagfriend">
             <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
+            </label>
+            <div class="form-popup" id="myForm">
+             <form action="" class="form-container">
+              <h1>tag someone</h1>
+              <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+              $result = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($result) > 0)
+              {
+                  while ($row = mysqli_fetch_assoc($result))
+                  {
+                      $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
+                      $result1 = mysqli_query($conn, $sql1);
+                      if (mysqli_num_rows($result1) > 0)
+                      {
+                          while ($row1 = mysqli_fetch_assoc($result1))
+                          {
+                              $imgid = $row1["img_id"];
+                              $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                              $resultimg = mysqli_query($conn, $sqlimg);
+                              $rowimg = mysqli_fetch_assoc($resultimg);
+                              echo "<a href='#'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                          }
+                      }
+                  }
+              } ?>
+              <button type="button" class="btn cancel">Close</button>
+             </form>
+            </div>
+
             <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
             <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
             <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">

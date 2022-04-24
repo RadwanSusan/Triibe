@@ -260,3 +260,10 @@ span.onclick = () => {
 	modal.style.display = "none";
 	modalImg.src = "";
 };
+document.querySelector(".tagIcon").addEventListener("click", () =>{
+  document.getElementById("myForm").style.display = "block";
+});
+
+document.querySelector(".cancel").addEventListener("click", () =>{
+  document.getElementById("myForm").style.display = "none";
+});
