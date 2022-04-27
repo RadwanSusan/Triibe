@@ -431,11 +431,13 @@
       <span class="close">&times;</span>
       <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
     </div>
+    <div id="particles-js"></div>
     <button class="scrollToTopBtn">☝️</button>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script type="module" src="bootstrap-js/home.js" defer></script>
   </body>
 </html>

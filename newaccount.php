@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <img class="openEye2" src="Design/Image/Password-OpenEye.svg" alt="eye" />
                     </div>
                     <div class="input-box">
-                      <select class="select-1" name="year">
+                      <select class="select-1" name="year" required>
                         <option value="none" disabled selected>Collage year</option>
                         <option value="1">First Year</option>
                         <option value="2">Second Year</option>
