@@ -249,21 +249,31 @@ document.querySelector(".right-top-card").addEventListener("click", () => {
 });
 $(".post-image").on("contextmenu", (e) => false);
 const modal = document.querySelector(".modal");
-const img = document.querySelector(".post-image");
+const img = document.querySelectorAll(".post-image");
 const modalImg = document.querySelector(".modal-content");
-img.onclick = () => {
-	modal.style.display = "block";
-	modalImg.src = img.src;
-};
-const span = document.getElementsByClassName("close")[0];
-span.onclick = () => {
+const closeBtn = document.querySelector(".close");
+img.forEach((element) => {
+	element.addEventListener("click", () => {
+		modal.style.display = "block";
+		modalImg.src = element.src;
+		// set the scroll bar to none
+		document.body.style.overflow = "hidden";
+	});
+});
+closeBtn.addEventListener("click", () => {
 	modal.style.display = "none";
-	modalImg.src = "";
-};
-document.querySelector(".tagIcon").addEventListener("click", () =>{
-  document.getElementById("myForm").style.display = "block";
+	document.body.style.overflow = "auto";
+});
+window.addEventListener("click", (e) => {
+	if (e.target == modal) {
+		modal.style.display = "none";
+		document.body.style.overflow = "auto";
+	}
+});
+document.querySelector(".tagIcon").addEventListener("click", () => {
+	document.getElementById("myForm").style.display = "block";
 });
 
-document.querySelector(".cancel").addEventListener("click", () =>{
-  document.getElementById("myForm").style.display = "none";
+document.querySelector(".cancel").addEventListener("click", () => {
+	document.getElementById("myForm").style.display = "none";
 });
