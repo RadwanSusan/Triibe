@@ -117,7 +117,6 @@
               <button type="button" class="btn cancel">Close</button>
              </form>
             </div>
-
             <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
             <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
             <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">
@@ -286,10 +285,34 @@
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
-                                       <img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
-                                      <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
-                                       <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>$likenum likes</p>
-                                       <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>$likenum likes</p>
+                                       ";
+                                        $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
+                                        $result3 = mysqli_query($conn, $sql4);
+                                        if (mysqli_num_rows($result3) > 0){
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt=''>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
+                                                  ";
+                                                  if ($likenum == 1){
+                                                    echo "<p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
+                                                  <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
+                                                  ";
+                                                  }else{
+                                                    echo "
+                                                    <p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                  <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                  ";
+                                                  }
+                                        }else{
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
+                                                  <p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                  <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                            ";
+                                        }
+                                       echo "
                                        </div>
                                        <div class='comment'>
                                        <img src='Design/Image/home-images/images/Comment.svg' alt=''>
@@ -314,10 +337,34 @@
                               </div>
                               <div class='likes'>
                                  <div class='like'>
-                                    <img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
-                                    <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
-                                   <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>$likenum likes</p>
-                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>$likenum likes</p>
+                                  ";
+                                    $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
+                                    $result4 = mysqli_query($conn, $sql5);
+                                    if (mysqli_num_rows($result4) > 0){
+                                        echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt=''>
+                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
+                                              ";
+                                              if ($likenum == 1){
+                                                  echo "<p class='LikeCount'>$likenum</p>
+                                                        <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
+                                                        <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
+                                              ";
+                                              }else{
+                                                  echo "
+                                                        <p class='LikeCount'>$likenum</p>
+                                                        <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                        <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                              ";
+                                              }
+                                    }else{
+                                        echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
+                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
+                                              <p class='LikeCount'>$likenum</p>
+                                              <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                              <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                        ";
+                                    }
+                                  echo "
                                  </div>
                                  <div class='comment'>
                                     <img src='Design/Image/home-images/images/Comment.svg' alt=''>

@@ -673,7 +673,6 @@ body {
 	height: 18px;
 	cursor: pointer;
 	margin: 2px 2px 2px 2px;
-	display: none;
 }
 .comment img {
 	width: 25px;
@@ -882,12 +881,6 @@ body {
 .showBtn {
 	opacity: 1;
 	transform: translateY(0);
-}
-
-.LikeParagraph {
-}
-.UnLikeParagraph {
-	display: none;
 }
 
 .left-top-card {

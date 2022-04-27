@@ -145,15 +145,8 @@ hoverAnimation(".gifIcon", "mouseover", ".gifIcon", "animate__heartBeat");
 hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
 hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
 hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
-document.querySelector(".like").addEventListener("click", () => {
-	if (localStorage.getItem("like") === "liked") {
-		localStorage.setItem("like", "notLiked");
-	} else {
-		localStorage.setItem("like", "liked");
-	}
-});
 $(document).ready(() => {
-	$(".LikeParagraph").on("click", function () {
+	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
 		$.ajax({
@@ -169,11 +162,20 @@ $(document).ready(() => {
 				$(".UnLikeParagraph").show();
 				$(".likeHollow").hide();
 				$(".likeFilled").show();
-				localStorage.setItem("like", "liked");
+				const likes = document.querySelector(".LikeCount").textContent;
+				const new_likes_number = parseInt(likes) + 1;
+				$(".LikeCount").text(`${new_likes_number}`);
+				if (new_likes_number == 1) {
+					$(".LikeParagraph").text(`Like`);
+					$(".UnLikeParagraph").text(`Like`);
+				} else {
+					$(".LikeParagraph").text(`Likes`);
+					$(".UnLikeParagraph").text(`Likes`);
+				}
 			},
 		});
 	});
-	$(".UnLikeParagraph").on("click", function () {
+	$(".UnLikeParagraph, .likeFilled").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
 		$.ajax({
@@ -184,40 +186,41 @@ $(document).ready(() => {
 				post_id,
 				std_id,
 			},
-			success() {
+			success(response) {
 				$(".UnLikeParagraph").hide();
 				$(".LikeParagraph").show();
 				$(".likeFilled").hide();
 				$(".likeHollow").show();
-				localStorage.setItem("like", "notLiked");
+				const likes = document.querySelector(".LikeCount").textContent;
+				const new_likes_number = parseInt(likes) - 1;
+				$(".LikeCount").text(`${new_likes_number}`);
+				if (new_likes_number == 1) {
+					$(".LikeParagraph").text(`Like`);
+					$(".UnLikeParagraph").text(`Like`);
+				} else {
+					$(".LikeParagraph").text(`Likes`);
+					$(".UnLikeParagraph").text(`Likes`);
+				}
 			},
 		});
 	});
-	// 	setInterval(function () {
+	// NOTE - Don't Delete the below code
+	// setInterval(() => {
+	// 	$(".LikeCount").each(function () {
+	// 		const post_id = $(this).attr("post_id");
 	// 		$.ajax({
-	// 			url: "home.php",
+	// 			url: "like.php",
 	// 			type: "post",
 	// 			data: {
-	// 				check_like: 1,
+	// 				refreshLikeCount: 1,
+	// 				post_id,
 	// 			},
 	// 			success(response) {
-	// 				if (response == "liked") {
-	// 					$(".LikeParagraph").hide();
-	// 					$(".UnLikeParagraph").show();
-	// 					$(".likeHollow").hide();
-	// 					$(".likeFilled").show();
-	// 					localStorage.setItem("like", "liked");
-	// 				} else if (response == "notLiked") {
-	// 					$(".UnLikeParagraph").hide();
-	// 					$(".LikeParagraph").show();
-	// 					$(".likeFilled").hide();
-	// 					$(".likeHollow").show();
-	// 					localStorage.setItem("like", "notLiked");
-	// 				}
+	// 				$(this).text(response);
 	// 			},
 	// 		});
-	// 	}, 100);
-	// });
+	// 	});
+	// }, 5000);
 	const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
 	const rootElement = document.documentElement;
 	const handleScroll = () => {

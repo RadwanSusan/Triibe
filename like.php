@@ -17,7 +17,6 @@ if (isset($_POST['like'])) {
 			$sql = "UPDATE post SET likes_count = '$likes_count' WHERE post_id = '$post_id'";
 			$result = mysqli_query($conn, $sql);
 		}
-		$likenum = $likes_count;
 }
 if (isset($_POST['unlike'])) {
 		$post_id = $_POST['post_id'];
@@ -36,28 +35,13 @@ if (isset($_POST['unlike'])) {
 			$sql = "UPDATE post SET likes_count = '$likes_count' WHERE post_id = '$post_id'";
 			$result = mysqli_query($conn, $sql);
 		}
-		$likenum = $likes_count;
 }
-if (isset($_POST['checklike'])) {
+if (isset($_POST['refreshLikeCount'])) {
 		$post_id = $_POST['post_id'];
-		$std_id = $_POST['std_id'];
-		$sql = "SELECT * FROM post_likes WHERE post_id = '$post_id' AND std_id = '$std_id'";
-		$result = mysqli_query($conn, $sql);
-		$count = mysqli_num_rows($result);
-		if ($count == 1) {
-			echo "liked";
-		}
-		else {
-			echo "NOTLiked";
-		}
-}
-if (isset($_POST['checklikecount'])) {
-		$post_id = $_POST['post_id'];
-		$post_id2 = $_POST['post_id2'];
 		$post_like_count = "SELECT COUNT(*) FROM post_likes WHERE post_id = '$post_id'";
-		$result2 = mysqli_query($conn, $post_like_count);
-		$row2 = mysqli_fetch_assoc($result2);
-		$likenum = $row2['COUNT(*)'];
+		$result = mysqli_query($conn, $post_like_count);
+		$row = mysqli_fetch_assoc($result);
+		$likenum = $row['COUNT(*)'];
 		echo $likenum;
 }
 ?>
