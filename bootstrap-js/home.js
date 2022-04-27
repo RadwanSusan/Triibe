@@ -204,23 +204,22 @@ $(document).ready(() => {
 			},
 		});
 	});
-	// NOTE - Don't Delete the below code
-	// setInterval(() => {
-	// 	$(".LikeCount").each(function () {
-	// 		const post_id = $(this).attr("post_id");
-	// 		$.ajax({
-	// 			url: "like.php",
-	// 			type: "post",
-	// 			data: {
-	// 				refreshLikeCount: 1,
-	// 				post_id,
-	// 			},
-	// 			success(response) {
-	// 				$(this).text(response);
-	// 			},
-	// 		});
-	// 	});
-	// }, 5000);
+	setInterval(() => {
+		$(".LikeCount").each(function () {
+			const post_id = $(this).attr("post_id");
+			$.ajax({
+				url: "like.php",
+				type: "post",
+				data: {
+					refreshLikeCount: 1,
+					post_id,
+				},
+				success(response) {
+					$(this).text(response);
+				},
+			});
+		});
+	}, 5000);
 	const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
 	const rootElement = document.documentElement;
 	const handleScroll = () => {
