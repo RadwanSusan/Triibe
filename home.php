@@ -39,26 +39,26 @@
       <?php
       $img_id = null;
       if($_SERVER["REQUEST_METHOD"] == "POST"){
-           $file = $_FILES['file']; // file is the name of the input field
-           $fileName = $_FILES['file']['name']; // name of the file
-           $fileTmpName = $_FILES['file']['tmp_name']; // temporary location
-           $fileSize = $_FILES['file']['size']; // in bytes
-           $fileError = $_FILES['file']['error']; // 0 = no error, 1 = error
-           $fileExt = explode('.', $fileName); // explode the file name
-           $fileActualExt = strtolower(end($fileExt)); // get the extension of the file
-              if($fileError === 0){ // if there is no error
-                 if($fileSize < 50000000){ // if the file size is less than 50mb
-                    $fileNameNew = uniqid('', true).".".$fileActualExt; // create a new file name
-                    $fileDestination = 'db_images/'.$fileNameNew; // destination of the file
+           $file = $_FILES['file'];
+           $fileName = $_FILES['file']['name'];
+           $fileTmpName = $_FILES['file']['tmp_name'];
+           $fileSize = $_FILES['file']['size'];
+           $fileError = $_FILES['file']['error'];
+           $fileExt = explode('.', $fileName);
+           $fileActualExt = strtolower(end($fileExt));
+              if($fileError === 0){
+                 if($fileSize < 50000000){
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $fileDestination = 'db_images/'.$fileNameNew;
                     $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
                     mysqli_query($conn, $sqlimg);
-                    move_uploaded_file($fileTmpName, $fileDestination); // move the file to the destination
-                    // header("Location: home.php"); // redirect to index.php
+                    move_uploaded_file($fileTmpName, $fileDestination);
+
                  }else{
-                    echo "<script>alert('Your file is too big!')</script>"; // if the file size is greater than 50mb
+                    echo "<script>alert('Your file is too big!')</script>";
                  }
               }else{
-                 echo "<script>alert('There was an error uploading your file!')</script>"; // if there is an error
+                 echo "<script>alert('There was an error uploading your file!')</script>";
               }
               $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
               $row = mysqli_fetch_array($result);
@@ -356,17 +356,17 @@
           <img class="housingIcon-Light" src="Design/Image/home-images/images/housing-icon.svg" alt=""/>
           <img class="housingIcon-Dark" src="Design/Image/home-images/images/housing-icon2.svg" alt=""/>
           <span>Housing</span></a>
-          <a href="http://elearning.ahu.edu.jo/login/index.php">
+          <a href="http:
           <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" alt=""/>
           <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt=""/>
           <span>E-Learning</span>
           </a>
-          <a href="http://sis.ahu.edu.jo/">
+          <a href="http:
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" alt=""/>
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" alt=""/>
           <span>Student information system</span>
           </a>
-          <a href="http://reg.ahu.edu.jo/">
+          <a href="http:
           <img class="regIcon-Light" src="Design/Image/home-images/images/RegIcon.svg" alt=""/>
           <img class="regIcon-Dark" src="Design/Image/home-images/images/RegIcon2.svg" alt=""/>
           <span>Student registration system</span>
@@ -389,7 +389,7 @@
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https:
     <script type="module" src="bootstrap-js/home.js" defer></script>
   </body>
 </html>
