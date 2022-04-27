@@ -256,6 +256,7 @@ img.forEach((element) => {
 	element.addEventListener("click", () => {
 		modal.style.display = "block";
 		modalImg.src = element.src;
+		// set the scroll bar to none
 		document.body.style.overflow = "hidden";
 	});
 });
@@ -272,6 +273,7 @@ window.addEventListener("click", (e) => {
 document.querySelector(".tagIcon").addEventListener("click", () => {
 	document.getElementById("myForm").style.display = "block";
 });
+
 document.querySelector(".cancel").addEventListener("click", () => {
 	document.getElementById("myForm").style.display = "none";
 });
