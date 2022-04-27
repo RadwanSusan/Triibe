@@ -90,9 +90,11 @@
             <label class="uploadLabel" for="tagfriend">
             <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
             </label>
-            <div class="form-popup" id="myForm">
+            <div class="form-popup arrow-div" id="myForm">
              <form action="" class="form-container">
-              <h1>tag someone</h1>
+              <h1 class="tagH1">Tag someone</h1>
+              <button type="button" class="btn cancel">Close</button>
+              <div class="innerTag">
               <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0)
@@ -109,12 +111,12 @@
                               $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
-                              echo "<a href='#'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                              echo "<a href='#'><img class='tagImg' src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
                           }
                       }
                   }
               } ?>
-              <button type="button" class="btn cancel">Close</button>
+              </div>
              </form>
             </div>
             <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
