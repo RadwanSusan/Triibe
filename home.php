@@ -39,26 +39,25 @@
       <?php
       $img_id = null;
       if($_SERVER["REQUEST_METHOD"] == "POST"){
-           $file = $_FILES['file']; // file is the name of the input field
-           $fileName = $_FILES['file']['name']; // name of the file
-           $fileTmpName = $_FILES['file']['tmp_name']; // temporary location
-           $fileSize = $_FILES['file']['size']; // in bytes
-           $fileError = $_FILES['file']['error']; // 0 = no error, 1 = error
-           $fileExt = explode('.', $fileName); // explode the file name
-           $fileActualExt = strtolower(end($fileExt)); // get the extension of the file
-              if($fileError === 0){ // if there is no error
-                 if($fileSize < 50000000){ // if the file size is less than 50mb
-                    $fileNameNew = uniqid('', true).".".$fileActualExt; // create a new file name
-                    $fileDestination = 'db_images/'.$fileNameNew; // destination of the file
+           $file = $_FILES['file'];
+           $fileName = $_FILES['file']['name'];
+           $fileTmpName = $_FILES['file']['tmp_name'];
+           $fileSize = $_FILES['file']['size'];
+           $fileError = $_FILES['file']['error'];
+           $fileExt = explode('.', $fileName);
+           $fileActualExt = strtolower(end($fileExt));
+              if($fileError === 0){
+                 if($fileSize < 50000000){
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $fileDestination = 'db_images/'.$fileNameNew;
                     $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
                     mysqli_query($conn, $sqlimg);
-                    move_uploaded_file($fileTmpName, $fileDestination); // move the file to the destination
-                    // header("Location: home.php"); // redirect to index.php
+                    move_uploaded_file($fileTmpName, $fileDestination);
                  }else{
-                    echo "<script>alert('Your file is too big!')</script>"; // if the file size is greater than 50mb
+                    echo "<script>alert('Your file is too big!')</script>";
                  }
               }else{
-                 echo "<script>alert('There was an error uploading your file!')</script>"; // if there is an error
+                 echo "<script>alert('There was an error uploading your file!')</script>";
               }
               $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
               $row = mysqli_fetch_array($result);
