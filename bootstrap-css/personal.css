@@ -681,6 +681,14 @@
 	left: 0;
 }
 
+.video-js {
+	border-radius: 6px;
+}
+
+.video-js .vjs-tech {
+	border-radius: 6px;
+}
+
 .post-image {
 	max-width: 55%;
 	height: auto;

@@ -1428,3 +1428,11 @@ canvas {
 .count-particles {
 	border-radius: 0 0 3px 3px;
 }
+
+.video-js {
+	border-radius: 6px;
+}
+
+.video-js .vjs-tech {
+	border-radius: 6px;
+}

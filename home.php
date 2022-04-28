@@ -45,13 +45,13 @@
        if($_SERVER["REQUEST_METHOD"] == "POST"){
            $file = $_FILES['file'];
            $fileName = $_FILES['file']['name'];
-           $ext = pathinfo($fileName, PATHINFO_EXTENSION);
            $fileTmpName = $_FILES['file']['tmp_name'];
            $fileSize = $_FILES['file']['size'];
            $fileError = $_FILES['file']['error'];
            $fileExt = explode('.', $fileName);
            $fileActualExt = strtolower(end($fileExt));
-           if($ext = "" || $ext == null){
+           $ext = $fileActualExt;
+           if($ext == "" || $ext == null){
               $post = nl2br($_POST["content"]);
               $date = date("Y-m-d H:i:s", time());
               $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , NULL , NULL)";
@@ -113,6 +113,8 @@
           }else{
             echo "<script>alert('Post Failed');</script>";
           }
+        }else{
+          echo "<script>alert('File type not supported');</script>";
         }
       }
       ?>

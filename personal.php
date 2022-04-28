@@ -6,15 +6,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
-    <link rel="stylesheet" href="bootstrap-css/all.min.css" />
-    <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
-    <link id="theme" rel="stylesheet" href="bootstrap-css/personal.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon">
     <title>Triibe</title>
+    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+    <link id="theme" rel="stylesheet" href="bootstrap-css/personal.css"/>
   </head>
   <body>
     <div class="post-card slide-in-elliptic-top-fwd">
@@ -39,13 +42,13 @@
        if($_SERVER["REQUEST_METHOD"] == "POST"){
            $file = $_FILES['file'];
            $fileName = $_FILES['file']['name'];
-           $ext = pathinfo($fileName, PATHINFO_EXTENSION);
            $fileTmpName = $_FILES['file']['tmp_name'];
            $fileSize = $_FILES['file']['size'];
            $fileError = $_FILES['file']['error'];
            $fileExt = explode('.', $fileName);
            $fileActualExt = strtolower(end($fileExt));
-           if($ext = "" || $ext == null){
+           $ext = $fileActualExt;
+           if($ext == "" || $ext == null){
               $post = nl2br($_POST["content"]);
               $date = date("Y-m-d H:i:s", time());
               $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , NULL , NULL)";
@@ -73,9 +76,9 @@
               $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
               $row = mysqli_fetch_array($result);
               $img_id = $row["img_id"];
-          $post = nl2br($_POST["content"]);
-          $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
+              $post = nl2br($_POST["content"]);
+              $date = date("Y-m-d H:i:s", time());
+              $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
           if(mysqli_query($conn, $sql)){
             header("Location: home.php");
           }
@@ -84,7 +87,7 @@
           }
         }else if($ext == "mp4" || $ext == "webm"){
             if($fileError === 0){
-               if($fileSize < 50000000){
+               if($fileSize < 5000000000){
                   $fileNameNew = uniqid('', true).".".$fileActualExt;
                   $fileDestination = 'db_images/'.$fileNameNew;
                   $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
@@ -107,6 +110,8 @@
           }else{
             echo "<script>alert('Post Failed');</script>";
           }
+        }else{
+          echo "<script>alert('File type not supported');</script>";
         }
       }
       ?>
@@ -348,7 +353,7 @@ Bin Talal University</div>
              <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
              </div>
           </div>
-          <?php
+                   <?php
             $likenum = 0;
             $sql = "SELECT * FROM post where author = ".$_SESSION["std_id"]." order by created_date desc";
             $result = mysqli_query($conn, $sql);
@@ -553,8 +558,8 @@ Bin Talal University</div>
                                  </div>
                                  </div>
                               </div>";
-                }
-              }
+            }
+            }
             }
             ?>
           </div>
@@ -568,6 +573,7 @@ Bin Talal University</div>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
     <script type="module" src="bootstrap-js/personal.js" defer></script>
   </body>
 </html>
