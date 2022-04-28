@@ -22,6 +22,7 @@ $(document).ready(() => {
 			modal.style.display = "block";
 			modalImg.src = element.src;
 			document.body.style.overflow = "hidden";
+			modalImg.style.maxWidth = modalImg.height > 850 ? "600px" : "700px";
 		});
 	});
 	closeBtn.addEventListener("click", () => {
