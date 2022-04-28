@@ -13,6 +13,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon">
     <title>Triibe</title>
   </head>
   <body>
@@ -70,7 +71,6 @@
           }
         }
       ?>
-
      <form method = "POST"  enctype="multipart/form-data">
       <div class="mid-card">
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
@@ -168,6 +168,7 @@
       </div>
     </nav>
     <div class='content1'>
+      <div class="headerBackground bg-pan-top">
       <div class="top">
         <div>
            <img src="Design/Image/home-images/images/farme.svg" alt="">
@@ -178,7 +179,6 @@
           </div>
           </div>
         </div>
-
         <!-- <img src="Design/Image/home-images/images/Linear_Layer.svg" alt=""> -->
       </div>
       <div class="bottom-content">
@@ -217,6 +217,7 @@
               <a href="">Photos</a>
               <a href="">Videos</a>
           </div>
+      </div>
       </div>
       <div class="content-personal-post">
         <div class="content-left">
@@ -464,6 +465,10 @@ Bin Talal University</div>
           </div>
         </div>
       </div>
+    </div>
+     <div class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
     </div>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>

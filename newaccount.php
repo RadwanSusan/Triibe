@@ -36,7 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["pass"];
     $password2 = $_POST["pass2"];
     $fname = $_POST["fname"];
+    $fname = ucfirst($fname);
     $lname = $_POST["lname"];
+    $lname = ucfirst($lname);
     $gender = $_POST["gender"];
     $year = $_POST["year"];
     $email = $_POST["email"];

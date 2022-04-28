@@ -176,6 +176,25 @@ body {
 	color: #000000;
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
+	text-decoration: none;
+}
+
+.nav-user-icon a:link {
+	text-decoration: none;
+}
+
+.nav-user-icon a:visited {
+	text-decoration: none;
+}
+
+.nav-user-icon a:hover {
+	text-decoration: underline;
+	color: #262626;
+}
+
+.nav-user-icon a:active {
+	text-decoration: underline;
+	color: #000000;
 }
 
 .online::before {
@@ -1111,7 +1130,8 @@ body {
 	margin: auto;
 	display: block;
 	width: 70%;
-	max-width: 750px;
+	max-width: 700px;
+	max-height: fit-content;
 	box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
 }
 
@@ -1123,9 +1143,9 @@ body {
 }
 
 .close {
-	position: absolute;
+	position: fixed;
 	top: 15px;
-	right: 35px;
+	left: 35px;
 	color: #f1f1f1;
 	font-size: 40px;
 	font-weight: bold;
