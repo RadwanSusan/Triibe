@@ -48,7 +48,18 @@
            $fileError = $_FILES['file']['error'];
            $fileExt = explode('.', $fileName);
            $fileActualExt = strtolower(end($fileExt));
-           if($ext == "jpg" || $ext == "jpeg" || $ext == "png"){
+           if($ext = "" || $ext == null){
+              $post = nl2br($_POST["content"]);
+              $date = date("Y-m-d H:i:s", time());
+              $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , NULL , NULL)";
+              if(mysqli_query($conn, $sql)){
+                header("Location: home.php");
+              }
+              else{
+                echo "<script>alert('Post Failed');</script>";
+              }
+          }
+           else if($ext == "jpg" || $ext == "jpeg" || $ext == "png"){
               if($fileError === 0){
                  if($fileSize < 50000000){
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
