@@ -317,7 +317,16 @@
                               </div>
                               </div>
                               <div class='right-post'>
-                                 <img src='Design/Image/home-images/images/Dots.svg' alt=''>
+                                 <img src='Design/Image/home-images/images/Dots.svg' class='modify' alt=''>
+                                 <div class='form-popup1 arrow-div' id='myForm1'>
+                                  <form action='' class='form-container'>
+                                  <button type='button' class='btn cancel1'>Close</button>
+                                  <div class='innerTag'>
+                                  <a class='edit'>edit</a>
+                                  <a class='delete post_id='".$row["post_id"]."'>delete</a>
+                                  </div>
+                                  </form>
+                                  </div>
                               </div>
                               </div>
                               <div class='mid-post'>

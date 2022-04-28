@@ -163,6 +163,19 @@ $(document).ready(() => {
 		});
 	});
 
+	$(".delete").on("click", function () {
+		const post_id1 = $(this).attr("post_id");
+		$.ajax({
+			url: "like.php",
+			type: "post",
+			data: {
+				delete : 1,
+				post_id1,
+			},
+			success(){}, 
+		});
+	});
+
 	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
@@ -297,6 +310,12 @@ document.querySelector(".tagIcon").addEventListener("click", () => {
 document.querySelector(".cancel").addEventListener("click", () => {
 	document.getElementById("myForm").style.display = "none";
 });
+document.querySelector(".modify").addEventListener("click", () => {
+	document.getElementById("myForm1").style.display = "block";
+});
+document.querySelector(".cancel1").addEventListener("click", () => {
+	document.getElementById("myForm1").style.display = "none";
+});
 particlesJS("particles-js", {
 	particles: {
 		number: { value: 130, density: { enable: true, value_area: 2000 } },
@@ -342,3 +361,4 @@ particlesJS("particles-js", {
 	},
 	retina_detect: true,
 });
+

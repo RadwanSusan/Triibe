@@ -49,4 +49,10 @@ if (isset($_POST['friendclick'])){
 	$friend_id = $_POST['friend_id'];
 	echo $friend_id;
 }
+
+if(isset($_POST['delete'])){
+	$post_id1 = $_POST['post_id1'];
+	$sql = "DELETE FROM post WHERE post_id = '$post_id1'";
+	$result = mysqli_query($conn, $sql);
+}
 ?>
