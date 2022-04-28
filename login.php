@@ -55,6 +55,7 @@
             $_SESSION["std_fname"] = $row["std_fname"];
             $_SESSION["std_lname"] = $row["std_lname"];
             $_SESSION["email"] = $row["email"];
+            $_SESSION["loc"] = $row["loc"];
             $_SESSION["collage"] = $row["collage"];
             $_SESSION["gender"] = $row["gender"];
             $_SESSION["account_id"] = $row["account_id"];

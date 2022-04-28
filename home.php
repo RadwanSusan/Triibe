@@ -162,10 +162,10 @@
           </li>
         </ul>
         <div class="nav-user-icon online">
-          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="" />
-          <div class="name">
+          <a href='personal.php'><img src="<?php echo $_SESSION["img_name"]; ?>" alt="" /></a>
+          <a href='personal.php'><div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
-          </div>
+          </div></a>
         </div>
       </div>
     </nav>
