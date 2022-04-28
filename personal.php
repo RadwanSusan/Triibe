@@ -87,7 +87,7 @@
           }
         }else if($ext == "mp4" || $ext == "webm"){
             if($fileError === 0){
-               if($fileSize < 5000000000){
+               if($fileSize < 100000000){
                   $fileNameNew = uniqid('', true).".".$fileActualExt;
                   $fileDestination = 'db_images/'.$fileNameNew;
                   $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
