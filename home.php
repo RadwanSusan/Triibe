@@ -90,7 +90,7 @@
           }
         }else if($ext == "mp4" || $ext == "webm"){
             if($fileError === 0){
-               if($fileSize < 50000000){
+               if($fileSize < 5000000000){
                   $fileNameNew = uniqid('', true).".".$fileActualExt;
                   $fileDestination = 'db_images/'.$fileNameNew;
                   $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
@@ -236,7 +236,7 @@
                               $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
-                              echo "<a href='#'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                              echo "<a href='#'class='friendpage' friend_id='".$row1["std_id"]."' ><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
                           }
                       }
                   }

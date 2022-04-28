@@ -44,4 +44,9 @@ if (isset($_POST['refreshLikeCount'])) {
 		$likenum = $row['COUNT(*)'];
 		echo $likenum;
 }
+
+if (isset($_POST['friendclick'])){
+	$friend_id = $_POST['friend_id'];
+	echo $friend_id;
+}
 ?>
