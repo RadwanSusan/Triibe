@@ -16,6 +16,114 @@
     <title>Triibe</title>
   </head>
   <body>
+    <div class="post-card slide-in-elliptic-top-fwd">
+      <div class="top-card">
+        <div class="left-top-card">
+          <div class="card-name-photo">
+            <img class="card-user-photo" src="<?php echo $_SESSION["img_name"]?>" alt="">
+            <div class="card-name"><?php echo $_SESSION["std_fname"] ." ". $_SESSION["std_lname"] ?></div>
+          </div>
+          <div class="card-inside-top">
+            <img src="Design/Image/home-images/images/ball2.svg" alt="">
+            <img src="Design/Image/home-images/images/card-down.svg" alt="">
+          </div>
+        </div>
+        <div class="right-top-card">
+          <img class="exitCard" src="Design/Image/home-images/images/exit-card.svg" alt="">
+        </div>
+      </div>
+      <?php
+      $img_id = null;
+      if($_SERVER["REQUEST_METHOD"] == "POST"){
+           $file = $_FILES['file'];
+           $fileName = $_FILES['file']['name'];
+           $fileTmpName = $_FILES['file']['tmp_name'];
+           $fileSize = $_FILES['file']['size'];
+           $fileError = $_FILES['file']['error'];
+           $fileExt = explode('.', $fileName);
+           $fileActualExt = strtolower(end($fileExt));
+              if($fileError === 0){
+                 if($fileSize < 50000000){
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $fileDestination = 'db_images/'.$fileNameNew;
+                    $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                    mysqli_query($conn, $sqlimg);
+                    move_uploaded_file($fileTmpName, $fileDestination);
+                 }else{
+                    echo "<script>alert('Your file is too big!')</script>";
+                 }
+              }else{
+                 echo "<script>alert('There was an error uploading your file!')</script>";
+              }
+              $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
+              $row = mysqli_fetch_array($result);
+              $img_id = $row["img_id"];
+              header("Location: home.php");
+          $post = nl2br($_POST["content"]);
+          $date = date("Y-m-d H:i:s", time());
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";
+          if(mysqli_query($conn, $sql)){
+            header("Location: home.php");
+          }
+          else{
+            echo "<script>alert('Post Failed');</script>";
+          }
+        }
+      ?>
+
+     <form method = "POST"  enctype="multipart/form-data">
+      <div class="mid-card">
+        <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
+      </div>
+      <div class="down-card">
+        <div class="left-down-card">
+          <p>Add to your post</p>
+          <div class="icon-down">
+            <label class="uploadLabel" for="uploadfile">
+              <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
+            </label>
+            <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
+            <label class="uploadLabel" for="tagfriend">
+            <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
+            </label>
+            <div class="form-popup arrow-div" id="myForm">
+             <form action="" class="form-container">
+              <h1 class="tagH1">Tag someone</h1>
+              <button type="button" class="btn cancel">Close</button>
+              <div class="innerTag">
+              <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+              $result = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($result) > 0)
+              {
+                  while ($row = mysqli_fetch_assoc($result))
+                  {
+                      $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
+                      $result1 = mysqli_query($conn, $sql1);
+                      if (mysqli_num_rows($result1) > 0)
+                      {
+                          while ($row1 = mysqli_fetch_assoc($result1))
+                          {
+                              $imgid = $row1["img_id"];
+                              $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                              $resultimg = mysqli_query($conn, $sqlimg);
+                              $rowimg = mysqli_fetch_assoc($resultimg);
+                              echo "<a href='#'><img class='tagImg' src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                          }
+                      }
+                  }
+              } ?>
+              </div>
+             </form>
+            </div>
+            <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
+            <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
+            <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">
+          </div>
+        </div>
+        <input type="submit" class="post-write" value="POST" name="post">
+      </div>
+    </form>
+    </div>
     <nav class="nav">
       <div class="nav-left">
         <div class="box">
@@ -68,7 +176,7 @@
             <img src="Design/Image/home-images/images/edit cover.svg" alt="">
             <p>Edit cover</p>
           </div>
-          </div> 
+          </div>
         </div>
 
         <!-- <img src="Design/Image/home-images/images/Linear_Layer.svg" alt=""> -->
@@ -120,7 +228,7 @@
             </div>
             <div class="bio bio1">
               <img src="Design/Image/home-images/images/bio1.svg" alt="">
-                <div class="name name2">Studies Software Engineering at Al-Hussein 
+                <div class="name name2">Studies Software Engineering at Al-Hussein
 Bin Talal University</div>
             </div>
             <div class="bio bio3">
@@ -152,7 +260,7 @@ Bin Talal University</div>
               <img src="/Design/Image/home-images/images/p3.svg" alt="image">
               <img src="/Design/Image/home-images/images/p4.svg" alt="image">
             </div>
-            
+
 
           </div>
            <div class="left-post left-post-two">
@@ -161,7 +269,7 @@ Bin Talal University</div>
             <h1>Friends</h1>
             <div class="see-more">See more</div>
             </div>
-            
+
             <div class="Friends">
               <div class="left-Friends">
               <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
@@ -353,14 +461,13 @@ Bin Talal University</div>
             }
             }
             ?>
-        </div>
-          
           </div>
+        </div>
       </div>
     </div>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="module" src="bootstrap-js/personal.js"></script>
+    <script type="module" src="bootstrap-js/personal.js" defer></script>
   </body>
 </html>

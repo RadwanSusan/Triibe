@@ -186,7 +186,7 @@ $(document).ready(() => {
 				post_id,
 				std_id,
 			},
-			success(response) {
+			success() {
 				$(".UnLikeParagraph").hide();
 				$(".LikeParagraph").show();
 				$(".likeFilled").hide();
@@ -204,41 +204,41 @@ $(document).ready(() => {
 			},
 		});
 	});
-	setInterval(() => {
-		$(".LikeCount").each(function () {
-			const post_id = $(this).attr("post_id");
-			$.ajax({
-				url: "like.php",
-				type: "post",
-				data: {
-					refreshLikeCount: 1,
-					post_id,
-				},
-				success(response) {
-					$(this).text(response);
-				},
-			});
-		});
-	}, 5000);
-	const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-	const rootElement = document.documentElement;
-	const handleScroll = () => {
-		const scrollTotal = 1700;
-		if (rootElement.scrollTop / scrollTotal > 0.8) {
-			scrollToTopBtn.classList.add("showBtn");
-		} else {
-			scrollToTopBtn.classList.remove("showBtn");
-		}
-	};
-	const scrollToTop = () => {
-		rootElement.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
-	scrollToTopBtn.addEventListener("click", scrollToTop);
-	document.addEventListener("scroll", handleScroll);
 });
+setInterval(() => {
+	$(".LikeCount").each(function () {
+		const post_id = $(this).attr("post_id");
+		$.ajax({
+			url: "like.php",
+			type: "post",
+			data: {
+				refreshLikeCount: 1,
+				post_id,
+			},
+			success(response) {
+				$(this).text(response);
+			},
+		});
+	});
+}, 5000);
+const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+const rootElement = document.documentElement;
+const handleScroll = () => {
+	const scrollTotal = 1700;
+	if (rootElement.scrollTop / scrollTotal > 0.8) {
+		scrollToTopBtn.classList.add("showBtn");
+	} else {
+		scrollToTopBtn.classList.remove("showBtn");
+	}
+};
+const scrollToTop = () => {
+	rootElement.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
+};
+scrollToTopBtn.addEventListener("click", scrollToTop);
+document.addEventListener("scroll", handleScroll);
 document.querySelector(".write-post-input").addEventListener("click", () => {
 	document.querySelector(".container1").style.opacity = "20%";
 	document.querySelector(".nav").style.opacity = "20%";

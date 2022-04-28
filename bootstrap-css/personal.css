@@ -1,335 +1,335 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(217, 217, 217, 0.383);
-  padding: 5px 2%;
-  border: 1px solid #d1d1d1;
-  border-radius: 10px;
-  /* margin-left: 13px; */
-  /* margin-right: 13px; */
-  position: sticky;
-  top: 3px;
-  z-index: 100;
-  backdrop-filter: blur(15px);
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: rgba(217, 217, 217, 0.383);
+	padding: 5px 2%;
+	border: 1px solid #d1d1d1;
+	border-radius: 10px;
+	/* margin-left: 13px; */
+	/* margin-right: 13px; */
+	position: sticky;
+	top: 3px;
+	z-index: 100;
+	backdrop-filter: blur(15px);
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }
 
 .box {
-  display: flex;
-  margin-right: 45px;
-  align-items: center;
-  position: relative;
+	display: flex;
+	margin-right: 45px;
+	align-items: center;
+	position: relative;
 }
 
 .box::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 39px;
-  right: -22px;
-  background: rgba(0, 0, 0, 0.51);
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 39px;
+	right: -22px;
+	background: rgba(0, 0, 0, 0.51);
 }
 
 .box p {
-  margin: auto;
-  color: #000000;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-style: normal;
-  font-size: 34px;
-  line-height: 53px;
-  font-weight: 400;
-  font-family: pridi;
-  cursor: pointer;
+	margin: auto;
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-style: normal;
+	font-size: 34px;
+	line-height: 53px;
+	font-weight: 400;
+	font-family: pridi;
+	cursor: pointer;
 }
 
 .logoLight {
-  width: 52px;
-  height: 44px;
-  margin-right: 8px;
-  margin-left: -21px;
-  margin-top: 6px;
-  cursor: pointer;
+	width: 52px;
+	height: 44px;
+	margin-right: 8px;
+	margin-left: -21px;
+	margin-top: 6px;
+	cursor: pointer;
 }
 .logoDark {
-  display: none;
+	display: none;
 }
 .nav-left,
 .nav-right {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .nav-right ul {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .nav-right ul li {
-  display: inline-block;
-  list-style: none;
-  background: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  position: relative;
-  top: 3px;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	display: inline-block;
+	list-style: none;
+	background: white;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: relative;
+	top: 3px;
+	cursor: pointer;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .nav-right ul li img {
-  width: 26px;
-  height: 26px;
-  margin: 0 15px;
-  position: absolute;
-  top: 10px;
-  left: -8px;
+	width: 26px;
+	height: 26px;
+	margin: 0 15px;
+	position: absolute;
+	top: 10px;
+	left: -8px;
 }
 
 .nav-right ul li:hover {
-  background-color: #d5d5d5;
+	background-color: #d5d5d5;
 }
 
 .themeDark {
-  display: none;
+	display: none;
 }
 
 .nav-user-icon img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-right: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	margin-right: 10px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .nav-user-icon {
-  margin-left: 30px;
+	margin-left: 30px;
 }
 
 .search-box {
-  background-color: #f8f8f8;
+	background-color: #f8f8f8;
 
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  padding: 2px 14px 0px 14px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	padding: 2px 14px 0px 14px;
 }
 
 .search-box img {
-  width: 20px;
+	width: 20px;
 }
 
 .search-box input {
-  width: 100%;
-  background-color: transparent;
-  padding: 10px;
-  outline: none;
-  border: 0;
+	width: 100%;
+	background-color: transparent;
+	padding: 10px;
+	outline: none;
+	border: 0;
 }
 
 .online {
-  position: relative;
-  display: flex;
-  align-items: center;
+	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .name {
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 42px;
-  color: #000000;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 42px;
+	color: #000000;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
 }
 
 .online::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 45px;
-  background: rgba(0, 0, 0, 0.51);
-  left: -16px;
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 45px;
+	background: rgba(0, 0, 0, 0.51);
+	left: -16px;
 }
 
 .online::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background-color: #41db51;
-  position: absolute;
-  top: 0;
-  right: 90px;
+	content: "";
+	width: 7px;
+	height: 7px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	background-color: #41db51;
+	position: absolute;
+	top: 0;
+	right: 90px;
 }
 .content1 {
-  /* width: 100%; */
-  /* background-color: #E7E7E7; */
-  /* height: 100%; */
-  display: block;
+	/* width: 100%; */
+	/* background-color: #E7E7E7; */
+	/* height: 100%; */
+	display: block;
 }
 .content1 .top {
-  background: #e7e7e7;
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  height: 100%;
+	background: #e7e7e7;
+	display: flex;
+	justify-content: center;
+	max-width: 100%;
+	height: 100%;
 }
 .top img {
-  position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 0%,
-    rgba(0, 0, 0, 0.46) 97.4%
-  );
-  border-radius: 0px 0px 13px 13px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
+	position: relative;
+	background: linear-gradient(
+		180deg,
+		rgba(196, 196, 196, 0) 0%,
+		rgba(0, 0, 0, 0.46) 97.4%
+	);
+	border-radius: 0px 0px 13px 13px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
 }
 .bottom-content {
-  display: flex;
-  justify-content: center;
-  background-color: #e7e7e7;
+	display: flex;
+	justify-content: center;
+	background-color: #e7e7e7;
 }
 .line-content {
-  display: flex;
-  justify-content: center;
-  background-color: #e7e7e7;
+	display: flex;
+	justify-content: center;
+	background-color: #e7e7e7;
 }
 .content1 .bottom {
-  display: flex;
-  justify-content: space-between;
-  width: 59%;
-  /* background: blue; */
-  /* margin-left: 430px; */
+	display: flex;
+	justify-content: space-between;
+	width: 59%;
+	/* background: blue; */
+	/* margin-left: 430px; */
 }
 .left-bottom {
-  display: flex;
-  align-items: center;
-  margin-left: 40px;
-  /* margin-left: 450px; */
+	display: flex;
+	align-items: center;
+	margin-left: 40px;
+	/* margin-left: 450px; */
 }
 .left-bottom img {
-  width: 170px;
-  border-radius: 50%;
-  margin-top: -40px;
-  z-index: 10;
-  /* margin-left: 150px; */
-  /* border: 1px solid #B9B9B9; */
-  /* box-sizing: border-box; */
-  /* filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3)); */
+	width: 170px;
+	border-radius: 50%;
+	margin-top: -40px;
+	z-index: 10;
+	/* margin-left: 150px; */
+	/* border: 1px solid #B9B9B9; */
+	/* box-sizing: border-box; */
+	/* filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3)); */
 }
 .right-bottom {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
+	display: flex;
+	align-items: center;
+	margin-right: 40px;
 }
 .add-friends {
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  background: white;
-  padding: 6px;
-  margin-right: 10px;
-  border-radius: 7px;
-  border: 1px solid #b0b0b0;
-  cursor: pointer;
-  padding-left: 12px;
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	background: white;
+	padding: 6px;
+	margin-right: 10px;
+	border-radius: 7px;
+	border: 1px solid #b0b0b0;
+	cursor: pointer;
+	padding-left: 12px;
 }
 .add-friends p {
-  margin: 0;
+	margin: 0;
 }
 .edit-profile {
-  display: flex;
-  align-items: center;
-  padding: 6px;
-  background: #c4c4c4;
-  border: 1px solid #b0b0b0;
-  box-sizing: border-box;
-  border-radius: 7px;
-  cursor: pointer;
-  padding-left: 12px;
+	display: flex;
+	align-items: center;
+	padding: 6px;
+	background: #c4c4c4;
+	border: 1px solid #b0b0b0;
+	box-sizing: border-box;
+	border-radius: 7px;
+	cursor: pointer;
+	padding-left: 12px;
 }
 .edit-profile p {
-  margin: 0;
+	margin: 0;
 }
 .info .name-bottom {
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 62px;
-  color: #000000;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 40px;
+	line-height: 62px;
+	color: #000000;
 }
 .info {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 .info .number-friends {
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 25px;
-  color: #4a4a4a;
-  margin-top: -20px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 25px;
+	color: #4a4a4a;
+	margin-top: -20px;
 }
 .line {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 59%;
-  /* left: 400px; */
-  height: 1.5px;
-  margin-top: 40px;
-  background-color: rgba(82, 82, 82, 0.56);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 59%;
+	/* left: 400px; */
+	height: 1.5px;
+	margin-top: 40px;
+	background-color: rgba(82, 82, 82, 0.56);
 }
 .list-photo-content {
-  display: flex;
-  justify-content: center;
-  background-color: #e7e7e7;
-  padding: 15px;
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+	display: flex;
+	justify-content: center;
+	background-color: #e7e7e7;
+	padding: 15px;
+	box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .list a {
-  text-decoration: none;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 33px;
-  color: #746d6d;
-  padding: 10px;
+	text-decoration: none;
+	font-family: "Poppins";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 33px;
+	color: #746d6d;
+	padding: 10px;
 }
 .user-profile {
-  display: flex;
-  align-items: center;
-  background: #b9b9b9;
-  width: fit-content;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 27px;
-  height: 40px;
+	display: flex;
+	align-items: center;
+	background: #b9b9b9;
+	width: fit-content;
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 27px;
+	height: 40px;
 }
 .user-profile img {
-  box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.25);
-  width: 35px;
-  height: 100%;
-  padding: 1px;
-  border-radius: 50%;
-  margin-right: 5px;
+	box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.25);
+	width: 35px;
+	height: 100%;
+	padding: 1px;
+	border-radius: 50%;
+	margin-right: 5px;
 }
 /* .user-profile img {
   height: 38px;
@@ -337,108 +337,108 @@
   color: #525252;
 } */
 .write-post {
-  padding-left: 15px;
-  height: 40px;
-  width: 644px;
-  background: #dcdcdc;
-  border-radius: 82px;
-  display: flex;
-  align-items: center;
-  line-height: 38px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  color: #696969;
+	padding-left: 15px;
+	height: 40px;
+	width: 644px;
+	background: #dcdcdc;
+	border-radius: 82px;
+	display: flex;
+	align-items: center;
+	line-height: 38px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #696969;
 }
 .write-post-container {
-  /* background: #e7e7e7; */
-  border-radius: 0px 0px 8px 8px;
-  height: fit-content;
-  width: 100%;
-  /* padding: 8px; */
+	/* background: #e7e7e7; */
+	border-radius: 0px 0px 8px 8px;
+	height: fit-content;
+	width: 100%;
+	/* padding: 8px; */
 }
 .post {
-  margin-top: 12px;
-  border: 1px solid rgba(30, 30, 30, 0.5);
-  box-sizing: border-box;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  width: fit-content;
-  height: fit-content;
+	margin-top: 12px;
+	border: 1px solid rgba(30, 30, 30, 0.5);
+	box-sizing: border-box;
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	width: fit-content;
+	height: fit-content;
 }
 .left-post .name-photo img {
-  width: 31px;
-  height: 31px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 50%;
+	width: 31px;
+	height: 31px;
+	box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+	border-radius: 50%;
 }
 .top-post {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 .name-photo {
-  display: flex;
-  align-items: center;
-  padding-right: 10px;
-  background: #dcdcdc;
-  border: 2px solid #b9b9b9;
-  box-sizing: border-box;
-  border-radius: 35px;
-  height: 39px;
-  margin-left: -10px;
+	display: flex;
+	align-items: center;
+	padding-right: 10px;
+	background: #dcdcdc;
+	border: 2px solid #b9b9b9;
+	box-sizing: border-box;
+	border-radius: 35px;
+	height: 39px;
+	margin-left: -10px;
 }
 .left-post .name {
-  position: relative;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  margin-left: 9px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  /* line-height: 19px; */
-  color: #000000;
+	position: relative;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	margin-left: 9px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	/* line-height: 19px; */
+	color: #000000;
 }
 
 .bio img {
-  margin-top: 2px;
-  padding: 9px;
+	margin-top: 2px;
+	padding: 9px;
 }
 .top-post .left-post {
-  display: flex;
-  align-items: center;
-  background: #b9b9b9;
-  border-radius: 200px;
-  height: 38px;
-  width: fit-content;
+	display: flex;
+	align-items: center;
+	background: #b9b9b9;
+	border-radius: 200px;
+	height: 38px;
+	width: fit-content;
 }
 .inside-top {
-  margin-left: 0px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
+	margin-left: 0px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 26px;
 
-  color: #000000;
+	color: #000000;
 
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .inside-top img {
-  padding-right: 5px;
-  margin-top: 2px;
+	padding-right: 5px;
+	margin-top: 2px;
 }
 
 .mid-post p {
-  padding: 10px;
-  margin-top: -10px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  color: #000000;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	padding: 10px;
+	margin-top: -10px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 /* .end-post {
   background: #dcdcdc;
@@ -446,234 +446,578 @@
   border-radius: 7px;
 } */
 .content-end {
-  background: #dcdcdc;
-  border: 1px solid rgba(0, 0, 0, 0.21);
-  border-radius: 7px;
-  margin: 0 10px 0 10px;
+	background: #dcdcdc;
+	border: 1px solid rgba(0, 0, 0, 0.21);
+	border-radius: 7px;
+	margin: 0 10px 0 10px;
 }
 .photo-post {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 .end-post img {
-  height: fit-content;
-  width: fit-content;
+	height: fit-content;
+	width: fit-content;
 }
 .likes {
-  display: flex;
-  justify-content: space-between;
-  background: #e7e7e7;
-  box-sizing: border-box;
-  border-radius: 0px 0px 8px 5px;
-  margin: 15px 0 0 0;
-  height: 30px;
-  padding: 19px;
-  position: relative;
+	display: flex;
+	justify-content: space-between;
+	background: #e7e7e7;
+	box-sizing: border-box;
+	border-radius: 0px 0px 8px 5px;
+	margin: 15px 0 0 0;
+	height: 30px;
+	padding: 19px;
+	position: relative;
 }
 .likes::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #838383;
-  top: 0;
-  left: 0;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #838383;
+	top: 0;
+	left: 0;
 }
 .like,
 .comment,
 .share,
 .save {
-  display: flex;
-  align-items: center;
-  position: relative;
+	display: flex;
+	align-items: center;
+	position: relative;
 }
 .like img,
 .comment img,
 .share img,
 .save img {
-  width: 20px;
-  height: 20px;
+	width: 20px;
+	height: 20px;
 }
 .comment::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background-color: #838383;
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	background-color: #838383;
 }
 
 .share img,
 .save img {
-  margin-top: 3px;
+	margin-top: 3px;
 }
 .like p,
 .comment p,
 .share p,
 .save p {
-  margin: 0;
-  font-size: 14px;
-  margin-left: 3px;
+	margin: 0;
+	font-size: 14px;
+	margin-left: 3px;
 }
 .content-personal-post {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
 }
 .left-post {
-  background: #e7e7e7;
-  border: 1px solid #b1b1b1;
-  box-sizing: border-box;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-  margin-right: 20px;
-  border-radius: 14px;
-  height: fit-content;
-  padding: 10px;
-  width: 355px;
+	background: #e7e7e7;
+	border: 1px solid #b1b1b1;
+	box-sizing: border-box;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+	margin-right: 20px;
+	border-radius: 14px;
+	height: fit-content;
+	padding: 10px;
+	width: 355px;
 }
 .left-post .bio {
-  display: flex;
-  align-items: center;
-  padding: 3px;
-  border-bottom: 1px solid #ffffff;
+	display: flex;
+	align-items: center;
+	padding: 3px;
+	border-bottom: 1px solid #ffffff;
 }
 .left-post .bio1 {
-  position: relative;
-  padding-top: 20px;
+	position: relative;
+	padding-top: 20px;
 }
 .left-post .bio1::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #939393;
-  top: 0;
-  left: 0;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #939393;
+	top: 0;
+	left: 0;
 }
 
 .left-post .bio2 {
-  border-bottom: none;
+	border-bottom: none;
 }
 .content-personal-post .right-post {
-  width: 36%;
+	width: 36%;
 }
 .title-bio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border-radius: 3px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffffff;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 10px;
 }
 .h1 {
-  width: 32px;
+	width: 32px;
 }
 .title-bio img {
-  position: relative;
-  padding-left: 15px;
+	position: relative;
+	padding-left: 15px;
 }
 .title-bio .name {
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-  color: #000000;
-  border-right: 2px solid #a8a8a8;
-  padding-right: 15px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 28px;
+	color: #000000;
+	border-right: 2px solid #a8a8a8;
+	padding-right: 15px;
 }
 .left-post h1 {
-  position: relative;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 31px;
-  color: #000000;
+	position: relative;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 23px;
+	line-height: 31px;
+	color: #000000;
 }
 .left-post h1::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #838383;
-  top: 28px;
-  left: 0;
-  box-shadow: 0px 2px 0px #ffffff;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: #838383;
+	top: 28px;
+	left: 0;
+	box-shadow: 0px 2px 0px #ffffff;
 }
 .name2 {
-  line-height: 25px;
+	line-height: 25px;
 }
 .edit-cover-content {
-  display: flex;
-  justify-content: flex-end;
-  background-color: blueviolet;
-  /* position: relative; */
-  width: 59.5%;
-  position: absolute;
-  top: 449px;
+	display: flex;
+	justify-content: flex-end;
+	background-color: blueviolet;
+	/* position: relative; */
+	width: 59.5%;
+	position: absolute;
+	top: 449px;
 }
 ///////////////
 .edit-cover {
-  width: 117px;
-  height: 32px;
-  display: flex;
-  background: #c4c4c4;
-  border: 1px solid #929292;
-  box-sizing: border-box;
-  border-radius: 7px;
+	width: 117px;
+	height: 32px;
+	display: flex;
+	background: #c4c4c4;
+	border: 1px solid #929292;
+	box-sizing: border-box;
+	border-radius: 7px;
 }
 .top-post .right-post {
-  width: 15px;
+	width: 15px;
 }
 .photo-see {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 10px;
 }
 .namePhoto img {
-  width: 160px;
+	width: 160px;
 }
 .Photo img {
-  padding: 2px;
+	padding: 2px;
 }
 .left-post-two {
-  margin-top: 15px;
+	margin-top: 15px;
 }
 .Friends {
-  display: flex;
-  justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 .namePhoto {
-  width: 155px;
+	width: 155px;
 }
 .names1 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 .see-more {
-  background: #c4c4c4;
-  border: 1px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 7px;
-  padding: 5px;
-  
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-color: #000000;
+	background: #c4c4c4;
+	border: 1px solid #ffffff;
+	box-sizing: border-box;
+	border-radius: 7px;
+	padding: 5px;
+
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
 }
 .info .number-friends {
-  position: relative;
+	position: relative;
 }
 .info .number-friends::after {
- content: "";
-    position: absolute;
-    width: 77px;
-    height: 1px;
-    background-color: #000000;
-    top: 24px;
-    left: 0;
+	content: "";
+	position: absolute;
+	width: 77px;
+	height: 1px;
+	background-color: #000000;
+	top: 24px;
+	left: 0;
+}
+
+.post-image {
+	max-width: 55%;
+	height: auto;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.post-image:hover {
+	opacity: 0.75;
+}
+
+.post-card {
+	position: absolute;
+	display: none;
+	width: 524px;
+	height: 300px;
+	background: #ffffff;
+	border: 1px solid #7b7b7b;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+	border-radius: 16px;
+	justify-content: space-between;
+	flex-direction: column;
+	top: 35%;
+	left: 35%;
+	transform: translate(-50%, -50%);
+	z-index: 500;
+}
+
+.slide-in-elliptic-top-fwd {
+	-webkit-animation: slide-in-elliptic-top-fwd 0.5s
+		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+		both;
+}
+
+@keyframes slide-in-elliptic-top-fwd {
+	0% {
+		-webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+		transform: translateY(-600px) rotateX(-30deg) scale(0);
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateY(0) rotateX(0) scale(1);
+		transform: translateY(0) rotateX(0) scale(1);
+		-webkit-transform-origin: 50% 1400px;
+		transform-origin: 50% 1400px;
+		opacity: 1;
+	}
+}
+
+.top-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 10px 10px 10px;
+}
+
+.left-top-card {
+	display: flex;
+	align-items: center;
+	background: #d8d8d8;
+	border-radius: 200px;
+	user-select: none;
+}
+
+.card-name-photo {
+	display: flex;
+	align-items: center;
+	background-color: #ffffff;
+	border-radius: 200px;
+	margin: 2px;
+	padding-right: 10px;
+}
+
+.card-user-photo {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+}
+
+.card-name {
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.card-inside-top {
+	padding: 7px 10px 5px 5px;
+	cursor: pointer;
+}
+
+.right-top-card img {
+	background: #d8d8d8;
+	padding: 9px;
+	border-radius: 50%;
+	cursor: pointer;
+	width: 38px;
+	height: 38px;
+	user-select: none;
+}
+
+.mid-card {
+	height: 50%;
+	margin: 10px 10px 0px 10px;
+}
+
+.card-write-post {
+	width: 100%;
+	height: 160px;
+	background: #d8d8d8;
+	border-radius: 9px;
+	padding: 8px;
+	font-family: "Pridi";
+	border: none;
+	resize: none;
+	user-select: none;
+}
+
+.card-write-post:focus {
+	outline: none;
+}
+
+.down-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0px 3px 10px 3px;
+	padding: 6px;
+}
+
+.left-down-card {
+	display: flex;
+	align-items: center;
+	width: 76%;
+	background: #d8d8d8;
+	padding: 13px;
+	border-radius: 9px;
+	justify-content: space-between;
+	user-select: none;
+}
+
+.icon-down img {
+	margin-right: 11px;
+	width: 21px;
+	cursor: pointer;
+}
+
+.fileUpload_Button {
+	display: none;
+}
+
+.form-popup {
+	display: none;
+	position: fixed;
+	background-color: #ffffff;
+	top: 315px;
+	right: 70px;
+	z-index: 9;
+	border-radius: 16px;
+	width: 280px;
+	box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 15%);
+}
+
+.form-popup a {
+	text-decoration: none;
+	color: #000000;
+	display: block;
+	margin: 10px 6px 0px 5px;
+	padding-left: 5px;
+}
+
+.form-popup a:last-child {
+	margin-bottom: 10px;
+}
+
+.arrow-div {
+	border: 5px solid #dddddd;
+}
+.arrow-div:after,
+.arrow-div:before {
+	bottom: 100%;
+	left: 25%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow-div:after {
+	border-color: rgba(241, 241, 241, 0);
+	border-bottom-color: white;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.arrow-div:before {
+	border-color: rgba(241, 241, 241, 0);
+	border-bottom-color: #dddddd;
+	border-width: 17px;
+	margin-left: -17px;
+}
+
+.form-container {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+.form-container .btn {
+	background-color: #04aa6d;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	opacity: 0.8;
+}
+
+.form-container .cancel {
+	background-color: red;
+}
+
+.form-container .btn:hover,
+.open-button:hover {
+	opacity: 1;
+}
+
+.tagH1 {
+	display: inline-block;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+	margin: 15px 10px 10px 10px;
+	padding-top: 10px;
+}
+
+.tagH1:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1.5px;
+	background-color: #000000;
+	border-radius: 50px;
+	margin: 0 auto;
+	margin-top: 3px;
+}
+
+.btn {
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	border-radius: 9px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	transition: all 0.4s ease;
+	margin: 0px 4px 4px 20px;
+}
+
+.btn:hover {
+	background-color: #d8d8d8;
+}
+
+.innerTag {
+	width: 93%;
+	height: auto;
+	max-height: 300px;
+	background-color: rgb(216, 216, 216);
+	margin: 10px;
+	border-radius: 9px;
+	display: inline-block;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.innerTag a::after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+	height: 1.5px;
+	margin-left: -2px;
+	background-color: rgb(104, 104, 104);
+	border-radius: 50px;
+}
+
+.innerTag a:last-child::after {
+	display: none;
+}
+
+.post-write {
+	padding: 12px 25px 12px 25px;
+	background: #ffffff;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	border-radius: 9px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	transition: all 0.4s ease;
+}
+
+.post-write:hover {
+	background-color: #d8d8d8;
 }

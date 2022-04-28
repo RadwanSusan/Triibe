@@ -892,6 +892,7 @@ body {
 	border-radius: 200px;
 	user-select: none;
 }
+
 .down-card p {
 	position: relative;
 	margin-bottom: 0px;
@@ -902,6 +903,7 @@ body {
 	color: #000000;
 	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
+
 .down-card p::after {
 	content: "";
 	position: absolute;
@@ -929,6 +931,7 @@ body {
 	transform: translate(-50%, -50%);
 	z-index: 500;
 }
+
 .card-write-post {
 	width: 100%;
 	height: 160px;
@@ -940,6 +943,7 @@ body {
 	resize: none;
 	user-select: none;
 }
+
 .card-write-post:focus {
 	outline: none;
 }
@@ -948,6 +952,7 @@ body {
 	height: 50%;
 	margin: 10px 10px 0px 10px;
 }
+
 .down-card {
 	display: flex;
 	align-items: center;
@@ -955,6 +960,7 @@ body {
 	margin: 0px 3px 10px 3px;
 	padding: 6px;
 }
+
 .left-down-card {
 	display: flex;
 	align-items: center;
@@ -965,16 +971,19 @@ body {
 	justify-content: space-between;
 	user-select: none;
 }
+
 .top-card {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 10px 10px 10px 10px;
 }
+
 .card-inside-top {
 	padding: 7px 10px 5px 5px;
 	cursor: pointer;
 }
+
 .post-write {
 	padding: 12px 25px 12px 25px;
 	background: #ffffff;
@@ -1135,6 +1144,7 @@ body {
 		width: 100%;
 	}
 }
+
 .tagH1 {
 	display: inline-block;
 	font-family: "Pridi";
@@ -1144,7 +1154,7 @@ body {
 	margin: 15px 10px 10px 10px;
 	padding-top: 10px;
 }
-/* .tagH1 underline ::after*/
+
 .tagH1:after {
 	content: "";
 	display: block;
@@ -1235,6 +1245,7 @@ body {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .innerTag a::after {
 	content: "";
 	display: inline-block;
