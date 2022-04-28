@@ -156,25 +156,24 @@ $(document).ready(() => {
 				friend_id,
 			},
 			success: function (response) {
-				// send response to friend page
 				window.location.href = "friendpage.php?friend_id=" + response;
 			},
 		});
 	});
-
 	$(".delete").on("click", function () {
 		const post_id1 = $(this).attr("post_id");
 		$.ajax({
 			url: "like.php",
 			type: "post",
 			data: {
-				delete : 1,
+				delete: 1,
 				post_id1,
 			},
-			success(){}, 
+			success() {
+				window.location.href = "home.php";
+			},
 		});
 	});
-
 	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
@@ -366,4 +365,3 @@ particlesJS("particles-js", {
 	},
 	retina_detect: true,
 });
-
