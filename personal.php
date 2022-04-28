@@ -130,7 +130,7 @@
             <label class="uploadLabel" for="tagfriend">
             <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
             </label>
-            <div class="form-popup arrow-div" id="myForm">
+            <div class="form-popup arrow-div animate__animated animate__fadeIn animate__faster" id="myForm">
              <form action="" class="form-container">
               <h1 class="tagH1">Tag someone</h1>
               <button type="button" class="btn cancel">Close</button>
