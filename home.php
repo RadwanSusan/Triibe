@@ -64,7 +64,7 @@
           }
            else if($ext == "jpg" || $ext == "jpeg" || $ext == "png"){
               if($fileError === 0){
-                 if($fileSize < 50000000){
+                 if($fileSize < 100000000){
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
                     $fileDestination = 'db_images/'.$fileNameNew;
                     $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
