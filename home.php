@@ -79,9 +79,9 @@
               $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
               $row = mysqli_fetch_array($result);
               $img_id = $row["img_id"];
-          $post = nl2br($_POST["content"]);
-          $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
+              $post = nl2br($_POST["content"]);
+              $date = date("Y-m-d H:i:s", time());
+              $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
           if(mysqli_query($conn, $sql)){
             header("Location: home.php");
           }
