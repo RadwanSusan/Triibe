@@ -86,7 +86,7 @@
             <label class="uploadLabel" for="uploadfile">
               <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
             </label>
-            <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.mp4">
+            <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.mp4,.mkv">
             <label class="uploadLabel" for="tagfriend">
             <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
             </label>
@@ -120,7 +120,10 @@
              </form>
             </div>
             <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
-            <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
+             <label class="uploadLabel" for="uploadGif">
+              <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
+            </label>
+            <input class="fileUpload_Button" type="file" name="file" id="uploadGif" accept=".gif">
             <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
