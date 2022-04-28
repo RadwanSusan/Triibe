@@ -146,23 +146,21 @@ hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
 hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
 hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
 $(document).ready(() => {
-
-  $(".friendpage").on("click", function () {
+	$(".friendpage").on("click", function () {
 		const friend_id = $(this).attr("friend_id");
 		$.ajax({
 			url: "like.php",
 			type: "post",
-			data: { 
-				friendclick : 1,
+			data: {
+				friendclick: 1,
 				friend_id,
-			 },
+			},
 			success: function (response) {
 				// send response to friend page
 				window.location.href = "friendpage.php?friend_id=" + response;
 			},
 		});
 	});
-
 	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
@@ -276,7 +274,13 @@ img.forEach((element) => {
 		modal.style.display = "block";
 		modalImg.src = element.src;
 		document.body.style.overflow = "hidden";
-		modalImg.style.maxWidth = modalImg.height > 850 ? "600px" : "700px";
+		if (modalImg.height > 850) {
+			modalImg.style.maxWidth = "600px";
+		} else if (modalImg.height < 600) {
+			modalImg.style.maxWidth = "1100px";
+		} else {
+			modalImg.style.maxWidth = "700px";
+		}
 	});
 });
 closeBtn.addEventListener("click", () => {
