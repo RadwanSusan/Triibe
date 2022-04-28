@@ -7,4 +7,7 @@ $(document).ready(() => {
 		document.querySelector(".content1").style.opacity = "100%";
 		document.querySelector(".post-card").style.display = "none";
 	});
+	document.querySelector(".box").addEventListener("click", () => {
+		window.location.href = "home.php";
+	});
 });
