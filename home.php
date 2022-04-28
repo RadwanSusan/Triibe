@@ -38,14 +38,17 @@
       </div>
       <?php
       $img_id = null;
-      if($_SERVER["REQUEST_METHOD"] == "POST"){
+      $video_id = null;
+       if($_SERVER["REQUEST_METHOD"] == "POST"){
            $file = $_FILES['file'];
            $fileName = $_FILES['file']['name'];
+           $ext = pathinfo($fileName, PATHINFO_EXTENSION);
            $fileTmpName = $_FILES['file']['tmp_name'];
            $fileSize = $_FILES['file']['size'];
            $fileError = $_FILES['file']['error'];
            $fileExt = explode('.', $fileName);
            $fileActualExt = strtolower(end($fileExt));
+           if($ext == "jpg" || $ext == "jpeg" || $ext == "png"){
               if($fileError === 0){
                  if($fileSize < 50000000){
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
@@ -62,19 +65,43 @@
               $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
               $row = mysqli_fetch_array($result);
               $img_id = $row["img_id"];
-              header("Location: home.php");
           $post = nl2br($_POST["content"]);
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' )";
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
           if(mysqli_query($conn, $sql)){
             header("Location: home.php");
           }
           else{
             echo "<script>alert('Post Failed');</script>";
           }
+        }else if($ext == "mp4" || $ext == "webm"){
+            if($fileError === 0){
+               if($fileSize < 50000000){
+                  $fileNameNew = uniqid('', true).".".$fileActualExt;
+                  $fileDestination = 'db_images/'.$fileNameNew;
+                  $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
+                  mysqli_query($conn, $sqlVid);
+                  move_uploaded_file($fileTmpName, $fileDestination);
+               }else{
+                  echo "<script>alert('Your file is too big!')</script>";
+               }
+            }else{
+               echo "<script>alert('There was an error uploading your file!')</script>";
+            }
+            $result2 = mysqli_query($conn,"SELECT * FROM video WHERE video_name = '$fileDestination'");
+            $row2 = mysqli_fetch_array($result2);
+            $video_id = $row2["video_id"];
+            $post2 = nl2br($_POST["content"]);
+            $date2 = date("Y-m-d H:i:s", time());
+            $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','".$_SESSION["std_id"]."',1, NULL ,'$video_id')";
+          if(mysqli_query($conn, $sql2)){
+            header("Location: home.php");
+          }else{
+            echo "<script>alert('Post Failed');</script>";
+          }
         }
+      }
       ?>
-
      <form method = "POST"  enctype="multipart/form-data">
       <div class="mid-card">
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
@@ -123,7 +150,7 @@
              <label class="uploadLabel" for="uploadGif">
               <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
             </label>
-            <input class="fileUpload_Button" type="file" name="file" id="uploadGif" accept=".gif">
+            <input class="fileUpload_Button" type="file" name="fileGif" id="uploadGif" accept=".gif">
             <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">
           </div>
         </div>
@@ -240,14 +267,16 @@
           </div>
           <?php
             $likenum = 0;
-            $sql = "SELECT * FROM post order by  created_date desc";
+            $sql = "SELECT * FROM post order by created_date desc";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0){
                 while ($row = mysqli_fetch_assoc($result)){
                     $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["author"] . "'";
                     $sql2 = "SELECT * FROM img WHERE img_id = '" . $row["img_id"] . "'";
+                    $sql3 = "SELECT * FROM video WHERE video_id  = '" . $row["video_id"] . "'";
                     $result1 = mysqli_query($conn, $sql1);
                     $result2 = mysqli_query($conn, $sql2);
+                    $result3 = mysqli_query($conn, $sql3);
                     $sqllikenum = "SELECT COUNT(*) FROM post_likes WHERE post_id = '".$row["post_id"]."'";
                     $resultlikenum = mysqli_query($conn, $sqllikenum);
                     $rowlikenum = mysqli_fetch_assoc($resultlikenum);
@@ -335,8 +364,64 @@
                                  </div>
                                  </div>";
                         }
-                    }
-                    else {
+                    } else if (mysqli_num_rows($result3) > 0){
+                        while ($row3 = mysqli_fetch_assoc($result3)){
+                            echo "<div class='end-post'>
+                                    <div class='content-end'>
+                                    <div class='photo-post'>
+                                      <video width='500px' controls class='video-js'>
+                                         <source src='".$row3["video_name"]."' type='video/mp4'>
+                                      </video>
+                                    </div>
+                                    </div>
+                                    <div class='likes'>
+                                        <div class='like'>
+                                        ";
+                                        $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
+                                        $result7 = mysqli_query($conn, $sql7);
+                                        if (mysqli_num_rows($result7) > 0){
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt=''>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
+                                                  ";
+                                                  if ($likenum == 1){
+                                                    echo "<p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
+                                                  <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
+                                                  ";
+                                                  }else{
+                                                    echo "
+                                                    <p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                  <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                  ";
+                                                  }
+                                        }else{
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
+                                                  <p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                                  <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
+                                            ";
+                                        }
+                                        echo "
+                                        </div>
+                                        <div class='comment'>
+                                        <img src='Design/Image/home-images/images/Comment.svg' alt=''>
+                                        <p>comment</p>
+                                        </div>
+                                        <div class='share'>
+                                        <img src='Design/Image/home-images/images/Share.svg' alt=''>
+                                        <p>share</p>
+                                        </div>
+                                        <div class='save'>
+                                        <img src='Design/Image/home-images/images/Save.svg' alt=''>
+                                        <p>save</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>";
+                        }
+                      } else {
                         echo "<div class='end-post>
                               <div class='content-end'>
                               </div>
