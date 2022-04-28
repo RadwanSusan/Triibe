@@ -192,17 +192,17 @@
 	max-width: 100%;
 	height: 100%;
 }
-.top img {
-	position: relative;
-	background: linear-gradient(
-		180deg,
-		rgba(196, 196, 196, 0) 0%,
-		rgba(0, 0, 0, 0.46) 97.4%
-	);
-	border-radius: 0px 0px 13px 13px;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
+.top .farme {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 0%,
+    rgba(0, 0, 0, 0.46) 97.4%
+  );
+  border-radius: 0px 0px 13px 13px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 .bottom-content {
 	display: flex;
@@ -291,15 +291,21 @@
 	color: #4a4a4a;
 	margin-top: -20px;
 }
+.add-friends img {
+  padding-right: 7px;
+}
+.edit-profile img {
+  padding-right: 7px;
+}
 .line {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	width: 59%;
-	/* left: 400px; */
-	height: 1.5px;
-	margin-top: 40px;
-	background-color: rgba(82, 82, 82, 0.56);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  /* left: 400px; */
+  height: 1.5px;
+  margin-top: 40px;
+  background-color: rgba(82, 82, 82, 0.56);
 }
 .list-photo-content {
 	display: flex;
@@ -318,14 +324,18 @@
 	color: #746d6d;
 	padding: 10px;
 }
+.top-post .right2-post img {
+  width: 13px;
+  /* margin-left: 190px; */
+}
 .user-profile {
-	display: flex;
-	align-items: center;
-	background: #b9b9b9;
-	width: fit-content;
-	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
-	border-radius: 27px;
-	height: 40px;
+  display: flex;
+  align-items: center;
+  background: #b9b9b9;
+  /* width: fit-content; */
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 27px;
+  height: 40px;
 }
 .user-profile img {
 	box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.25);
@@ -341,19 +351,20 @@
   color: #525252;
 } */
 .write-post {
-	padding-left: 15px;
-	height: 40px;
-	width: 644px;
-	background: #dcdcdc;
-	border-radius: 82px;
-	display: flex;
-	align-items: center;
-	line-height: 38px;
-	font-family: "Pridi";
-	font-style: normal;
-	font-weight: 400;
-	font-size: 18px;
-	color: #696969;
+  width: 100%;
+  padding-left: 15px;
+  height: 40px;
+  /* width: 644px; */
+  background: #dcdcdc;
+  border-radius: 82px;
+  display: flex;
+  align-items: center;
+  line-height: 38px;
+  font-family: "Pridi";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #696969;
 }
 .write-post-container {
 	/* background: #e7e7e7; */
@@ -609,27 +620,44 @@
 	line-height: 25px;
 }
 .edit-cover-content {
-	display: flex;
-	justify-content: flex-end;
-	background-color: blueviolet;
-	/* position: relative; */
-	width: 59.5%;
-	position: absolute;
-	top: 449px;
+  position: absolute;
+    top: 449px;
+    left: 71%;
 }
-///////////////
-.edit-cover {
-	width: 117px;
-	height: 32px;
-	display: flex;
-	background: #c4c4c4;
-	border: 1px solid #929292;
-	box-sizing: border-box;
-	border-radius: 7px;
+
+.Edit-cover {
+display: flex;
+    align-items: center;
+    /* background: white; */
+    padding: 0px 6px 0px 10px;
+    margin-right: 10px;
+    border-radius: 7px;
+    background: #C4C4C4;
+border: 1px solid #929292;
+    /* border: 1px solid rgb(176, 176, 176); */
+    cursor: pointer
+  }
+  .Edit-cover img {
+    padding-right: 7px;
+    padding-top: 10px;
+  }
+.Edit-cover p {
+margin: 0;
+font-family: 'Pridi';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+/* line-height: 25px; */
+/* identical to box height */
+
+
+color: #000000;
+
 }
-.top-post .right-post {
-	width: 15px;
+.write-post-input {
+  width: 100%;
 }
+
 .photo-see {
 	display: flex;
 	align-items: center;
@@ -1142,4 +1170,7 @@
 	.modal-content {
 		width: 100%;
 	}
+}
+.list1,.list2,.list3 {
+  border-right: 1px solid #919191;
 }
