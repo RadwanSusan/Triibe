@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
     <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
     <link href="node_modules/hover.css/css/hover-min.css" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
     <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
   </head>
   <body>
@@ -380,7 +383,7 @@
                             echo "<div class='end-post'>
                                     <div class='content-end'>
                                     <div class='photo-post'>
-                                      <video width='500px' controls class='video-js'>
+                                      <video width='500px' controls class='video-js vjs-theme-forest' data-setup='{}'>
                                          <source src='".$row3["video_name"]."' type='video/mp4'>
                                       </video>
                                     </div>
@@ -539,6 +542,7 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
     <script type="module" src="bootstrap-js/home.js" defer></script>
   </body>
 </html>
