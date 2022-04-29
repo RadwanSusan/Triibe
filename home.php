@@ -366,7 +366,7 @@
                                     <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                               </div>
                                  <div class='inside-top'>
-                                    <span>$difftime</span>
+                                  $difftime
                                  <img src='Design/Image/home-images/images/ball.svg' alt=''>
                               </div>
                               </div>
