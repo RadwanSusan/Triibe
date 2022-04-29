@@ -187,6 +187,21 @@ $(document).ready(function () {
 			});
 		} else alert("You can't delete this post");
 	});
+	$("#search").on("keyup", function () {
+		$.ajax({
+			url : "like.php",
+			type : "POST",
+			data :{
+				search : 1,
+				name :$("#search").val().toLowerCase(),
+			},
+			success : function(response){
+				//$("#result").html(response);
+				console.log(response);
+			}
+		});
+	});
+
 	$(".modify").on("click", function () {
 		$("#myForm1").show();
 	});

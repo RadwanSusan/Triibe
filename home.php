@@ -205,7 +205,7 @@
           <p>Triibe</p>
         </div>
         <div class="search-box"> <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search" />
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" id="search"/>
         </div>
       </div>
       <div class="nav-right">
@@ -327,7 +327,6 @@
                             $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                             $resultimg = mysqli_query($conn, $sqlimg);
                             $rowimg = mysqli_fetch_assoc($resultimg);
-                            // get the difference between the current time and the post time
                             $now = new DateTime();
                             $post = new DateTime($row["created_date"]);
                             $diff = $now->diff($post);

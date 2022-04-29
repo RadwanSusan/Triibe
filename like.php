@@ -53,4 +53,18 @@ if(isset($_POST['delete'])){
 	$sql = "DELETE FROM post WHERE post_id = '$post_id1'";
 	$result = mysqli_query($conn, $sql);
 }
+
+if(isset($_POST['search'])){
+	$sql = "SELECT * FROM student WHERE std_fname LIKE '%".$_POST['search']."%' OR std_lname LIKE '%".$_POST['search']."%'";
+	$result = mysqli_query($conn, $sql);
+	if(mysqli_num_rows($result) > 0)
+	while($row = mysqli_fetch_assoc($result))
+	{
+      $imgid = $row["img_id"];
+      $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+      $resultimg = mysqli_query($conn, $sqlimg);
+      $rowimg = mysqli_fetch_assoc($resultimg);
+      echo "<a href='#'class='friendpage' friend_id='".$row["std_id"]."' ><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row["std_fname"] . " " . $row["std_lname"] . "</a>";
+	}
+}
 ?>
