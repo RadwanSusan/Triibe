@@ -405,13 +405,13 @@
                                                   <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
                                                   ";
                                                   if ($likenum == 1){
-                                                    echo "<p class='LikeCount'>$likenum</p>
+                                                    echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                                   ";
                                                   }else{
                                                     echo "
-                                                    <p class='LikeCount'>$likenum</p>
+                                                    <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   ";
@@ -419,7 +419,7 @@
                                         }else{
                                             echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
                                                   <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
-                                                  <p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                             ";
@@ -462,13 +462,13 @@
                                                   <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
                                                   ";
                                                   if ($likenum == 1){
-                                                    echo "<p class='LikeCount'>$likenum</p>
+                                                    echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                                   ";
                                                   }else{
                                                     echo "
-                                                    <p class='LikeCount'>$likenum</p>
+                                                    <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   ";
@@ -476,7 +476,7 @@
                                         }else{
                                             echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
                                                   <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
-                                                  <p class='LikeCount'>$likenum</p>
+                                                  <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                             ";
@@ -513,13 +513,13 @@
                                               <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
                                               ";
                                               if ($likenum == 1){
-                                                  echo "<p class='LikeCount'>$likenum</p>
+                                                  echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                         <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                                         <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                               ";
                                               }else{
                                                   echo "
-                                                        <p class='LikeCount'>$likenum</p>
+                                                        <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                         <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                         <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                               ";
@@ -527,7 +527,7 @@
                                     }else{
                                         echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
                                               <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
-                                              <p class='LikeCount'>$likenum</p>
+                                              <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                               <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                               <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                         ";
