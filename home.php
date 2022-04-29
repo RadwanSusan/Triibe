@@ -332,35 +332,31 @@
                             $post = new DateTime($row["created_date"]);
                             $diff = $now->diff($post);
                             $diff->format("%a");
-                            // convert diff to strings
                             $diffday = $diff->format("%a");
                             $diffhour = $diff->format("%h");
                             $diffminute = $diff->format("%i");
                             $diffsecond = $diff->format("%s");
-                            // convert diff to string
                             $diffdaystr = (string)$diffday;
                             $diffhourstr = (string)$diffhour;
                             $diffminutestr = (string)$diffminute;
                             $diffsecondstr = (string)$diffsecond;
-
                             $difftime = $diffsecondstr . "second ago";
                             if ($diffdaystr == "0"){
                                 if ($diffhourstr == "0"){
                                     if ($diffminutestr == "0"){
-                                        $difftime = $diffsecondstr . "second ago";
+                                        $difftime = $diffsecondstr . "S ago";
                                     }
                                     else{
-                                        $difftime = $diffminutestr . "minute ago";
+                                        $difftime = $diffminutestr . "M ago";
                                     }
                                 }
                                 else{
-                                    $difftime = $diffhourstr . "hour ago";
+                                    $difftime = $diffhourstr . "H ago";
                                 }
                             }
                             else{
-                                $difftime = $diffdaystr . "day ago";
+                                $difftime = $diffdaystr . "D ago";
                             }
-                            
                             echo "
                               <div class= 'post'>
                               <div class='top-post'>
@@ -370,7 +366,7 @@
                                     <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                               </div>
                                  <div class='inside-top'>
-                                    '$difftime' 
+                                    <span>$difftime</span>
                                  <img src='Design/Image/home-images/images/ball.svg' alt=''>
                               </div>
                               </div>
