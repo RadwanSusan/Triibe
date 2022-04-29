@@ -343,18 +343,18 @@
                             if ($diffdaystr == "0"){
                                 if ($diffhourstr == "0"){
                                     if ($diffminutestr == "0"){
-                                        $difftime = $diffsecondstr . "S ago";
+                                        $difftime = $diffsecondstr . "s ago";
                                     }
                                     else{
-                                        $difftime = $diffminutestr . "M ago";
+                                        $difftime = $diffminutestr . "m ago";
                                     }
                                 }
                                 else{
-                                    $difftime = $diffhourstr . "H ago";
+                                    $difftime = $diffhourstr . "h ago";
                                 }
                             }
                             else{
-                                $difftime = $diffdaystr . "D ago";
+                                $difftime = $diffdaystr . "d ago";
                             }
                             echo "
                               <div class= 'post'>
