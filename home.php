@@ -29,6 +29,10 @@
            alertify.defaults.glossary.title = 'My Title';
            alertify.alert("Triibe",message);
          }
+         function confirm(message,function1,function2){
+            alertify.defaults.glossary.title = 'My Title';
+            alertify.confirm("Triibe",message,function1,function2);
+        }
       </script>
   </head>
   <body>

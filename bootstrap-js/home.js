@@ -1,4 +1,8 @@
 // jshint esversion: 6
+const confirm = (message, function1, function2) => {
+	alertify.defaults.glossary.title = "My Title";
+	alertify.confirm("Triibe", message, function1, function2);
+};
 document.addEventListener("DOMContentLoaded", () => {
 	const groupPage = document.querySelector(".group-page");
 	if (groupPage.children.length === 1) {
@@ -164,28 +168,28 @@ $(document).ready(function () {
 		const post_id1 = $(this).attr("post_id");
 		const author_id = $(this).attr("author_id");
 		const std_id1 = $(this).attr("std_id");
-		if (author_id == std_id1) {
-			$.ajax({
-				url: "like.php",
-				type: "post",
-				data: {
-					delete: 1,
-					post_id1,
-				},
-				success() {
-					alert("Post Deleted");
-					document.querySelector(".form-popup1").style.display = "none";
-					document
-						.querySelector(".ajs-button, ajs-close")
-						.addEventListener("click", () => {
+		confirm(
+			"Are you sure you want to delete this post?<br/>You can't undo this action.",
+			() => {
+				if (author_id == std_id1) {
+					$.ajax({
+						url: "like.php",
+						type: "post",
+						data: {
+							delete: 1,
+							post_id1,
+						},
+						success() {
+							document.querySelector(".form-popup1").style.display = "none";
 							window.location.href = "home.php";
-						});
-					window.addEventListener("click", () => {
-						window.location.href = "home.php";
+						},
 					});
-				},
-			});
-		} else alert("You can't delete this post");
+				} else alert("You can't delete this post");
+			},
+			() => {
+				document.querySelector(".form-popup1").style.display = "none";
+			},
+		);
 	});
 	$("#search").on("input", function () {
 		const std_id = $(this).attr("std_id");
