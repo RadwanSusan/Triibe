@@ -145,7 +145,7 @@ hoverAnimation(".gifIcon", "mouseover", ".gifIcon", "animate__heartBeat");
 hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
 hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
 hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
-$(document).ready(() => {
+$(document).ready(function () {
 	$(".friendpage").on("click", function () {
 		const friend_id = $(this).attr("friend_id");
 		$.ajax({
@@ -155,35 +155,32 @@ $(document).ready(() => {
 				friendclick: 1,
 				friend_id,
 			},
-			success: function (response) {
+			success(response) {
 				window.location.href = "friendpage.php?friend_id=" + response;
 			},
 		});
 	});
 	$(".delete").on("click", function () {
 		const post_id1 = $(this).attr("post_id");
-		var author_id = $(this).attr("author_id");
-		var std_id1 = $(this).attr("std_id");
+		const author_id = $(this).attr("author_id");
+		const std_id1 = $(this).attr("std_id");
 		if (author_id == std_id1) {
-		$.ajax({
-			url: "like.php",
-			type: "post",
-			data: {
-				delete: 1,
-				post_id1,
-			},
-			success() {
-				window.location.href = "home.php";
-			},
-		});}
-		else
-			alert("You can't delete this post");
+			$.ajax({
+				url: "like.php",
+				type: "post",
+				data: {
+					delete: 1,
+					post_id1,
+				},
+				success() {
+					window.location.href = "home.php";
+				},
+			});
+		} else alert("You can't delete this post");
 	});
-
 	$(".modify").on("click", function () {
 		$("#myForm1").show();
 	});
-
 	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
