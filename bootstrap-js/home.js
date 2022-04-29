@@ -187,18 +187,18 @@ $(document).ready(function () {
 			});
 		} else alert("You can't delete this post");
 	});
-	$("#search").on("keyup", function () {
+	$("#search").on("keypress", function () {
 		$.ajax({
-			url : "like.php",
-			type : "POST",
-			data :{
-				search : 1,
-				name :$("#search").val().toLowerCase(),
+			url: "like.php",
+			type: "POST",
+			data: {
+				search: 1,
+				name: $("#search").val().toLowerCase(),
 			},
-			success : function(response){
+			success(response) {
 				//$("#result").html(response);
 				console.log(response);
-			}
+			},
 		});
 	});
 
