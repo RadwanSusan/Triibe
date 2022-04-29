@@ -75,7 +75,7 @@
               }
             }
           }
-           else if($ext == "jpg" || $ext == "jpeg" || $ext == "png"){
+           else if($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif"){
               if($fileError === 0){
                  if($fileSize < 100000000){
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
