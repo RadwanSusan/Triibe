@@ -173,7 +173,16 @@ $(document).ready(function () {
 					post_id1,
 				},
 				success() {
-					window.location.href = "home.php";
+					alert("Post Deleted");
+					document.querySelector(".form-popup1").style.display = "none";
+					document
+						.querySelector(".ajs-button, ajs-close")
+						.addEventListener("click", () => {
+							window.location.href = "home.php";
+						});
+					window.addEventListener("click", () => {
+						window.location.href = "home.php";
+					});
 				},
 			});
 		} else alert("You can't delete this post");
@@ -326,7 +335,7 @@ document.querySelector(".cancel1").addEventListener("click", () => {
 });
 particlesJS("particles-js", {
 	particles: {
-		number: { value: 130, density: { enable: true, value_area: 2000 } },
+		number: { value: 160, density: { enable: true, value_area: 2000 } },
 		color: { value: "#ffffff" },
 		shape: {
 			type: "circle",
@@ -353,7 +362,7 @@ particlesJS("particles-js", {
 			enable: true,
 			distance: 220.96133965703635,
 			color: "#404040",
-			opacity: 0.14204657549380909,
+			opacity: 0.12204657549380909,
 			width: 1,
 		},
 		move: {
@@ -363,7 +372,7 @@ particlesJS("particles-js", {
 			random: false,
 			straight: false,
 			out_mode: "out",
-			bounce: false,
+			bounce: true,
 			attract: { enable: false, rotateX: 600, rotateY: 1200 },
 		},
 	},

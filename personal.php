@@ -18,6 +18,15 @@
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
     <link id="theme" rel="stylesheet" href="bootstrap-css/personal.css"/>
+    <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+    <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
+      <script type="text/javascript">
+         function alert(message){
+           alertify.defaults.glossary.title = 'My Title';
+           alertify.alert("Triibe",message);
+         }
+      </script>
   </head>
   <body>
     <div class="post-card slide-in-elliptic-top-fwd">
@@ -52,16 +61,20 @@
               $post = nl2br($_POST["content"]);
               $date = date("Y-m-d H:i:s", time());
               $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , NULL , NULL)";
+              if(($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)){
+                echo "<script>alert('Please write something')</script>";
+            }else{
               if(mysqli_query($conn, $sql)){
                 header("Location: home.php");
               }
               else{
                 echo "<script>alert('Post Failed');</script>";
               }
+            }
           }
            else if($ext == "jpg" || $ext == "jpeg" || $ext == "png"){
               if($fileError === 0){
-                 if($fileSize < 50000000){
+                 if($fileSize < 100000000){
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
                     $fileDestination = 'db_images/'.$fileNameNew;
                     $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
@@ -79,13 +92,18 @@
               $post = nl2br($_POST["content"]);
               $date = date("Y-m-d H:i:s", time());
               $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
-          if(mysqli_query($conn, $sql)){
-            header("Location: home.php");
+            if(($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)){
+                echo "<script>alert('Please write something')</script>";
+            }else{
+              if(mysqli_query($conn, $sql)){
+                header("Location: home.php");
+              }
+              else{
+                echo "<script>alert('Post Failed');</script>";
+              }
+            }
           }
-          else{
-            echo "<script>alert('Post Failed');</script>";
-          }
-        }else if($ext == "mp4" || $ext == "webm"){
+          else if($ext == "mp4" || $ext == "webm"){
             if($fileError === 0){
                if($fileSize < 100000000){
                   $fileNameNew = uniqid('', true).".".$fileActualExt;
@@ -105,12 +123,18 @@
             $post2 = nl2br($_POST["content"]);
             $date2 = date("Y-m-d H:i:s", time());
             $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','".$_SESSION["std_id"]."',1, NULL ,'$video_id')";
-          if(mysqli_query($conn, $sql2)){
-            header("Location: home.php");
-          }else{
-            echo "<script>alert('Post Failed');</script>";
+           if(($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)){
+                echo "<script>alert('Please write something')</script>";
+            }else{
+              if(mysqli_query($conn, $sql2)){
+                header("Location: home.php");
+              }
+              else{
+                echo "<script>alert('Post Failed');</script>";
+              }
+            }
           }
-        }else{
+          else{
           echo "<script>alert('File type not supported');</script>";
         }
       }
