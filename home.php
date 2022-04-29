@@ -323,7 +323,7 @@
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
                                   <a class='edit'>edit</a>
-                                  <a class='delete' post_id='".$row["post_id"]."'>delete</a>
+                                  <a class='delete' post_id='".$row["post_id"]."' author = '".$row1["std_id"]."' std_id='".$_SESSION["std_id"]."' >delete</a>
                                   </div>
                                   </form>
                                   </div>

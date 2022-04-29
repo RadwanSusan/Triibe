@@ -162,6 +162,9 @@ $(document).ready(() => {
 	});
 	$(".delete").on("click", function () {
 		const post_id1 = $(this).attr("post_id");
+		var author_id = $(this).attr("author_id");
+		var std_id1 = $(this).attr("std_id");
+		if (author_id == std_id1) {
 		$.ajax({
 			url: "like.php",
 			type: "post",
@@ -172,8 +175,15 @@ $(document).ready(() => {
 			success() {
 				window.location.href = "home.php";
 			},
-		});
+		});}
+		else
+			alert("You can't delete this post");
 	});
+
+	$(".modify").on("click", function () {
+		$("#myForm1").show();
+	});
+
 	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
@@ -313,9 +323,6 @@ document.querySelector(".tagIcon").addEventListener("click", () => {
 });
 document.querySelector(".cancel").addEventListener("click", () => {
 	document.getElementById("myForm").style.display = "none";
-});
-document.querySelector(".modify").addEventListener("click", () => {
-	document.getElementById("myForm1").style.display = "block";
 });
 document.querySelector(".cancel1").addEventListener("click", () => {
 	document.getElementById("myForm1").style.display = "none";
