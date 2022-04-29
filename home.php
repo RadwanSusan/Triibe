@@ -327,7 +327,6 @@
                             $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                             $resultimg = mysqli_query($conn, $sqlimg);
                             $rowimg = mysqli_fetch_assoc($resultimg);
-                            // get the difference between the current time and the post time
                             $now = new DateTime();
                             $post = new DateTime($row["created_date"]);
                             $diff = $now->diff($post);
