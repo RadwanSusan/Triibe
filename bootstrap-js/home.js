@@ -188,12 +188,14 @@ $(document).ready(function () {
 		} else alert("You can't delete this post");
 	});
 	$("#search").on("input", function () {
+		const std_id = $(this).attr("std_id");
 		$.ajax({
 			url: "like.php",
 			type: "POST",
 			data: {
 				search: 1,
 				name: $("#search").val().toLowerCase(),
+				std_id,
 			},
 			success(response) {
 				//$("#result").html(response);

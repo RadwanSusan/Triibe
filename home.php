@@ -205,7 +205,7 @@
           <p>Triibe</p>
         </div>
         <div class="search-box"> <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search" />
-          <input type="text" placeholder="Search" id="search"/>
+          <input type="text" placeholder="Search" id="search" std_id="<?php echo $_SESSION['std_id'];?>"/>
         </div>
       </div>
       <div class="nav-right">
