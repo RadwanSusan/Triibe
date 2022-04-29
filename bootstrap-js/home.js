@@ -187,7 +187,7 @@ $(document).ready(function () {
 			});
 		} else alert("You can't delete this post");
 	});
-	$("#search").on("keypress", function () {
+	$("#search").on("input", function () {
 		$.ajax({
 			url: "like.php",
 			type: "POST",
