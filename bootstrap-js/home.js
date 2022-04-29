@@ -304,16 +304,20 @@ const scrollToTop = () => {
 };
 scrollToTopBtn.addEventListener("click", scrollToTop);
 document.addEventListener("scroll", handleScroll);
-document.querySelector(".write-post-input").addEventListener("click", () => {
-	document.querySelector(".container1").style.opacity = "20%";
-	document.querySelector(".nav").style.opacity = "20%";
-	document.querySelector(".post-card").style.display = "block";
-});
-document.querySelector(".right-top-card").addEventListener("click", () => {
+document
+	.querySelector(".write-post-input,write-post")
+	.addEventListener("click", () => {
+		document.querySelector(".container1").style.opacity = "20%";
+		document.querySelector(".nav").style.opacity = "20%";
+		document.querySelector(".post-card").style.display = "block";
+	});
+document.querySelector(".exitCard").addEventListener("click", () => {
 	document.querySelector(".container1").style.opacity = "100%";
 	document.querySelector(".nav").style.opacity = "100%";
 	document.querySelector(".post-card").style.display = "none";
+	document.querySelector(".card-write-post").value = "";
 });
+
 $(".post-image").on("contextmenu", (e) => false);
 const modal = document.querySelector(".modal");
 const img = document.querySelectorAll(".post-image");
