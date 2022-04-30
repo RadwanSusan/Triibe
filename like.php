@@ -77,11 +77,12 @@ if(isset($_POST['search'])){
 
 if(isset($_POST['share'])){
 	$post_id = $_POST['sh_post_id'];
-	$std_id = $_POST['sh_std_id'];
+	$std_id = $_POST['sh_author_id'];
+	$dateNow = date("Y-m-d H:i:s", time());
 	$sql = "SELECT * FROM post WHERE post_id = '$post_id'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
-	$sql = "INSERT INTO post (content, created_date, author , form_id , img_id, video_id) VALUES ('".$row["content"]."', '".$row["created_date"]."', '".$row["author"]."', '".$row["form_id"]."', '".$row["img_id"]."', '".$row["video_id"]."')";
+	$sql = "INSERT INTO post (content, created_date, author , form_id , img_id, video_id) VALUES ('".$row["content"]."', '".$dateNow."', '".$row["author"]."', '".$row["form_id"]."', '".$row["img_id"]."', '".$row["video_id"]."')";
 	$result = mysqli_query($conn, $sql);
 }
 ?>
