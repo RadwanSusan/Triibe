@@ -491,7 +491,7 @@
                                         <img src='Design/Image/home-images/images/Comment.svg' alt=''>
                                         <p>comment</p>
                                         </div>
-                                        <div class='share'>
+                                        <div class='share' sh-post_id='".$row["post_id"]."' sh-author_id='".$_SESSION["std_id"]."'>
                                         <img src='Design/Image/home-images/images/Share.svg' alt=''>
                                         <p>share</p>
                                         </div>

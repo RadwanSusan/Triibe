@@ -195,6 +195,24 @@ $(document).ready(function () {
 			);
 		});
 	});
+
+   const share = document.querySelectorAll(".share");
+	 share.forEach((element) => {
+		 element.addEventListener("click", () => {
+			 const sh_post_id = $(this).attr("sh-post_id");
+			 const sh_author_id = $(this).attr("sh-author_id");
+			 $.ajax({
+				 url: "like.php",
+				 type: "post",
+				 data: {
+					 share: 1,
+					 sh_post_id,
+					 sh_author_id,
+				 },
+			 });
+		 });
+	 });
+
 	$("#search").on("input", function () {
 		const std_id = $(this).attr("std_id");
 		$.ajax({
