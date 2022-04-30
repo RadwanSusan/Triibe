@@ -149,6 +149,7 @@ hoverAnimation(".gifIcon", "mouseover", ".gifIcon", "animate__heartBeat");
 hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
 hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
 hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
+
 $(document).ready(function () {
 	$(".friendpage").on("click", function () {
 		const friend_id = $(this).attr("friend_id");
@@ -164,32 +165,35 @@ $(document).ready(function () {
 			},
 		});
 	});
-	$(".delete").on("click", function () {
-		const post_id1 = $(this).attr("post_id");
-		const author_id = $(this).attr("author_id");
-		const std_id1 = $(this).attr("std_id");
-		confirm(
-			"Are you sure you want to delete this post?<br/>You can't undo this action.",
-			() => {
-				if (author_id == std_id1) {
-					$.ajax({
-						url: "like.php",
-						type: "post",
-						data: {
-							delete: 1,
-							post_id1,
-						},
-						success() {
-							document.querySelector(".form-popup1").style.display = "none";
-							window.location.href = "home.php";
-						},
-					});
-				} else alert("You can't delete this post");
-			},
-			() => {
-				document.querySelector(".form-popup1").style.display = "none";
-			},
-		);
+	const dd = document.getElementsByClassName("delete");
+	Array.from(dd).forEach((element) => {
+		element.addEventListener("click", () => {
+			const post_id1 = element.dataset.post_id;
+			const author_id = element.dataset.author_id;
+			const std_id1 = element.dataset.std_id;
+			confirm(
+				"Are you sure you want to delete this post?<br/>You can't undo this action.",
+				() => {
+					if (author_id == std_id1) {
+						$.ajax({
+							url: "like.php",
+							type: "post",
+							data: {
+								delete: 1,
+								post_id1,
+							},
+							success() {
+								document.querySelector(".form-popup1").style.display = "none";
+								window.location.href = "home.php";
+							},
+						});
+					} else alert("You can't delete this post");
+				},
+				() => {
+					document.querySelector(".form-popup1").style.display = "none";
+				},
+			);
+		});
 	});
 	$("#search").on("input", function () {
 		const std_id = $(this).attr("std_id");
@@ -208,9 +212,6 @@ $(document).ready(function () {
 		});
 	});
 
-	$(".modify").on("click", function () {
-		$("#myForm1").show();
-	});
 	$(".LikeParagraph, .likeHollow").on("click", function () {
 		const post_id = $(this).attr("post_id");
 		const std_id = $(this).attr("std_id");
@@ -352,11 +353,19 @@ window.addEventListener("click", (e) => {
 document.querySelector(".tagIcon").addEventListener("click", () => {
 	document.getElementById("myForm").style.display = "block";
 });
-document.querySelector(".cancel").addEventListener("click", () => {
-	document.getElementById("myForm").style.display = "none";
+const modify = document.querySelectorAll(".modify");
+modify.forEach((element) => {
+	element.addEventListener("click", () => {
+		const formElement = element.parentElement.children[1];
+		formElement.style.display = "block";
+	});
 });
-document.querySelector(".cancel1").addEventListener("click", () => {
-	document.getElementById("myForm1").style.display = "none";
+const cancel = document.querySelectorAll(".cancel1");
+cancel.forEach((element) => {
+	element.addEventListener("click", () => {
+		const formElement = element.parentElement.parentElement;
+		formElement.style.display = "none";
+	});
 });
 particlesJS("particles-js", {
 	particles: {
