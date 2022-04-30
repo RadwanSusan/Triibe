@@ -375,7 +375,7 @@ img.forEach((element) => {
 		modalImg.src = element.src;
 		document.body.style.overflow = "hidden";
 		if (modalImg.height > 850) {
-			modalImg.style.maxWidth = "600px";
+			modalImg.style.maxWidth = "500px";
 		} else if (modalImg.height < 600) {
 			modalImg.style.maxWidth = "1100px";
 		} else {
