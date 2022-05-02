@@ -36,6 +36,7 @@
       </script>
   </head>
   <body>
+    <div id="particles-js"></div>
     <div class="post-card slide-in-elliptic-top-fwd">
       <div class="top-card">
         <div class="left-top-card">
@@ -375,7 +376,7 @@
                               </div>
                               <div class='right-post'>
                                  <img src='Design/Image/home-images/images/Dots.svg' class='modify' alt=''>
-                                 <div class='form-popup1 arrow-div animate__animated animate__fadeIn animate__faster' id='myForm1'>
+                                 <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1'>
                                   <form action='' class='form-container'>
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
@@ -603,7 +604,6 @@
       <span class="close">&times;</span>
       <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
     </div>
-    <div id="particles-js"></div>
     <button class="scrollToTopBtn">☝️</button>
     <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap-js/all.min.js"></script>

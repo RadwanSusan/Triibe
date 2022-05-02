@@ -484,6 +484,10 @@ cancel.forEach((element) => {
 		formElement.style.display = "none";
 	});
 });
+document.querySelector(".cancel").addEventListener("click", () => {
+	document.querySelector(".form-popup").style.display = "none";
+});
+
 particlesJS("particles-js", {
 	particles: {
 		number: { value: 160, density: { enable: true, value_area: 2000 } },
