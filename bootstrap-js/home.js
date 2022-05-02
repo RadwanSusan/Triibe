@@ -149,7 +149,6 @@ hoverAnimation(".gifIcon", "mouseover", ".gifIcon", "animate__heartBeat");
 hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
 hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
 hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
-
 $(document).ready(function () {
 	$(".friendpage").on("click", function () {
 		const friend_id = $(this).attr("friend_id");
@@ -224,7 +223,6 @@ $(document).ready(function () {
 			);
 		});
 	});
-
 	$("#search").on("input", function () {
 		const std_id = $(this).attr("std_id");
 		$.ajax({
@@ -241,9 +239,8 @@ $(document).ready(function () {
 			},
 		});
 	});
-
-	const like = document.querySelectorAll(".LikeParagraph, .likeHollow");
-	like.forEach((element) => {
+	const like1 = document.querySelectorAll(".LikeParagraph");
+	like1.forEach((element) => {
 		element.addEventListener("click", () => {
 			const likeHollow = element.parentElement.children[0];
 			const likeFilled = element.parentElement.children[1];
@@ -279,8 +276,45 @@ $(document).ready(function () {
 			});
 		});
 	});
-	const Unlike = document.querySelectorAll(".UnLikeParagraph, .likeFilled");
-	Unlike.forEach((element) => {
+	const likeHollow1 = document.querySelectorAll(".likeHollow");
+	likeHollow1.forEach((element) => {
+		element.addEventListener("click", () => {
+			const likeHollow = element.parentElement.children[0];
+			const likeFilled = element.parentElement.children[1];
+			const LikeCount = element.parentElement.children[2];
+			const LikeParagraph = element.parentElement.children[3];
+			const UnLikeParagraph = element.parentElement.children[4];
+			const post_id = $(element).attr("post_id");
+			const std_id = $(element).attr("std_id");
+			$.ajax({
+				url: "like.php",
+				type: "post",
+				data: {
+					like: 1,
+					post_id,
+					std_id,
+				},
+				success() {
+					LikeParagraph.style.display = "none";
+					UnLikeParagraph.style.display = "block";
+					likeHollow.style.display = "none";
+					likeFilled.style.display = "block";
+					const likes = LikeCount.textContent;
+					const new_likes_number = parseInt(likes) + 1;
+					LikeCount.textContent = `${new_likes_number}`;
+					if (new_likes_number == 1) {
+						LikeParagraph.textContent = `Like`;
+						UnLikeParagraph.textContent = `Like`;
+					} else {
+						LikeParagraph.textContent = `Likes`;
+						UnLikeParagraph.textContent = `Likes`;
+					}
+				},
+			});
+		});
+	});
+	const Unlike1 = document.querySelectorAll(".UnLikeParagraph");
+	Unlike1.forEach((element) => {
 		element.addEventListener("click", () => {
 			const likeHollow = element.parentElement.children[0];
 			const likeFilled = element.parentElement.children[1];
@@ -314,6 +348,43 @@ $(document).ready(function () {
 					}
 				},
 			});
+		});
+	});
+});
+const likeFilled1 = document.querySelectorAll(".likeFilled");
+likeFilled1.forEach((element) => {
+	element.addEventListener("click", () => {
+		const likeHollow = element.parentElement.children[0];
+		const likeFilled = element.parentElement.children[1];
+		const LikeCount = element.parentElement.children[2];
+		const LikeParagraph = element.parentElement.children[3];
+		const UnLikeParagraph = element.parentElement.children[4];
+		const post_id = $(element).attr("post_id");
+		const std_id = $(element).attr("std_id");
+		$.ajax({
+			url: "like.php",
+			type: "post",
+			data: {
+				unlike: 1,
+				post_id,
+				std_id,
+			},
+			success() {
+				UnLikeParagraph.style.display = "none";
+				LikeParagraph.style.display = "block";
+				likeFilled.style.display = "none";
+				likeHollow.style.display = "block";
+				const likes = LikeCount.textContent;
+				const new_likes_number = parseInt(likes) - 1;
+				LikeCount.textContent = `${new_likes_number}`;
+				if (new_likes_number == 1) {
+					LikeParagraph.textContent = `Like`;
+					UnLikeParagraph.textContent = `Like`;
+				} else {
+					LikeParagraph.textContent = `Likes`;
+					UnLikeParagraph.textContent = `Likes`;
+				}
+			},
 		});
 	});
 });

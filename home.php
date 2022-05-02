@@ -405,8 +405,8 @@
                                         $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                                         $result3 = mysqli_query($conn, $sql4);
                                         if (mysqli_num_rows($result3) > 0){
-                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt=''>
-                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
                                                   ";
                                                   if ($likenum == 1){
                                                     echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
@@ -421,8 +421,8 @@
                                                   ";
                                                   }
                                         }else{
-                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
-                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
                                                   <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
@@ -462,8 +462,8 @@
                                         $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                                         $result7 = mysqli_query($conn, $sql7);
                                         if (mysqli_num_rows($result7) > 0){
-                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt=''>
-                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
                                                   ";
                                                   if ($likenum == 1){
                                                     echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
@@ -478,8 +478,8 @@
                                                   ";
                                                   }
                                         }else{
-                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
-                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
+                                            echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
                                                   <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
@@ -513,8 +513,8 @@
                                     $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                                     $result4 = mysqli_query($conn, $sql5);
                                     if (mysqli_num_rows($result4) > 0){
-                                        echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt=''>
-                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt=''>
+                                        echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
+                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
                                               ";
                                               if ($likenum == 1){
                                                   echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
@@ -529,8 +529,8 @@
                                               ";
                                               }
                                     }else{
-                                        echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt=''>
-                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt=''>
+                                        echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
+                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' alt='' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>
                                               <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                               <p class='LikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                               <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
