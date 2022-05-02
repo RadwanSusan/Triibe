@@ -164,8 +164,8 @@ $(document).ready(function () {
 			},
 		});
 	});
-	const dd = document.getElementsByClassName("delete");
-	Array.from(dd).forEach((element) => {
+	const delete1 = document.getElementsByClassName("delete");
+	Array.from(delete1).forEach((element) => {
 		element.addEventListener("click", () => {
 			const post_id1 = element.dataset.post_id;
 			const author_id = element.dataset.author_id;
@@ -423,7 +423,7 @@ const scrollToTop = () => {
 scrollToTopBtn.addEventListener("click", scrollToTop);
 document.addEventListener("scroll", handleScroll);
 document
-	.querySelector(".write-post-input,write-post")
+	.querySelector(".write-post-input,.write-post")
 	.addEventListener("click", () => {
 		document.querySelector(".container1").style.opacity = "20%";
 		document.querySelector(".nav").style.opacity = "20%";

@@ -53,7 +53,6 @@ if(isset($_POST['delete'])){
 	$sql = "DELETE FROM post WHERE post_id = '$post_id1'";
 	$result = mysqli_query($conn, $sql);
 }
-
 if(isset($_POST['search'])){
 	$sql = "SELECT * FROM student WHERE std_fname LIKE '%".$_POST['name']."%' OR std_lname LIKE '%".$_POST['name']."%'";
 	$result = mysqli_query($conn, $sql);
@@ -74,7 +73,6 @@ if(isset($_POST['search'])){
 	echo "No result";
 	}
 }
-
 if(isset($_POST['share'])){
 	$post_id = $_POST['sh_post_id'];
 	$std_id = $_POST['sh_author_id'];

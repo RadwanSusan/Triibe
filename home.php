@@ -73,7 +73,7 @@
                 echo "<script>alert('Please write something')</script>";
             }else{
               if(mysqli_query($conn, $sql)){
-                header("Location: home.php");
+                echo "<script>alert('Post Success');</script>";
               }
               else{
                 echo "<script>alert('Post Failed');</script>";
@@ -104,7 +104,7 @@
                 echo "<script>alert('Please write something')</script>";
             }else{
               if(mysqli_query($conn, $sql)){
-                header("Location: home.php");
+                echo "<script>alert('Post Success');</script>";
               }
               else{
                 echo "<script>alert('Post Failed');</script>";
@@ -135,7 +135,7 @@
                 echo "<script>alert('Please write something')</script>";
             }else{
               if(mysqli_query($conn, $sql2)){
-                header("Location: home.php");
+                echo "<script>alert('Post Success');</script>";
               }
               else{
                 echo "<script>alert('Post Failed');</script>";
