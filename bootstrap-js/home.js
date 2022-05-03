@@ -223,6 +223,27 @@ $(document).ready(function () {
 			);
 		});
 	});
+
+	const save = document.querySelectorAll(".save");
+	save.forEach((element) => {
+		element.addEventListener("click", () => {
+			const save_post_id = element.dataset.post_id;
+			const save_keeper_id = element.dataset.keeper_id;
+			$.ajax({
+				url: "like.php",
+				type: "post",
+				data: {
+					save: 1,
+					save_post_id,
+					save_keeper_id,
+				},
+				success() {
+					window.location.href = "home.php";
+				},
+			});
+		});
+	});
+
 	$("#search").on("input", function () {
 		const std_id = $(this).attr("std_id");
 		$.ajax({

@@ -83,4 +83,10 @@ if(isset($_POST['share'])){
 	$sql = "INSERT INTO post (content, created_date, author , form_id , img_id, video_id) VALUES ('".$row["content"]."', '".$dateNow."', '".$row["author"]."', '".$row["form_id"]."', '".$row["img_id"]."', '".$row["video_id"]."')";
 	$result = mysqli_query($conn, $sql);
 }
+if(isset($_POST['save'])){
+	$save_post_id = $_POST['save_post_id'];
+	$save_keeper_id= $_POST['save_keeper_id'];
+	$sql = "INSERT INTO saved_post (keeper_id , post_id) VALUES ('$save_keeper_id','$save_post_id')";
+	$result = mysqli_query($conn, $sql);
+}
 ?>
