@@ -453,7 +453,7 @@
                             echo "<div class='end-post'>
                                     <div class='content-end'>
                                     <div class='photo-post'>
-                                      <video width='800px' controls class='video-js vjs-theme-forest' data-setup='{}'>
+                                      <video width='800px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
                                          <source src='".$row3["video_name"]."' type='video/mp4'>
                                       </video>
                                     </div>
