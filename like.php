@@ -99,4 +99,7 @@ if(isset($_POST['save'])){
 	$sql = "INSERT INTO saved_post (keeper_id , post_id) VALUES ('$save_keeper_id','$save_post_id')";
 	$result = mysqli_query($conn, $sql);
 }
+if(isset($_POST['tag'])){
+	echo 1;
+}
 ?>

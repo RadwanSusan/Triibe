@@ -360,41 +360,71 @@ $(document).ready(function () {
 			});
 		});
 	});
-});
-const likeFilled1 = document.querySelectorAll(".likeFilled");
-likeFilled1.forEach((element) => {
-	element.addEventListener("click", () => {
-		const likeHollow = element.parentElement.children[0];
-		const likeFilled = element.parentElement.children[1];
-		const LikeCount = element.parentElement.children[2];
-		const LikeParagraph = element.parentElement.children[3];
-		const UnLikeParagraph = element.parentElement.children[4];
-		const post_id = $(element).attr("post_id");
-		const std_id = $(element).attr("std_id");
-		$.ajax({
-			url: "like.php",
-			type: "post",
-			data: {
-				unlike: 1,
-				post_id,
-				std_id,
-			},
-			success() {
-				UnLikeParagraph.style.display = "none";
-				LikeParagraph.style.display = "block";
-				likeFilled.style.display = "none";
-				likeHollow.style.display = "block";
-				const likes = LikeCount.textContent;
-				const new_likes_number = parseInt(likes) - 1;
-				LikeCount.textContent = `${new_likes_number}`;
-				if (new_likes_number == 1) {
-					LikeParagraph.textContent = `Like`;
-					UnLikeParagraph.textContent = `Like`;
-				} else {
-					LikeParagraph.textContent = `Likes`;
-					UnLikeParagraph.textContent = `Likes`;
-				}
-			},
+	const likeFilled1 = document.querySelectorAll(".likeFilled");
+	likeFilled1.forEach((element) => {
+		element.addEventListener("click", () => {
+			const likeHollow = element.parentElement.children[0];
+			const likeFilled = element.parentElement.children[1];
+			const LikeCount = element.parentElement.children[2];
+			const LikeParagraph = element.parentElement.children[3];
+			const UnLikeParagraph = element.parentElement.children[4];
+			const post_id = $(element).attr("post_id");
+			const std_id = $(element).attr("std_id");
+			$.ajax({
+				url: "like.php",
+				type: "post",
+				data: {
+					unlike: 1,
+					post_id,
+					std_id,
+				},
+				success() {
+					UnLikeParagraph.style.display = "none";
+					LikeParagraph.style.display = "block";
+					likeFilled.style.display = "none";
+					likeHollow.style.display = "block";
+					const likes = LikeCount.textContent;
+					const new_likes_number = parseInt(likes) - 1;
+					LikeCount.textContent = `${new_likes_number}`;
+					if (new_likes_number == 1) {
+						LikeParagraph.textContent = `Like`;
+						UnLikeParagraph.textContent = `Like`;
+					} else {
+						LikeParagraph.textContent = `Likes`;
+						UnLikeParagraph.textContent = `Likes`;
+					}
+				},
+			});
+		});
+	});
+	const tagFriend = document.querySelectorAll(".tagButton");
+	tagFriend.forEach((element) => {
+		element.addEventListener("click", () => {
+			const textarea = document.querySelector(".card-write-post");
+			const text = textarea.value;
+			const fName = $(element).attr("fName");
+			const lName = $(element).attr("lName");
+			const fullName = `@${fName}${lName}`;
+			textarea.value = `${text} ${fullName} `;
+			const textarea_length = textarea.value.length;
+			textarea.setSelectionRange(textarea_length, textarea_length);
+			textarea.focus();
+			const friend_id = $(element).attr("friend_id");
+			if (document.querySelector(".post-write").clicked == true) {
+				$.ajax({
+					url: "like.php",
+					type: "post",
+					data: {
+						tag: 1,
+						friend_id,
+					},
+					success(response) {
+						console.log("tagged");
+						console.log(response);
+						alert("tagged");
+					},
+				});
+			}
 		});
 	});
 });

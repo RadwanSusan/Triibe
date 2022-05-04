@@ -167,7 +167,8 @@
               <h1 class="tagH1">Tag someone</h1>
               <button type="button" class="btn cancel">Close</button>
               <div class="innerTag">
-              <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+              <?php
+              $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0)
               {
@@ -183,7 +184,7 @@
                               $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
-                              echo "<a href='#'><img class='tagImg' src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                              echo "<a class='tagButton' href='#' friend_id='" . $row["friend_id"] . "' fName='" . $row1["std_fname"] . "' lName='" . $row1["std_lname"] . "'><img class='tagImg' src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
                           }
                       }
                   }
