@@ -2,9 +2,8 @@
 include_once "connection.php";
 include_once "like.php";
 session_start();
-// recive data from window.location.href
-$id = $_GET['friend_id'];
-$sql = "SELECT * FROM student WHERE std_id = '$id'";
+$id = $_GET['account_id'];
+$sql = "SELECT * FROM student WHERE account_id = '$id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 

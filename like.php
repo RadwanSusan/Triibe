@@ -63,14 +63,24 @@ if(isset($_POST['search'])){
       		$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
       		$resultimg = mysqli_query($conn, $sqlimg);
       		$rowimg = mysqli_fetch_assoc($resultimg);
-      		// echo "<a href='#'class='friendpage' friend_id='".$row["std_id"]."' ><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row["std_fname"] . " " . $row["std_lname"] . "</a>";
-				echo $row['std_id'] . " " . $row['std_fname'] . " " . $row['std_lname'] . "<br/>";
-			}else{
-				echo "No result";
+				if($rowimg == null){
+					if($row['gender'] == 1){
+						$imgname	= "Design/Image/LogoPic0.jpg";
+					}else{
+						$imgname	= "Design/Image/LogoPic1.jpg";
+					}
+				}
+				else{
+					$imgname = $rowimg['img_name'];
+				}
+				echo "<a href='friendpage.php?account_id=".$row["account_id"]."' class='searchItem' friend_id='".$row["std_id"]."'>
+							<img src='".$imgname."' alt=''/>
+							<p>". $row["std_fname"] . " " . $row["std_lname"] . "</p>
+						</a>";
 			}
-	}
-} else {
-	echo "No result";
+		}
+	}else{
+		echo "<div class='notFound'><p>Not Found</p></div>";
 	}
 }
 if(isset($_POST['share'])){

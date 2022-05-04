@@ -150,20 +150,6 @@ hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
 hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
 hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
 $(document).ready(function () {
-	$(".friendpage").on("click", function () {
-		const friend_id = $(this).attr("friend_id");
-		$.ajax({
-			url: "like.php",
-			type: "post",
-			data: {
-				friendclick: 1,
-				friend_id,
-			},
-			success(response) {
-				window.location.href = "friendpage.php?friend_id=" + response;
-			},
-		});
-	});
 	const delete1 = document.getElementsByClassName("delete");
 	Array.from(delete1).forEach((element) => {
 		element.addEventListener("click", () => {
@@ -195,7 +181,6 @@ $(document).ready(function () {
 			);
 		});
 	});
-
 	const share = document.querySelectorAll(".share");
 	share.forEach((element) => {
 		element.addEventListener("click", () => {
@@ -243,8 +228,12 @@ $(document).ready(function () {
 			});
 		});
 	});
-
 	$("#search").on("input", function () {
+		if ($(this).val() == "") {
+			$(".searchArea").hide();
+		} else {
+			$(".searchArea").show();
+		}
 		const std_id = $(this).attr("std_id");
 		$.ajax({
 			url: "like.php",
@@ -255,8 +244,8 @@ $(document).ready(function () {
 				std_id,
 			},
 			success(response) {
-				//$("#result").html(response);
-				console.log(response);
+				const searchArea = document.querySelector(".searchArea");
+				searchArea.innerHTML = response;
 			},
 		});
 	});

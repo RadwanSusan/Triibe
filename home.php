@@ -210,8 +210,9 @@
           <p>Triibe</p>
         </div>
         <div class="search-box"> <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search" />
-          <input type="text" placeholder="Search" id="search" std_id="<?php echo $_SESSION['std_id'];?>"/>
+          <input type="text" placeholder="Search" id="search" autocomplete="off" std_id="<?php echo $_SESSION['std_id'];?>"/>
         </div>
+          <div class="searchArea"></div>
       </div>
       <div class="nav-right">
         <ul>
@@ -267,7 +268,7 @@
                               $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
-                              echo "<a href='#'class='friendpage' friend_id='".$row1["std_id"]."' ><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                              echo "<a href='friendpage.php?account_id=".$row1["account_id"]."'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
                           }
                       }
                   }
