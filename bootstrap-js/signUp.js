@@ -87,3 +87,7 @@ $("select").each(function () {
 		$(".select-options").removeClass("animate__animated animate__fadeInDown");
 	});
 });
+
+if (window.history.replaceState) {
+	window.history.replaceState(null, null, window.location.href);
+}

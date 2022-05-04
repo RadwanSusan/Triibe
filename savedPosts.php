@@ -37,186 +37,6 @@
   </head>
   <body>
     <div id="particles-js"></div>
-    <div class="post-card slide-in-elliptic-top-fwd">
-      <div class="top-card">
-        <div class="left-top-card">
-          <div class="card-name-photo">
-            <img class="card-user-photo" src="<?php echo $_SESSION["img_name"]?>" alt="">
-            <div class="card-name"><?php echo $_SESSION["std_fname"] ." ". $_SESSION["std_lname"] ?></div>
-          </div>
-          <div class="card-inside-top">
-            <img src="Design/Image/home-images/images/ball2.svg" alt="">
-            <img src="Design/Image/home-images/images/card-down.svg" alt="">
-          </div>
-        </div>
-        <div class="right-top-card">
-          <img class="exitCard" src="Design/Image/home-images/images/exit-card.svg" alt="">
-        </div>
-      </div>
-      <?php
-      $img_id = null;
-      $video_id = null;
-       if($_SERVER["REQUEST_METHOD"] == "POST"){
-           $file = $_FILES['file'];
-           $fileName = $_FILES['file']['name'];
-           $fileTmpName = $_FILES['file']['tmp_name'];
-           $fileSize = $_FILES['file']['size'];
-           $fileError = $_FILES['file']['error'];
-           $fileExt = explode('.', $fileName);
-           $fileActualExt = strtolower(end($fileExt));
-           $ext = $fileActualExt;
-           if($ext == "" || $ext == null){
-              $post = nl2br($_POST["content"]);
-              $date = date("Y-m-d H:i:s", time());
-              $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , NULL , NULL)";
-              if(($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)){
-                echo "<script>alert('Please write something')</script>";
-            }else{
-              if(mysqli_query($conn, $sql)){
-                echo "<script>alert('Post Success');</script>";
-              }
-              else{
-                echo "<script>alert('Post Failed');</script>";
-              }
-            }
-          }
-           else if($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif"){
-              if($fileError === 0){
-                 if($fileSize < 100000000){
-                    $fileNameNew = uniqid('', true).".".$fileActualExt;
-                    $fileDestination = 'db_images/'.$fileNameNew;
-                    $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
-                    mysqli_query($conn, $sqlimg);
-                    move_uploaded_file($fileTmpName, $fileDestination);
-                 }else{
-                    echo "<script>alert('Your file is too big!')</script>";
-                 }
-              }else{
-                 echo "<script>alert('There was an error uploading your file!')</script>";
-              }
-              $result = mysqli_query($conn,"SELECT * FROM img WHERE img_name = '$fileDestination'");
-              $row = mysqli_fetch_array($result);
-              $img_id = $row["img_id"];
-              $post = nl2br($_POST["content"]);
-              $date = date("Y-m-d H:i:s", time());
-              $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','".$_SESSION["std_id"]."' , 1 , '$img_id' , NULL)";
-          if(($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)){
-                echo "<script>alert('Please write something')</script>";
-            }else{
-              if(mysqli_query($conn, $sql)){
-                echo "<script>alert('Post Success');</script>";
-              }
-              else{
-                echo "<script>alert('Post Failed');</script>";
-              }
-            }
-        }
-        else if($ext == "mp4" || $ext == "webm"){
-            if($fileError === 0){
-               if($fileSize < 100000000){
-                  $fileNameNew = uniqid('', true).".".$fileActualExt;
-                  $fileDestination = 'db_images/'.$fileNameNew;
-                  $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
-                  mysqli_query($conn, $sqlVid);
-                  move_uploaded_file($fileTmpName, $fileDestination);
-               }else{
-                  echo "<script>alert('Your file is too big!')</script>";
-               }
-            }else{
-               echo "<script>alert('There was an error uploading your file!')</script>";
-            }
-            $result2 = mysqli_query($conn,"SELECT * FROM video WHERE video_name = '$fileDestination'");
-            $row2 = mysqli_fetch_array($result2);
-            $video_id = $row2["video_id"];
-            $post2 = nl2br($_POST["content"]);
-            $date2 = date("Y-m-d H:i:s", time());
-            $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','".$_SESSION["std_id"]."',1, NULL ,'$video_id')";
-            if(($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)){
-                echo "<script>alert('Please write something')</script>";
-            }else{
-              if(mysqli_query($conn, $sql2)){
-                echo "<script>alert('Post Success');</script>";
-              }
-              else{
-                echo "<script>alert('Post Failed');</script>";
-              }
-            }
-        }
-        else{
-          echo "<script>alert('File type not supported');</script>";
-        }
-      }
-      ?>
-     <form method = "POST"  enctype="multipart/form-data">
-      <div class="mid-card">
-        <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
-      </div>
-      <div class="down-card">
-        <div class="left-down-card">
-          <p>Add to your post</p>
-          <div class="icon-down">
-            <label class="uploadLabel" for="uploadfile">
-              <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
-            </label>
-            <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.mp4,.mkv">
-            <label class="uploadLabel" for="tagfriend">
-            <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
-            </label>
-            <div class="form-popup arrow-div animate__animated animate__fadeIn animate__faster" id="myForm">
-             <form action="" class="form-container">
-              <h1 class="tagH1">Tag someone</h1>
-              <button type="button" class="btn cancel">Close</button>
-              <div class="innerTag">
-              <?php
-              $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
-              $result = mysqli_query($conn, $sql);
-              if (mysqli_num_rows($result) > 0)
-              {
-                  while ($row = mysqli_fetch_assoc($result))
-                  {
-                      $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-                      $result1 = mysqli_query($conn, $sql1);
-                      if (mysqli_num_rows($result1) > 0)
-                      {
-                          while ($row1 = mysqli_fetch_assoc($result1))
-                          {
-                              $imgid = $row1["img_id"];
-                              $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-                              $resultimg = mysqli_query($conn, $sqlimg);
-                              $rowimg = mysqli_fetch_assoc($resultimg);
-                              if(isset($rowimg["img_name"])){
-                                $imgname = $rowimg["img_name"];
-                              }
-                              else{
-                                if($row1["gender"] == 1){
-                                  $FriendImgName = "Design\Image\LogoPic0.jpg";
-                                }else{
-                                  $FriendImgName = "Design\Image\LogoPic1.jpg";
-                                }
-                              }
-                              echo "<a class='tagButton' href='#' friend_id='" . $row["friend_id"] . "' fName='" . $row1["std_fname"] . "' lName='" . $row1["std_lname"] . "'>
-                              <img class='tagImg' src='$FriendImgName' alt=''/>
-                              " . $row1["std_fname"] . " " . $row1["std_lname"] . "
-                              </a>";
-                          }
-                      }
-                  }
-              } ?>
-              </div>
-             </form>
-            </div>
-            <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
-             <label class="uploadLabel" for="uploadfile">
-              <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
-            </label>
-            <input class="fileUpload_Button" type="file" name="fileGif" id="uploadGif" accept=".gif">
-            <img class="flagIcon" src="Design/Image/home-images/images/flagIcon.svg" alt="">
-          </div>
-        </div>
-        <input type="submit" class="post-write" value="POST" name="post">
-      </div>
-    </form>
-    </div>
     <nav class="nav">
       <div class="nav-left">
         <div class="box">
@@ -296,43 +116,11 @@
         </div>
       </div>
       <div class="main-content animate__animated animate__fadeIn animate__slow">
-        <div class="story-gallery">
-          <div class="story">
-            <img src="Design/Image/home-images/images/upload.png" alt="">
-            <p>
-              <?php
-                echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"];
-                ?>
-            </p>
-          </div>
-          <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0)
-            {
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-                    $result1 = mysqli_query($conn, $sql1);
-                    if (mysqli_num_rows($result1) > 0)
-                    {
-                        while ($row1 = mysqli_fetch_assoc($result1))
-                        {
-                            echo "<div class='story'><img src='Design/Image/home-images/images/upload.png' alt=''><p>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</p></div>";
-                        }
-                    }
-                }
-            } ?>
-        </div>
-        <div class="write-post-container">
-          <div class="user-profile">
-            <img src="<?php echo $_SESSION["img_name"]; ?>" alt="">
-            <div class="write-post-input">
-              <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
-            </div>
-          </div>
+        <div class="write-post-container2">
+           <h1 class="savedPosts">Saved Posts</h1>
           <?php
             $likenum = 0;
-            $sql = "SELECT * FROM post order by created_date desc";
+            $sql = "SELECT * FROM post INNER JOIN saved_post ON post.post_id = saved_post.post_id WHERE saved_post.keeper_id = '" . $_SESSION["std_id"] . "' order by created_date desc";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0){
                 while ($row = mysqli_fetch_assoc($result)){
@@ -467,29 +255,11 @@
                                        <div class='share' data-post_id='".$row["post_id"]."' data-author_id='".$_SESSION["std_id"]."'>
                                        <img src='Design/Image/home-images/images/Share.svg'' alt=''>
                                        <p>share</p>
-                                       </div>";
-                                       $sql8 = "SELECT * FROM saved_post WHERE keeper_id = '" . $_SESSION["std_id"] . "' AND post_id = '" . $row["post_id"] . "'";
-                                        $result8 = mysqli_query($conn, $sql8);
-                                        if (mysqli_num_rows($result8) > 0){
-                                            echo "<div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."' style='display: none;'>
-                                                   <img src='Design/Image/home-images/images/Save.svg' alt=''>
-                                                   <p>save</p>
-                                                   </div>
-                                                   <div class='saved' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
-                                                  <img src='Design/Image/home-images/images/Saved.svg' alt=''>
-                                                  <p>Unsave</p>
-                                                </div>";
-                                        }else{
-                                            echo "<div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
-                                                   <img src='Design/Image/home-images/images/Save.svg' alt=''>
-                                                   <p>save</p>
-                                                   </div>
-                                                   <div class='saved' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."' style='display: none;'>
-                                                  <img src='Design/Image/home-images/images/Saved.svg' alt=''>
-                                                  <p>Unsave</p>
-                                                </div>";
-                                        }
-                                        echo "
+                                       </div>
+                                       <div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
+                                       <img src='Design/Image/home-images/images/Save.svg' alt=''>
+                                       <p>save</p>
+                                       </div>
                                  </div>
                                  </div>
                                  </div>";
@@ -519,7 +289,8 @@
                                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>like</p>
                                                   ";
                                                   }else{
-                                                    echo "<p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
+                                                    echo "
+                                                    <p class='LikeCount' post_id='".$row["post_id"]."'>$likenum</p>
                                                   <p class='LikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   <p class='UnLikeParagraph' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                                   ";
@@ -532,44 +303,28 @@
                                                   <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                             ";
                                         }
-                                       echo "
-                                       </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg' alt=''>
-                                       <p>comment</p>
-                                       </div>
-                                       <div class='share' data-post_id='".$row["post_id"]."' data-author_id='".$_SESSION["std_id"]."'>
-                                       <img src='Design/Image/home-images/images/Share.svg'' alt=''>
-                                       <p>share</p>
-                                       </div>";
-                                       $sql8 = "SELECT * FROM saved_post WHERE keeper_id = '" . $_SESSION["std_id"] . "' AND post_id = '" . $row["post_id"] . "'";
-                                        $result8 = mysqli_query($conn, $sql8);
-                                        if (mysqli_num_rows($result8) > 0){
-                                            echo "<div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."' style='display: none;'>
-                                                   <img src='Design/Image/home-images/images/Save.svg' alt=''>
-                                                   <p>save</p>
-                                                   </div>
-                                                   <div class='saved' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
-                                                  <img src='Design/Image/home-images/images/Saved.svg' alt=''>
-                                                  <p>Unsave</p>
-                                                </div>";
-                                        }else{
-                                            echo "<div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
-                                                   <img src='Design/Image/home-images/images/Save.svg' alt=''>
-                                                   <p>save</p>
-                                                   </div>
-                                                   <div class='saved' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."' style='display: none;'>
-                                                  <img src='Design/Image/home-images/images/Saved.svg' alt=''>
-                                                  <p>Unsave</p>
-                                                </div>";
-                                        }
                                         echo "
-                                 </div>
-                                 </div>
-                                 </div>";
+                                        </div>
+                                        <div class='comment'>
+                                        <img src='Design/Image/home-images/images/Comment.svg' alt=''>
+                                        <p>comment</p>
+                                        </div>
+                                        <div class='share' data-post_id='".$row["post_id"]."' data-author_id='".$_SESSION["std_id"]."'>
+                                        <img src='Design/Image/home-images/images/Share.svg' alt=''>
+                                        <p>share</p>
+                                        </div>
+                                        <div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
+                                        <img src='Design/Image/home-images/images/Save.svg' alt=''>
+                                        <p>save</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>";
                         }
                       } else {
-                        echo "<div class='end-post'>
+                        echo "<div class='end-post>
+                              <div class='content-end'>
+                              </div>
                               <div class='likes'>
                                  <div class='like'>
                                   ";
@@ -599,41 +354,22 @@
                                               <p class='UnLikeParagraph' style='display: none;' post_id='".$row["post_id"]."' std_id='".$_SESSION["std_id"]."'>likes</p>
                                         ";
                                     }
-                                echo "
-                                       </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg' alt=''>
-                                       <p>comment</p>
-                                       </div>
-                                       <div class='share' data-post_id='".$row["post_id"]."' data-author_id='".$_SESSION["std_id"]."'>
-                                       <img src='Design/Image/home-images/images/Share.svg'' alt=''>
-                                       <p>share</p>
-                                       </div>";
-                                       $sql8 = "SELECT * FROM saved_post WHERE keeper_id = '" . $_SESSION["std_id"] . "' AND post_id = '" . $row["post_id"] . "'";
-                                        $result8 = mysqli_query($conn, $sql8);
-                                        if (mysqli_num_rows($result8) > 0){
-                                            echo "<div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."' style='display: none;'>
-                                                   <img src='Design/Image/home-images/images/Save.svg' alt=''>
-                                                   <p>save</p>
-                                                   </div>
-                                                   <div class='saved' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
-                                                  <img src='Design/Image/home-images/images/Saved.svg' alt=''>
-                                                  <p>Unsave</p>
-                                                </div>";
-                                        }else{
-                                            echo "<div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
-                                                   <img src='Design/Image/home-images/images/Save.svg' alt=''>
-                                                   <p>save</p>
-                                                   </div>
-                                                   <div class='saved' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."' style='display: none;'>
-                                                  <img src='Design/Image/home-images/images/Saved.svg' alt=''>
-                                                  <p>Unsave</p>
-                                                </div>";
-                                        }
-                                        echo "
+                                  echo "
+                                 </div>
+                                 <div class='comment'>
+                                    <img src='Design/Image/home-images/images/Comment.svg' alt=''>
+                                    <p>comment</p>
+                                 </div>
+                                 <div class='share' data-post_id='".$row["post_id"]."' data-author_id='".$_SESSION["std_id"]."'>
+                                    <img src='Design/Image/home-images/images/Share.svg' ' alt=' '>
+                                    <p>share</p>
+                                 </div>
+                                 <div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
+                                    <img src='Design/Image/home-images/images/Save.svg' alt=' '>
+                                    <p>save</p>
                                  </div>
                                  </div>
-                                 </div>";
+                              </div>";
             }
             }
             }
@@ -642,7 +378,7 @@
       </div>
       <div class="right-sidebar">
         <div class="imp-link">
-          <a href="savedPosts.php">
+          <a href="#">
           <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" alt="" />
           <img class="savedPosts-Dark" src="Design/Image/home-images/images/saved-posts2.svg" alt="" />
           <span> Saved posts</span>

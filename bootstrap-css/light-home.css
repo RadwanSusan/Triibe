@@ -677,7 +677,8 @@ body {
 .like,
 .comment,
 .share,
-.save {
+.save,
+.saved {
 	display: flex;
 	align-items: center;
 	position: relative;
@@ -711,6 +712,11 @@ body {
 .save img {
 	width: 24px;
 	height: 24px;
+	cursor: pointer;
+}
+.saved img {
+	width: 27px;
+	height: 19px;
 	cursor: pointer;
 }
 
@@ -792,14 +798,16 @@ body {
 }
 
 .share img,
-.save img {
+.save img,
+.saved img {
 	margin-top: 3px;
 }
 
 .like p,
 .comment p,
 .share p,
-.save p {
+.save p,
+.saved p {
 	margin: 0;
 	font-size: 14px;
 	margin-left: 3px;
@@ -1547,4 +1555,29 @@ canvas {
 
 .otherLinksIcon-Light {
 	width: 28px !important;
+}
+
+.savedPosts {
+	text-align: center;
+	color: rgb(59, 59, 59);
+	font-family: "pridi";
+	font-size: 39px;
+	margin-bottom: 20px;
+}
+.savedPosts::after {
+	content: "";
+	display: block;
+	width: 22%;
+	height: 2px;
+	background: rgb(59, 59, 59);
+	margin: 0 auto;
+	margin-top: -3px;
+	margin-bottom: 10px;
+}
+
+.write-post-container2 {
+	background: #dedede94;
+	border-radius: 12px;
+	height: 100%;
+	padding: 8px;
 }

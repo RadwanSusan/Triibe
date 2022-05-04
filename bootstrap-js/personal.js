@@ -42,3 +42,7 @@ $(document).ready(() => {
 		document.getElementById("myForm").style.display = "none";
 	});
 });
+
+if (window.history.replaceState) {
+	window.history.replaceState(null, null, window.location.href);
+}

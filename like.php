@@ -98,6 +98,13 @@ if(isset($_POST['save'])){
 	$save_keeper_id= $_POST['save_keeper_id'];
 	$sql = "INSERT INTO saved_post (keeper_id , post_id) VALUES ('$save_keeper_id','$save_post_id')";
 	$result = mysqli_query($conn, $sql);
+
+}
+if(isset($_POST['unSave'])){
+	$unSave_post_id = $_POST['unSave_post_id'];
+	$unSave_keeper_id= $_POST['unSave_keeper_id'];
+	$sql = "DELETE FROM saved_post WHERE keeper_id = '$unSave_keeper_id' AND post_id = '$unSave_post_id'";
+	$result = mysqli_query($conn, $sql);
 }
 if(isset($_POST['tag'])){
 	echo 1;

@@ -41,3 +41,7 @@ document.querySelector(".closedEye").addEventListener("click", () => {
 document.querySelector(".openEye").addEventListener("click", () => {
 	showPassword("text");
 });
+
+if (window.history.replaceState) {
+	window.history.replaceState(null, null, window.location.href);
+}
