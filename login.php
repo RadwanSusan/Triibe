@@ -37,7 +37,7 @@
             </p>
          </div>
          <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $student_number = mysqli_real_escape_string($conn, $_POST["uname"]);
+            $student_number = mysqli_real_escape_string($conn, $_POST["stNo"]);
             $mypassword = mysqli_real_escape_string($conn, $_POST["password"]);
             $sql = "SELECT * FROM student WHERE std_id = '$student_number' and std_pass = '$mypassword'";
             $result = mysqli_query($conn, $sql);
@@ -60,7 +60,15 @@
             $_SESSION["gender"] = $row["gender"];
             $_SESSION["account_id"] = $row["account_id"];
             $_SESSION["created_date"] = $row["created_date"];
-            $_SESSION["img_name"] = $rowimg["img_name"];
+            if(isset($rowimg["img_name"])){
+               $_SESSION["img_name"] = $rowimg["img_name"];
+            }else{
+               if($row["gender"] == 1){
+                  $_SESSION["img_name"] = "Design\Image\LogoPic0.jpg";
+               }else{
+                  $_SESSION["img_name"] = "Design\Image\LogoPic1.jpg";
+               }
+            }
             $_SESSION["friends"] = $rowfriends;
             header("location: home.php");
             } else {
@@ -69,7 +77,7 @@
             }?>
          <div class="right animate__animated animate__backInDown">
             <form  action="" method="POST" class="form1">
-               <input type="text" name="uname" placeholder="Student number" required/>
+               <input type="text" name="stNo" placeholder="Student number" required/>
                <input class="password" type="password" name="password" placeholder="Password" required/>
                <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
                <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />

@@ -255,21 +255,26 @@
             <p>Friends</p>
             <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
               $result = mysqli_query($conn, $sql);
-              if (mysqli_num_rows($result) > 0)
-              {
-                  while ($row = mysqli_fetch_assoc($result))
-                  {
+              if (mysqli_num_rows($result) > 0){
+                  while ($row = mysqli_fetch_assoc($result)){
                       $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
                       $result1 = mysqli_query($conn, $sql1);
-                      if (mysqli_num_rows($result1) > 0)
-                      {
-                          while ($row1 = mysqli_fetch_assoc($result1))
-                          {
+                      if (mysqli_num_rows($result1) > 0){
+                          while ($row1 = mysqli_fetch_assoc($result1)){
                               $imgid = $row1["img_id"];
                               $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
-                              echo "<a href='friendpage.php?account_id=".$row1["account_id"]."'><img src='" . $rowimg["img_name"] . "' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
+                              if(isset($rowimg["img_name"])){
+                                $imgname = $rowimg["img_name"];
+                              }else{
+                                  if ($row1["gender"] == 1){
+                                  $imgname = "Design\Image\LogoPic0.jpg";
+                                }else{
+                                  $imgname = "Design\Image\LogoPic1.jpg";
+                                }
+                              }
+                              echo "<a href='friendpage.php?account_id=".$row1["account_id"]."'><img src='$imgname' alt=''/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
                           }
                       }
                   }
