@@ -642,6 +642,8 @@
                                  </div>";
             }
             }
+            }else{
+               echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
             }
             ?>
         </div>

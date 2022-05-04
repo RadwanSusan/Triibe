@@ -1602,6 +1602,7 @@ canvas {
 	font-family: "pridi";
 	font-size: 39px;
 	margin-bottom: 20px;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 .savedPosts::after {
 	content: "";
@@ -1619,4 +1620,18 @@ canvas {
 	border-radius: 12px;
 	height: 120%;
 	padding: 8px;
+}
+
+.noSavedPostsParagraph {
+	font-size: 14px;
+	color: #000;
+	font-family: "pridi";
+	font-size: 19px;
+	text-align: center;
+	margin-top: 20px;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.savedBox {
+	cursor: pointer;
 }
