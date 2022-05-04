@@ -439,7 +439,7 @@
                                        <img src='Design/Image/home-images/images/Share.svg'' alt=''>
                                        <p>share</p>
                                        </div>
-                                       <div class='save'>
+                                       <div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
                                        <img src='Design/Image/home-images/images/Save.svg' alt=''>
                                        <p>save</p>
                                        </div>
@@ -496,7 +496,7 @@
                                         <img src='Design/Image/home-images/images/Share.svg' alt=''>
                                         <p>share</p>
                                         </div>
-                                        <div class='save'>
+                                        <div class='save' data-post_id='".$row["post_id"]."' data-keeper_id='".$_SESSION["std_id"]."'>
                                         <img src='Design/Image/home-images/images/Save.svg' alt=''>
                                         <p>save</p>
                                         </div>
