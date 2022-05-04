@@ -390,14 +390,19 @@
                             else{
                                 $difftime = $diffdaystr . "d ago";
                             }
+                            if($row1["std_id"] == $_SESSION["std_id"]){
+                              $href = "personal.php";
+                            }else{
+                              $href = "friendpage.php?account_id=".$row1["account_id"];
+                            }
                             echo "
                               <div class= 'post'>
                               <div class='top-post'>
                                  <div class='left-post'>
-                              <div class='name-photo'>
+                              <a class='name-photo' href='$href'>
                                  <img src='$postImage' alt=''>
                                     <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
-                              </div>
+                              </a>
                                  <div class='inside-top'>
                                   $difftime
                                  <img src='Design/Image/home-images/images/ball.svg' alt=''>
