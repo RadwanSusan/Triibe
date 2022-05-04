@@ -176,7 +176,6 @@ $(document).ready(function () {
 				},
 				() => {
 					document.querySelector(".form-popup1").style.display = "none";
-					alertify.error("Cancelled");
 				},
 			);
 		});

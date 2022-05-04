@@ -406,11 +406,12 @@
                               <div class='right-post'>
                                  <img src='Design/Image/home-images/images/Dots.svg' class='modify' alt=''>
                                  <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1'>
-                                  <form action='' class='form-container'>
+                                  <form action='' class='form-container2'>
+                                  <p>Post Settings</p>
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
-                                  <a class='edit'>edit</a>
-                                  <a class='delete' data-post_id='".$row["post_id"]."' data-author_id = '".$row1["std_id"]."' data-std_id='".$_SESSION["std_id"]."'>delete</a>
+                                  <a class='edit'>Edit post</a>
+                                  <a class='delete' data-post_id='".$row["post_id"]."' data-author_id = '".$row1["std_id"]."' data-std_id='".$_SESSION["std_id"]."'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
