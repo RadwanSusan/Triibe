@@ -1519,3 +1519,32 @@ canvas {
 	font-family: "pridi";
 	font-size: 19px;
 }
+
+.savedPosts-Light {
+	width: 21px !important;
+	margin-left: 13px !important;
+}
+
+.marketIcon-Light {
+	width: 27px !important;
+}
+
+.housingIcon-Light {
+	width: 27px !important;
+}
+
+.elearningIcon-Light {
+	width: 28px !important;
+}
+
+.infoIcon-Light {
+	width: 27px !important;
+}
+
+.regIcon-Light {
+	width: 27px !important;
+}
+
+.otherLinksIcon-Light {
+	width: 28px !important;
+}
