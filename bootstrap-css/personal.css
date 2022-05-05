@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 .nav {
 	display: flex;
 	align-items: center;
@@ -60,9 +61,11 @@
 	margin-top: 6px;
 	cursor: pointer;
 }
+
 .logoDark {
 	display: none;
 }
+
 .nav-left,
 .nav-right {
 	display: flex;
@@ -176,6 +179,7 @@
 	top: 0;
 	right: 90px;
 }
+
 .content1 {
 	/* width: 100%; */
 	/* background-color: #E7E7E7; */
@@ -185,6 +189,7 @@
 	border-top: 2px solid rgba(55, 55, 55, 0.25);
 	border-radius: 5px 5px 0px 0px;
 }
+
 .content1 .top {
 	/* background: #e7e7e7; */
 	display: flex;
@@ -192,28 +197,30 @@
 	max-width: 100%;
 	height: 100%;
 }
+
 .top .farme {
-  position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 0%,
-    rgba(0, 0, 0, 0.46) 97.4%
-  );
-  border-radius: 0px 0px 13px 13px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
+	position: relative;
+	background: linear-gradient(180deg,
+			rgba(196, 196, 196, 0) 0%,
+			rgba(0, 0, 0, 0.46) 97.4%);
+	border-radius: 0px 0px 13px 13px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
 }
+
 .bottom-content {
 	display: flex;
 	justify-content: center;
 	/* background-color: #e7e7e7; */
 }
+
 .line-content {
 	display: flex;
 	justify-content: center;
 	/* background-color: #e7e7e7; */
 }
+
 .content1 .bottom {
 	display: flex;
 	justify-content: space-between;
@@ -221,12 +228,14 @@
 	/* background: blue; */
 	/* margin-left: 430px; */
 }
+
 .left-bottom {
 	display: flex;
 	align-items: center;
 	margin-left: 40px;
 	/* margin-left: 450px; */
 }
+
 .left-bottom img {
 	width: 170px;
 	border-radius: 50%;
@@ -238,11 +247,13 @@
 	/* box-sizing: border-box; */
 	/* filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3)); */
 }
+
 .right-bottom {
 	display: flex;
 	align-items: center;
 	margin-right: 40px;
 }
+
 .add-friends {
 	display: flex;
 	align-items: center;
@@ -255,9 +266,11 @@
 	cursor: pointer;
 	padding-left: 12px;
 }
+
 .add-friends p {
 	margin: 0;
 }
+
 .edit-profile {
 	display: flex;
 	align-items: center;
@@ -269,9 +282,11 @@
 	cursor: pointer;
 	padding-left: 12px;
 }
+
 .edit-profile p {
 	margin: 0;
 }
+
 .info .name-bottom {
 	font-family: "Pridi";
 	font-style: normal;
@@ -280,9 +295,11 @@
 	line-height: 62px;
 	color: #000000;
 }
+
 .info {
 	margin-left: 20px;
 }
+
 .info .number-friends {
 	font-family: "Pridi";
 	font-style: normal;
@@ -292,22 +309,26 @@
 	color: #4a4a4a;
 	margin-top: -20px;
 }
+
 .add-friends img {
-  padding-right: 7px;
+	padding-right: 7px;
 }
+
 .edit-profile img {
-  padding-right: 7px;
+	padding-right: 7px;
 }
+
 .line {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 55%;
-  /* left: 400px; */
-  height: 1.5px;
-  margin-top: 40px;
-  background-color: rgba(82, 82, 82, 0.56);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 55%;
+	/* left: 400px; */
+	height: 1.5px;
+	margin-top: 40px;
+	background-color: rgba(82, 82, 82, 0.56);
 }
+
 .list-photo-content {
 	display: flex;
 	justify-content: center;
@@ -315,6 +336,7 @@
 	padding: 15px;
 	/* box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25); */
 }
+
 .list a {
 	text-decoration: none;
 	font-family: "Poppins";
@@ -325,19 +347,22 @@
 	color: #746d6d;
 	padding: 10px;
 }
+
 .top-post .right2-post img {
-  width: 13px;
-  /* margin-left: 190px; */
+	width: 13px;
+	/* margin-left: 190px; */
 }
+
 .user-profile {
-  display: flex;
-  align-items: center;
-  background: #b9b9b9;
-  /* width: fit-content; */
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 27px;
-  height: 40px;
+	display: flex;
+	align-items: center;
+	background: #b9b9b9;
+	/* width: fit-content; */
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 27px;
+	height: 40px;
 }
+
 .user-profile img {
 	box-shadow: 0px 0px 4px 0.5px rgba(0, 0, 0, 0.25);
 	width: 35px;
@@ -346,27 +371,29 @@
 	border-radius: 50%;
 	margin-right: 5px;
 }
+
 /* .user-profile img {
   height: 38px;
   margin-right: 5px;
   color: #525252;
 } */
 .write-post {
-  width: 100%;
-  padding-left: 15px;
-  height: 40px;
-  /* width: 644px; */
-  background: #dcdcdc;
-  border-radius: 82px;
-  display: flex;
-  align-items: center;
-  line-height: 38px;
-  font-family: "Pridi";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  color: #696969;
+	width: 100%;
+	padding-left: 15px;
+	height: 40px;
+	/* width: 644px; */
+	background: #dcdcdc;
+	border-radius: 82px;
+	display: flex;
+	align-items: center;
+	line-height: 38px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #696969;
 }
+
 .write-post-container {
 	/* background: #e7e7e7; */
 	border-radius: 0px 0px 8px 8px;
@@ -374,6 +401,7 @@
 	width: 100%;
 	/* padding: 8px; */
 }
+
 .post {
 	margin-top: 12px;
 	border: 1px solid rgba(30, 30, 30, 0.5);
@@ -383,18 +411,21 @@
 	width: fit-content;
 	height: fit-content;
 }
+
 .left-post .name-photo img {
 	width: 31px;
 	height: 31px;
 	box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
 	border-radius: 50%;
 }
+
 .top-post {
 	padding: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
+
 .name-photo {
 	display: flex;
 	align-items: center;
@@ -406,6 +437,7 @@
 	height: 39px;
 	margin-left: -10px;
 }
+
 .left-post .name {
 	position: relative;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -422,6 +454,7 @@
 	margin-top: 2px;
 	padding: 9px;
 }
+
 .top-post .left-post {
 	display: flex;
 	align-items: center;
@@ -430,6 +463,7 @@
 	height: 38px;
 	width: fit-content;
 }
+
 .inside-top {
 	margin-left: 0px;
 	font-family: "Pridi";
@@ -442,6 +476,7 @@
 
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .inside-top img {
 	padding-right: 5px;
 	margin-top: 2px;
@@ -456,6 +491,7 @@
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 /* .end-post {
   background: #dcdcdc;
   border: 1px solid rgba(0, 0, 0, 0.21);
@@ -466,14 +502,17 @@
 	border-radius: 7px;
 	margin: 0 10px 0 10px;
 }
+
 .photo-post {
 	display: flex;
 	justify-content: center;
 }
+
 .end-post img {
 	height: fit-content;
 	width: fit-content;
 }
+
 .likes {
 	display: flex;
 	justify-content: space-between;
@@ -485,6 +524,7 @@
 	padding: 19px;
 	position: relative;
 }
+
 .likes::after {
 	content: "";
 	position: absolute;
@@ -494,6 +534,7 @@
 	top: 0;
 	left: 0;
 }
+
 .like,
 .comment,
 .share,
@@ -502,6 +543,7 @@
 	align-items: center;
 	position: relative;
 }
+
 .like img,
 .comment img,
 .share img,
@@ -509,6 +551,7 @@
 	width: 20px;
 	height: 20px;
 }
+
 .comment::after {
 	content: "";
 	position: absolute;
@@ -521,6 +564,7 @@
 .save img {
 	margin-top: 3px;
 }
+
 .like p,
 .comment p,
 .share p,
@@ -529,11 +573,13 @@
 	font-size: 14px;
 	margin-left: 3px;
 }
+
 .content-personal-post {
 	display: flex;
 	justify-content: center;
 	padding-top: 20px;
 }
+
 .left-post {
 	background: #e7e7e7;
 	border: 1px solid #b1b1b1;
@@ -545,16 +591,19 @@
 	padding: 10px;
 	width: 355px;
 }
+
 .left-post .bio {
 	display: flex;
 	align-items: center;
 	padding: 3px;
 	border-bottom: 1px solid #ffffff;
 }
+
 .left-post .bio1 {
 	position: relative;
 	padding-top: 20px;
 }
+
 .left-post .bio1::before {
 	content: "";
 	position: absolute;
@@ -568,9 +617,11 @@
 .left-post .bio2 {
 	border-bottom: none;
 }
+
 .content-personal-post .right-post {
 	width: 36%;
 }
+
 .title-bio {
 	display: flex;
 	align-items: center;
@@ -581,13 +632,16 @@
 	margin-bottom: 15px;
 	padding: 10px;
 }
+
 .h1 {
 	width: 32px;
 }
+
 .title-bio img {
 	position: relative;
 	padding-left: 15px;
 }
+
 .title-bio .name {
 	font-family: "Pridi";
 	font-style: normal;
@@ -598,6 +652,7 @@
 	border-right: 2px solid #a8a8a8;
 	padding-right: 15px;
 }
+
 .left-post h1 {
 	position: relative;
 	font-family: "Pridi";
@@ -607,6 +662,7 @@
 	line-height: 31px;
 	color: #000000;
 }
+
 .left-post h1::after {
 	content: "";
 	position: absolute;
@@ -617,46 +673,51 @@
 	left: 0;
 	box-shadow: 0px 2px 0px #ffffff;
 }
+
 .name2 {
 	line-height: 25px;
 }
+
 .edit-cover-content {
-  position: absolute;
-    top: 449px;
-    left: 71%;
+	position: absolute;
+	top: 449px;
+	left: 71%;
 }
 
 .Edit-cover {
-display: flex;
-    align-items: center;
-    /* background: white; */
-    padding: 0px 6px 0px 10px;
-    margin-right: 10px;
-    border-radius: 7px;
-    background: #C4C4C4;
-border: 1px solid #929292;
-    /* border: 1px solid rgb(176, 176, 176); */
-    cursor: pointer
-  }
-  .Edit-cover img {
-    padding-right: 7px;
-    padding-top: 10px;
-  }
+	display: flex;
+	align-items: center;
+	/* background: white; */
+	padding: 0px 6px 0px 10px;
+	margin-right: 10px;
+	border-radius: 7px;
+	background: #C4C4C4;
+	border: 1px solid #929292;
+	/* border: 1px solid rgb(176, 176, 176); */
+	cursor: pointer
+}
+
+.Edit-cover img {
+	padding-right: 7px;
+	padding-top: 10px;
+}
+
 .Edit-cover p {
-margin: 0;
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-/* line-height: 25px; */
-/* identical to box height */
+	margin: 0;
+	font-family: 'Pridi';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	/* line-height: 25px; */
+	/* identical to box height */
 
 
-color: #000000;
+	color: #000000;
 
 }
+
 .write-post-input {
-  width: 100%;
+	width: 100%;
 }
 
 .photo-see {
@@ -665,41 +726,50 @@ color: #000000;
 	justify-content: space-between;
 	padding-bottom: 10px;
 }
+
 .namePhoto img {
 	width: 160px;
 }
+
 .Photo img {
 	padding: 2px;
 }
+
 .left-post-two {
 	margin-top: 15px;
 }
+
 .Friends {
 	display: flex;
 	justify-content: space-around;
 }
+
 .namePhoto {
 	width: 155px;
 }
+
 .names1 {
 	margin-bottom: 20px;
 }
+
 .see-more {
 	background: #c4c4c4;
 	border: 1px solid #ffffff;
 	box-sizing: border-box;
 	border-radius: 7px;
 	padding: 5px;
-cursor: pointer;
+	cursor: pointer;
 	font-family: "Pridi";
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
 	color: #000000;
 }
+
 .info .number-friends {
 	position: relative;
 }
+
 .info .number-friends::after {
 	content: "";
 	position: absolute;
@@ -751,10 +821,8 @@ cursor: pointer;
 }
 
 .slide-in-elliptic-top-fwd {
-	-webkit-animation: slide-in-elliptic-top-fwd 0.5s
-		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		both;
+	-webkit-animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-in-elliptic-top-fwd {
@@ -765,6 +833,7 @@ cursor: pointer;
 		transform-origin: 50% 100%;
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateY(0) rotateX(0) scale(1);
 		transform: translateY(0) rotateX(0) scale(1);
@@ -907,6 +976,7 @@ cursor: pointer;
 .arrow-div {
 	border: 5px solid #dddddd;
 }
+
 .arrow-div:after,
 .arrow-div:before {
 	bottom: 100%;
@@ -925,6 +995,7 @@ cursor: pointer;
 	border-width: 10px;
 	margin-left: -10px;
 }
+
 .arrow-div:before {
 	border-color: rgba(241, 241, 241, 0);
 	border-bottom-color: #dddddd;
@@ -1065,10 +1136,12 @@ cursor: pointer;
 ::-webkit-scrollbar {
 	width: 10px;
 }
+
 ::-webkit-scrollbar-track {
 	background: rgb(248, 248, 248);
 	border-radius: 9px;
 }
+
 ::-webkit-scrollbar-thumb {
 	background: rgb(185, 185, 185);
 	border-radius: 50px;
@@ -1093,6 +1166,7 @@ cursor: pointer;
 	resize: none;
 	color: transparent;
 }
+
 .write-post:focus {
 	outline: none;
 }
@@ -1116,6 +1190,7 @@ cursor: pointer;
 	0% {
 		background-position: 50% 100%;
 	}
+
 	100% {
 		background-position: 50% 0%;
 	}
@@ -1144,10 +1219,8 @@ cursor: pointer;
 }
 
 .slide-in-elliptic-top-fwd {
-	-webkit-animation: slide-in-elliptic-top-fwd 0.7s
-		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		both;
+	-webkit-animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .close {
@@ -1172,6 +1245,9 @@ cursor: pointer;
 		width: 100%;
 	}
 }
-.list1,.list2,.list3 {
-  border-right: 1px solid #919191;
+
+.list1,
+.list2,
+.list3 {
+	border-right: 1px solid #919191;
 }

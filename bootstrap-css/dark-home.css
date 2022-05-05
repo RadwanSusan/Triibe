@@ -72,6 +72,7 @@ nav {
 	cursor: pointer;
 	display: none;
 }
+
 .logoLight {
 	display: none;
 }
@@ -277,7 +278,7 @@ nav {
 	padding: 10px;
 }
 
-.group-list > a {
+.group-list>a {
 	text-decoration: none;
 	display: flex;
 	align-items: center;
@@ -681,12 +682,14 @@ nav {
 .regIcon-Light {
 	display: none;
 }
+
 .left-top-card {
 	display: flex;
 	align-items: center;
 	background: #d8d8d8;
 	border-radius: 200px;
 }
+
 .down-card p {
 	position: relative;
 	margin-bottom: 0px;
@@ -697,6 +700,7 @@ nav {
 	color: #000000;
 	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
+
 .down-card p::after {
 	content: "";
 	position: absolute;
@@ -706,6 +710,7 @@ nav {
 	right: -22px;
 	top: 2px;
 }
+
 .post-card {
 	position: absolute;
 	/* visibility: hidden; */
@@ -725,6 +730,7 @@ nav {
 	left: 26%;
 	top: 20%;
 }
+
 .card-write-post {
 	width: 100%;
 	height: 100%;
@@ -732,10 +738,12 @@ nav {
 	border-radius: 9px;
 	padding: 6px;
 }
+
 .mid-card {
 	height: 50%;
 	margin: 10px 10px 10px 10px;
 }
+
 .down-card {
 	display: flex;
 	align-items: center;
@@ -743,6 +751,7 @@ nav {
 	margin: 10px 3px 10px 3px;
 	padding: 6px;
 }
+
 .left-down-card {
 	display: flex;
 	align-items: center;
@@ -752,15 +761,18 @@ nav {
 	border-radius: 9px;
 	justify-content: space-between;
 }
+
 .top-card {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 10px 10px 10px 10px;
 }
+
 .card-inside-top {
 	padding: 6px;
 }
+
 .post-write {
 	padding: 13px 25px 13px 25px;
 	background: #ffffff;
@@ -775,6 +787,7 @@ nav {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .card-name-photo {
 	display: flex;
 	align-items: center;
@@ -783,16 +796,19 @@ nav {
 	margin: 2px;
 	padding-right: 10px;
 }
+
 .right-top-card img {
 	background: #d8d8d8;
 	padding: 9px;
 	border-radius: 50%;
 	cursor: pointer;
 }
+
 .icon-down img {
 	margin-right: 17px;
 	width: 20px;
 }
+
 .card-name {
 	font-family: "Pridi";
 	font-style: normal;
@@ -802,6 +818,7 @@ nav {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .post-write:hover {
 	background-color: #d8d8d8;
 }
