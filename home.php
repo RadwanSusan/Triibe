@@ -185,7 +185,7 @@
                               $resultimg = mysqli_query($conn, $sqlimg);
                               $rowimg = mysqli_fetch_assoc($resultimg);
                               if(isset($rowimg["img_name"])){
-                                $imgname = $rowimg["img_name"];
+                                $FriendImgName = $rowimg["img_name"];
                               }
                               else{
                                 if($row1["gender"] == 1){
@@ -246,7 +246,7 @@
             <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
             <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
           </li>
-          <li>
+          <li class = "chat">
             <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
             <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />
           </li>
