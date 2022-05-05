@@ -83,7 +83,6 @@ if(isset($_POST['search'])){
 		echo "<div class='notFound'><p>Not Found</p></div>";
 	}
 }
-
 if(isset($_POST['share'])){
 	$post_id = $_POST['sh_post_id'];
 	$std_id = $_POST['sh_author_id'];

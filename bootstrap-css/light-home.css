@@ -1480,6 +1480,7 @@ canvas {
 #stats,
 .count-particles {
 	-webkit-user-select: none;
+	user-select: none;
 	margin-top: 5px;
 	margin-left: 5px;
 }
@@ -1498,6 +1499,23 @@ canvas {
 	width: 292px;
 	height: auto;
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 4px;
+	background: #cbcbcb62;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	outline: #000;
+	z-index: 200;
+	backdrop-filter: blur(10px);
+}
+.chatbox {
+	display: none;
+	position: absolute;
+	left: 70vw;
+	top: 7vh;
+	width: 292px;
+	height: auto;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	border-radius: 4px;
@@ -1635,4 +1653,3 @@ canvas {
 .savedBox {
 	cursor: pointer;
 }
-

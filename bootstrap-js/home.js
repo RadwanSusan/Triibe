@@ -272,7 +272,6 @@ $(document).ready(function () {
 			},
 		});
 	});
-
 	const like1 = document.querySelectorAll(".LikeParagraph");
 	like1.forEach((element) => {
 		element.addEventListener("click", () => {
