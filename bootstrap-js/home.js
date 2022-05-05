@@ -600,3 +600,6 @@ particlesJS("particles-js", {
 if (window.history.replaceState) {
 	window.history.replaceState(null, null, window.location.href);
 }
+document.querySelector(".chat").addEventListener("click", () => {
+	window.location.href = "chat.php";
+})
