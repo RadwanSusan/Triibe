@@ -963,6 +963,7 @@ body {
 }
 
 .card-write-post {
+	display: none;
 	width: 100%;
 	height: 160px;
 	background: #d8d8d8;
@@ -1634,4 +1635,20 @@ canvas {
 
 .savedBox {
 	cursor: pointer;
+}
+
+.my-textarea {
+	width: 100%;
+	height: 170px;
+	background: #d8d8d8;
+	border-radius: 9px;
+	padding: 8px;
+	font-family: "Pridi";
+	border: none;
+	resize: none;
+	user-select: none;
+}
+
+.my-textarea:focus {
+	outline: none;
 }

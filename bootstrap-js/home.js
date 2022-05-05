@@ -420,19 +420,28 @@ $(document).ready(function () {
 			});
 		});
 	});
+	const setEndOfContenteditable = (elem) => {
+		const sel = window.getSelection();
+		sel.selectAllChildren(elem);
+		sel.collapseToEnd();
+	};
+	let change = true;
 	const tagFriend = document.querySelectorAll(".tagButton");
 	tagFriend.forEach((element) => {
 		element.addEventListener("click", () => {
-			const textarea = document.querySelector(".card-write-post");
-			const text = textarea.value;
+			const textareaDiv = document.querySelector(".my-textarea");
+			const textareaForm = document.querySelector(".card-write-post");
+			const text = textareaDiv.innerHTML;
 			const fName = $(element).attr("fName");
 			const lName = $(element).attr("lName");
+			const account_id = $(element).attr("account_id");
 			const fullName = `@${fName}${lName}`;
-			textarea.value = `${text} ${fullName} `;
-			const textarea_length = textarea.value.length;
-			textarea.setSelectionRange(textarea_length, textarea_length);
-			textarea.focus();
-			const friend_id = $(element).attr("friend_id");
+			const fullNameLink = `<a href="friendpage.php?account_id=${account_id}">${fullName}</a>`;
+			textareaDiv.innerHTML = `${text} ${fullNameLink}`;
+			textareaForm.value = `${text} ${fullNameLink}`;
+			change = false;
+			$(".form-popup").hide();
+			setEndOfContenteditable(textareaDiv);
 			if (document.querySelector(".post-write").clicked == true) {
 				$.ajax({
 					url: "like.php",
@@ -440,17 +449,27 @@ $(document).ready(function () {
 					data: {
 						tag: 1,
 						friend_id,
+						account_id,
 					},
-					success(response) {
-						console.log("tagged");
-						console.log(response);
-						alert("tagged");
-					},
+					success(response) {},
 				});
 			}
 		});
 	});
+	$(".my-textarea").on("input", function () {
+		const text = $(this).html();
+		const textareaForm = document.querySelector(".card-write-post");
+		if (change == true) {
+			textareaForm.value = text;
+			return;
+		}
+		$(this).html(textareaForm.value);
+		change = true;
+		const textarea = document.querySelector(".my-textarea");
+		setEndOfContenteditable(textarea);
+	});
 });
+
 setInterval(() => {
 	$(".LikeCount").each(function () {
 		const post_id = $(this).attr("post_id");
@@ -497,6 +516,7 @@ document.querySelector(".exitCard").addEventListener("click", () => {
 	document.querySelector(".nav").style.opacity = "100%";
 	document.querySelector(".post-card").style.display = "none";
 	document.querySelector(".card-write-post").value = "";
+	document.querySelector(".my-textarea").innerHTML = "";
 });
 
 $(".post-image").on("contextmenu", (e) => false);
@@ -602,4 +622,4 @@ if (window.history.replaceState) {
 }
 document.querySelector(".chat").addEventListener("click", () => {
 	window.location.href = "chat.php";
-})
+});

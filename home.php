@@ -149,6 +149,7 @@
       ?>
      <form method = "POST"  enctype="multipart/form-data">
       <div class="mid-card">
+        <div class="my-textarea" contenteditable="true"></div>
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name = "content"></textarea>
       </div>
       <div class="down-card">
@@ -194,7 +195,7 @@
                                   $FriendImgName = "Design\Image\LogoPic1.jpg";
                                 }
                               }
-                              echo "<a class='tagButton' href='#' friend_id='" . $row["friend_id"] . "' fName='" . $row1["std_fname"] . "' lName='" . $row1["std_lname"] . "'>
+                              echo "<a class='tagButton' href='#' account_id='" . $row1["account_id"] . "' fName='" . $row1["std_fname"] . "' lName='" . $row1["std_lname"] . "'>
                               <img class='tagImg' src='$FriendImgName'/>
                               " . $row1["std_fname"] . " " . $row1["std_lname"] . "
                               </a>";
