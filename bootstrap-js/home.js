@@ -469,7 +469,13 @@ $(document).ready(function () {
 		setEndOfContenteditable(textarea);
 	});
 });
-
+document
+	.querySelector("div[contenteditable]")
+	.addEventListener("paste", function (e) {
+		e.preventDefault();
+		var text = e.clipboardData.getData("text/plain");
+		document.execCommand("insertHTML", false, text);
+	});
 setInterval(() => {
 	$(".LikeCount").each(function () {
 		const post_id = $(this).attr("post_id");
@@ -518,7 +524,6 @@ document.querySelector(".exitCard").addEventListener("click", () => {
 	document.querySelector(".card-write-post").value = "";
 	document.querySelector(".my-textarea").innerHTML = "";
 });
-
 $(".post-image").on("contextmenu", (e) => false);
 const modal = document.querySelector(".modal");
 const img = document.querySelectorAll(".post-image");
@@ -616,7 +621,6 @@ particlesJS("particles-js", {
 	},
 	retina_detect: true,
 });
-
 if (window.history.replaceState) {
 	window.history.replaceState(null, null, window.location.href);
 }

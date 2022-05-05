@@ -1647,6 +1647,10 @@ canvas {
 	border: none;
 	resize: none;
 	user-select: none;
+	outline: none;
+	text-align: left;
+	font-size: 16px;
+	overflow-y: scroll;
 }
 
 .my-textarea:focus {
