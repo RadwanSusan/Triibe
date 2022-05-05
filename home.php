@@ -227,38 +227,6 @@
           <input type="text" placeholder="Search" id="search" autocomplete="off" std_id="<?php echo $_SESSION['std_id'];?>"/>
         </div>
           <div class="searchArea"></div>
-          <div class="chatbox">
-            <?php
-          $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
-              $result = mysqli_query($conn, $sql);
-              if (mysqli_num_rows($result) > 0){
-                  while ($row = mysqli_fetch_assoc($result)){
-                      $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-                      $result1 = mysqli_query($conn, $sql1);
-                      if (mysqli_num_rows($result1) > 0){
-                          while ($row1 = mysqli_fetch_assoc($result1)){
-                              $imgid = $row1["img_id"];
-                              $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-                              $resultimg = mysqli_query($conn, $sqlimg);
-                              $rowimg = mysqli_fetch_assoc($resultimg);
-                              if(isset($rowimg["img_name"])){
-                                $imgname = $rowimg["img_name"];
-                              }else{
-                                  if ($row1["gender"] == 1){
-                                  $imgname = "Design\Image\LogoPic0.jpg";
-                                }else{
-                                  $imgname = "Design\Image\LogoPic1.jpg";
-                                }
-                              }
-                              echo "<a href='#' class='searchItem chatpop' data-friend_id='".$row1["std_id"]."'>
-                              <img src='".$imgname."' alt=''/>
-                              <p>". $row1["std_fname"] . " " . $row1["std_lname"] . "</p>
-                            </a>";
-                          }
-                      }
-                  }
-              } ?>
-          </div>
       </div>
       <div class="nav-right">
         <ul>
@@ -720,11 +688,6 @@
           </a>
         </div>
       </div>
-          <div class="chat-popup form-container chatdiv" id="myForm">
-
-        <button type='submit' class='btn'>Send</button>
-				<button type='button' class='btn cancel closeChat'>Close</button>"
-            </div>
     </div>
     <div class="modal">
       <span class="close">&times;</span>
