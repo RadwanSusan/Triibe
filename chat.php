@@ -1,3 +1,7 @@
+<?php
+include_once "connection.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,105 +19,54 @@
       <i class="fa fa-search"></i>
     </div>
     <ul class="list">
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Vincent Porter</div>
-          <div class="status">
-            <i class="fa fa-circle online"></i> online
-          </div>
-        </div>
-      </li>
+<?php
+$sql = "SELECT * FROM messages WHERE from_user = '".$_SESSION["std_id"]."' OR to_user = '".$_SESSION["std_id"]."' ";
+$result = mysqli_query($conn, $sql);
+while($row = mysqli_fetch_array($result)){
+  if($row["from_user"] == $_SESSION["std_id"]){
 
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Aiden Chavez</div>
-          <div class="status">
-            <i class="fa fa-circle offline"></i> left 7 mins ago
-          </div>
-        </div>
-      </li>
+  
+  $sql2 = "SELECT * FROM student WHERE std_id = '".$row["from_user"]."'";
+  $result2 = mysqli_query($conn, $sql2);
+  $row2 = mysqli_fetch_array($result2);
+  $img_id = $row2["img_id"];
+  $sql34= "SELECT * FROM img WHERE img_id = '".$img_id."'";
+  $result34 = mysqli_query($conn, $sql34);
+  $row34 = mysqli_fetch_array($result34);
+  $imgname = $row34["img_name"];
+  echo "<li class='clearfix'>";
+  echo "<div class='img'>";
+  echo "<img src='".$imgname."' alt='' />";
+  echo "</div>";
+  echo "<div class='about'>";
+  echo "<div class='name'>".$row2["std_fname"]."</div>";
+  echo "<div class='status'>".$row["message"]."</div>";
+  echo "</div>";
+  echo "</li>";
+  }else{
+  $sql3 = "SELECT * FROM student WHERE std_id = '".$row["to_user"]."'";
+  $result3 = mysqli_query($conn, $sql3);
+  $row3 = mysqli_fetch_array($result3);
+  $img_id = $row3["img_id"];
+  $sql34= "SELECT * FROM img WHERE img_id = '".$img_id."'";
+  $result34 = mysqli_query($conn, $sql34);
+  $row34 = mysqli_fetch_array($result34);
+  $imgname = $row34["img_name"];
+  
+    echo "<li class='clearfix'>";
+    echo "<div class='img'>";
+    echo "<img src='".$imgname."' alt='' />";
+    echo "</div>";
+    echo "<div class='about'>";
+    echo "<div class='name'>".$row3["std_fname"]."</div>";
+    echo "<div class='status'>".$row["message"]."</div>";
+    echo "</div>";
+    echo "</li>";
+}
+}
+?>
+     
 
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Mike Thomas</div>
-          <div class="status">
-            <i class="fa fa-circle online"></i> online
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_04.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Erica Hughes</div>
-          <div class="status">
-            <i class="fa fa-circle online"></i> online
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_05.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Ginger Johnston</div>
-          <div class="status">
-            <i class="fa fa-circle online"></i> online
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_06.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Tracy Carpenter</div>
-          <div class="status">
-            <i class="fa fa-circle offline"></i> left 30 mins ago
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Christian Kelly</div>
-          <div class="status">
-            <i class="fa fa-circle offline"></i> left 10 hours ago
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_08.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Monica Ward</div>
-          <div class="status">
-            <i class="fa fa-circle online"></i> online
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_09.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Dean Henry</div>
-          <div class="status">
-            <i class="fa fa-circle offline"></i> offline since Oct 28
-          </div>
-        </div>
-      </li>
-
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Peyton Mckinney</div>
-          <div class="status">
-            <i class="fa fa-circle online"></i> online
-          </div>
-        </div>
-      </li>
     </ul>
   </div>
 
