@@ -273,6 +273,36 @@ $(document).ready(function () {
 			},
 		});
 	});
+	$(".chat").on("click", function () {
+		const chatbox = document.querySelector(".chatbox");
+		if (chatbox.style.display == "none") {
+			$(".chatbox").show();
+		} else {
+			$(".chatbox").hide();
+		}
+	});
+	const chatpop = document.querySelectorAll(".chatpop");
+	chatpop.forEach((element) => {
+		element.addEventListener("click", () => {
+			document.querySelector(".chat-popup").style.display = "block";
+			const friend_id = element.dataset.friend_id;
+			$.ajax({
+				url: "like.php",
+				type: "post",
+				data: {
+					chatdiv: 1,
+					friend_id,
+				},
+				success(response) {
+					const chatdiv = document.querySelector(".chatdiv");
+					chatdiv.innerHTML = response;
+				},
+			});
+		})
+	});
+	$(".closeChat").on("click", function () {
+		document.querySelector(".chat-popup").style.display = "none";
+	});
 	const like1 = document.querySelectorAll(".LikeParagraph");
 	like1.forEach((element) => {
 		element.addEventListener("click", () => {

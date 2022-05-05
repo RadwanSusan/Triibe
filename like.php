@@ -83,6 +83,24 @@ if(isset($_POST['search'])){
 		echo "<div class='notFound'><p>Not Found</p></div>";
 	}
 }
+if(isset($_POST['chatdiv'])){
+	$friend_id = $_POST['friend_id'];
+	//$sql = "SELECT * FROM chat WHERE (sender_id = '$friend_id' AND receiver_id = '$std_id') OR (sender_id = '$std_id' AND receiver_id = '$friend_id')";
+	$sql = "SELECT * FROM student WHERE std_id = '$friend_id'";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
+	$imgid = $row["img_id"];
+	$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+	$resultimg = mysqli_query($conn, $sqlimg);
+	$rowimg = mysqli_fetch_assoc($resultimg);
+
+	echo "<div class='chatDivHeader'>
+				<img src='".$rowimg['img_name']."' alt=''/>
+				<p>".$row['std_fname']." ".$row['std_lname']."</p>
+				<label for='msg'><b>Message</b></label>
+				<textarea placeholder='Type message..' name='msg' required></textarea>";
+}
+
 if(isset($_POST['share'])){
 	$post_id = $_POST['sh_post_id'];
 	$std_id = $_POST['sh_author_id'];
