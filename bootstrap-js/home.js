@@ -461,6 +461,8 @@ $(document).ready(function () {
 		const textareaForm = document.querySelector(".card-write-post");
 		if (change == true) {
 			textareaForm.value = text;
+			const regex = /<div><br><\/div>/g;
+			textareaForm.value = textareaForm.value.replace(regex, "");
 			return;
 		}
 		$(this).html(textareaForm.value);
