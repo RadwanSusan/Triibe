@@ -1,4 +1,11 @@
 $(document).ready(function() {
+	const chatele = document.querySelectorAll(".chatfriend");
+	chatele.forEach((ele) =>{
+		ele.addEventListener("click", function(){
+			document.querySelector(".chat").style.display = "block";
+			const std_id = ele.getAttribute("data-std_id");
+		});
+	});
 });
 (function () {
 	var chat = {

@@ -71,7 +71,7 @@ body {
 }
 
 .chat {
-	display: block;
+	display: none;
 	width: 490px;
 	float: left;
 	background: #f2f5f8;

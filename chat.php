@@ -39,10 +39,10 @@ session_start();
         $result3 = mysqli_query($conn, $sql3);
         $row3 = mysqli_fetch_array($result3);
         $img_name = $row3["img_name"];
-        echo "<li class='clearfix'>
+        echo "<li class='clearfix chatfriend' data-std_id='".$row2["std_id"]."'>
         <img src='".$img_name."' alt='avatar'/>
         <div class='about'>
-          <div class='name'>".$row2["std_fname"]."".$row2["std_lname"]." </div>
+          <div class='name'>".$row2["std_fname"]." ".$row2["std_lname"]." </div>
           <div class='status'>
             ".$status."
           </div>
@@ -67,7 +67,7 @@ session_start();
         $result3 = mysqli_query($conn, $sql3);
         $row3 = mysqli_fetch_array($result3);
         $img_name = $row3["img_name"];
-        echo "<li class='clearfix'>
+        echo "<li class='clearfix chatfriend' data-std_id='".$row2["std_id"]."'>
         <img src='".$img_name."' alt='avatar'/>
         <div class='about'>
           <div class='name'>".$row2["std_fname"]." ".$row2["std_lname"]." </div>
