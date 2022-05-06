@@ -23,11 +23,48 @@ $idAttr = null;
       </div>
       <ul class="list">
         <?php
-        $sql = "SELECT distinct * FROM messages where to_user = '" . $_SESSION["std_id"] . "'";
+        $sql = "SELECT distinct from_user FROM messages where to_user = '" . $_SESSION["std_id"] . "'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_array($result)) {
             $sql2 = "SELECT * FROM student where std_id = '" . $row["from_user"] . "'";
+            $result2 = mysqli_query($conn, $sql2);
+            $row2 = mysqli_fetch_array($result2);
+              $idAttr = "id='active'";
+            $img_id = $row2["img_id"];
+            $status = $row2["status"];
+            if ($status == "0") {
+              $status = "<i class='fa fa-circle offline'></i> offline";
+            } else {
+              $status = "<i class='fa fa-circle online'></i> online";
+            }
+            $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
+            $result3 = mysqli_query($conn, $sql3);
+            $row3 = mysqli_fetch_array($result3);
+            if (isset($row3["img_name"])) {
+              $img_name = $row3["img_name"];
+            } else {
+              if ($row2["gender"] == 1) {
+                $img_name = "Design\Image\LogoPic0.jpg";
+              } else {
+                $img_name = "Design\Image\LogoPic1.jpg";
+              }
+            }
+            echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
+        <img src='" . $img_name . "' alt='avatar'/>
+        <div class='about'>
+          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='status'>
+            " . $status . "
+          </div>
+        </div>
+      </li>";
+          }
+        } else {
+          $sql = "SELECT distinct to_user FROM messages where from_user = '" . $_SESSION["std_id"] . "'";
+          $result = mysqli_query($conn, $sql);
+          while ($row = mysqli_fetch_array($result)) {
+            $sql2 = "SELECT * FROM student where std_id = '" . $row["to_user"] . "'";
             $result2 = mysqli_query($conn, $sql2);
             $row2 = mysqli_fetch_array($result2);
             $img_id = $row2["img_id"];
@@ -49,36 +86,6 @@ $idAttr = null;
                 $img_name = "Design\Image\LogoPic1.jpg";
               }
             }
-            $idAttr =$row2["std_id"];
-            echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
-        <img src='" . $img_name . "' alt='avatar'/>
-        <div class='about'>
-          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
-          <div class='status'>
-            " . $status . "
-          </div>
-        </div>
-      </li>";
-          }
-        } else {
-          $sql = "SELECT distinct * FROM messages where from_user = '" . $_SESSION["std_id"] . "'";
-          $result = mysqli_query($conn, $sql);
-          while ($row = mysqli_fetch_array($result)) {
-            $sql2 = "SELECT * FROM student where std_id = '" . $row["to_user"] . "'";
-            $result2 = mysqli_query($conn, $sql2);
-            $row2 = mysqli_fetch_array($result2);
-            $img_id = $row2["img_id"];
-            $status = $row2["status"];
-            if ($status == "0") {
-              $status = "<i class='fa fa-circle offline'></i> offline";
-            } else {
-              $status = "<i class='fa fa-circle online'></i> online";
-            }
-            $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
-            $result3 = mysqli_query($conn, $sql3);
-            $row3 = mysqli_fetch_array($result3);
-            $img_name = $row3["img_name"];
-            $idAttr =$row2["std_id"];
             echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
@@ -128,7 +135,7 @@ $idAttr = null;
       <div class="chat-history">
         <ul>
           <?php
-          $sql = "SELECT * FROM messages WHERE from_user = '" . $_COOKIE["idAttr"]. "' OR to_user = '" . $_COOKIE["idAttr"].   "' ORDER BY time DESC";
+          $sql = "SELECT * FROM messages WHERE (from_user = '" . $_COOKIE["idAttr"]. "' OR to_user = '" . $_COOKIE["idAttr"].   "') AND (to_user = '" . $_SESSION["std_id"]."' OR from_user = '" . $_SESSION["std_id"]."') ORDER BY time ";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_array($result)) {
             $now = new DateTime();
@@ -192,13 +199,22 @@ $idAttr = null;
 
         </ul>
       </div> <!-- end chat-history -->
-
+      <?php
+      if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $message = $_POST["message-to-send"];
+        $date = date("Y-m-d H:i:s", time());
+        $sql = "INSERT INTO messages (id,from_user, to_user, message, time) VALUES ( '".$_SESSION["std_id"]."','" .$_SESSION["std_id"] . "', '" . $_COOKIE["idAttr"]  . "', '" . $message . "','" .$date."')";
+        $result = mysqli_query($conn, $sql);
+      }
+      ?>
+      <form action="" method='post'>
       <div class="chat-message clearfix">
         <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
         <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
         <i class="fa fa-file-image-o"></i>
-        <button>Send</button>
+        <button type="submit">Send</button>
       </div>
+      </form>
       <script id="message-template" type="text/x-handlebars-template">
 
       </script>

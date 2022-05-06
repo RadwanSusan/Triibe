@@ -5,7 +5,6 @@ $(document).ready(function () {
 	chatele.forEach((ele) => {
 		ele.addEventListener("click", function () {
 			const idAttr = ele.getAttribute("data-id");
-			console.log(idAttr);
 			document.cookie = "idAttr = " + idAttr;
 			window.location.href = "chat.php";
 			document.querySelector(".chat").style.display = "block";
