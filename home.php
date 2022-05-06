@@ -523,6 +523,7 @@ session_start();
                               </div>
                               </div>
                               <div class='mid-post'>
+                              <p>" . $row["content"] . "</p>
                                  ";
                 if (mysqli_num_rows($result9) > 0) {
                   while ($row9 = mysqli_fetch_assoc($result9)) {
@@ -535,7 +536,6 @@ session_start();
                   }
                 }
                 echo "
-                                 <p>" . $row["content"] . "</p>
                               </div> ";
               }
             }
