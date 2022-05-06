@@ -246,7 +246,7 @@ body {
 	cursor: pointer;
 }
 
-.people-list svg {
+.people-list .svg_img {
 	position: relative;
 	left: -25px;
 }

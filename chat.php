@@ -18,7 +18,7 @@ session_start();
     <div class="people-list" id="people-list">
       <div class="search">
         <input type="text" placeholder="search" />
-        <i class="fa fa-search"></i>
+        <i class="fa fa-search svg_img"></i>
       </div>
       <ul class="list">
         <?php
