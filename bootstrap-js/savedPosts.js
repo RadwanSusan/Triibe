@@ -226,8 +226,8 @@ $(document).ready(function () {
 					alert("Post unsaved");
 					element.style.display = "none";
 					const Save_icon = element.previousElementSibling;
-               Save_icon.style.display = "flex";
-               window.location.href = "savedPosts.php";
+					Save_icon.style.display = "flex";
+					window.location.href = "savedPosts.php";
 				},
 			});
 		});

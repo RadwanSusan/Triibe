@@ -147,8 +147,18 @@ hoverAnimation(".locIcon", "mouseover", ".locIcon", "animate__heartBeat");
 hoverAnimationOut(".locIcon", "mouseout", ".locIcon", "animate__heartBeat");
 hoverAnimation(".gifIcon", "mouseover", ".gifIcon", "animate__heartBeat");
 hoverAnimationOut(".gifIcon", "mouseout", ".gifIcon", "animate__heartBeat");
-hoverAnimation(".flagIcon", "mouseover", ".flagIcon", "animate__heartBeat");
-hoverAnimationOut(".flagIcon", "mouseout", ".flagIcon", "animate__heartBeat");
+hoverAnimation(
+	".FileLink_Button_Label",
+	"mouseover",
+	".FileLink",
+	"animate__heartBeat",
+);
+hoverAnimationOut(
+	".FileLink_Button_Label",
+	"mouseout",
+	".FileLink",
+	"animate__heartBeat",
+);
 $(document).ready(function () {
 	const delete1 = document.getElementsByClassName("delete");
 	Array.from(delete1).forEach((element) => {
@@ -451,7 +461,7 @@ $(document).ready(function () {
 						friend_id,
 						account_id,
 					},
-					success(response) {},
+					success() {},
 				});
 			}
 		});
@@ -577,7 +587,6 @@ cancel.forEach((element) => {
 document.querySelector(".cancel").addEventListener("click", () => {
 	document.querySelector(".form-popup").style.display = "none";
 });
-
 particlesJS("particles-js", {
 	particles: {
 		number: { value: 160, density: { enable: true, value_area: 2000 } },

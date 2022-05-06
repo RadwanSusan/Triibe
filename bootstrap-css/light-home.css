@@ -83,9 +83,11 @@ body {
 	margin-left: -21px;
 	margin-top: 6px;
 }
+
 .logoDark {
 	display: none;
 }
+
 .nav-left,
 .nav-right {
 	display: flex;
@@ -318,7 +320,7 @@ body {
 	padding: 10px;
 }
 
-.group-list > a {
+.group-list>a {
 	text-decoration: none;
 	display: flex;
 	align-items: center;
@@ -339,7 +341,8 @@ body {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
-.group-list > a:hover {
+
+.group-list>a:hover {
 	background-color: #d5d5d5;
 }
 
@@ -396,6 +399,7 @@ body {
 	background: #000000;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .group-page a {
 	position: relative;
 	text-decoration: none;
@@ -420,6 +424,7 @@ body {
 	height: 1px;
 	background: #d5d5d5;
 }
+
 .group-page a:last-child::after {
 	content: "";
 	position: absolute;
@@ -525,6 +530,7 @@ body {
 	resize: none;
 	color: transparent;
 }
+
 .write-post:focus {
 	outline: none;
 }
@@ -649,6 +655,16 @@ body {
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
+.mid-post span {
+	margin: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 200;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
 .end-post {
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -721,22 +737,26 @@ body {
 	cursor: pointer;
 	margin: 2px 2px 2px 2px;
 }
+
 .comment img {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
 	margin-top: 3px;
 }
+
 .share img {
 	width: 24px;
 	height: 24px;
 	cursor: pointer;
 }
+
 .save img {
 	width: 24px;
 	height: 24px;
 	cursor: pointer;
 }
+
 .saved img {
 	width: 27px;
 	height: 19px;
@@ -772,13 +792,16 @@ body {
 	bottom: -19px;
 	left: 9.7rem;
 }
+
 @media screen and (max-width: 1700px) {
 	.like::after {
 		left: 7.5rem;
 	}
+
 	.comment::after {
 		left: 9rem;
 	}
+
 	.share::after {
 		left: 7.8rem;
 	}
@@ -788,9 +811,11 @@ body {
 	.like::after {
 		left: 6.3rem;
 	}
+
 	.comment::after {
 		left: 7.5rem;
 	}
+
 	.share::after {
 		left: 6.3rem;
 	}
@@ -800,9 +825,11 @@ body {
 	.like::after {
 		left: 5.3rem;
 	}
+
 	.comment::after {
 		left: 6.5rem;
 	}
+
 	.share::after {
 		left: 5.4rem;
 	}
@@ -812,9 +839,11 @@ body {
 	.like::after {
 		left: 5rem;
 	}
+
 	.comment::after {
 		left: 6.3rem;
 	}
+
 	.share::after {
 		left: 5.2rem;
 	}
@@ -896,10 +925,12 @@ body {
 ::-webkit-scrollbar {
 	width: 10px;
 }
+
 ::-webkit-scrollbar-track {
 	background: rgb(248, 248, 248);
 	border-radius: 9px;
 }
+
 ::-webkit-scrollbar-thumb {
 	background: rgb(185, 185, 185);
 	border-radius: 50px;
@@ -966,6 +997,7 @@ body {
 	top: -3px;
 	border-radius: 50px;
 }
+
 .post-card {
 	position: absolute;
 	display: none;
@@ -1099,10 +1131,8 @@ body {
 }
 
 .slide-in-elliptic-top-fwd {
-	-webkit-animation: slide-in-elliptic-top-fwd 0.5s
-		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		both;
+	-webkit-animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-in-elliptic-top-fwd 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-in-elliptic-top-fwd {
@@ -1113,6 +1143,7 @@ body {
 		transform-origin: 50% 100%;
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateY(0) rotateX(0) scale(1);
 		transform: translateY(0) rotateX(0) scale(1);
@@ -1135,6 +1166,7 @@ body {
 	transition: 0.3s;
 	cursor: pointer;
 }
+
 .post-image:hover {
 	opacity: 0.75;
 }
@@ -1170,10 +1202,8 @@ body {
 }
 
 .slide-in-elliptic-top-fwd {
-	-webkit-animation: slide-in-elliptic-top-fwd 0.7s
-		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		both;
+	-webkit-animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .close {
@@ -1219,6 +1249,7 @@ body {
 	margin: 0 auto;
 	margin-top: 3px;
 }
+
 .btn {
 	background-color: #ffffff;
 	border: 1px solid #000000;
@@ -1232,9 +1263,11 @@ body {
 	transition: all 0.4s ease;
 	margin: 0px 4px 4px 20px;
 }
+
 .btn:hover {
 	background-color: #d8d8d8;
 }
+
 .open-button {
 	background-color: #555;
 	color: white;
@@ -1247,6 +1280,7 @@ body {
 	right: 28px;
 	width: 280px;
 }
+
 .form-popup1 {
 	display: none;
 	position: fixed;
@@ -1403,6 +1437,7 @@ body {
 .arrow-div {
 	border: 5px solid #cacaca;
 }
+
 .arrow-div:after,
 .arrow-div:before {
 	bottom: 100%;
@@ -1421,6 +1456,7 @@ body {
 	border-width: 10px;
 	margin-left: -10px;
 }
+
 .arrow-div:before {
 	border-color: rgba(241, 241, 241, 0);
 	border-bottom-color: #cacaca;
@@ -1436,6 +1472,7 @@ body {
 		transform-origin: 50% 100%;
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateY(0) rotateX(0) scale(1);
 		transform: translateY(0) rotateX(0) scale(1);
@@ -1453,6 +1490,7 @@ body {
 		transform-origin: 50% 100%;
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateY(0) rotateX(0) scale(1);
 		transform: translateY(0) rotateX(0) scale(1);
@@ -1468,6 +1506,7 @@ canvas {
 	height: 100vh;
 	top: 0;
 }
+
 #particles-js {
 	position: fixed;
 	top: 0;
@@ -1482,6 +1521,7 @@ canvas {
 	background-position: 50% 50%;
 	z-index: -1;
 }
+
 .count-particles {
 	background: #000022;
 	position: absolute;
@@ -1497,9 +1537,11 @@ canvas {
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 }
+
 .js-count-particles {
 	font-size: 1.1em;
 }
+
 #stats,
 .count-particles {
 	-webkit-user-select: none;
@@ -1507,10 +1549,12 @@ canvas {
 	margin-top: 5px;
 	margin-left: 5px;
 }
+
 #stats {
 	border-radius: 3px 3px 0 0;
 	overflow: hidden;
 }
+
 .count-particles {
 	border-radius: 0 0 3px 3px;
 }
@@ -1531,6 +1575,7 @@ canvas {
 	z-index: 200;
 	backdrop-filter: blur(10px);
 }
+
 .searchItem {
 	width: 96%;
 	height: 59px;
@@ -1627,10 +1672,11 @@ canvas {
 	margin-bottom: 20px;
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
 .savedPosts::after {
 	content: "";
 	display: block;
-	width: 22%;
+	width: 210px;
 	height: 2px;
 	background: rgb(59, 59, 59);
 	margin: 0 auto;
@@ -1690,4 +1736,12 @@ canvas {
 
 .my-textarea:focus {
 	outline: none;
+}
+
+.FileLink {
+	width: 17px !important;
+}
+
+.FileLink_Button {
+	display: none;
 }
