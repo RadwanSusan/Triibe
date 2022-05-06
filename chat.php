@@ -19,53 +19,6 @@ session_start();
       <div class="search">
         <input type="text" placeholder="search" />
         <i class="fa fa-search"></i>
-      </div>
-      <ul class="list">
-        <?php
-        $sql = "SELECT * FROM messages WHERE from_user = '" . $_SESSION["std_id"] . "' OR to_user = '" . $_SESSION["std_id"] . "' ";
-        $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-          if ($row["from_user"] == $_SESSION["std_id"]) {
-            $sql2 = "SELECT * FROM student WHERE std_id = '" . $row["from_user"] . "'";
-            $result2 = mysqli_query($conn, $sql2);
-            $row2 = mysqli_fetch_array($result2);
-            $img_id = $row2["img_id"];
-            $sql34 = "SELECT * FROM img WHERE img_id = '" . $img_id . "'";
-            $result34 = mysqli_query($conn, $sql34);
-            $row34 = mysqli_fetch_array($result34);
-            $imgname = $row34["img_name"];
-            echo "<li class='clearfix'>";
-            echo "<div class='img'>";
-            echo "<img src='" . $imgname . "' alt='' />";
-            echo "</div>";
-            echo "<div class='about'>";
-            echo "<div class='name'>" . $row2["std_fname"] . "</div>";
-            echo "<div class='status'>" . $row["message"] . "</div>";
-            echo "</div>";
-            echo "</li>";
-          } else {
-            $sql3 = "SELECT * FROM student WHERE std_id = '" . $row["to_user"] . "'";
-            $result3 = mysqli_query($conn, $sql3);
-            $row3 = mysqli_fetch_array($result3);
-            $img_id = $row3["img_id"];
-            $sql34 = "SELECT * FROM img WHERE img_id = '" . $img_id . "'";
-            $result34 = mysqli_query($conn, $sql34);
-            $row34 = mysqli_fetch_array($result34);
-            $imgname = $row34["img_name"];
-            echo "<li class='clearfix'>";
-            echo "<div class='img'>";
-            echo "<img src='" . $imgname . "' alt='' />";
-            echo "</div>";
-            echo "<div class='about'>";
-            echo "<div class='name'>" . $row3["std_fname"] . "</div>";
-            echo "<div class='status'>" . $row["message"] . "</div>";
-            echo "</div>";
-            echo "</li>";
-          }
-        }
-        ?>
-      </ul>
-    </div>
     <ul class="list">
       <?php
       $sql = "SELECT distinct * FROM messages where to_user = '".$_SESSION["std_id"]."'"; 
@@ -128,6 +81,7 @@ session_start();
 
       ?>
     </ul>
+  </div>
   </div>
 
   <div class="chat">
@@ -210,7 +164,6 @@ while($row = mysqli_fetch_array($result)){
 ?>
 
      </ul>
-
     </div> <!-- end chat-history -->
 
     <div class="chat-message clearfix">
@@ -219,8 +172,6 @@ while($row = mysqli_fetch_array($result)){
       <i class="fa fa-file-image-o"></i>
       <button>Send</button>
     </div>
-  </div>
-  </div>
   <script id="message-template" type="text/x-handlebars-template">
     
 </script>
