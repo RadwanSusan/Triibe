@@ -466,6 +466,32 @@ $(document).ready(function () {
 			}
 		});
 	});
+	const locIcon = document.querySelector(".locIcon");
+	locIcon.addEventListener("click", () => {
+		const textareaDiv = document.querySelector(".my-textarea");
+		const textareaForm = document.querySelector(".card-write-post");
+		const text = textareaDiv.innerHTML;
+		const promise = new Promise((resolve, reject) => {
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					const lat = position.coords.latitude;
+					const lng = position.coords.longitude;
+					const latLng = [lat, lng];
+					resolve(latLng);
+				},
+				(err) => {
+					reject(err);
+				},
+			);
+		});
+		promise.then((latLng) => {
+			const link = `<a href="https://www.google.com/maps/search/?api=1&query=${latLng[0]},${latLng[1]}">My Location</a>`;
+			textareaDiv.innerHTML = `${text} ${link}`;
+			textareaForm.value = `${text} ${link}`;
+			change = false;
+			setEndOfContenteditable(textareaDiv);
+		});
+	});
 	$(".my-textarea").on("input", function () {
 		const text = $(this).html();
 		const textareaForm = document.querySelector(".card-write-post");
