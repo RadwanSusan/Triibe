@@ -1,3 +1,5 @@
+$(document).ready(function() {
+});
 (function () {
 	var chat = {
 		messageToSend: "",
