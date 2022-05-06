@@ -45,7 +45,6 @@ body {
 }
 
 .people-list ul {
-	padding: 20px;
 	height: 770px;
 }
 
@@ -55,6 +54,8 @@ body {
 
 .people-list img {
 	float: left;
+	width: 40px;
+	border-radius: 50%;
 }
 
 .people-list .about {
@@ -239,4 +240,8 @@ body {
 	content: " ";
 	clear: both;
 	height: 0;
+}
+
+.chatfriend {
+	cursor: pointer;
 }

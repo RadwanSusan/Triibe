@@ -19,77 +19,77 @@ session_start();
       <div class="search">
         <input type="text" placeholder="search" />
         <i class="fa fa-search"></i>
-        <ul class="list">
-          <?php
-          $sql = "SELECT distinct * FROM messages where to_user = '" . $_SESSION["std_id"] . "'";
-          $result = mysqli_query($conn, $sql);
-          if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {
-              $sql2 = "SELECT * FROM student where std_id = '" . $row["from_user"] . "'";
-              $result2 = mysqli_query($conn, $sql2);
-              $row2 = mysqli_fetch_array($result2);
-              $img_id = $row2["img_id"];
-              $status = $row2["status"];
-              if ($status == "0") {
-                $status = "<i class='fa fa-circle offline'></i> offline";
-              } else {
-                $status = "<i class='fa fa-circle online'></i> online";
-              }
-              $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
-              $result3 = mysqli_query($conn, $sql3);
-              $row3 = mysqli_fetch_array($result3);
-              if (isset($row3["img_name"])) {
-                $img_name = $row3["img_name"];
-              } else {
-                if ($row2["gender"] == 1) {
-                  $img_name = "Design\Image\LogoPic0.jpg";
-                } else {
-                  $img_name = "Design\Image\LogoPic1.jpg";
-                }
-              }
-              echo "<li class='clearfix chatfriend' data-std_id='" . $row2["std_id"] . "'>
-        <img src='" . $img_name . "' alt='avatar'/>
-        <div class='about'>
-          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
-          <div class='status'>
-            " . $status . "
-          </div>
-        </div>
-      </li>";
-            }
-          } else {
-            $sql = "SELECT distinct * FROM messages where from_user = '" . $_SESSION["std_id"] . "'";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_array($result)) {
-              $sql2 = "SELECT * FROM student where std_id = '" . $row["to_user"] . "'";
-              $result2 = mysqli_query($conn, $sql2);
-              $row2 = mysqli_fetch_array($result2);
-              $img_id = $row2["img_id"];
-              $status = $row2["status"];
-              if ($status == "0") {
-                $status = "<i class='fa fa-circle offline'></i> offline";
-              } else {
-                $status = "<i class='fa fa-circle online'></i> online";
-              }
-              $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
-              $result3 = mysqli_query($conn, $sql3);
-              $row3 = mysqli_fetch_array($result3);
-              $img_name = $row3["img_name"];
-              echo "<li class='clearfix chatfriend' data-std_id='" . $row2["std_id"] . "'>
-        <img src='" . $img_name . "' alt='avatar'/>
-        <div class='about'>
-          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
-          <div class='status'>
-            " . $status . "
-          </div>
-        </div>
-      </li>";
-            }
-          }
-
-          ?>
-        </ul>
       </div>
+      <ul class="list">
+        <?php
+        $sql = "SELECT distinct * FROM messages where to_user = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_array($result)) {
+            $sql2 = "SELECT * FROM student where std_id = '" . $row["from_user"] . "'";
+            $result2 = mysqli_query($conn, $sql2);
+            $row2 = mysqli_fetch_array($result2);
+            $img_id = $row2["img_id"];
+            $status = $row2["status"];
+            if ($status == "0") {
+              $status = "<i class='fa fa-circle offline'></i> offline";
+            } else {
+              $status = "<i class='fa fa-circle online'></i> online";
+            }
+            $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
+            $result3 = mysqli_query($conn, $sql3);
+            $row3 = mysqli_fetch_array($result3);
+            if (isset($row3["img_name"])) {
+              $img_name = $row3["img_name"];
+            } else {
+              if ($row2["gender"] == 1) {
+                $img_name = "Design\Image\LogoPic0.jpg";
+              } else {
+                $img_name = "Design\Image\LogoPic1.jpg";
+              }
+            }
+            echo "<li class='clearfix chatfriend' data-std_id='" . $row2["std_id"] . "'>
+        <img src='" . $img_name . "' alt='avatar'/>
+        <div class='about'>
+          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='status'>
+            " . $status . "
+          </div>
+        </div>
+      </li>";
+          }
+        } else {
+          $sql = "SELECT distinct * FROM messages where from_user = '" . $_SESSION["std_id"] . "'";
+          $result = mysqli_query($conn, $sql);
+          while ($row = mysqli_fetch_array($result)) {
+            $sql2 = "SELECT * FROM student where std_id = '" . $row["to_user"] . "'";
+            $result2 = mysqli_query($conn, $sql2);
+            $row2 = mysqli_fetch_array($result2);
+            $img_id = $row2["img_id"];
+            $status = $row2["status"];
+            if ($status == "0") {
+              $status = "<i class='fa fa-circle offline'></i> offline";
+            } else {
+              $status = "<i class='fa fa-circle online'></i> online";
+            }
+            $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
+            $result3 = mysqli_query($conn, $sql3);
+            $row3 = mysqli_fetch_array($result3);
+            $img_name = $row3["img_name"];
+            echo "<li class='clearfix chatfriend' data-std_id='" . $row2["std_id"] . "'>
+        <img src='" . $img_name . "' alt='avatar'/>
+        <div class='about'>
+          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='status'>
+            " . $status . "
+          </div>
+        </div>
+      </li>";
+          }
+        }
+
+        ?>
+      </ul>
     </div>
 
     <div class="chat">
