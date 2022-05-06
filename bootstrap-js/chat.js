@@ -4,20 +4,11 @@ $(document).ready(function () {
 	const chatele = document.querySelectorAll(".chatfriend");
 	chatele.forEach((ele) => {
 		ele.addEventListener("click", function () {
-			document.querySelector(".chat").style.display = "block";
 			const idAttr = ele.getAttribute("data-id");
 			console.log(idAttr);
-			$.ajax({
-				url: "chat.php",
-				type: "POST",
-				data: {
-					sendChatBox: 1,
-					idAttr: idAttr,
-				},
-				success: function (data) {
-					$(".chat").innerHTML = data;
-				},
-			});
+			document.cookie = "idAttr = " + idAttr;
+			window.location.href = "chat.php";
+			document.querySelector(".chat").style.display = "block";
 		});
 	});
 });

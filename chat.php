@@ -1,6 +1,7 @@
 <?php
 include_once "connection.php";
 session_start();
+$idAttr = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +49,7 @@ session_start();
                 $img_name = "Design\Image\LogoPic1.jpg";
               }
             }
+            $idAttr =$row2["std_id"];
             echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
@@ -76,6 +78,7 @@ session_start();
             $result3 = mysqli_query($conn, $sql3);
             $row3 = mysqli_fetch_array($result3);
             $img_name = $row3["img_name"];
+            $idAttr =$row2["std_id"];
             echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
@@ -103,7 +106,7 @@ session_start();
       <div class="chat-history">
         <ul>
           <?php
-          $sql = "SELECT * FROM messages WHERE from_user = '" . $_POST["idAttr"] . "' OR to_user = '" . $_POST["idAttr"]  . "' ORDER BY time DESC";
+          $sql = "SELECT * FROM messages WHERE from_user = '" . $_COOKIE["idAttr"]. "' OR to_user = '" . $_COOKIE["idAttr"].   "' ORDER BY time DESC";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_array($result)) {
             $now = new DateTime();
