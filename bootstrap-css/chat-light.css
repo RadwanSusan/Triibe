@@ -87,6 +87,9 @@ body {
 
 .chat .chat-header img {
 	float: left;
+	width: 60px;
+	border-radius: 50%;
+	border: 1px solid #171718;
 }
 
 .chat .chat-header .chat-about {
