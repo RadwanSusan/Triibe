@@ -245,3 +245,8 @@ body {
 .chatfriend {
 	cursor: pointer;
 }
+
+.people-list svg {
+	position: relative;
+	left: -25px;
+}
