@@ -48,7 +48,7 @@ session_start();
                 $img_name = "Design\Image\LogoPic1.jpg";
               }
             }
-            echo "<li class='clearfix chatfriend' data-std_id='" . $row2["std_id"] . "'>
+            echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
           <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
@@ -76,7 +76,7 @@ session_start();
             $result3 = mysqli_query($conn, $sql3);
             $row3 = mysqli_fetch_array($result3);
             $img_name = $row3["img_name"];
-            echo "<li class='clearfix chatfriend' data-std_id='" . $row2["std_id"] . "'>
+            echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
           <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
@@ -87,7 +87,6 @@ session_start();
       </li>";
           }
         }
-
         ?>
       </ul>
     </div>
@@ -95,7 +94,6 @@ session_start();
     <div class="chat">
       <div class="chat-header clearfix">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
-
         <div class="chat-about">
           <div class="chat-with">Chat with Vincent Porter</div>
           <div class="chat-num-messages">already 1 902 messages</div>
@@ -105,7 +103,7 @@ session_start();
       <div class="chat-history">
         <ul>
           <?php
-          $sql = "SELECT * FROM messages WHERE from_user = '" . $_SESSION["std_id"] . "' OR to_user = '" . $_SESSION["std_id"] . "' ORDER BY time DESC";
+          $sql = "SELECT * FROM messages WHERE from_user = '" . $_POST["idAttr"] . "' OR to_user = '" . $_POST["idAttr"]  . "' ORDER BY time DESC";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_array($result)) {
             $now = new DateTime();
