@@ -96,11 +96,33 @@ $idAttr = null;
 
     <div class="chat">
       <div class="chat-header clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
-        <div class="chat-about">
-          <div class="chat-with">Chat with Vincent Porter</div>
-          <div class="chat-num-messages">already 1 902 messages</div>
-        </div>
+        <?php
+        $sql = "SELECT * FROM student where std_id = '" . $_COOKIE["idAttr"] . "'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+        $img_id = $row["img_id"];
+        $sql2 = "SELECT * FROM img where img_id = '" . $img_id . "'";
+        $result2 = mysqli_query($conn, $sql2);
+        $row2 = mysqli_fetch_array($result2);
+        if(isset($row2["img_name"])){
+          $img_name = $row2["img_name"];
+        }else {
+          if ($row["gender"] == 1) {
+            $img_name = "Design\Image\LogoPic0.jpg";
+          } else {
+            $img_name = "Design\Image\LogoPic1.jpg";
+          }
+        }
+        $sql4 = "SELECT COUNT(*) FROM messages WHERE from_user = '" . $_COOKIE["idAttr"]. "' OR to_user = '" . $_COOKIE["idAttr"].   "' ORDER BY time DESC";
+        $result4 = mysqli_query($conn, $sql4);
+        $row4 = mysqli_fetch_array($result4);
+        $count = $row4[0];
+        echo " <img src='".$img_name."' alt='avatar' />
+        <div class='chat-about'>
+          <div class='chat-with'>".$row["std_fname"]." ".$row["std_lname"]." </div>
+          <div class='chat-num-messages'>already ".$count." messages</div>
+        </div>";
+        ?>
         <i class="fa fa-star"></i>
       </div>
       <div class="chat-history">
