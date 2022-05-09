@@ -367,8 +367,8 @@ session_start();
   <div class="container1">
     <div class="left-sidebar">
       <div class="group-list">
-        <a href="#"> <img class="pagesIcon-Light" src="Design/Image/home-images/images/pages-icon.svg" alt="pages-icon"> <img class="pagesIcon-Dark" src="Design/Image/home-images/images/pages-icon2.svg" alt="pages-icon2"> <span>Pages</span> </a>
-        <a href="#"> <img class="Groups-Light" src="Design/Image/home-images/images/Groups.svg" alt=""> <img class="Groups-Dark" src="Design/Image/home-images/images/Groups2.svg" alt=""><span>Groups</span> </a>
+        <!-- <a href="#"> <img class="pagesIcon-Light" src="Design/Image/home-images/images/pages-icon.svg" alt="pages-icon"> <img class="pagesIcon-Dark" src="Design/Image/home-images/images/pages-icon2.svg" alt="pages-icon2"> <span>Pages</span> </a>
+        <a href="#"> <img class="Groups-Light" src="Design/Image/home-images/images/Groups.svg" alt=""> <img class="Groups-Dark" src="Design/Image/home-images/images/Groups2.svg" alt=""><span>Groups</span> </a> -->
         <div class="group-page">
           <p>Friends</p>
           <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
@@ -400,7 +400,7 @@ session_start();
         </div>
       </div>
     </div>
-    <div class="main-content animate__animated animate__fadeIn animate__slow">
+    <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">
         <div class="story">
           <img src="Design/Image/home-images/images/upload.png" alt="">
