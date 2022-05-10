@@ -30,7 +30,7 @@ $idAttr = null;
             $sql2 = "SELECT * FROM student where std_id = '" . $row["from_user"] . "'";
             $result2 = mysqli_query($conn, $sql2);
             $row2 = mysqli_fetch_array($result2);
-              $idAttr = "id='active'";
+            $idAttr = "id='active'";
             $img_id = $row2["img_id"];
             $status = $row2["status"];
             if ($status == "0") {
@@ -50,7 +50,7 @@ $idAttr = null;
                 $img_name = "Design\Image\LogoPic1.jpg";
               }
             }
-            echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
+            echo "<li class='clearfix chatfriend' data-id='" . $row2["std_id"] . "'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
           <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
@@ -86,7 +86,7 @@ $idAttr = null;
                 $img_name = "Design\Image\LogoPic1.jpg";
               }
             }
-            echo "<li class='clearfix chatfriend' data-id='".$row2["std_id"]."'>
+            echo "<li class='clearfix chatfriend' data-id='" . $row2["std_id"] . "'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
           <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
@@ -111,31 +111,31 @@ $idAttr = null;
         $sql2 = "SELECT * FROM img where img_id = '" . $img_id . "'";
         $result2 = mysqli_query($conn, $sql2);
         $row2 = mysqli_fetch_array($result2);
-        if(isset($row2["img_name"])){
+        if (isset($row2["img_name"])) {
           $img_name = $row2["img_name"];
-        }else {
+        } else {
           if ($row["gender"] == 1) {
             $img_name = "Design\Image\LogoPic0.jpg";
           } else {
             $img_name = "Design\Image\LogoPic1.jpg";
           }
         }
-        $sql4 = "SELECT COUNT(*) FROM messages WHERE from_user = '" . $_COOKIE["idAttr"]. "' OR to_user = '" . $_COOKIE["idAttr"].   "' ORDER BY time DESC";
+        $sql4 = "SELECT COUNT(*) FROM messages WHERE from_user = '" . $_COOKIE["idAttr"] . "' OR to_user = '" . $_COOKIE["idAttr"] .   "' ORDER BY time DESC";
         $result4 = mysqli_query($conn, $sql4);
         $row4 = mysqli_fetch_array($result4);
         $count = $row4[0];
-        echo " <img src='".$img_name."' alt='avatar' />
+        echo " <img src='" . $img_name . "' alt='avatar' />
         <div class='chat-about'>
-          <div class='chat-with'>".$row["std_fname"]." ".$row["std_lname"]." </div>
-          <div class='chat-num-messages'>already ".$count." messages</div>
+          <div class='chat-with'>" . $row["std_fname"] . " " . $row["std_lname"] . " </div>
+          <div class='chat-num-messages'>already " . $count . " messages</div>
         </div>";
         ?>
         <i class="fa fa-star"></i>
       </div>
       <div class="chat-history">
-        <ul>
+        <ul class='ulList'>
           <?php
-          $sql = "SELECT * FROM messages WHERE (from_user = '" . $_COOKIE["idAttr"]. "' OR to_user = '" . $_COOKIE["idAttr"].   "') AND (to_user = '" . $_SESSION["std_id"]."' OR from_user = '" . $_SESSION["std_id"]."') ORDER BY time ";
+          $sql = "SELECT * FROM messages WHERE (from_user = '" . $_COOKIE["idAttr"] . "' OR to_user = '" . $_COOKIE["idAttr"] .   "') AND (to_user = '" . $_SESSION["std_id"] . "' OR from_user = '" . $_SESSION["std_id"] . "') ORDER BY time ";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_array($result)) {
             $now = new DateTime();
@@ -196,25 +196,16 @@ $idAttr = null;
             }
           }
           ?>
-
+        <li class="msgList clearfix">
+        </li>
         </ul>
       </div> <!-- end chat-history -->
-      <?php
-      if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $message = $_POST["message-to-send"];
-        $date = date("Y-m-d H:i:s", time());
-        $sql = "INSERT INTO messages (id,from_user, to_user, message, time) VALUES ( '".$_SESSION["std_id"]."','" .$_SESSION["std_id"] . "', '" . $_COOKIE["idAttr"]  . "', '" . $message . "','" .$date."')";
-        $result = mysqli_query($conn, $sql);
-      }
-      ?>
-      <form action="" method='post'>
-      <div class="chat-message clearfix">
-        <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
-        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-        <i class="fa fa-file-image-o"></i>
-        <button type="submit">Send</button>
-      </div>
-      </form>
+        <div class="chat-message clearfix">
+          <textarea class='messagetxt' name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+          <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-file-image-o"></i>
+          <button class='send' type="submit" data-std_id = '<?php echo $_SESSION["std_id"] ?>' data-idAttr = '<?php echo $_COOKIE["idAttr"]?>' data-fname = '<?php echo $_SESSION["std_fname"] ?>'>Send</button>
+        </div>
       <script id="message-template" type="text/x-handlebars-template">
 
       </script>

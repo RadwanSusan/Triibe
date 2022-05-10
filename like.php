@@ -107,3 +107,45 @@ if (isset($_POST['unSave'])) {
 if (isset($_POST['tag'])) {
 	echo 1;
 }
+if (isset($_POST['chatMessage'])) {
+	$message = $_POST['message'];
+	$std_id = $_POST['std_id'];
+	$idAttr = $_POST['idAttr'];
+	$fname = $_POST['fname'];
+	$date = date("Y-m-d H:i:s", time());
+	$sql = "INSERT INTO messages (id,from_user, to_user, message, time) VALUES ( '" . $std_id . "','" . $std_id . "', '" . $idAttr  . "', '" . $message . "','" . $date . "')";
+	$result = mysqli_query($conn, $sql);
+	$now = new DateTime();
+	$post = new DateTime($date);
+	$diff = $now->diff($post);
+	$diff->format("%a");
+	$diffday = $diff->format("%a");
+	$diffhour = $diff->format("%h");
+	$diffminute = $diff->format("%i");
+	$diffsecond = $diff->format("%s");
+	$diffdaystr = (string)$diffday;
+	$diffhourstr = (string)$diffhour;
+	$diffminutestr = (string)$diffminute;
+	$diffsecondstr = (string)$diffsecond;
+	$difftime = $diffsecondstr . "second ago";
+	if ($diffdaystr == "0") {
+		if ($diffhourstr == "0") {
+			if ($diffminutestr == "0") {
+				$difftime = $diffsecondstr . "s ago";
+			} else {
+				$difftime = $diffminutestr . "m ago";
+			}
+		} else {
+			$difftime = $diffhourstr . "h ago";
+		}
+	} else {
+		$difftime = $diffdaystr . "d ago";
+	}
+	echo '
+	<div class="message-data align-right">
+		<span class="message-data-time">'.$difftime.'</span> &nbsp; &nbsp;
+		<span class="message-data-name">'.$fname.'</span> <i class="fa fa-circle me"></i>
+
+	</div>
+	<div class="message other-message float-right">'.$message.'</div>';
+}

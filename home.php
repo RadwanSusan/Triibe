@@ -81,8 +81,9 @@ session_start();
       if ($fileUploadName == "" || $fileUploadName == null) {
         if ($ext == "" || $ext == null) {
           $post = nl2br($_POST["content"]);
+          $form_id = $_POST["formId"];
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , 1 , NULL , NULL)";
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , NULL , NULL)";
           if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
             echo "<script>alert('Please write something')</script>";
           } else {
@@ -110,8 +111,9 @@ session_start();
           $row = mysqli_fetch_array($result);
           $img_id = $row["img_id"];
           $post = nl2br($_POST["content"]);
+          $form_id = $_POST["formId"];
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , 1 , '$img_id' , NULL)";
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , '$img_id' , NULL)";
           if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
             echo "<script>alert('Please write something')</script>";
           } else {
@@ -139,8 +141,9 @@ session_start();
           $row2 = mysqli_fetch_array($result2);
           $video_id = $row2["video_id"];
           $post2 = nl2br($_POST["content"]);
+          $form_id = $_POST["formId"];
           $date2 = date("Y-m-d H:i:s", time());
-          $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "',1, NULL ,'$video_id')";
+          $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "','$form_id', NULL ,'$video_id')";
           if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
             echo "<script>alert('Please write something')</script>";
           } else {
@@ -167,11 +170,12 @@ session_start();
         }
         if ($ext == "" || $ext == null) {
           $post = nl2br($_POST["content"]);
+          $form_id = $_POST["formId"];
           $date = date("Y-m-d H:i:s", time());
           $result0 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
           $row0 = mysqli_fetch_array($result0);
           $file_id = $row0["fileId"];
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , 1 , NULL , NULL, '$file_id')";
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , NULL , NULL, '$file_id')";
           if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null) && ($fileUploadName == "" || $fileUploadName == null)) {
             echo "<script>alert('Please write something')</script>";
           } else {
@@ -202,8 +206,9 @@ session_start();
           $rowFile1 = mysqli_fetch_array($resultFile1);
           $file_id = $rowFile1["fileId"];
           $post = nl2br($_POST["content"]);
+          $form_id = $_POST["form_id"];
           $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId ) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , 1 , '$img_id' , NULL , '$file_id')";
+          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId ) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , '$img_id' , NULL , '$file_id')";
           if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
             echo "<script>alert('Please write something')</script>";
           } else {
@@ -234,8 +239,9 @@ session_start();
           $rowFile2 = mysqli_fetch_array($resultFile2);
           $file_id = $rowFile2["fileId"];
           $post2 = nl2br($_POST["content"]);
+          $form_id = $_POST["formId"];
           $date2 = date("Y-m-d H:i:s", time());
-          $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id , fileId) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "',1, NULL ,'$video_id' , '$file_id')";
+          $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id , fileId) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "','$form_id', NULL ,'$video_id' , '$file_id')";
           if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
             echo "<script>alert('Please write something')</script>";
           } else {
@@ -255,6 +261,13 @@ session_start();
       <div class="mid-card">
         <div class="my-textarea" contenteditable="true"></div>
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name="content"></textarea>
+      </div>
+      <div class="formIdSelector">
+        <input type="radio" name="formId" id="formId1" value="1" checked />
+        <label for="formId1">Public</label>
+        <input type="radio" name="formId" id="formId2" value="2" />
+        <label for="formId2">Friends</label>
+        <button type="button" class="btn-primary">close</button>
       </div>
       <div class="down-card">
         <div class="left-down-card">
@@ -431,9 +444,13 @@ session_start();
             <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
           </div>
         </div>
+        <div class = "post-place">
+          <p class ="post-public"> Puplic </p>
+          <p class ="post-friend"> Friend </p>
+        </div>
         <?php
         $likenum = 0;
-        $sql = "SELECT * FROM post order by created_date desc";
+        $sql = "SELECT * FROM post where form_id='".$_COOKIE["form_id"]."' order by created_date desc";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -760,6 +777,7 @@ session_start();
         ?>
       </div>
     </div>
+
     <div class="right-sidebar">
       <div class="imp-link">
         <a href="savedPosts.php">

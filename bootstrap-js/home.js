@@ -27,10 +27,10 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 	document.querySelector(".mapIcon-Light").style.display = "none";
 	document.querySelector(".SettingsIcon-Dark").style.display = "block";
 	document.querySelector(".SettingsIcon-Light").style.display = "none";
-	document.querySelector(".pagesIcon-Dark").style.display = "block";
-	document.querySelector(".pagesIcon-Light").style.display = "none";
-	document.querySelector(".Groups-Dark").style.display = "block";
-	document.querySelector(".Groups-Light").style.display = "none";
+	// document.querySelector(".pagesIcon-Dark").style.display = "block";
+	// document.querySelector(".pagesIcon-Light").style.display = "none";
+	// document.querySelector(".Groups-Dark").style.display = "block";
+	// document.querySelector(".Groups-Light").style.display = "none";
 	document.querySelector(".savedPosts-Dark").style.display = "block";
 	document.querySelector(".savedPosts-Light").style.display = "none";
 	document.querySelector(".marketIcon-Dark").style.display = "block";
@@ -65,10 +65,10 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".mapIcon-Dark").style.display = "none";
 	document.querySelector(".SettingsIcon-Light").style.display = "block";
 	document.querySelector(".SettingsIcon-Dark").style.display = "none";
-	document.querySelector(".pagesIcon-Light").style.display = "block";
-	document.querySelector(".pagesIcon-Dark").style.display = "none";
-	document.querySelector(".Groups-Light").style.display = "block";
-	document.querySelector(".Groups-Dark").style.display = "none";
+	// document.querySelector(".pagesIcon-Light").style.display = "block";
+	// document.querySelector(".pagesIcon-Dark").style.display = "none";
+	// document.querySelector(".Groups-Light").style.display = "block";
+	// document.querySelector(".Groups-Dark").style.display = "none";
 	document.querySelector(".savedPosts-Light").style.display = "block";
 	document.querySelector(".savedPosts-Dark").style.display = "none";
 	document.querySelector(".marketIcon-Light").style.display = "block";
@@ -216,6 +216,21 @@ $(document).ready(function () {
 				},
 			);
 		});
+	});
+	document.querySelector(".card-inside-top").addEventListener("click", () => {
+		document.querySelector(".formIdSelector").style.display = "block";
+	});
+	document.querySelector(".btn-primary").addEventListener("click", (e) => {
+		e.preventDefault();
+		document.querySelector(".formIdSelector").style.display = "none";
+	});
+	document.querySelector(".post-public").addEventListener("click", () => {
+		document.cookie = "form_id =" + '1';
+		window.location.href = "home.php";
+	});
+	document.querySelector(".post-friend").addEventListener("click", () => {
+		document.cookie = "form_id =" + '2';
+		window.location.href = "home.php";
 	});
 	const save = document.querySelectorAll(".save");
 	save.forEach((element) => {
