@@ -65,7 +65,7 @@
                             $sql = "INSERT INTO student (std_id,std_pass,std_fname,std_lname,gender,College_Year,email,created_date,account_id) VALUES ('$username','$password','$fname','$lname','$gender','$year','$email','$date','$account_id')";
                             $result = mysqli_query($conn, $sql);
                             if ($username != 999999999999) {
-                                $sql2 = "INSERT INTO friends (user_id , friend_id) VALUES ('$username','999999999999')";
+                                $sql2 = "INSERT INTO friends (user_id,friend_id) VALUES ('$username','999999999999')";
                             }
                             $result2 = mysqli_query($conn, $sql2);
                             echo '<script type="text/javascript">alert("Account Created Successfully");</script>';

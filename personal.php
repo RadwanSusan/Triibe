@@ -346,8 +346,17 @@ session_start();
                       $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                       $resultimg = mysqli_query($conn, $sqlimg);
                       $rowimg = mysqli_fetch_assoc($resultimg);
+                      if (isset($rowimg["img_name"])) {
+                        $imgName = $rowimg["img_name"];
+                      } else {
+                        if ($row1["gender"] == 1) {
+                          $imgName = "Design\Image\LogoPic0.jpg";
+                        } else {
+                          $imgName = "Design\Image\LogoPic1.jpg";
+                        }
+                      }
                       echo "<div class='namePhoto'>
-                              <img src='" . $rowimg["img_name"] . "' alt='image'>
+                              <img src='" . $imgName . "' alt='image'>
                               <div class='names'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                             </div>";
                     }
