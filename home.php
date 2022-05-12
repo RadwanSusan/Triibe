@@ -444,13 +444,14 @@ session_start();
             <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
           </div>
         </div>
-        <div class = "post-place">
-          <p class ="post-public"> Puplic </p>
-          <p class ="post-friend"> Friend </p>
+        <div class="post-place">
+          <p class="post-public hvr-underline-from-center"> Public </p>
+          <span></span>
+          <p class="post-friend hvr-underline-from-center"> Friend </p>
         </div>
         <?php
         $likenum = 0;
-        $sql = "SELECT * FROM post where form_id='".$_COOKIE["form_id"]."' order by created_date desc";
+        $sql = "SELECT * FROM post where form_id='" . $_COOKIE["form_id"] . "' order by created_date desc";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {

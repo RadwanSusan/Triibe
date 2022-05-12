@@ -73,7 +73,7 @@ body {
 	font-size: 34px;
 	line-height: 53px;
 	font-weight: 400;
-	font-family: pridi;
+	font-family: "Pridi";
 }
 
 .logoLight {
@@ -163,7 +163,7 @@ body {
 	border: 0;
 	font-size: 18px;
 	font-weight: 400;
-	font-family: "pridi";
+	font-family: "Pridi";
 }
 
 .online {
@@ -182,6 +182,10 @@ body {
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	text-decoration: none;
+}
+
+.name:hover {
+	text-decoration: underline;
 }
 
 .nav-user-icon a:link {
@@ -415,6 +419,10 @@ body {
 	color: #000000;
 }
 
+.group-page a:hover {
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
 .group-page a::after {
 	content: "";
 	position: absolute;
@@ -440,6 +448,7 @@ body {
 	height: 34px;
 	border: none;
 	border-radius: 50%;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
 }
 
 .story-gallery {
@@ -616,7 +625,7 @@ body {
 	margin-top: 2px;
 }
 
-.right-post img {
+.modify {
 	height: 25px;
 	margin-right: 5px;
 	color: #525252;
@@ -974,6 +983,7 @@ body {
 	background: #d8d8d8;
 	border-radius: 200px;
 	user-select: none;
+	cursor: default;
 }
 
 .down-card p {
@@ -1121,7 +1131,6 @@ body {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 	margin-left: 5px;
-	cursor: pointer;
 }
 
 .card-user-photo {
@@ -1745,7 +1754,8 @@ canvas {
 .FileLink_Button {
 	display: none;
 }
-.formIdSelector{
+
+.formIdSelector {
 	display: none;
 	width: 200px;
 	height: 200px;
@@ -1759,12 +1769,68 @@ canvas {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	backdrop-filter: blur(10px);
 }
-.post-place{
+
+.post-place {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	height: 70px;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 	cursor: pointer;
+	font-family: "Pridi";
+}
+
+.post-place::after {
+	position: absolute;
+	content: "";
+	max-width: 50vw;
+	width: 100%;
+	height: 1px;
+	background: #1e1e1e59;
+	border-radius: 10px;
+	margin-top: 51px;
+	margin-bottom: 10px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-place span {
+	content: "";
+	display: block;
+	height: 70%;
+	width: 1px;
+	background: #1e1e1e59;
+	border-radius: 10px;
+	margin-bottom: 16px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-public {
+	background-color: #f1f1f1;
+	border-radius: 4px;
+	width: 80px;
+	height: 36px;
+	text-align: center;
+	padding-top: 6px;
+	font-family: "Pridi";
+}
+
+.post-public:hover {
+	background-color: #f8f8f8;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.post-friend {
+	background-color: #f1f1f1;
+	border-radius: 4px;
+	width: 80px;
+	height: 36px;
+	text-align: center;
+	padding-top: 6px;
+	font-family: "Pridi";
+}
+
+.post-friend:hover {
+	background-color: #f8f8f8;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
