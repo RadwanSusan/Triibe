@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2022 at 10:09 PM
+-- Generation Time: May 12, 2022 at 09:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -30,15 +30,18 @@ CREATE TABLE `post` (
   `form_id` int(5) NOT NULL,
   `img_id` bigint(12) DEFAULT NULL,
   `likes_count` mediumtext NOT NULL DEFAULT '0',
-  `video_id` bigint(12) DEFAULT NULL
+  `video_id` bigint(12) DEFAULT NULL,
+  `fileId` bigint(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`post_id`, `title`, `content`, `created_date`, `author`, `form_id`, `img_id`, `likes_count`, `video_id`) VALUES
-(5, NULL, 'Welcome To Triibe ✌️', '2022-05-04 20:10:39', 999999999999, 1, NULL, '0', NULL);
+INSERT INTO `post` (`post_id`, `title`, `content`, `created_date`, `author`, `form_id`, `img_id`, `likes_count`, `video_id`, `fileId`) VALUES
+(138, NULL, 'Hello World', '2022-05-09 18:29:30', 120180612122, 1, 22, '1', NULL, NULL),
+(140, NULL, 'Hello World', '2022-05-12 13:49:00', 120180612122, 1, 22, '1', 0, NULL),
+(141, NULL, 'hamza', '2022-05-12 15:26:04', 120180612122, 2, NULL, '0', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -58,5 +61,5 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `post_id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 COMMIT;
