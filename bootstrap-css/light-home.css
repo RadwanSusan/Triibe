@@ -1760,14 +1760,110 @@ canvas {
 	width: 200px;
 	height: 200px;
 	position: fixed;
-	background-color: rgb(184, 184, 184);
+	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
 	z-index: 501;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-	backdrop-filter: blur(10px);
+	border: 1px solid rgb(0, 0, 0);
+	padding: 10px;
+	font-family: "Pridi";
+}
+
+.radioInputBox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.formIdSelector span {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: rgb(0, 0, 0);
+	margin: 10px 0;
+}
+
+.formIdSelector p {
+	font-size: 16px;
+	color: #000;
+	font-family: "pridi";
+	text-align: center;
+	margin-top: 5px;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.formIdLabel1 {
+	font-size: 16px;
+	color: #000;
+	font-family: "pridi";
+	text-align: center;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.formIdLabel2 {
+	font-size: 16px;
+	color: #000;
+	font-family: "pridi";
+	text-align: center;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.formIdInput1 {
+	display: inline;
+	width: 30%;
+	height: 20px;
+	background: #d8d8d8;
+	border-radius: 9px;
+	font-family: "Pridi";
+	border: none;
+	resize: none;
+	user-select: none;
+	outline: none;
+	text-align: left;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.formIdInput2 {
+	display: inline;
+	width: 30%;
+	height: 20px;
+	background: #d8d8d8;
+	border-radius: 9px;
+	font-family: "Pridi";
+	border: none;
+	resize: none;
+	user-select: none;
+	outline: none;
+	text-align: left;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.btn-primary {
+	display: block;
+	background-color: #c7c7c7;
+	border-color: #000000;
+	color: rgb(0, 0, 0);
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+	font-family: "pridi";
+	font-size: 16px;
+	border: 2px;
+	border-radius: 6px;
+	cursor: pointer;
+	outline: none;
+	padding: 8px;
+	margin: 15px auto;
+}
+
+.btn-primary:hover {
+	background-color: #ababab;
 }
 
 .post-place {

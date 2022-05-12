@@ -263,11 +263,17 @@ session_start();
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name="content"></textarea>
       </div>
       <div class="formIdSelector">
-        <input type="radio" name="formId" id="formId1" value="1" checked />
-        <label for="formId1">Public</label>
-        <input type="radio" name="formId" id="formId2" value="2" />
-        <label for="formId2">Friends</label>
-        <button type="button" class="btn-primary">close</button>
+        <p>Choose where to post:</p>
+        <div class="radioInputBox animate__animated animate__fadeIn animate__faster">
+          <input class="formIdInput1" type="radio" name="formId" id="formId1" value="1" checked />
+          <label class="formIdLabel1" for="formId1">Public</label>
+        </div>
+        <span></span>
+        <div class="radioInputBox">
+          <input class="formIdInput2" type="radio" name="formId" id="formId2" value="2" />
+          <label class="formIdLabel2" for="formId2">Friends</label>
+        </div>
+        <button type="button" class="btn-primary hvr-underline-from-center">close</button>
       </div>
       <div class="down-card">
         <div class="left-down-card">
