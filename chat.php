@@ -196,16 +196,15 @@ $idAttr = null;
             }
           }
           ?>
-        <li class="msgList clearfix">
-        </li>
+          </li>
         </ul>
-      </div> <!-- end chat-history -->
-        <div class="chat-message clearfix">
-          <textarea class='messagetxt' name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
-          <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-          <i class="fa fa-file-image-o"></i>
-          <button class='send' type="submit" data-std_id = '<?php echo $_SESSION["std_id"] ?>' data-idAttr = '<?php echo $_COOKIE["idAttr"]?>' data-fname = '<?php echo $_SESSION["std_fname"] ?>'>Send</button>
-        </div>
+      </div>
+      <div class="chat-message clearfix">
+        <textarea class='messagetxt' name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+        <i class="fa fa-file-image-o"></i>
+        <button class='send' type="submit" data-std_id='<?php echo $_SESSION["std_id"] ?>' data-idAttr='<?php echo $_COOKIE["idAttr"] ?>' data-fname='<?php echo $_SESSION["std_fname"] ?>'>Send</button>
+      </div>
       <script id="message-template" type="text/x-handlebars-template">
 
       </script>

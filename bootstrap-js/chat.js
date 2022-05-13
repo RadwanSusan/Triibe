@@ -1,50 +1,43 @@
-// const { id } = require("generator-code/generators/app/generate-colortheme");
-
+// jshint esversion: 6
 $(document).ready(function () {
+	document.querySelector(".chat-history").scrollTop =
+		document.querySelector(".chat-history").scrollHeight;
 	const chatele = document.querySelectorAll(".chatfriend");
 	chatele.forEach((ele) => {
-		ele.addEventListener("click", function () {
+		ele.addEventListener("click", () => {
 			const idAttr = ele.getAttribute("data-id");
-			document.cookie = "idAttr = " + idAttr;
+			document.cookie = `idAttr = ${idAttr}`;
 			window.location.href = "chat.php";
 			document.querySelector(".chat").style.display = "block";
 		});
 	});
-	if(!document.cookie.includes("idAttr")){
+	if (!document.cookie.includes("idAttr")) {
 		document.querySelector(".chat").style.display = "none";
-	};
+	}
 	document.querySelector(".send").addEventListener("click", function () {
-	  const message =	document.querySelector(".messagetxt").value; 
+		const message = document.querySelector(".messagetxt").value;
 		const std_id = this.getAttribute("data-std_id");
 		const idAttr = this.getAttribute("data-idAttr");
 		const fname = this.getAttribute("data-fname");
-		console.log(message);
 		$.ajax({
 			url: "like.php",
 			type: "POST",
 			data: {
 				chatMessage: 1,
-				message: message,
-				std_id: std_id,
-				idAttr: idAttr,
-				fname: fname,
+				message,
+				std_id,
+				idAttr,
+				fname,
 			},
 			success: function (data) {
-				document.querySelector(".msgList").innerHTML = data;
+				const li = document.createElement("li");
+				li.className = "clearfix";
+				li.innerHTML = data;
+				document.querySelector(".ulList").appendChild(li);
 				document.querySelector(".messagetxt").value = "";
+				document.querySelector(".chat-history").scrollTop =
+					document.querySelector(".chat-history").scrollHeight;
 			},
 		});
 	});
 });
-// function changeurl(url, title) {
-// 	var new_url = "/" + url;
-// 	window.history.pushState("data", title, new_url);
-// }
-// const datatochat = document.querySelectorAll(".datatochat");
-// datatochat.forEach((ele) => {
-// 	ele.addEventListener("click", function (e) {
-// 		e.preventDefault();
-// 		const id = ele.getAttribute("data-id");
-// 		changeurl("Triibe/chat.php?id=" + id, "chat");
-// 	});
-// });
