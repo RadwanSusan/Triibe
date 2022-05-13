@@ -457,6 +457,338 @@ session_start();
         </div>
         <?php
         $likenum = 0;
+        if($_COOKIE["form_id"] =='2'){
+        $sqlfriend = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+        $resultfriend = mysqli_query($conn, $sqlfriend);
+        if (mysqli_num_rows($result) > 0) {
+          while ($rowfriend = mysqli_fetch_assoc($resultfriend)) {
+        $sql = "SELECT * FROM post where form_id='" . $_COOKIE["form_id"] . "' AND author = '".$rowfriend["friend_id"]."' order by created_date desc";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["author"] . "'";
+            $sql2 = "SELECT * FROM img WHERE img_id = '" . $row["img_id"] . "'";
+            $sql3 = "SELECT * FROM video WHERE video_id  = '" . $row["video_id"] . "'";
+            $sql9 = "SELECT * FROM files WHERE fileId = '" . $row["fileId"] . "'";
+            $result1 = mysqli_query($conn, $sql1);
+            $result2 = mysqli_query($conn, $sql2);
+            $result3 = mysqli_query($conn, $sql3);
+            $result9 = mysqli_query($conn, $sql9);
+            $sqllikenum = "SELECT COUNT(*) FROM post_likes WHERE post_id = '" . $row["post_id"] . "'";
+            $resultlikenum = mysqli_query($conn, $sqllikenum);
+            $rowlikenum = mysqli_fetch_assoc($resultlikenum);
+            $likenum = $rowlikenum["COUNT(*)"];
+            if (mysqli_num_rows($result1) > 0) {
+              while ($row1 = mysqli_fetch_assoc($result1)) {
+                $imgid = $row1["img_id"];
+                $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                $resultimg = mysqli_query($conn, $sqlimg);
+                $rowimg = mysqli_fetch_assoc($resultimg);
+                if (isset($rowimg["img_name"])) {
+                  $postImage = $rowimg["img_name"];
+                } else {
+                  if ($row1["gender"] == 1) {
+                    $postImage = "Design\Image\LogoPic0.jpg";
+                  } else {
+                    $postImage = "Design\Image\LogoPic1.jpg";
+                  }
+                }
+                $now = new DateTime();
+                $post = new DateTime($row["created_date"]);
+                $diff = $now->diff($post);
+                $diff->format("%a");
+                $diffday = $diff->format("%a");
+                $diffhour = $diff->format("%h");
+                $diffminute = $diff->format("%i");
+                $diffsecond = $diff->format("%s");
+                $diffdaystr = (string)$diffday;
+                $diffhourstr = (string)$diffhour;
+                $diffminutestr = (string)$diffminute;
+                $diffsecondstr = (string)$diffsecond;
+                $difftime = $diffsecondstr . "second ago";
+                if ($diffdaystr == "0") {
+                  if ($diffhourstr == "0") {
+                    if ($diffminutestr == "0") {
+                      $difftime = $diffsecondstr . "s ago";
+                    } else {
+                      $difftime = $diffminutestr . "m ago";
+                    }
+                  } else {
+                    $difftime = $diffhourstr . "h ago";
+                  }
+                } else {
+                  $difftime = $diffdaystr . "d ago";
+                }
+                if ($row1["std_id"] == $_SESSION["std_id"]) {
+                  $href = "personal.php";
+                } else {
+                  $href = "friendpage.php?account_id=" . $row1["account_id"];
+                }
+                echo "
+                              <div class= 'post'>
+                              <div class='top-post'>
+                                 <div class='left-post'>
+                              <a class='name-photo' href='$href'>
+                                 <img src='$postImage'>
+                                    <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
+                              </a>
+                                 <div class='inside-top'>
+                                  $difftime
+                                 <img src='Design/Image/home-images/images/ball.svg'>
+                              </div>
+                              </div>
+                              <div class='right-post'>
+                                 <img src='Design/Image/home-images/images/Dots.svg' class='modify'>
+                                 <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1'>
+                                  <form action='' class='form-container2'>
+                                  <p>Post Settings</p>
+                                  <button type='button' class='btn cancel1'>Close</button>
+                                  <div class='innerTag'>
+                                  <a class='edit'>Edit post</a>
+                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  </div>
+                                  </form>
+                                  </div>
+                              </div>
+                              </div>
+                              <div class='mid-post'>
+                              <p>" . $row["content"] . "</p>
+                                 ";
+                if (mysqli_num_rows($result9) > 0) {
+                  while ($row9 = mysqli_fetch_assoc($result9)) {
+                    echo "
+                              <span>
+                                  The file:
+                                  <a href='" . $row9["fileName"] . "' download='" . $row9["fileOriginalName"] . "'>" . $row9["fileOriginalName"] . "</a>
+                              </span>
+                              ";
+                  }
+                }
+                echo "
+                              </div> ";
+              }
+            }
+            if (mysqli_num_rows($result2) > 0) {
+              while ($row2 = mysqli_fetch_assoc($result2)) {
+                echo "<div class='end-post'>
+                                    <div class='content-end'>
+                                    <div class='photo-post'>
+                                      <img class='post-image' src='" . $row2["img_name"] . "'>
+                                    </div>
+                                    </div>
+                                    <div class='likes'>
+                                       <div class='like'>
+                                       ";
+                $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
+                $result3 = mysqli_query($conn, $sql4);
+                if (mysqli_num_rows($result3) > 0) {
+                  echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  ";
+                  if ($likenum == 1) {
+                    echo "<p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>like</p>
+                                                  <p class='UnLikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>like</p>
+                                                  ";
+                  } else {
+                    echo "
+                                                    <p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                  <p class='UnLikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                  ";
+                  }
+                } else {
+                  echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  <p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                  <p class='LikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                  <p class='UnLikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                            ";
+                }
+                echo "
+                                       </div>
+                                       <div class='comment'>
+                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <p>comment</p>
+                                       </div>
+                                       <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
+                                       <img src='Design/Image/home-images/images/Share.svg''>
+                                       <p>share</p>
+                                       </div>";
+                $sql8 = "SELECT * FROM saved_post WHERE keeper_id = '" . $_SESSION["std_id"] . "' AND post_id = '" . $row["post_id"] . "'";
+                $result8 = mysqli_query($conn, $sql8);
+                if (mysqli_num_rows($result8) > 0) {
+                  echo "<div class='save' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "' style='display: none;'>
+                                                   <img src='Design/Image/home-images/images/Save.svg'>
+                                                   <p>save</p>
+                                                   </div>
+                                                   <div class='saved' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "'>
+                                                  <img src='Design/Image/home-images/images/Saved.svg'>
+                                                  <p>Unsave</p>
+                                                </div>";
+                } else {
+                  echo "<div class='save' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "'>
+                                                   <img src='Design/Image/home-images/images/Save.svg'>
+                                                   <p>save</p>
+                                                   </div>
+                                                   <div class='saved' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "' style='display: none;'>
+                                                  <img src='Design/Image/home-images/images/Saved.svg'>
+                                                  <p>Unsave</p>
+                                                </div>";
+                }
+                echo "
+                                 </div>
+                                 </div>
+                                 </div>";
+              }
+            } else if (mysqli_num_rows($result3) > 0) {
+              while ($row3 = mysqli_fetch_assoc($result3)) {
+                echo "<div class='end-post'>
+                                    <div class='content-end'>
+                                    <div class='photo-post'>
+                                      <video width='800px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+                                         <source src='" . $row3["video_name"] . "' type='video/mp4'>
+                                      </video>
+                                    </div>
+                                    </div>
+                                    <div class='likes'>
+                                        <div class='like'>
+                                        ";
+                $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
+                $result7 = mysqli_query($conn, $sql7);
+                if (mysqli_num_rows($result7) > 0) {
+                  echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  ";
+                  if ($likenum == 1) {
+                    echo "<p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>like</p>
+                                                  <p class='UnLikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>like</p>
+                                                  ";
+                  } else {
+                    echo "<p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                  <p class='LikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                  <p class='UnLikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                  ";
+                  }
+                } else {
+                  echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                                  <p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                  <p class='LikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                  <p class='UnLikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                            ";
+                }
+                echo "
+                                       </div>
+                                       <div class='comment'>
+                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <p>comment</p>
+                                       </div>
+                                       <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
+                                       <img src='Design/Image/home-images/images/Share.svg''>
+                                       <p>share</p>
+                                       </div>";
+                $sql8 = "SELECT * FROM saved_post WHERE keeper_id = '" . $_SESSION["std_id"] . "' AND post_id = '" . $row["post_id"] . "'";
+                $result8 = mysqli_query($conn, $sql8);
+                if (mysqli_num_rows($result8) > 0) {
+                  echo "<div class='save' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "' style='display: none;'>
+                                                   <img src='Design/Image/home-images/images/Save.svg'>
+                                                   <p>save</p>
+                                                   </div>
+                                                   <div class='saved' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "'>
+                                                  <img src='Design/Image/home-images/images/Saved.svg'>
+                                                  <p>Unsave</p>
+                                                </div>";
+                } else {
+                  echo "<div class='save' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "'>
+                                                   <img src='Design/Image/home-images/images/Save.svg'>
+                                                   <p>save</p>
+                                                   </div>
+                                                   <div class='saved' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "' style='display: none;'>
+                                                  <img src='Design/Image/home-images/images/Saved.svg'>
+                                                  <p>Unsave</p>
+                                                </div>";
+                }
+                echo "
+                                 </div>
+                                 </div>
+                                 </div>";
+              }
+            } else {
+              echo "<div class='end-post'>
+                              <div class='likes'>
+                                 <div class='like'>
+                                  ";
+              $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
+              $result4 = mysqli_query($conn, $sql5);
+              if (mysqli_num_rows($result4) > 0) {
+                echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                              ";
+                if ($likenum == 1) {
+                  echo "<p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                        <p class='LikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>like</p>
+                                                        <p class='UnLikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>like</p>
+                                              ";
+                } else {
+                  echo "
+                                                        <p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                                        <p class='LikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                                        <p class='UnLikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                              ";
+                }
+              } else {
+                echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                              <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
+                                              <p class='LikeCount' post_id='" . $row["post_id"] . "'>$likenum</p>
+                                              <p class='LikeParagraph' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                              <p class='UnLikeParagraph' style='display: none;' post_id='" . $row["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
+                                        ";
+              }
+              echo "
+                                       </div>
+                                       <div class='comment'>
+                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <p>comment</p>
+                                       </div>
+                                       <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
+                                       <img src='Design/Image/home-images/images/Share.svg''>
+                                       <p>share</p>
+                                       </div>";
+              $sql8 = "SELECT * FROM saved_post WHERE keeper_id = '" . $_SESSION["std_id"] . "' AND post_id = '" . $row["post_id"] . "'";
+              $result8 = mysqli_query($conn, $sql8);
+              if (mysqli_num_rows($result8) > 0) {
+                echo "<div class='save' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "' style='display: none;'>
+                                                   <img src='Design/Image/home-images/images/Save.svg'>
+                                                   <p>save</p>
+                                                   </div>
+                                                   <div class='saved' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "'>
+                                                  <img src='Design/Image/home-images/images/Saved.svg'>
+                                                  <p>Unsave</p>
+                                                </div>";
+              } else {
+                echo "<div class='save' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "'>
+                                                   <img src='Design/Image/home-images/images/Save.svg'>
+                                                   <p>save</p>
+                                                   </div>
+                                                   <div class='saved' data-post_id='" . $row["post_id"] . "' data-keeper_id='" . $_SESSION["std_id"] . "' style='display: none;'>
+                                                  <img src='Design/Image/home-images/images/Saved.svg'>
+                                                  <p>Unsave</p>
+                                                </div>";
+              }
+              echo "
+                                 </div>
+                                 </div>
+                                 </div>";
+            }
+          }
+        }
+      }
+        } else {
+          echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
+        }
+      } else {
         $sql = "SELECT * FROM post where form_id='" . $_COOKIE["form_id"] . "' order by created_date desc";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
@@ -778,9 +1110,11 @@ session_start();
                                  </div>";
             }
           }
-        } else {
+        
+      } else {
           echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
         }
+      }
         ?>
       </div>
     </div>
