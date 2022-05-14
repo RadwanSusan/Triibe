@@ -16,6 +16,10 @@ $(document).ready(function () {
 	}
 	document.querySelector(".send").addEventListener("click", function () {
 		const message = document.querySelector(".messagetxt").value;
+		if (message.length == 0) {
+			alert("Please enter a message");
+			return;
+		}
 		const std_id = this.getAttribute("data-std_id");
 		const idAttr = this.getAttribute("data-idAttr");
 		const fname = this.getAttribute("data-fname");
@@ -32,11 +36,24 @@ $(document).ready(function () {
 			success(data) {
 				const li = document.createElement("li");
 				li.className = "clearfix";
+				li.classList.add(
+					"animate__animated",
+					"animate__backInRight",
+					"animate__fast",
+				);
 				li.innerHTML = data;
 				document.querySelector(".ulList").appendChild(li);
 				document.querySelector(".messagetxt").value = "";
 				document.querySelector(".chat-history").scrollTop =
 					document.querySelector(".chat-history").scrollHeight;
+				const count = document
+					.querySelector(".chat-num-messages")
+					.innerHTML.split(" ")[1];
+				let num = parseInt(count);
+				num += 1;
+				document.querySelector(
+					".chat-num-messages",
+				).innerHTML = `already ${num} messages`;
 			},
 		});
 	});

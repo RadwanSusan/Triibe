@@ -7,11 +7,35 @@ $idAttr = null;
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat</title>
-  <link rel="stylesheet" href="bootstrap-css/chat-light.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon" />
+  <title>Triibe</title>
+  <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+  <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+  <link href="node_modules/hover.css/css/hover-min.css" rel="stylesheet">
+  <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+  <link id="theme" rel="stylesheet" href="bootstrap-css/chat-light.css" />
+  <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
+  <script type="text/javascript">
+    function alert(message) {
+      alertify.defaults.glossary.title = 'My Title';
+      alertify.alert("Triibe", message);
+    }
+
+    function confirm(message, function1, function2) {
+      alertify.defaults.glossary.title = 'My Title';
+      alertify.confirm("Triibe", message, function1, function2);
+    }
+  </script>
 </head>
 
 <body>
@@ -130,7 +154,6 @@ $idAttr = null;
           <div class='chat-num-messages'>already " . $count . " messages</div>
         </div>";
         ?>
-        <i class="fa fa-star"></i>
       </div>
       <div class="chat-history">
         <ul class='ulList'>

@@ -1708,6 +1708,7 @@ canvas {
 	text-align: center;
 	margin-top: 20px;
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	user-select: none;
 }
 
 .savedBox {
@@ -1909,6 +1910,7 @@ canvas {
 	text-align: center;
 	padding-top: 6px;
 	font-family: "Pridi";
+	user-select: none;
 }
 
 .post-public:hover {
@@ -1924,6 +1926,7 @@ canvas {
 	text-align: center;
 	padding-top: 6px;
 	font-family: "Pridi";
+	user-select: none;
 }
 
 .post-friend:hover {

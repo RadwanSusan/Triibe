@@ -7,15 +7,17 @@
 }
 
 body {
-	background: #c5ddeb;
-	font: 14px/20px "Lato", Arial, sans-serif;
+	background: #f8f8f8;
+	font-family: 'Lato', sans-serif;
+	font-weight: 200;
 	padding: 40px 0;
 	color: white;
+	user-select: none;
 }
 
 .container {
 	margin: 0 auto;
-	width: 750px;
+	width: 90%;
 	background: #444753;
 	border-radius: 5px;
 }
@@ -60,7 +62,7 @@ body {
 
 .people-list .about {
 	float: left;
-	margin-top: 8px;
+	margin-left: 5px;
 }
 
 .people-list .about {
@@ -72,12 +74,26 @@ body {
 }
 
 .chat {
-	width: 490px;
+	width: calc(100% - 260px);
 	float: left;
-	background: #f2f5f8;
-	border-top-right-radius: 5px;
+	background: #f8f8f8;
 	border-bottom-right-radius: 5px;
 	color: #434651;
+}
+
+.messagetxt {
+	outline: #d6d6d6 1px solid;
+}
+
+.messagetxt:focus {
+	outline: #434651 1px solid;
+}
+
+.ulList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
 }
 
 .chat .chat-header {
@@ -137,8 +153,10 @@ body {
 	font-size: 16px;
 	border-radius: 7px;
 	margin-bottom: 30px;
-	width: 90%;
+	min-width: 40%;
+	max-width: fit-content;
 	position: relative;
+	user-select: text;
 }
 
 .chat .chat-history .message:after {
@@ -198,6 +216,8 @@ body {
 	cursor: pointer;
 	font-weight: bold;
 	background: #f2f5f8;
+	border: #d6d6d6 1px solid;
+	border-radius: 4px;
 }
 
 .chat .chat-message button:hover {
@@ -251,4 +271,19 @@ body {
 .people-list .svg_img {
 	position: relative;
 	left: -25px;
+}
+
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgb(248, 248, 248);
+	border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgb(185, 185, 185);
+	border-radius: 50px;
 }
