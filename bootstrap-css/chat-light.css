@@ -230,7 +230,7 @@ body {
 
 .chat .chat-message button {
 	float: right;
-	color: #94c2ed;
+	color: #212325;
 	font-size: 16px;
 	text-transform: uppercase;
 	border: none;
@@ -242,7 +242,8 @@ body {
 }
 
 .chat .chat-message button:hover {
-	color: #75b1e8;
+	color: #505050;
+	border: #000 1px solid;
 }
 
 .online2,
@@ -648,6 +649,101 @@ canvas {
 }
 
 .notFound p {
+	position: fixed;
+	font-size: 14px;
+	color: #000;
+	margin-top: 18px;
+	font-family: "pridi";
+	font-size: 19px;
+}
+
+.noUserSelectedPara {
+	position: absolute;
+	left: 57%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 292px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 4px;
+	background: #cbcbcb62;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	outline: #000;
+	z-index: 200;
+	backdrop-filter: blur(10px);
+}
+
+
+.searchArea2 {
+	position: absolute;
+	left: 1vw;
+	top: 8vh;
+	width: 220px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 4px;
+	background: #cbcbcb62;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	outline: #000;
+	z-index: 200;
+	backdrop-filter: blur(10px);
+}
+
+.searchItem2 {
+	width: 96%;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	isolation: isolate;
+	z-index: 202;
+	margin: 6px 0;
+}
+
+.searchItem2:hover {
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	background-color: #f1f1f1;
+}
+
+.searchItem2 img {
+	position: fixed;
+	left: 11px;
+	width: 40px;
+	height: 40px;
+	margin-right: 9px;
+	border-radius: 50%;
+}
+
+.searchItem2 p {
+	position: fixed;
+	left: 60px;
+	font-size: 14px;
+	color: #000;
+	margin-top: 18px;
+	font-family: "pridi";
+	font-size: 19px;
+}
+
+.notFound2 {
+	width: 96%;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	isolation: isolate;
+	z-index: 202;
+	margin: 6px 0;
+}
+
+.notFound2 p {
 	position: fixed;
 	font-size: 14px;
 	color: #000;

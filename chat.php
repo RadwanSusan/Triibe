@@ -81,12 +81,14 @@ $idAttr = null;
     </div>
   </nav>
   <div class="container clearfix">
+    <p class="noUserSelectedPara">Select a user to chat with</p>
     <div class="people-list" id="people-list">
       <div class="search">
-        <input type="text" placeholder="search" />
+        <input class="chatSearch" type="text" placeholder="search" std_id="<?php echo $_SESSION['std_id']; ?>" />
         <i class="fa fa-search svg_img"></i>
       </div>
       <ul class="list">
+        <div class="searchArea2"></div>
         <?php
         $sql = "SELECT distinct from_user FROM messages where to_user = '" . $_SESSION["std_id"] . "'";
         $result = mysqli_query($conn, $sql);

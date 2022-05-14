@@ -1,5 +1,26 @@
 // jshint esversion: 6
 $(document).ready(function () {
+	$(".chatSearch").on("input", function () {
+		if ($(this).val() == "") {
+			$(".searchArea2").hide();
+		} else {
+			$(".searchArea2").show();
+		}
+		const std_id = $(this).attr("std_id");
+		$.ajax({
+			url: "like.php",
+			type: "POST",
+			data: {
+				search2: 1,
+				name: $(".chatSearch").val().toLowerCase(),
+				std_id,
+			},
+			success(response) {
+				const searchArea = document.querySelector(".searchArea2");
+				searchArea.innerHTML = response;
+			},
+		});
+	});
 	document.querySelector(".chat-history").scrollTop =
 		document.querySelector(".chat-history").scrollHeight;
 	const chatele = document.querySelectorAll(".chatfriend");

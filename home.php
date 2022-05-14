@@ -538,7 +538,7 @@ session_start();
                                  <img src='$postImage'>
                                     <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                               </a>
-                                 <div class='inside-top'>
+                                 <div class='inside-top2'>
                                   $difftime
                                  <img src='Design/Image/home-images/images/friends_Post.svg'>
                               </div>
