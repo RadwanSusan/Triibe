@@ -39,6 +39,50 @@ $idAttr = null;
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="box">
+        <img src="Design/Image/home-images/images/logo.svg" alt="logoLight" class="logoLight" /> <img src="Design/Image/home-images/images/logo2.svg" alt="logoDark" class="logoDark" />
+        <p>Triibe</p>
+      </div>
+      <div class="search-box"> <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search" />
+        <input type="text" placeholder="Search" id="search" autocomplete="off" std_id="<?php echo $_SESSION['std_id']; ?>" />
+      </div>
+      <div class="searchArea"></div>
+    </div>
+    <div class="nav-right">
+      <ul>
+        <li>
+          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
+          <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
+        </li>
+        <li>
+          <img class="mapIcon-Light" src="Design/Image/home-images/images/mapIcon.svg" alt="mapIcon" />
+          <img class="mapIcon-Dark" src="Design/Image/home-images/images/mapIcon2.svg" alt="mapIcon" />
+        </li>
+        <li>
+          <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" />
+          <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" />
+        </li>
+        <li>
+          <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
+          <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
+        </li>
+        <li class="chat">
+          <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
+          <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />
+        </li>
+      </ul>
+      <div class="nav-user-icon online">
+        <a href='personal.php'><img src="<?php echo $_SESSION["img_name"]; ?>" alt="" /></a>
+        <a href='personal.php'>
+          <div class="name">
+            <?php echo $_SESSION["std_fname"]; ?>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
   <div class="container clearfix">
     <div class="people-list" id="people-list">
       <div class="search">
@@ -77,7 +121,7 @@ $idAttr = null;
             echo "<li class='clearfix chatfriend' data-id='" . $row2["std_id"] . "'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
-          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='name2'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
           <div class='status'>
             " . $status . "
           </div>
@@ -113,7 +157,7 @@ $idAttr = null;
             echo "<li class='clearfix chatfriend' data-id='" . $row2["std_id"] . "'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
-          <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='name2'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
           <div class='status'>
             " . $status . "
           </div>
