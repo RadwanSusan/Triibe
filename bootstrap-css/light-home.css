@@ -1874,8 +1874,11 @@ canvas {
 	height: 70px;
 	justify-content: space-evenly;
 	align-items: center;
-	cursor: pointer;
 	font-family: "Pridi";
+}
+
+.post-place p {
+	cursor: pointer;
 }
 
 .post-place::after {

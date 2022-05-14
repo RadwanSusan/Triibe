@@ -540,7 +540,7 @@ session_start();
                               </a>
                                  <div class='inside-top'>
                                   $difftime
-                                 <img src='Design/Image/home-images/images/ball.svg'>
+                                 <img src='Design/Image/home-images/images/friends_Post.svg'>
                               </div>
                               </div>
                               <div class='right-post'>

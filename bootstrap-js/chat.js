@@ -38,7 +38,7 @@ $(document).ready(function () {
 				li.className = "clearfix";
 				li.classList.add(
 					"animate__animated",
-					"animate__backInRight",
+					"animate__bounceInRight",
 					"animate__fast",
 				);
 				li.innerHTML = data;
