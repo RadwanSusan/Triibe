@@ -29,7 +29,7 @@ $(document).ready(function () {
 				idAttr,
 				fname,
 			},
-			success: function (data) {
+			success(data) {
 				const li = document.createElement("li");
 				li.className = "clearfix";
 				li.innerHTML = data;
