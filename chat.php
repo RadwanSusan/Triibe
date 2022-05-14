@@ -267,8 +267,15 @@ $idAttr = null;
       </div>
       <div class="chat-message clearfix">
         <textarea class='messagetxt' name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
-        <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-        <i class="fa fa-file-image-o"></i>
+        <i>
+          <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
+        </i>
+        <i>
+          <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
+        </i>
+        <i>
+          <img class="FileLink" src="Design/Image/home-images/images/FileLink.svg" alt="">
+        </i>
         <button class='send' type="submit" data-std_id='<?php echo $_SESSION["std_id"] ?>' data-idAttr='<?php echo $_COOKIE["idAttr"] ?>' data-fname='<?php echo $_SESSION["std_fname"] ?>'>Send</button>
       </div>
       <script id="message-template" type="text/x-handlebars-template">

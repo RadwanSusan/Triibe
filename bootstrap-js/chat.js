@@ -1,5 +1,35 @@
 // jshint esversion: 6
 $(document).ready(function () {
+	const hoverAnimation = (
+		hoverElement,
+		eventType,
+		animationElement,
+		animationName,
+	) => {
+		document.querySelector(hoverElement).addEventListener(eventType, () => {
+			document
+				.querySelector(animationElement)
+				.classList.add("animate__animated", animationName);
+		});
+	};
+	const hoverAnimationOut = (
+		hoverElement,
+		eventType,
+		animationElement,
+		animationName,
+	) => {
+		document.querySelector(hoverElement).addEventListener(eventType, () => {
+			document
+				.querySelector(animationElement)
+				.classList.remove("animate__animated", animationName);
+		});
+	};
+	hoverAnimation(".imgIcon", "mouseover", ".imgIcon", "animate__heartBeat");
+	hoverAnimationOut(".imgIcon", "mouseout", ".imgIcon", "animate__heartBeat");
+	hoverAnimation(".locIcon", "mouseover", ".locIcon", "animate__heartBeat");
+	hoverAnimationOut(".locIcon", "mouseout", ".locIcon", "animate__heartBeat");
+	hoverAnimation(".FileLink", "mouseover", ".FileLink", "animate__heartBeat");
+	hoverAnimationOut(".FileLink", "mouseout", ".FileLink", "animate__heartBeat");
 	$(".chatSearch").on("input", function () {
 		if ($(this).val() == "") {
 			$(".searchArea2").hide();
