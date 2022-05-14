@@ -101,7 +101,7 @@ $idAttr = null;
             if ($status == "0") {
               $status = "<i class='fa fa-circle offline'></i> offline";
             } else {
-              $status = "<i class='fa fa-circle online'></i> online";
+              $status = "<i class='fa fa-circle online2'></i> online";
             }
             $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
             $result3 = mysqli_query($conn, $sql3);
@@ -118,7 +118,7 @@ $idAttr = null;
             echo "<li class='clearfix chatfriend' data-id='" . $row2["std_id"] . "'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
-          <div class='name2'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='name2'>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</div>
           <div class='status'>
             " . $status . "
           </div>
@@ -137,7 +137,7 @@ $idAttr = null;
             if ($status == "0") {
               $status = "<i class='fa fa-circle offline'></i> offline";
             } else {
-              $status = "<i class='fa fa-circle online'></i> online";
+              $status = "<i class='fa fa-circle online2'></i> online";
             }
             $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
             $result3 = mysqli_query($conn, $sql3);
@@ -154,7 +154,7 @@ $idAttr = null;
             echo "<li class='clearfix chatfriend' data-id='" . $row2["std_id"] . "'>
         <img src='" . $img_name . "' alt='avatar'/>
         <div class='about'>
-          <div class='name2'>" . $row2["std_fname"] . " " . $row2["std_lname"] . " </div>
+          <div class='name2'>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</div>
           <div class='status'>
             " . $status . "
           </div>
@@ -191,7 +191,7 @@ $idAttr = null;
         $count = $row4[0];
         echo " <img src='" . $img_name . "' alt='avatar' />
         <div class='chat-about'>
-          <div class='chat-with'>" . $row["std_fname"] . " " . $row["std_lname"] . " </div>
+          <div class='chat-with'>" . $row["std_fname"] . " " . $row["std_lname"] . "</div>
           <div class='chat-num-messages'>already " . $count . " messages</div>
         </div>";
         ?>
@@ -250,7 +250,7 @@ $idAttr = null;
 
               echo "<li>
     <div class='message-data'>
-      <span class='message-data-name'><i class='fa fa-circle online'></i>" . $row3["std_fname"] . "</span>
+      <span class='message-data-name'><i class='fa fa-circle online2'></i>" . $row3["std_fname"] . "</span>
       <span class='message-data-time'>" . $difftime . "</span>
     </div>
     <div class='message my-message'>

@@ -62,6 +62,8 @@ session_start();
             $_SESSION["gender"] = $row["gender"];
             $_SESSION["account_id"] = $row["account_id"];
             $_SESSION["created_date"] = $row["created_date"];
+            $statusSQL = "UPDATE student SET status = 1 WHERE std_id = '$student_number'";
+            $statusResult = mysqli_query($conn, $statusSQL);
             if (isset($rowimg["img_name"])) {
                $_SESSION["img_name"] = $rowimg["img_name"];
             } else {
