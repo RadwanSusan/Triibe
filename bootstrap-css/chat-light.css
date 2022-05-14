@@ -45,7 +45,7 @@ body {
 	padding: 11px;
 	background: #585858;
 	color: white;
-	width: 90%;
+	width: 91%;
 }
 
 .people-list .fa-search {
@@ -58,7 +58,7 @@ body {
 }
 
 .people-list ul li {
-	padding-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .people-list img {
@@ -292,15 +292,25 @@ body {
 
 .chatfriend {
 	cursor: pointer;
+	width: 188px;
+	border-radius: 8px;
+	padding: 5px;
+	background-color: #6767674e;
+	border: 1px solid #6767674e;
+}
+
+.chatfriend:hover {
+	background-color: #676767ae;
 }
 
 .chatfriend img {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+	margin-top: 4px;
 }
 
 .people-list .svg_img {
 	position: relative;
-	left: -25px;
+	left: -32px;
 }
 
 
