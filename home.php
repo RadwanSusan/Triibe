@@ -457,12 +457,17 @@ session_start();
         </div>
         <?php
         $likenum = 0;
-        if ($_COOKIE["form_id"] == '2') {
+        if (isset($_COOKIE["form_id"]) == false) {
+          $form_id = 1;
+        } else {
+          $form_id = $_COOKIE["form_id"];
+        }
+        if ($form_id == '2') {
           $sqlfriend = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
           $resultfriend = mysqli_query($conn, $sqlfriend);
           if (mysqli_num_rows($result) > 0) {
             while ($rowfriend = mysqli_fetch_assoc($resultfriend)) {
-              $sql = "SELECT * FROM post where form_id='" . $_COOKIE["form_id"] . "' AND author = '" . $rowfriend["friend_id"] . "' order by created_date desc";
+              $sql = "SELECT * FROM post where form_id='" . $form_id . "' AND author = '" . $rowfriend["friend_id"] . "' order by created_date desc";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -790,7 +795,7 @@ session_start();
             }
           }
         } else {
-          $sql = "SELECT * FROM post where form_id='" . $_COOKIE["form_id"] . "' order by created_date desc";
+          $sql = "SELECT * FROM post where form_id='" . $form_id . "' order by created_date desc";
           $result = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
