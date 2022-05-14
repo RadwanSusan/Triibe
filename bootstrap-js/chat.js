@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 	particlesJS("particles-js", {
 		particles: {
-			number: { value: 160, density: { enable: true, value_area: 2000 } },
+			number: { value: 200, density: { enable: true, value_area: 2000 } },
 			color: { value: "#ffffff" },
 			shape: {
 				type: "circle",
@@ -92,13 +92,13 @@ $(document).ready(function () {
 			},
 			move: {
 				enable: true,
-				speed: 3,
+				speed: 1.50,
 				direction: "none",
 				random: false,
 				straight: false,
 				out_mode: "out",
 				bounce: true,
-				attract: { enable: false, rotateX: 600, rotateY: 1200 },
+				attract: { enable: true, rotateX: 600, rotateY: 1200 },
 			},
 		},
 		retina_detect: true,
