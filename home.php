@@ -48,7 +48,8 @@ session_start();
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
-          <img src="Design/Image/home-images/images/ball2.svg" alt="">
+          <img class="PublicChoice" src="Design/Image/home-images/images/ball2.svg" alt="" style="display:inline-block;">
+          <img class="FriendChoice" src="Design/Image/home-images/images/friends_Post.svg" alt="" style="display:none;">
           <img src="Design/Image/home-images/images/card-down.svg" alt="">
         </div>
       </div>

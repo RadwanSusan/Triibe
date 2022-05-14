@@ -160,6 +160,22 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".formIdLabel1").addEventListener("click", () => {
+		document.querySelector(".FriendChoice").style.display = "none";
+		document.querySelector(".PublicChoice").style.display = "inline-block";
+	});
+	document.querySelector(".formIdInput1").addEventListener("click", () => {
+		document.querySelector(".FriendChoice").style.display = "none";
+		document.querySelector(".PublicChoice").style.display = "inline-block";
+	});
+	document.querySelector(".formIdLabel2").addEventListener("click", () => {
+		document.querySelector(".PublicChoice").style.display = "none";
+		document.querySelector(".FriendChoice").style.display = "inline-block";
+	});
+	document.querySelector(".formIdInput2").addEventListener("click", () => {
+		document.querySelector(".PublicChoice").style.display = "none";
+		document.querySelector(".FriendChoice").style.display = "inline-block";
+	});
 	const delete1 = document.getElementsByClassName("delete");
 	Array.from(delete1).forEach((element) => {
 		element.addEventListener("click", () => {
@@ -225,11 +241,11 @@ $(document).ready(function () {
 		document.querySelector(".formIdSelector").style.display = "none";
 	});
 	document.querySelector(".post-public").addEventListener("click", () => {
-		document.cookie = "form_id =" + '1';
+		document.cookie = "form_id =" + "1";
 		window.location.href = "home.php";
 	});
 	document.querySelector(".post-friend").addEventListener("click", () => {
-		document.cookie = "form_id =" + '2';
+		document.cookie = "form_id =" + "2";
 		window.location.href = "home.php";
 	});
 	const save = document.querySelectorAll(".save");

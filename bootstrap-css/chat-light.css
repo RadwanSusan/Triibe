@@ -574,3 +574,83 @@ canvas {
 .count-particles {
 	border-radius: 0 0 3px 3px;
 }
+
+.box {
+	cursor: pointer;
+}
+
+.searchArea {
+	position: absolute;
+	left: 11vw;
+	top: 7vh;
+	width: 292px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 4px;
+	background: #cbcbcb62;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	outline: #000;
+	z-index: 200;
+	backdrop-filter: blur(10px);
+}
+
+.searchItem {
+	width: 96%;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	isolation: isolate;
+	z-index: 202;
+	margin: 6px 0;
+}
+
+.searchItem:hover {
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	background-color: #f1f1f1;
+}
+
+.searchItem img {
+	position: fixed;
+	left: 11px;
+	width: 40px;
+	height: 40px;
+	margin-right: 9px;
+	border-radius: 50%;
+}
+
+.searchItem p {
+	position: fixed;
+	left: 60px;
+	font-size: 14px;
+	color: #000;
+	margin-top: 18px;
+	font-family: "pridi";
+	font-size: 19px;
+}
+
+.notFound {
+	width: 96%;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	isolation: isolate;
+	z-index: 202;
+	margin: 6px 0;
+}
+
+.notFound p {
+	position: fixed;
+	font-size: 14px;
+	color: #000;
+	margin-top: 18px;
+	font-family: "pridi";
+	font-size: 19px;
+}

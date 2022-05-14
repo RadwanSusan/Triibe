@@ -57,7 +57,30 @@ $(document).ready(function () {
 			},
 		});
 	});
-
+	document.querySelector(".box").addEventListener("click", function () {
+		window.location.href = "home.php";
+	});
+	$("#search").on("input", function () {
+		if ($(this).val() == "") {
+			$(".searchArea").hide();
+		} else {
+			$(".searchArea").show();
+		}
+		const std_id = $(this).attr("std_id");
+		$.ajax({
+			url: "like.php",
+			type: "POST",
+			data: {
+				search: 1,
+				name: $("#search").val().toLowerCase(),
+				std_id,
+			},
+			success(response) {
+				const searchArea = document.querySelector(".searchArea");
+				searchArea.innerHTML = response;
+			},
+		});
+	});
 	particlesJS("particles-js", {
 		particles: {
 			number: { value: 200, density: { enable: true, value_area: 2000 } },
@@ -92,7 +115,7 @@ $(document).ready(function () {
 			},
 			move: {
 				enable: true,
-				speed: 1.50,
+				speed: 1.5,
 				direction: "none",
 				random: false,
 				straight: false,
