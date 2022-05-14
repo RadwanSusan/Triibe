@@ -671,7 +671,7 @@ canvas {
 	background: #cbcbcb62;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	outline: #000;
-	z-index: 200;
+	z-index: -1;
 	backdrop-filter: blur(10px);
 }
 
