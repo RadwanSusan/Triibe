@@ -18,7 +18,7 @@ body {
 .container {
 	margin: 0 auto;
 	width: 90%;
-	background: #e1e1e1;
+	background: #313131;
 	border-radius: 5px;
 	position: absolute;
 	top: 53.5%;
@@ -27,7 +27,7 @@ body {
 }
 
 .name2 {
-	color: black;
+	color: white;
 }
 
 .people-list {
@@ -285,7 +285,7 @@ body {
 }
 
 .clearfix::marker {
-	color: #000000;
+	color: white;
 }
 
 .chatfriend {
