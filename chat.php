@@ -39,6 +39,7 @@ $idAttr = null;
 </head>
 
 <body>
+  <div id="particles-js"></div>
   <nav class="nav">
     <div class="nav-left">
       <div class="box">
@@ -67,10 +68,6 @@ $idAttr = null;
         <li>
           <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
           <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
-        </li>
-        <li class="chat">
-          <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
-          <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />
         </li>
       </ul>
       <div class="nav-user-icon online">
@@ -278,7 +275,9 @@ $idAttr = null;
       <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
       <script src="bootstrap-js/all.min.js"></script>
       <script src="node_modules/jquery/dist/jquery.min.js"></script>
-      <script src="https:"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+      <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
       <script type="module" src="bootstrap-js/chat.js" defer></script>
 </body>
 
