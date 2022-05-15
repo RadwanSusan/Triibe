@@ -40,6 +40,14 @@ session_start();
 
 <body>
   <div id="particles-js"></div>
+  <div class="commentBox">
+    <p class="commentHeader">Comments</p>
+    <div class="commentList">
+      <div class="commentContent"></div>
+      <textarea name="commentArea" id="" cols="30" rows="10"></textarea>
+      <button class="sendComment">Send</button>
+    </div>
+  </div>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">
       <div class="left-top-card">

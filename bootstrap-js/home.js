@@ -160,6 +160,11 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelectorAll(".comment").forEach((element) => {
+		element.addEventListener("click", () => {
+			document.querySelector(".commentBox").style.display = "block";
+		});
+	});
 	document.querySelector(".formIdLabel1").addEventListener("click", () => {
 		document.querySelector(".FriendChoice").style.display = "none";
 		document.querySelector(".PublicChoice").style.display = "inline-block";
