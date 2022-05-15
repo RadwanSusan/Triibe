@@ -187,7 +187,7 @@ $(document).ready(function () {
 				() => {
 					if (author_id == std_id1) {
 						$.ajax({
-							url: "like.php",
+							url: "backBone.php",
 							type: "post",
 							data: {
 								delete: 1,
@@ -215,7 +215,7 @@ $(document).ready(function () {
 				"Are you sure you want to share this post?",
 				() => {
 					$.ajax({
-						url: "like.php",
+						url: "backBone.php",
 						type: "post",
 						data: {
 							share: 1,
@@ -254,7 +254,7 @@ $(document).ready(function () {
 			const save_post_id = element.dataset.post_id;
 			const save_keeper_id = element.dataset.keeper_id;
 			$.ajax({
-				url: "like.php",
+				url: "backBone.php",
 				type: "post",
 				data: {
 					save: 1,
@@ -276,7 +276,7 @@ $(document).ready(function () {
 			const unSave_post_id = element.dataset.post_id;
 			const unSave_keeper_id = element.dataset.keeper_id;
 			$.ajax({
-				url: "like.php",
+				url: "backBone.php",
 				type: "post",
 				data: {
 					unSave: 1,
@@ -300,7 +300,7 @@ $(document).ready(function () {
 		}
 		const std_id = $(this).attr("std_id");
 		$.ajax({
-			url: "like.php",
+			url: "backBone.php",
 			type: "POST",
 			data: {
 				search: 1,
@@ -324,7 +324,7 @@ $(document).ready(function () {
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
-				url: "like.php",
+				url: "backBone.php",
 				type: "post",
 				data: {
 					like: 1,
@@ -361,7 +361,7 @@ $(document).ready(function () {
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
-				url: "like.php",
+				url: "backBone.php",
 				type: "post",
 				data: {
 					like: 1,
@@ -398,7 +398,7 @@ $(document).ready(function () {
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
-				url: "like.php",
+				url: "backBone.php",
 				type: "post",
 				data: {
 					unlike: 1,
@@ -435,7 +435,7 @@ $(document).ready(function () {
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
-				url: "like.php",
+				url: "backBone.php",
 				type: "post",
 				data: {
 					unlike: 1,
@@ -485,7 +485,7 @@ $(document).ready(function () {
 			setEndOfContenteditable(textareaDiv);
 			if (document.querySelector(".post-write").clicked == true) {
 				$.ajax({
-					url: "like.php",
+					url: "backBone.php",
 					type: "post",
 					data: {
 						tag: 1,
@@ -549,7 +549,7 @@ setInterval(() => {
 	$(".LikeCount").each(function () {
 		const post_id = $(this).attr("post_id");
 		$.ajax({
-			url: "like.php",
+			url: "backBone.php",
 			type: "post",
 			data: {
 				refreshLikeCount: 1,

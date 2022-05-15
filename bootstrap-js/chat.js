@@ -38,7 +38,7 @@ $(document).ready(function () {
 		}
 		const std_id = $(this).attr("std_id");
 		$.ajax({
-			url: "like.php",
+			url: "backBone.php",
 			type: "POST",
 			data: {
 				search2: 1,
@@ -75,7 +75,7 @@ $(document).ready(function () {
 		const idAttr = this.getAttribute("data-idAttr");
 		const fname = this.getAttribute("data-fname");
 		$.ajax({
-			url: "like.php",
+			url: "backBone.php",
 			type: "POST",
 			data: {
 				chatMessage: 1,
@@ -119,7 +119,7 @@ $(document).ready(function () {
 		}
 		const std_id = $(this).attr("std_id");
 		$.ajax({
-			url: "like.php",
+			url: "backBone.php",
 			type: "POST",
 			data: {
 				search: 1,

@@ -1,6 +1,6 @@
 <?php
 include_once "connection.php";
-include_once "like.php";
+include_once "backBone.php";
 session_start();
 $id = $_GET['account_id'];
 $sql = "SELECT * FROM student WHERE account_id = '$id'";
