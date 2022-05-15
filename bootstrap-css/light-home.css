@@ -1962,7 +1962,7 @@ canvas {
 }
 
 .commentBox {
-	display: block;
+	display: none;
 	flex-direction: row;
 	width: 500px;
 	height: 700px;

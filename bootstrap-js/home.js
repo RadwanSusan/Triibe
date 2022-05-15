@@ -163,8 +163,43 @@ $(document).ready(function () {
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
+			const post_id = element.getAttribute("data-post_id");
+			const std_id = element.getAttribute("data-std_id");
+			const author = element.getAttribute("data-author");
+			console.log(post_id);
+			console.log(std_id);	
+			console.log(author);
+			$.ajax({
+				url: "backBone.php",
+				type: "POST",
+				data: {
+					getcomment : 1,
+					post_id: post_id,
+					std_id: std_id,
+					author: author,
+				},
+				success: function (data) {
+					console.log(data);
+					document.querySelector(".commentContent").innerHTML = data;
+				},
+			});
+			document.querySelector(".sendComment").addEventListener("click", () => {
+				const comment = $(".commentArea").val();
+				console.log(comment);
+				$.ajax({
+					url: "backBone.php",
+					type: "POST",
+					data: {
+						commentsend: 1,
+						post_id: post_id,
+						std_id: std_id,
+						author: author,
+						comment: comment,
+					},
+			});
 		});
 	});
+});
 	document.querySelector(".formIdLabel1").addEventListener("click", () => {
 		document.querySelector(".FriendChoice").style.display = "none";
 		document.querySelector(".PublicChoice").style.display = "inline-block";

@@ -44,7 +44,7 @@ session_start();
     <p class="commentHeader">Comments</p>
     <div class="commentList">
       <div class="commentContent"></div>
-      <textarea name="commentArea" id="" cols="30" rows="10"></textarea>
+      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
       <button class="sendComment">Send</button>
     </div>
   </div>
@@ -621,8 +621,7 @@ session_start();
                       }
                       echo "
                                        </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <div class='comment' data-post_id='" . $row["post_id"] . "' data-std_id='" . $_SESSION["std_id"] . "' data-author='" . $row["author"] . "'>                                       <img src='Design/Image/home-images/images/Comment.svg'>
                                        <p>comment</p>
                                        </div>
                                        <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
@@ -695,8 +694,7 @@ session_start();
                       }
                       echo "
                                        </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <div class='comment' data-post_id='" . $row["post_id"] . "' data-std_id='" . $_SESSION["std_id"] . "' data-author='" . $row["author"] . "'>                                       <img src='Design/Image/home-images/images/Comment.svg'>
                                        <p>comment</p>
                                        </div>
                                        <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
@@ -762,7 +760,7 @@ session_start();
                     }
                     echo "
                                        </div>
-                                       <div class='comment'>
+                                       <div class='comment' data-post_id='" . $row["post_id"] . "' data-std_id='" . $_SESSION["std_id"] . "' data-author='" . $row["author"] . "'>
                                        <img src='Design/Image/home-images/images/Comment.svg'>
                                        <p>comment</p>
                                        </div>
@@ -949,8 +947,7 @@ session_start();
                   }
                   echo "
                                        </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <div class='comment' data-post_id='" . $row["post_id"] . "' data-std_id='" . $_SESSION["std_id"] . "' data-author='" . $row["author"] . "'>                                       <img src='Design/Image/home-images/images/Comment.svg'>
                                        <p>comment</p>
                                        </div>
                                        <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
@@ -1023,8 +1020,7 @@ session_start();
                   }
                   echo "
                                        </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <div class='comment' data-post_id='" . $row["post_id"] . "' data-std_id = '" . $_SESSION["std_id"] . "' data-author ='" . $row["author"] . "'>                                       <img src='Design/Image/home-images/images/Comment.svg'>
                                        <p>comment</p>
                                        </div>
                                        <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
@@ -1090,8 +1086,7 @@ session_start();
                 }
                 echo "
                                        </div>
-                                       <div class='comment'>
-                                       <img src='Design/Image/home-images/images/Comment.svg'>
+                                       <div class='comment' data-post_id='" . $row["post_id"] . "' data-std_id = '" . $_SESSION["std_id"] . "' data-author ='" . $row["author"] . "'>                                       <img src='Design/Image/home-images/images/Comment.svg'>
                                        <p>comment</p>
                                        </div>
                                        <div class='share' data-post_id='" . $row["post_id"] . "' data-author_id='" . $_SESSION["std_id"] . "'>
@@ -1140,7 +1135,7 @@ session_start();
           <img class="savedPosts-Dark" src="Design/Image/home-images/images/saved-posts2.svg" alt="" />
           <span> Saved posts</span>
         </a>
-        <a href="#">
+        <a href="market.php">
           <img class="marketIcon-Light" src="Design/Image/home-images/images/market-Icon.svg" alt="" />
           <img class="marketIcon-Dark" src="Design/Image/home-images/images/market-Icon2.svg" alt="" />
           <span>Market</span>

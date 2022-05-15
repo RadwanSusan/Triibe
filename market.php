@@ -1,16 +1,17 @@
 <?php
 include_once "connection.php";
-include_once "like.php";
+include_once "backBone.php";
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
   <link rel="stylesheet" href="bootstrap-css/all.min.css" />
   <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
@@ -35,8 +36,9 @@ session_start();
     }
   </script>
 </head>
+
 <body>
- <nav class="nav">
+  <nav class="nav">
     <div class="nav-left">
       <div class="box">
         <img src="Design/Image/home-images/images/logo.svg" alt="logoLight" class="logoLight" /> <img src="Design/Image/home-images/images/logo2.svg" alt="logoDark" class="logoDark" />
@@ -80,344 +82,345 @@ session_start();
       </div>
     </div>
   </nav>
-<div class="container1">
-  <div class="main">
-    <div class="left">
-      <div class="left-top">
+  <div class="container1">
+    <div class="main">
+      <div class="left">
+        <div class="left-top">
           <h1 class="h2">Market place</h2>
-          <div class="setting">
-        <img src="Design/image market/setting.svg" alt="settingIcon">
-      </div>
-          </div>
-          
-          <div class="search-box-2">
-        <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search">
-        <input class="input" type="text" placeholder="Search">
-      </div>
-          <div class="bio bio1">
-            <img src="Design/image market/browse.svg" alt="">
-            <div class="name1 name3">Browse all</div>
-          </div>
-          <div class="bio bio3">
-            <img src="Design/image market/notification.svg" alt="">
-            <div class="name1">Notifiactions</div>
-          </div>
-          <div class="bio bio4">
-            <img src="Design/image market/inbox.svg" alt="">
-            <div class="name1">Inbox</div>
-          </div>
-          <div class="bio bio5">
-            <img src="Design/image market/buying.svg" alt="">
-            <div class="name1">Buying</div>
-          </div>
-          <div class="bio bio2">
-            <img src="Design/image market/selling.svg" alt="">
-            <div class="name1">Selling</div>
-          </div>
+            <div class="setting">
+              <img src="Design/image market/setting.svg" alt="settingIcon">
+            </div>
         </div>
-    <div class="right">
-      <h1>Today picks</h1>
-      <div class="all-Ele">
-        <div class="all-Ele-top">
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/lab1.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
 
-            
-          </div>
-        <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/lab1.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
+        <div class="search-box-2">
+          <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search">
+          <input class="input" type="text" placeholder="Search">
+        </div>
+        <div class="bio bio1">
+          <img src="Design/image market/browse.svg" alt="">
+          <div class="name1 name3">Browse all</div>
+        </div>
+        <div class="bio bio3">
+          <img src="Design/image market/notification.svg" alt="">
+          <div class="name1">Notifiactions</div>
+        </div>
+        <div class="bio bio4">
+          <img src="Design/image market/inbox.svg" alt="">
+          <div class="name1">Inbox</div>
+        </div>
+        <div class="bio bio5">
+          <img src="Design/image market/buying.svg" alt="">
+          <div class="name1">Buying</div>
+        </div>
+        <div class="bio bio2">
+          <img src="Design/image market/selling.svg" alt="">
+          <div class="name1">Add a product</div>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Today picks</h1>
+        <div class="all-Ele">
+          <div class="all-Ele-top">
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/lab1.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
 
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/oven.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
 
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/table.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/lab1.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
 
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/lab3.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
 
-            
-          </div>
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/oven.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/table.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/lab3.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
+
+
+            </div>
           </div>
 
 
           <div class="all-Ele-bottom">
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/lab2.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
-
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/flat.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
-
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/lab1.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
-
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/food.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
-
-            
-          </div>
-          <div class="img1-card1">
-          <div class="img1">
-            <img src="Design/image market/lab1.svg" alt="img">
-          </div>
-          <div class="card1">
-            <div class="left-post">
-              <div class="top">
-                              <a class="name-photo" href="friendpage.php?account_id=547594119">
-                                 <img src="Design\Image\LogoPic0.jpg">
-                                    <div class="name">radwan susan</div>
-                              </a>
-                                 <div class="inside-top">
-                                  1d ago
-                                 <img src="Design/Image/home-images/images/ball.svg">
-                              </div>
-                              </div>
-  </div>
-  <div class="mid">
-    <p>غاز قياس 90 فوق وتحت مع بعض</p>
-  </div>
-  <div class="bottom">
-    <div class="price">60 JD</div>
-    <div class="contact">Contact</div>
-  </div>
-          </div>
-
-            
-          </div>
-          </div>
-
-    </div>
-  </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/lab2.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
 
 
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/flat.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
 
 
-    
-    <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
-  <script src="bootstrap-js/all.min.js"></script>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
-  <script type="module" src="bootstrap-js/market.js" defer></script>
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/lab1.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/food.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="img1-card1">
+              <div class="img1">
+                <img src="Design/image market/lab1.svg" alt="img">
+              </div>
+              <div class="card1">
+                <div class="left-post">
+                  <div class="top">
+                    <a class="name-photo" href="friendpage.php?account_id=547594119">
+                      <img src="Design\Image\LogoPic0.jpg">
+                      <div class="name">radwan susan</div>
+                    </a>
+                    <div class="inside-top">
+                      1d ago
+                      <img src="Design/Image/home-images/images/ball.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                </div>
+                <div class="bottom">
+                  <div class="price">60 JD</div>
+                  <div class="contact">Contact</div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+      <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+      <script src="bootstrap-js/all.min.js"></script>
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+      <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+      <script type="module" src="bootstrap-js/market.js" defer></script>
 </body>
+
 </html>

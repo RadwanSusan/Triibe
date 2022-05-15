@@ -180,3 +180,45 @@ if (isset($_POST['chatMessage'])) {
 	</div>
 	<div class="message other-message float-right">' . $message . '</div>';
 }
+if (isset($_POST['getcomment'])) {
+	$post_id = $_POST['post_id'];
+	$std_id = $_POST['std_id'];
+	$author = $_POST['author'];
+	$sql = "SELECT * FROM comment WHERE post_id = '$post_id' order by created_date";
+	$result = mysqli_query($conn, $sql);
+	$count = mysqli_num_rows($result);
+	if ($count > 0) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			$sql = "SELECT * FROM student WHERE std_id = '" . $row["post_std_id"] . "'";
+			$result2 = mysqli_query($conn, $sql);
+			$row2 = mysqli_fetch_assoc($result2);
+			$sql = "SELECT * FROM img WHERE img_id = '" . $row2["img_id"] . "'";
+			$result4 = mysqli_query($conn, $sql);
+			$row4 = mysqli_fetch_assoc($result4);
+			if (isset($row4["img_name"])) {
+				$imgname = $row4["img_name"];
+			} else {
+				if ($row2["gender"] == 1) {
+					$imgname = "Design\Image\LogoPic0.jpg";
+				} else {
+					$imgname = "Design\Image\LogoPic1.jpg";
+				}
+			}
+			echo "
+			<p>'" . $row2['std_fname'] . " " . $row2['std_lname'] . "'</p>
+			<img src='" . $imgname . "'>
+			<p>'" . $row['content'] . "'</p>
+			<p>'" . $row['created_date'] . "'</p>
+			";
+		}
+	}
+}
+if (isset($_POST['commentsend'])) {
+	$post_id = $_POST['post_id'];
+	$std_id = $_POST['std_id'];
+	$author = $_POST['author'];
+	$commentContent = $_POST['comment'];
+	$date = date("Y-m-d H:i:s", time());
+	$sql = "INSERT INTO comment (content , post_id, post_std_id, author,  created_date) VALUES ('" . $commentContent . "' , '" . $post_id . "' , '" . $std_id . "' , '" . $author . "' ,  '" . $date . "')";
+	$result = mysqli_query($conn, $sql);
+}
