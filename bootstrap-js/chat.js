@@ -65,6 +65,9 @@ $(document).ready(function () {
 	if (!document.cookie.includes("idAttr")) {
 		document.querySelector(".chat").style.display = "none";
 	}
+	// const nl2br = (str) => {
+	// 	return str.replace(/\n/g, "<br>");
+	// };
 	document.querySelector(".send").addEventListener("click", function () {
 		const message = document.querySelector(".messagetxt").value;
 		if (message.length == 0) {

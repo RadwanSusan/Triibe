@@ -139,6 +139,7 @@ if (isset($_POST['tag'])) {
 }
 if (isset($_POST['chatMessage'])) {
 	$message = $_POST['message'];
+	$message = nl2br($message);
 	$std_id = $_POST['std_id'];
 	$idAttr = $_POST['idAttr'];
 	$fname = $_POST['fname'];

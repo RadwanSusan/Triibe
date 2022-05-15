@@ -234,7 +234,7 @@ $idAttr = null;
               $sql2 = "SELECT * FROM student WHERE std_id = '" . $row["from_user"] . "'";
               $result2 = mysqli_query($conn, $sql2);
               $row2 = mysqli_fetch_array($result2);
-
+              $chatMessage = nl2br($row["message"]);
               echo "<li class='clearfix'>
           <div class='message-data align-right'>
             <span class='message-data-time'>" . $difftime . "</span> &nbsp; &nbsp;
@@ -242,13 +242,14 @@ $idAttr = null;
 
           </div>
           <div class='message other-message float-right'>
-            " . $row["message"] . "
+            " . $chatMessage . "
           </div>
         </li>";
             } else {
               $sql3 = "SELECT * FROM student WHERE std_id = '" . $row["from_user"] . "'";
               $result3 = mysqli_query($conn, $sql3);
               $row3 = mysqli_fetch_array($result3);
+              $chatMessage2 = nl2br($row["message"]);
 
               echo "<li>
     <div class='message-data'>
@@ -256,7 +257,7 @@ $idAttr = null;
       <span class='message-data-time'>" . $difftime . "</span>
     </div>
     <div class='message my-message'>
-      " . $row["message"] . "
+      " . $chatMessage2 . "
     </div>
   </li>";
             }
