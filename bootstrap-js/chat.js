@@ -114,6 +114,9 @@ $(document).ready(function () {
 	document.querySelector(".messagetxt").addEventListener("keypress", (e) => {
 		if ((e.keyCode == 13 || e.keyCode == 10) && e.ctrlKey) {
 			document.querySelector(".send").click();
+			document.querySelector(".messagetxt").value = "";
+			document.querySelector(".chat-history").scrollTop =
+				document.querySelector(".chat-history").scrollHeight;
 		}
 	});
 	document.querySelector(".box").addEventListener("click", function () {
