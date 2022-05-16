@@ -472,3 +472,20 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
     margin-top: 7px;
 }
+.contactBox{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  font-family: "Pridi";
+  width: 500px;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}

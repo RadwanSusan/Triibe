@@ -117,294 +117,95 @@ session_start();
           <div class="name1">Add a product</div>
         </div>
       </div>
+    <div class="contactBox">
+      <div class="chatlink">
+        <p>chat</p>
+        <button class="closeContact">close</button>
+      </div>
+    </div>
       <div class="right">
         <h1>Today picks</h1>
         <div class="all-Ele">
           <div class="all-Ele-top">
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/lab1.svg" alt="img">
+            <?php
+            $sql = "SELECT * FROM market_post order by created_date desc";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_array($result)) {
+              $sql2 = "SELECT * FROM student where std_id = '" . $row["author"] . "'";
+              $result2 = mysqli_query($conn, $sql2);
+              $row2 = mysqli_fetch_array($result2);
+              $imgid = $row2["img_id"];
+                  $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                  $resultimg = mysqli_query($conn, $sqlimg);
+                  $rowimg = mysqli_fetch_assoc($resultimg);
+                  if (isset($rowimg["img_name"])) {
+                    $userImage = $rowimg["img_name"];
+                  } else {
+                    if ($row2["gender"] == 1) {
+                      $userImage = "Design\Image\LogoPic0.jpg";
+                    } else {
+                      $userImage = "Design\Image\LogoPic1.jpg";
+                    }
+                  }
+                  $sql3 = "SELECT * FROM img WHERE img_id = '" . $row["img_id"] . "'";
+                  $result3 = mysqli_query($conn, $sql3);
+                  $row3 = mysqli_fetch_array($result3);
+                  $imgPost = $row3["img_name"];
+                  $now = new DateTime();
+                  $post = new DateTime($row["created_date"]);
+                  $diff = $now->diff($post);
+                  $diff->format("%a");
+                  $diffday = $diff->format("%a");
+                  $diffhour = $diff->format("%h");
+                  $diffminute = $diff->format("%i");
+                  $diffsecond = $diff->format("%s");
+                  $diffdaystr = (string)$diffday;
+                  $diffhourstr = (string)$diffhour;
+                  $diffminutestr = (string)$diffminute;
+                  $diffsecondstr = (string)$diffsecond;
+                  $difftime = $diffsecondstr . "second ago";
+                  if ($diffdaystr == "0") {
+                    if ($diffhourstr == "0") {
+                      if ($diffminutestr == "0") {
+                        $difftime = $diffsecondstr . "s ago";
+                      } else {
+                        $difftime = $diffminutestr . "m ago";
+                      }
+                    } else {
+                      $difftime = $diffhourstr . "h ago";
+                    }
+                  } else {
+                    $difftime = $diffdaystr . "d ago";
+                  }
+              echo" <div class='img1-card1'>
+              <div class='img1'>
+                <img src='$imgPost' alt='img'>
               </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
+              <div class='card1'>
+                <div class='left-post'>
+                  <div class='top'>
+                    <a class='name-photo' href='friendpage.php?account_id=".$row2["account_id"]."'>
+                      <img src='".$userImage."'>
+                      <div class='name'>".$row2["std_fname"] . " " . $row2["std_lname"] ."</div>
                     </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
+                    <div class='inside-top'>
+                      $difftime
+                      <img src='Design/Image/home-images/images/ball.svg'>
                     </div>
                   </div>
                 </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
+                <div class='mid'>
+                  <p>".$row["content"]."</p>
                 </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/lab1.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
+                <div class='bottom'>
+                  <div class='price'>".$row["price"]."</div>
+                  <div class='contact' data-MPID='".$row["market_post_id"]."' >Contact</div>
                 </div>
               </div>
+            </div>";
+            }
+            ?>
 
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/oven.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/table.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/lab3.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-
-
-          <div class="all-Ele-bottom">
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/lab2.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/flat.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/lab1.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/food.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="img1-card1">
-              <div class="img1">
-                <img src="Design/image market/lab1.svg" alt="img">
-              </div>
-              <div class="card1">
-                <div class="left-post">
-                  <div class="top">
-                    <a class="name-photo" href="friendpage.php?account_id=547594119">
-                      <img src="Design\Image\LogoPic0.jpg">
-                      <div class="name">radwan susan</div>
-                    </a>
-                    <div class="inside-top">
-                      1d ago
-                      <img src="Design/Image/home-images/images/ball.svg">
-                    </div>
-                  </div>
-                </div>
-                <div class="mid">
-                  <p>غاز قياس 90 فوق وتحت مع بعض</p>
-                </div>
-                <div class="bottom">
-                  <div class="price">60 JD</div>
-                  <div class="contact">Contact</div>
-                </div>
-              </div>
-
-
-            </div>
           </div>
 
         </div>

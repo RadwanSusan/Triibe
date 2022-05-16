@@ -222,3 +222,14 @@ if (isset($_POST['commentsend'])) {
 	$sql = "INSERT INTO comment (content , post_id, post_std_id, author,  created_date) VALUES ('" . $commentContent . "' , '" . $post_id . "' , '" . $std_id . "' , '" . $author . "' ,  '" . $date . "')";
 	$result = mysqli_query($conn, $sql);
 }
+if (isset($_POST['MPContact'])) {
+	$MPID = $_POST['MPID'];
+	$sql = "SELECT phone_number FROM market_post WHERE market_post_id = '$MPID'";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
+	if(isset($row["phone_number"])){
+	echo "<p> Phone Number : " . $row['phone_number'] . "</p>";
+	} else{
+		echo " <p>No Phone Number</p>";
+	}
+}
