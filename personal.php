@@ -398,12 +398,21 @@ session_start();
                   $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
                   $resultimg = mysqli_query($conn, $sqlimg);
                   $rowimg = mysqli_fetch_assoc($resultimg);
+                  if (isset($rowimg["img_name"])) {
+                    $postImage = $rowimg["img_name"];
+                  } else {
+                    if ($row1["gender"] == 1) {
+                      $postImage = "Design\Image\LogoPic0.jpg";
+                    } else {
+                      $postImage = "Design\Image\LogoPic1.jpg";
+                    }
+                  }
                   echo "
                               <div class= 'post'>
                               <div class='top-post'>
                                  <div class='left-post'>
                               <div class='name-photo'>
-                                 <img src='" . $rowimg["img_name"] . "' alt=''>
+                                 <img src='" . $postImage . "' alt=''>
                                     <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                               </div>
                                  <div class='inside-top'>
