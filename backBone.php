@@ -227,9 +227,9 @@ if (isset($_POST['MPContact'])) {
 	$sql = "SELECT phone_number FROM market_post WHERE market_post_id = '$MPID'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
-	if(isset($row["phone_number"])){
-	echo "<p> Phone Number : " . $row['phone_number'] . "</p>";
-	} else{
+	if (isset($row["phone_number"])) {
+		echo "<p> Phone Number : " . $row['phone_number'] . "</p>";
+	} else {
 		echo " <p>No Phone Number</p>";
 	}
 }

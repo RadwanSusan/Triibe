@@ -166,40 +166,35 @@ $(document).ready(function () {
 			const post_id = element.getAttribute("data-post_id");
 			const std_id = element.getAttribute("data-std_id");
 			const author = element.getAttribute("data-author");
-			console.log(post_id);
-			console.log(std_id);	
-			console.log(author);
 			$.ajax({
 				url: "backBone.php",
 				type: "POST",
 				data: {
-					getcomment : 1,
+					getcomment: 1,
 					post_id: post_id,
 					std_id: std_id,
 					author: author,
 				},
 				success: function (data) {
-					console.log(data);
 					document.querySelector(".commentContent").innerHTML = data;
 				},
 			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
-				console.log(comment);
 				$.ajax({
 					url: "backBone.php",
 					type: "POST",
 					data: {
 						commentsend: 1,
-						post_id: post_id,
-						std_id: std_id,
-						author: author,
-						comment: comment,
+						post_id,
+						std_id,
+						author,
+						comment,
 					},
+				});
 			});
 		});
 	});
-});
 	document.querySelector(".formIdLabel1").addEventListener("click", () => {
 		document.querySelector(".FriendChoice").style.display = "none";
 		document.querySelector(".PublicChoice").style.display = "inline-block";
@@ -216,8 +211,7 @@ $(document).ready(function () {
 		document.querySelector(".PublicChoice").style.display = "none";
 		document.querySelector(".FriendChoice").style.display = "inline-block";
 	});
-	const delete1 = document.getElementsByClassName("delete");
-	Array.from(delete1).forEach((element) => {
+	Array.from(document.querySelector(".delete")).forEach((element) => {
 		element.addEventListener("click", () => {
 			const post_id1 = element.dataset.post_id;
 			const author_id = element.dataset.author_id;
@@ -246,8 +240,7 @@ $(document).ready(function () {
 			);
 		});
 	});
-	const share = document.querySelectorAll(".share");
-	share.forEach((element) => {
+	document.querySelectorAll(".share").forEach((element) => {
 		element.addEventListener("click", () => {
 			const sh_post_id = element.dataset.post_id;
 			const sh_author_id = element.dataset.author_id;
@@ -281,15 +274,23 @@ $(document).ready(function () {
 		document.querySelector(".formIdSelector").style.display = "none";
 	});
 	document.querySelector(".post-public").addEventListener("click", () => {
-		document.cookie = "form_id =" + "1";
+		document.cookie = "form_id=1";
 		window.location.href = "home.php";
+		document.cookie = "postBtn= 1";
 	});
 	document.querySelector(".post-friend").addEventListener("click", () => {
-		document.cookie = "form_id =" + "2";
+		document.cookie = "form_id=2";
 		window.location.href = "home.php";
+		document.cookie = "postBtn=2";
 	});
-	const save = document.querySelectorAll(".save");
-	save.forEach((element) => {
+	if (document.cookie.includes("postBtn=1")) {
+		document.querySelector(".post-public").style.backgroundColor = "#fff";
+		document.querySelector(".post-friend").style.backgroundColor = "#f1f1f1";
+	} else {
+		document.querySelector(".post-public").style.backgroundColor = "#f1f1f1";
+		document.querySelector(".post-friend").style.backgroundColor = "#fff";
+	}
+	document.querySelectorAll(".save").forEach((element) => {
 		element.addEventListener("click", () => {
 			const save_post_id = element.dataset.post_id;
 			const save_keeper_id = element.dataset.keeper_id;
@@ -304,14 +305,13 @@ $(document).ready(function () {
 				success() {
 					alert("Post saved");
 					element.style.display = "none";
-					const Unsave_icon = element.nextElementSibling;
-					Unsave_icon.style.display = "flex";
+
+					element.nextElementSibling.style.display = "flex";
 				},
 			});
 		});
 	});
-	const unSave = document.querySelectorAll(".saved");
-	unSave.forEach((element) => {
+	document.querySelectorAll(".saved").forEach((element) => {
 		element.addEventListener("click", () => {
 			const unSave_post_id = element.dataset.post_id;
 			const unSave_keeper_id = element.dataset.keeper_id;
@@ -326,8 +326,7 @@ $(document).ready(function () {
 				success() {
 					alert("Post unsaved");
 					element.style.display = "none";
-					const Save_icon = element.previousElementSibling;
-					Save_icon.style.display = "flex";
+					element.previousElementSibling.style.display = "flex";
 				},
 			});
 		});
