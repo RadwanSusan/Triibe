@@ -62,13 +62,20 @@ body {
   align-content: center;
   align-items: center;
 }
+@media (max-width: 950px) {
+  .box h1 {
+	  font-size: 75px;
+  }
+  .box img {
+	  width: 73px;
+  }
+}
 
 .left {
   width: 600px;
   align-items: flex-start;
   user-select: none;
 }
-
 .left2 {
   width: 600px;
   align-items: flex-start;
@@ -89,12 +96,9 @@ body {
 @media (max-width: 650px) {
   .right-1 {
     margin: 20px;
-	margin-top: auto;
+    margin-top: auto;
   }
 }
-
-
-
 
 .rive1 {
   border-radius: 50%;
@@ -776,4 +780,3 @@ body::-webkit-scrollbar {
     font-size: 24px;
   }
 }
-
