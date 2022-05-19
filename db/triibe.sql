@@ -304,6 +304,29 @@ INSERT INTO `img` (`img_id`, `img_name`) VALUES
 -- Table structure for table `majors`
 --
 
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 19, 2022 at 08:14 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `triibe`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `majors`
+--
+
 CREATE TABLE `majors` (
   `ID` int(11) NOT NULL,
   `Major_No` varchar(2) NOT NULL,
@@ -337,8 +360,8 @@ INSERT INTO `majors` (`ID`, `Major_No`, `Major_Name`, `Coll_Major_No`) VALUES
 (19, '03', 'الهندسة الكيميائية', '05'),
 (20, '07', 'الهندسة المكانيكية', '05'),
 (21, '11', 'هندسة الحاسوب', '05'),
-(22, '14', 'هندسة البرمجيات', '06'),
-(23, '12', 'علم الحاسوب', '06'),
+(22, '12', 'هندسة البرمجيات', '06'),
+(23, '14', 'علم الحاسوب', '06'),
 (24, '13', 'نظم المعلومات الحاسوبية', '06'),
 (25, '15', 'علم البيانات والذكاء الاصطناعي', '06'),
 (26, '08', 'قانون عام', '14'),
@@ -349,6 +372,39 @@ INSERT INTO `majors` (`ID`, `Major_No`, `Major_Name`, `Coll_Major_No`) VALUES
 (31, '13', 'المحاسبة والعلوم المالية والمصرفية', '04'),
 (32, '33', 'الادارة المالية', '04'),
 (33, '51', 'التسويق', '04');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `majors`
+--
+ALTER TABLE `majors`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Major_No` (`Major_No`,`Coll_Major_No`),
+  ADD KEY `Coll_Major_No_FK` (`Coll_Major_No`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `majors`
+--
+ALTER TABLE `majors`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `majors`
+--
+ALTER TABLE `majors`
+  ADD CONSTRAINT `Coll_Major_No_FK` FOREIGN KEY (`Coll_Major_No`) REFERENCES `colleges` (`Coll_No`) ON DELETE NO ACTION ON UPDATE CASCADE;
+COMMIT;
 
 -- --------------------------------------------------------
 
