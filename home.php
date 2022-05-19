@@ -394,9 +394,22 @@ include_once "backBone.php";
   <div class="container1">
     <div class="left-sidebar">
       <div class="group-list">
+        <p>Collage </p>
+        <?php
+        $sqlc = "SELECT Coll_Name FROM colleges WHERE Coll_NO = (SELECT Coll_Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "'))";
+        $resultc = mysqli_query($conn, $sqlc);
+        $rowc = mysqli_fetch_assoc($resultc);
+        echo "<a href='#' class='group-list-item'>" . $rowc["Coll_Name"] . "</a>";
+        ?>
+        <p>major</p>
+        <?php
+        $sqlm = "SELECT Major_Name FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "')";
+        $resultm = mysqli_query($conn, $sqlm);
+        $rowm = mysqli_fetch_assoc($resultm);
+        echo "<a href='#' class='group-list-item'>" . $rowm["Major_Name"] . "</a>";        ?>
         <p> Subjects </p>
         <?php
-        $sqlsub = "SELECT Course_Name FROM courses WHERE ID IN (SELECT crs_id FROM subjects where id IN (SELECT sub_id FROM std_crs_temp WHERE std_id IN (SELECT id FROM students WHERE Std_No =" . $_SESSION["std_id"] . ")))";
+        $sqlsub = "SELECT Course_Name,ID FROM courses WHERE ID IN (SELECT crs_id FROM subjects where id IN (SELECT sub_id FROM std_crs_temp WHERE std_id IN (SELECT id FROM students WHERE Std_No =" . $_SESSION["std_id"] . ")))";
         $resultsub = mysqli_query($conn, $sqlsub);
         if (mysqli_num_rows($resultsub) > 0) {
           while ($rowsub = mysqli_fetch_assoc($resultsub)) {
