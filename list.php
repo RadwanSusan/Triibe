@@ -1,7 +1,6 @@
 <?php
 include_once "connection.php";
 include_once "backBone.php";
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    
+
     <nav class="nav">
     <div class="nav-left">
       <div class="box">
@@ -112,7 +111,7 @@ session_start();
     </div>
   </div>
 </div>
-    
+
   <script src="bootstrap-js/list.js"></script>
 
 </body>
