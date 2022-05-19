@@ -1,0 +1,100 @@
+@media (min-width:768px) {
+    input[type="text"] {
+        font-size: 11px;
+    }
+    .labels {
+        font-size: 12px;
+    }
+}
+
+@media (min-width:992px) {
+    input[type="text"] {
+        font-size: 13px;
+    }
+    .labels {
+        font-size: 14px;
+    }
+}
+
+@media (min-width:1200px) {
+    input[type="text"] {
+        font-size: 14px;
+    }
+    .labels {
+        font-size: 16px;
+    }
+}
+
+@media (min-width:1400px) {
+    input[type="text"] {
+        font-size: 15px;
+    }
+    .labels {
+        font-size: 18px;
+    }
+}
+
+.profile-container {
+    z-index: 0;
+    position: relative;
+    display: flex;
+    margin-top: -16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    background-color: transparent;
+    min-height: 500px;
+}
+
+.profile-container::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
+    background-image: url("../images/ahu.jpg");
+    background-size: 100% 100%;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.profile-container::after {
+    z-index: -2;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--alt-2-color);
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border: 4px solid var(--main-color);
+}
+
+.labels {
+    float: right;
+    margin-right: 4px;
+    color: var(--alt-2-color);
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    padding: 3px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+input[type="text"] {
+    color: var(--alt-color);
+    font-weight: bold;
+}

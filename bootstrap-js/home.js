@@ -160,6 +160,19 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".SRGS").addEventListener("click", (e) => {
+		e.preventDefault();
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				SRGS: 1,
+			},
+			success (data){
+				window.location.href = "project/info.php";
+			} 
+		});
+	});
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
@@ -171,12 +184,35 @@ $(document).ready(function () {
 				type: "POST",
 				data: {
 					getcomment: 1,
-					post_id: post_id,
-					std_id: std_id,
-					author: author,
+					post_id,
+					std_id,
+					author,
 				},
-				success: function (data) {
-					document.querySelector(".commentContent").innerHTML = data;
+				success(data) {
+					let newArray = [];
+					const commentArray = data.split("</p>");
+					commentArray.forEach((comment) => {
+						comment += "</p>";
+						newArray.push(comment);
+					});
+					newArray.forEach((comment) => {
+						const commentArray = [];
+						for (let i = 0; i < newArray.length; i += 4) {
+							commentArray.push(newArray.slice(i, i + 4));
+						}
+						// every 4 elements in the array is a comment
+						for (let i = 0; i < commentArray.length; i + 4) {
+							const commentContent = document.createElement("div");
+							commentContent.classList.add("commentContent");
+							commentContent.innerHTML =
+								commentArray[i] +
+								commentArray[i + 1] +
+								commentArray[i + 2] +
+								commentArray[i + 3];
+							document.querySelector(".commentBox").appendChild(commentContent);
+							console.table(newArray);
+						}
+					});
 				},
 			});
 			document.querySelector(".sendComment").addEventListener("click", () => {

@@ -1,5 +1,6 @@
 <?php
 include_once "connection.php";
+session_start();
 if (isset($_POST['like'])) {
 	$post_id = $_POST['post_id'];
 	$std_id = $_POST['std_id'];
@@ -204,12 +205,7 @@ if (isset($_POST['getcomment'])) {
 					$imgname = "Design\Image\LogoPic1.jpg";
 				}
 			}
-			echo "
-			<p>'" . $row2['std_fname'] . " " . $row2['std_lname'] . "'</p>
-			<img src='" . $imgname . "'>
-			<p>'" . $row['content'] . "'</p>
-			<p>'" . $row['created_date'] . "'</p>
-			";
+			echo "<p>'" . $row2['std_fname'] . "" . $row2['std_lname'] . "'</p><img src='" . $imgname . "'><p>'" . $row['content'] . "'</p><p>'" . $row['created_date'] . "'</p>";
 		}
 	}
 }
@@ -232,4 +228,10 @@ if (isset($_POST['MPContact'])) {
 	} else {
 		echo " <p>No Phone Number</p>";
 	}
+}
+if (isset($_POST['SRGS'])){
+	$sql = "SELECT id FROM students WHERE Std_No = '" . $_SESSION['std_id'] . "'";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
+	$_SESSION["userid"] = $row['id'];
 }

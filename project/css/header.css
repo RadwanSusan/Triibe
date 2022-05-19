@@ -1,0 +1,325 @@
+:root {
+    --main-color: #0d7377;
+    --alt-color: #212121;
+    --alt-2-color: #F5FFFA;
+}
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-width: 100%;
+    position: static;
+}
+
+
+/*          Begin Media Query CSS         */
+
+@media (min-width:20px) {
+    .j-pad {
+        padding: 0px;
+        font-size: 1rem;
+    }
+    .upper-bar-container {
+        max-width: 100%
+    }
+    .container-marq {
+        max-width: 100%;
+    }
+    .header-nav>.header-nav-item>.header-nav-link {
+        font-size: 10px!important;
+    }
+}
+
+@media (min-width:500px) {
+    .j-pad {
+        padding: 0px;
+        font-size: 1.5rem
+    }
+    .upper-bar-container {
+        max-width: 100%
+    }
+    .container-marq {
+        max-width: 100%
+    }
+    .header-nav>.header-nav-item>.header-nav-link {
+        font-size: 13px!important;
+    }
+}
+
+@media (min-width:768px) {
+    .j-pad {
+        padding: 0px;
+        font-size: 2rem
+    }
+    .upper-bar-container {
+        max-width: 100%
+    }
+    .container-marq {
+        max-width: 100%
+    }
+    .header-nav>.header-nav-item>.header-nav-link {
+        font-size: 14px!important;
+    }
+}
+
+@media (min-width:992px) {
+    .j-pad {
+        padding: 0px;
+        font-size: 2.5rem
+    }
+    .upper-bar-container {
+        max-width: 100%
+    }
+    .container-marq {
+        max-width: 100%
+    }
+    .header-nav>.header-nav-item>.header-nav-link {
+        font-size: 15px!important;
+    }
+}
+
+@media (min-width:1200px) {
+    .j-pad {
+        padding: 0px;
+        font-size: 3rem
+    }
+    .upper-bar-container {
+        max-width: 100%
+    }
+    .container-marq {
+        max-width: 100%
+    }
+    .header-nav>.header-nav-item>.header-nav-link {
+        font-size: 16px!important;
+    }
+}
+
+@media (min-width:1400px) {
+    .j-pad {
+        padding: 0px;
+        font-size: 3.5rem
+    }
+    .upper-bar-container {
+        max-width: 100%
+    }
+    .container-marq {
+        max-width: 100%
+    }
+    .header-nav>.header-nav-item>.header-nav-link {
+        font-size: 17px!important;
+    }
+    .jumbotron>.upper-bar-container>.upper-bar-row>.upper-bar-col-1>img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+
+/*          End Media Query CSS           */
+
+
+/*          Begin Upper Bar CSS           */
+
+.jumbotron {
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    margin-bottom: 0px;
+}
+
+.jumbotron>.upper-bar-container>.upper-bar-row>.upper-bar-col-10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.jumbotron>.upper-bar-container>.upper-bar-row>.upper-bar-col-1 {
+    display: flex;
+    padding: 0px;
+}
+
+
+/*          End Upper Bar CSS             */
+
+
+/*          Begin Nav Bar CSS             */
+
+.header-nav .header-nav-link.active {
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    border: 4px solid var(--alt-2-color);
+}
+
+.header-nav .header-nav-link {
+    border-radius: 0;
+    border-bottom: 3px solid var(--main-color);
+    border-top: 3px solid var(--main-color);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.header-nav {
+    padding: 5px 0px 4px;
+    margin: 0;
+}
+
+.header-nav>.header-nav-item {
+    margin: 2px 6px;
+    width: 140px!important;
+}
+
+.header-nav>.header-nav-item>.header-nav-link {
+    color: black;
+    border-radius: 12px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.header-nav>.header-nav-item>.header-nav-link.active {
+    color: white;
+    margin: 0px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px!important;
+    -webkit-border-radius: 12px!important;
+    -moz-border-radius: 12px!important;
+    -ms-border-radius: 12px!important;
+    -o-border-radius: 12px!important;
+}
+
+ul>li>a {
+    cursor: pointer;
+}
+
+
+/*          End Nav Bar CSS               */
+
+
+/*          Begin Marquee CSS               */
+
+.container-marq {
+    padding: 0px;
+    direction: ltr;
+}
+
+.ticker {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto
+}
+
+.news {
+    width: 100%;
+    padding: 8px;
+    flex-basis: 100%;
+    background: radial-gradient(50% 50% at 50% 50%, var(--alt-2-color) 75%, var(--alt-color) 250%);
+    border-bottom: 4px solid var(--main-color);
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+    color: var(--alt-2-color);
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    position: relative;
+    height: auto;
+    font-size: 20px;
+}
+
+.news marquee {
+    font-size: 16px;
+}
+
+.news-content p {
+    margin-right: 30px;
+    display: inline;
+    color: var(--main-color);
+}
+
+
+/*          End Marquee CSS               */
+
+.table-scroll {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin: auto;
+    overflow: auto;
+    height: 350px;
+}
+.table-scroll table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: separate;
+    border-spacing: 0;
+    direction: ltr;
+}
+
+.table-scroll th,
+.table-scroll td {
+    padding: 10px 10px;
+    border: 1px solid var(--alt-color);
+    vertical-align: top;
+    text-align: center;
+}
+.table-scroll thead th {
+    color: var(--alt-2-color);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.table-scroll tfoot,
+.table-scroll tfoot th,
+.table-scroll tfoot td {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    color: var(--alt-2-color);
+    z-index: 4;
+}
+
+
+thead th:first-child,
+tfoot th:first-child {
+    z-index: 5;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0px 0px 8px 4px var(--alt-color);
+    border-color: var(--alt-color);
+}
+
+.row tbody tr.highlight td {
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    color: var(--alt-2-color);
+}
+
+.table td, .table th {
+    vertical-align: top;
+    border-top: 0px solid #dee2e6;
+}
+  

@@ -1,7 +1,6 @@
 <?php
 include_once "connection.php";
 include_once "backBone.php";
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +42,7 @@ session_start();
   <div class="commentBox">
     <p class="commentHeader">Comments</p>
     <div class="commentList">
-      <div class="commentContent"></div>
+      <!-- <div class="commentContent"></div> -->
       <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
       <button class="sendComment">Send</button>
     </div>
@@ -400,8 +399,29 @@ session_start();
   <div class="container1">
     <div class="left-sidebar">
       <div class="group-list">
-        <!-- <a href="#"> <img class="pagesIcon-Light" src="Design/Image/home-images/images/pages-icon.svg" alt="pages-icon"> <img class="pagesIcon-Dark" src="Design/Image/home-images/images/pages-icon2.svg" alt="pages-icon2"> <span>Pages</span> </a>
-        <a href="#"> <img class="Groups-Light" src="Design/Image/home-images/images/Groups.svg" alt=""> <img class="Groups-Dark" src="Design/Image/home-images/images/Groups2.svg" alt=""><span>Groups</span> </a> -->
+        <p>Collage </p>
+        <?php
+        $sqlc = "SELECT Coll_Name FROM colleges WHERE Coll_NO = (SELECT Coll_Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "'))";
+        $resultc = mysqli_query($conn, $sqlc);
+        $rowc = mysqli_fetch_assoc($resultc);
+        echo "<a href='#' class='group-list-item'>" . $rowc["Coll_Name"] . "</a>";
+        ?>
+        <p>major</p>
+        <?php
+        $sqlm = "SELECT Major_Name FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "')";
+        $resultm = mysqli_query($conn, $sqlm);
+        $rowm = mysqli_fetch_assoc($resultm);
+        echo "<a href='#' class='group-list-item'>" . $rowm["Major_Name"] . "</a>";        ?>
+        <p> Subjects </p>
+        <?php
+        $sqlsub = "SELECT Course_Name,ID FROM courses WHERE ID IN (SELECT crs_id FROM subjects where id IN (SELECT sub_id FROM std_crs_temp WHERE std_id IN (SELECT id FROM students WHERE Std_No =" . $_SESSION["std_id"] . ")))";
+        $resultsub = mysqli_query($conn, $sqlsub);
+        if (mysqli_num_rows($resultsub) > 0) {
+          while ($rowsub = mysqli_fetch_assoc($resultsub)) {
+            echo "<a href='#' class='group-list-item'>" . $rowsub["Course_Name"] . "</a>";
+          }
+        }
+        ?>
         <div class="group-page">
           <p>Friends</p>
           <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
@@ -800,9 +820,6 @@ session_start();
                                  </div>";
                   }
                 }
-              } else {
-                echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
-                break;
               }
             }
           }
@@ -1125,8 +1142,6 @@ session_start();
                                  </div>";
               }
             }
-          } else {
-            echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
           }
         }
         ?>
@@ -1149,15 +1164,15 @@ session_start();
           <img class="marketIcon-Dark" src="Design/Image/home-images/images/market-Icon2.svg" alt="" />
           <span>Market</span>
         </a>
-        <a href="#">
-          <img class="housingIcon-Light" src="Design/Image/home-images/images/housing-icon.svg" alt="" />
-          <img class="housingIcon-Dark" src="Design/Image/home-images/images/housing-icon2.svg" alt="" />
-          <span>Housing</span></a>
         <a href="http://elearning.ahu.edu.jo/login/index.php">
           <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" alt="" />
           <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt="" />
           <span>E-Learning</span>
         </a>
+        <a class="SRGS" href="#">
+          <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" alt="" />
+          <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" alt="" />
+          <span>Student Reg Guidance System</span></a>
         <a href="http://sis.ahu.edu.jo/">
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" alt="" />
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" alt="" />
