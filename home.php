@@ -1142,15 +1142,15 @@ include_once "backBone.php";
           <img class="marketIcon-Dark" src="Design/Image/home-images/images/market-Icon2.svg" alt="" />
           <span>Market</span>
         </a>
-        <a  class ="SRGS" href="#">
-          <img class="housingIcon-Light" src="Design/Image/home-images/images/housing-icon.svg" alt="" />
-          <img class="housingIcon-Dark" src="Design/Image/home-images/images/housing-icon2.svg" alt="" />
-          <span>Housing</span></a>
         <a href="http://elearning.ahu.edu.jo/login/index.php">
           <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" alt="" />
           <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt="" />
           <span>E-Learning</span>
         </a>
+        <a class="SRGS" href="#">
+          <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" alt="" />
+          <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" alt="" />
+          <span>Student Reg Guidance System</span></a>
         <a href="http://sis.ahu.edu.jo/">
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" alt="" />
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" alt="" />
