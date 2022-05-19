@@ -1,0 +1,6 @@
+.footer {
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    height: 60px;
+    width: 100%;
+    margin-bottom: -4px;
+}

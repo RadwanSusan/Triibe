@@ -1,0 +1,194 @@
+/*          Begin Media Query CSS         */
+
+@media (min-width:500px) {
+    .log-container {
+        max-width: 100%;
+    }
+    .log-container>.log-row>.log-col>.form-container {
+        width: 420px;
+    }
+}
+
+@media (min-width:768px) {
+    .log-container {
+        max-width: 100%;
+    }
+    .log-container>.log-row>.log-col>.form-container {
+        width: 440px;
+    }
+}
+
+@media (min-width:992px) {
+    .log-container {
+        max-width: 100%;
+        ;
+    }
+    .log-container>.log-row>.log-col>.form-container {
+        width: 460px;
+    }
+}
+
+@media (min-width:1200px) {
+    .log-container {
+        max-width: 100%;
+    }
+    .log-container>.log-row>.log-col>.form-container {
+        width: 480px;
+    }
+}
+
+@media (min-width:1400px) {
+    .log-container {
+        max-width: 100%;
+    }
+    .log-container>.log-row>.log-col>.form-container {
+        width: 500px;
+    }
+}
+
+
+/*          End Media Query CSS           */
+
+
+/*          Begin Login Page CSS            */
+
+.log-container {
+    position: relative;
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.log-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    background: url("..\\images\\ahu.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.log-container>.log-row>.log-col::before,
+.log-container>.log-row::before {
+    background: transparent;
+}
+
+.log-container>.log-row>.log-col>.form-container {
+    border: 4px solid;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 10px 100px;
+    height: 300px;
+    border-color: var(--alt-color);
+    box-shadow: 0px 0px 8px 4px var(--main-color);
+}
+
+.log-container>.log-row>.log-col>.form-container>button {
+    background: radial-gradient(50% 50% at 50% 50%, var(--main-color) 30%, var(--alt-color) 150%);
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+.log-container>.log-row>.log-col>.form-container>div>input {
+    background-color: transparent;
+    border-color: var(--alt-color);
+    border-width: 3px;
+    direction: rtl;
+    color: var(--alt-color);
+}
+
+.log-container>.log-row>.log-col>.form-container>div {
+    position: relative;
+}
+
+.log-container>.log-row>.log-col>.form-container>div>input:focus {
+    box-shadow: 0px 0px 8px 4px var(--main-color);
+}
+
+#toggle {
+    position: absolute;
+    top: 48%;
+    left: 0.5%;
+    width: 34px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    height: 35px;
+    background-color: var(--main-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#toggle-1 {
+    position: absolute;
+    top: 48%;
+    left: 0.5%;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    width: 34px;
+    height: 35px;
+    background-color: var(--main-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#toggle-2 {
+    position: absolute;
+    top: 48%;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    left: 0.5%;
+    width: 34px;
+    height: 35px;
+    background-color: var(--main-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#toggle-3 {
+    position: absolute;
+    top: 51.5%;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    left: 0.5%;
+    width: 34px;
+    height: 35px;
+    background-color: var(--main-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#toggle-4 {
+    position: absolute;
+    top: 56%;
+    left: 0.5%;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    width: 34px;
+    height: 35px;
+    background-color: var(--main-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.toggle-bg-1 {
+    background-image: url("..\\images\\hidden.png");
+}
+
+.toggle-bg-2 {
+    background-image: url("..\\images\\visi.png");
+}
+
+.form-control {
+    height: 38px;
+}
