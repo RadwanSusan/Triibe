@@ -42,7 +42,7 @@ include_once "backBone.php";
   <div class="commentBox">
     <p class="commentHeader">Comments</p>
     <div class="commentList">
-      <div class="commentContent"></div>
+      <!-- <div class="commentContent"></div> -->
       <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
       <button class="sendComment">Send</button>
     </div>

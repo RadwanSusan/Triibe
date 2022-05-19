@@ -205,12 +205,7 @@ if (isset($_POST['getcomment'])) {
 					$imgname = "Design\Image\LogoPic1.jpg";
 				}
 			}
-			echo "
-			<p>'" . $row2['std_fname'] . " " . $row2['std_lname'] . "'</p>
-			<img src='" . $imgname . "'>
-			<p>'" . $row['content'] . "'</p>
-			<p>'" . $row['created_date'] . "'</p>
-			";
+			echo "<p>'" . $row2['std_fname'] . "" . $row2['std_lname'] . "'</p><img src='" . $imgname . "'><p>'" . $row['content'] . "'</p><p>'" . $row['created_date'] . "'</p>";
 		}
 	}
 }
