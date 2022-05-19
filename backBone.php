@@ -135,9 +135,6 @@ if (isset($_POST['unSave'])) {
 	$sql = "DELETE FROM saved_post WHERE keeper_id = '$unSave_keeper_id' AND post_id = '$unSave_post_id'";
 	$result = mysqli_query($conn, $sql);
 }
-if (isset($_POST['tag'])) {
-	echo 1;
-}
 if (isset($_POST['chatMessage'])) {
 	$message = $_POST['message'];
 	$message = nl2br($message);
