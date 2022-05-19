@@ -1,6 +1,6 @@
 <?php
 include_once "connection.php";
-include_once "backBone.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

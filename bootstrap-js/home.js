@@ -733,7 +733,7 @@ document.querySelector(".cancel").addEventListener("click", () => {
 });
 particlesJS("particles-js", {
 	particles: {
-		number: { value: 160, density: { enable: true, value_area: 2000 } },
+		number: { value: 140, density: { enable: true, value_area: 2000 } },
 		color: { value: "#ffffff" },
 		shape: {
 			type: "circle",
@@ -765,7 +765,7 @@ particlesJS("particles-js", {
 		},
 		move: {
 			enable: true,
-			speed: 3,
+			speed: 1.5,
 			direction: "none",
 			random: false,
 			straight: false,
