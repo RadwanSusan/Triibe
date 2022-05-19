@@ -361,7 +361,12 @@ session_start();
     </div>
     <div class="nav-right">
       <ul>
+        <a class="list2" href="list.php">
+        <li class="more-list">
+          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more-list.svg" alt="settingIcon" />
+        </li>
         <li>
+          </a>
           <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
           <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
         </li>
@@ -1134,6 +1139,10 @@ session_start();
           <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" alt="" />
           <img class="savedPosts-Dark" src="Design/Image/home-images/images/saved-posts2.svg" alt="" />
           <span> Saved posts</span>
+        </a>
+        <a href="Friends.php">
+          <img class="savedPosts-Light" src="Design/Image/home-images/images/friend.svg" alt="" />
+          <span> Friends</span>
         </a>
         <a href="market.php">
           <img class="marketIcon-Light" src="Design/Image/home-images/images/market-Icon.svg" alt="" />
