@@ -397,11 +397,11 @@ session_start();
       <div class="group-list">
         <p> Subjects </p>
         <?php
-        $sqlsub = "SELECT Course_Name FROM courses WHERE ID=(SELECT crs_id FROM subjects where id =(SELECT sub_id FROM std_crs_temp WHERE std_id= (SELECT id FROM students WHERE Std_No =".$_SESSION["std_id"].")))" ;
+        $sqlsub = "SELECT Course_Name FROM courses WHERE ID IN (SELECT crs_id FROM subjects where id IN (SELECT sub_id FROM std_crs_temp WHERE std_id IN (SELECT id FROM students WHERE Std_No =" . $_SESSION["std_id"] . ")))";
         $resultsub = mysqli_query($conn, $sqlsub);
         if (mysqli_num_rows($resultsub) > 0) {
           while ($rowsub = mysqli_fetch_assoc($resultsub)) {
-            echo "<a href='#' class='group-list-item'>".$rowsub["Course_Name"]."</a>";
+            echo "<a href='#' class='group-list-item'>" . $rowsub["Course_Name"] . "</a>";
           }
         }
         ?>
@@ -803,10 +803,7 @@ session_start();
                                  </div>";
                   }
                 }
-              } else {
-                echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
-                break;
-              }
+              } 
             }
           }
         } else {
