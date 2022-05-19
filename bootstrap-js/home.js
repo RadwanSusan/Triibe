@@ -690,25 +690,29 @@ img.forEach((element) => {
 		modal.style.display = "block";
 		modalImg.src = element.src;
 		document.body.style.overflow = "hidden";
-		if (modalImg.height > 850) {
+		if (element.height >= 800) {
+			modalImg.style.maxWidth = "370px";
+		} else if (element.height >= 700 && element.height < 800) {
 			modalImg.style.maxWidth = "500px";
-		} else if (modalImg.height < 600) {
-			modalImg.style.maxWidth = "1100px";
+		} else if (element.height >= 400 && element.height < 700) {
+			modalImg.style.maxWidth = "670px";
+		} else if (element.height >= 300 && element.height < 400) {
+			modalImg.style.maxWidth = "770px";
+		} else if (element.height >= 200 && element.height < 300) {
+			modalImg.style.maxWidth = "1200px";
 		} else {
-			modalImg.style.maxWidth = "700px";
+			modalImg.style.maxWidth = "1400px";
 		}
 	});
 });
 closeBtn.addEventListener("click", () => {
 	modal.style.display = "none";
 	document.body.style.overflow = "auto";
-	modalImg.style.maxWidth = "700px";
 });
 window.addEventListener("click", (e) => {
 	if (e.target == modal) {
 		modal.style.display = "none";
 		document.body.style.overflow = "auto";
-		modalImg.style.maxWidth = "700px";
 	}
 });
 document.querySelector(".tagIcon").addEventListener("click", () => {
