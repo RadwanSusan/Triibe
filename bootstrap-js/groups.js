@@ -160,7 +160,9 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
-	document.querySelector(".box").addEventListener("click", () => {
+  document.querySelector(".box").addEventListener("click", () => {
+    document.cookie = `form_id = 1`;
+    document.cookie = "postBtn= 1";
     window.location.href = "home.php";
   });
 	document.querySelector(".SRGS").addEventListener("click", (e) => {
@@ -314,30 +316,11 @@ $(document).ready(function () {
 			);
 		});
 	});
-	document.querySelector(".card-inside-top").addEventListener("click", () => {
-		document.querySelector(".formIdSelector").style.display = "block";
-	});
+
 	document.querySelector(".btn-primary").addEventListener("click", (e) => {
 		e.preventDefault();
 		document.querySelector(".formIdSelector").style.display = "none";
 	});
-	document.querySelector(".post-public").addEventListener("click", () => {
-		document.cookie = "form_id=1";
-		window.location.href = "home.php";
-		document.cookie = "postBtn= 1";
-	});
-	document.querySelector(".post-friend").addEventListener("click", () => {
-		document.cookie = "form_id=2";
-		window.location.href = "home.php";
-		document.cookie = "postBtn=2";
-	});
-	if (document.cookie.includes("postBtn=1")) {
-		document.querySelector(".post-public").style.backgroundColor = "#fff";
-		document.querySelector(".post-friend").style.backgroundColor = "#f1f1f1";
-	} else {
-		document.querySelector(".post-public").style.backgroundColor = "#f1f1f1";
-		document.querySelector(".post-friend").style.backgroundColor = "#fff";
-	}
 	document.querySelectorAll(".save").forEach((element) => {
 		element.addEventListener("click", () => {
 			const save_post_id = element.dataset.post_id;

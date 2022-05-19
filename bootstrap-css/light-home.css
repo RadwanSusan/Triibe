@@ -54,6 +54,7 @@ body {
   margin-right: 45px;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 .box::after {
