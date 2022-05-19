@@ -803,7 +803,7 @@ session_start();
                                  </div>";
                   }
                 }
-              } 
+              }
             }
           }
         } else {
@@ -1125,8 +1125,6 @@ session_start();
                                  </div>";
               }
             }
-          } else {
-            echo "<p class='noSavedPostsParagraph'>There is no posts yet</p>";
           }
         }
         ?>
