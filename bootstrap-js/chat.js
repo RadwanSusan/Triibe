@@ -1,5 +1,32 @@
 // jshint esversion: 6
+// window.addEventListener("load", function () {
+// 	document.querySelector("#image").addEventListener("change", () => {
+// 		if (this.files && this.files[0]) {
+// 			//check if file is selected
+// 			const img = document.querySelector("#image"); //get image element
+// 			img.onload = () => {
+// 				//when image is loaded
+// 				URL.revokeObjectURL(img.src); //revoke URL
+// 			};
+// 			img.src = URL.createObjectURL(this.files[0]); //set image source
+// 			console.log(this.files[0]); //log file
+// 			console.log("Image selected");
+// 		}
+// 	});
+// });
 $(document).ready(function () {
+	if ($(window).width() < 1000) {
+		$(".noUserSelectedPara").css("display", "none");
+	}
+	// document.querySelector("#image").addEventListener("change", (event) => {
+	// 	var reader = new FileReader();
+	// 	reader.onload = function () {
+	// 		document.querySelector(".chatImageDiv").style.display = "flex";
+	// 		var output = document.querySelector(".chatImage");
+	// 		output.src = reader.result;
+	// 	};
+	// 	reader.readAsDataURL(event.target.files[0]);
+	// });
 	const hoverAnimation = (
 		hoverElement,
 		eventType,
