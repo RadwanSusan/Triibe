@@ -160,6 +160,19 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".SRGS").addEventListener("click", (e) => {
+		e.preventDefault();
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				SRGS: 1,
+			},
+			success (data){
+				window.location.href = "project/info.php";
+			} 
+		});
+	});
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";

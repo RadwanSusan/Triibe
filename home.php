@@ -1,7 +1,6 @@
 <?php
 include_once "connection.php";
 include_once "backBone.php";
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -1143,7 +1142,7 @@ session_start();
           <img class="marketIcon-Dark" src="Design/Image/home-images/images/market-Icon2.svg" alt="" />
           <span>Market</span>
         </a>
-        <a href="#">
+        <a  class ="SRGS" href="#">
           <img class="housingIcon-Light" src="Design/Image/home-images/images/housing-icon.svg" alt="" />
           <img class="housingIcon-Dark" src="Design/Image/home-images/images/housing-icon2.svg" alt="" />
           <span>Housing</span></a>
