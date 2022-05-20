@@ -247,9 +247,40 @@ session_start();
         <div class="bottom">
           <div class="left-bottom">
             <img class="left-bottom-img" src="<?php echo $_SESSION['img_name'] ?>" alt="">
-            <div class="editImg">
-              <img src="Design/Image/home-images/images/edit-image.svg" alt="">
-            </div>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+              $file = $_FILES['profileImg'];
+              $fileName = $_FILES['profileImg']['name'];
+              $fileTmpName = $_FILES['profileImg']['tmp_name'];
+              $fileSize = $_FILES['profileImg']['size'];
+              $fileError = $_FILES['profileImg']['error'];
+              $fileExt = explode('.', $fileName);
+              $fileActualExt = strtolower(end($fileExt));
+              $ext = $fileActualExt;
+              if ($fileError === 0) {
+                if ($fileSize < 10000000) {
+                  $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                  $fileDestination = 'db_images/' . $fileNameNew;
+                  move_uploaded_file($fileTmpName, $fileDestination);
+                  $sql = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                  $result = mysqli_query($conn, $sql);
+                  $sql = "SELECT * FROM img WHERE img_name = '$fileDestination'";
+                  $result = mysqli_query($conn, $sql);
+                  $row = mysqli_fetch_assoc($result);
+                  $img_id = $row['img_id'];
+                  $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
+                  $result = mysqli_query($conn, $sql);
+                  echo "<script>console.log('hi')</script>";
+                }
+              }
+            }
+            ?>
+            <form method="POST" id="profileImgForm">
+              <label class="editImg" for="profileImg">
+                <img src="Design/Image/home-images/images/edit-image.svg" alt="">
+              </label>
+              <input type="file" name="profileImg" id="profileImg" style="display: none" accept=".png,.jpg,.jpeg,.gif" />
+            </form>
             <div class="info">
               <div class="name-bottom">
                 <p><?php echo  $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></p>

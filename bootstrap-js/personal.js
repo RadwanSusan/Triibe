@@ -1,5 +1,11 @@
 // jshint esversion: 6
 $(document).ready(() => {
+	document.getElementById("profileImgForm").onchange = function() {
+		setTimeout(() => {
+			document.querySelector('#profileImgForm').submit();
+		}, 1000);
+};
+		
 	document.querySelector(".write-post-input").addEventListener("click", () => {
 		document.querySelector(".content1").style.opacity = "20%";
 		document.querySelector(".post-card").style.display = "block";
