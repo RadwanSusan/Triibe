@@ -8,6 +8,23 @@ $row = mysqli_fetch_assoc($result);
 $sqlimg = "SELECT * FROM img WHERE img_id = '$row[img_id]'";
 $resultimg = mysqli_query($conn, $sqlimg);
 $rowimg = mysqli_fetch_assoc($resultimg);
+if (isset($rowimg["img_name"])) {
+  $FriendImgName = $rowimg["img_name"];
+} else {
+  if ($row["gender"] == 1) {
+    $FriendImgName = "Design\Image\LogoPic0.jpg";
+  } else {
+    $FriendImgName = "Design\Image\LogoPic1.jpg";
+  }
+}
+$sqlIsFriend = "SELECT * FROM friends WHERE user_id = '".$row["std_id"]."' AND friend_id = '".$_SESSION["std_id"]."'";
+$resultIsFriend = mysqli_query($conn, $sqlIsFriend);
+$rowIsFriend = mysqli_fetch_assoc($resultIsFriend);
+if (isset($rowIsFriend)) {
+  $IsFriend = 1;
+} else {
+  $IsFriend = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,13 +100,13 @@ $rowimg = mysqli_fetch_assoc($resultimg);
     <div class="bottom-content">
       <div class="bottom">
         <div class="left-bottom">
-          <img src="<?php echo $rowimg["img_name"] ?>" alt="">
+          <img src="<?php echo $FriendImgName?>" alt="">
           <div class="info">
             <div class="name-bottom">
               <p><?php echo $row["std_fname"] . " " . $row["std_lname"] ?></p>
             </div>
             <div class="number-friends"><?php
-                                        $sqlfriend = "SELECT * FROM friends WHERE user_id = '$id'";
+                                        $sqlfriend = "SELECT * FROM friends WHERE user_id = '".$row["std_id"]."'";
                                         $resultfriend = mysqli_query($conn, $sqlfriend);
                                         $countfriend = mysqli_num_rows($resultfriend);
                                         echo $countfriend . " Friends";
@@ -98,10 +115,21 @@ $rowimg = mysqli_fetch_assoc($resultimg);
           </div>
         </div>
         <div class="right-bottom">
+          <?php 
+          if ($IsFriend == 0) {
+            echo '
           <div class="add-friends">
             <img src="Design/Image/home-images/images/Group-add.svg" alt="">
             <p>Add Friends</p>
-          </div>
+          </div>';
+          } else {
+            echo '
+            <div class="add-friends">
+            <img src="Design/Image/home-images/images/Group-add.svg" alt="">
+            <p>Friends</p>
+          </div>';
+        }
+          ?>
           <div class="edit-profile">
             <img src="Design/Image/home-images/images/Group-edit.svg" alt="">
             <p>Edit Profile</p>
@@ -361,7 +389,7 @@ $rowimg = mysqli_fetch_assoc($resultimg);
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script type="module" src="bootstrap-js/personal.js"></script>
+  <script type="module" src="bootstrap-js/friendpage.js"></script>
 </body>
 
 </html>

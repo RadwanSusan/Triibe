@@ -260,10 +260,6 @@ session_start();
             </div>
           </div>
           <div class="right-bottom">
-            <div class="add-friends">
-              <img src="Design/Image/home-images/images/Group-add.svg" alt="">
-              <p>Add Friends</p>
-            </div>
             <div class="edit-profile">
               <img src="Design/Image/home-images/images/Group-edit.svg" alt="">
               <p>Edit Profile</p>
