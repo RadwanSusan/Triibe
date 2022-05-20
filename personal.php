@@ -246,7 +246,10 @@ session_start();
       <div class="bottom-content">
         <div class="bottom">
           <div class="left-bottom">
-            <img src="<?php echo $_SESSION['img_name'] ?>" alt="">
+            <img class="left-bottom-img" src="<?php echo $_SESSION['img_name'] ?>" alt="">
+            <div class="editImg">
+              <img src="Design/Image/home-images/images/edit-image.svg" alt="">
+            </div>
             <div class="info">
               <div class="name-bottom">
                 <p><?php echo  $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></p>

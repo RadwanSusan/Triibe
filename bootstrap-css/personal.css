@@ -236,16 +236,14 @@
 	/* margin-left: 450px; */
 }
 
-.left-bottom img {
+.left-bottom-img {
 	width: 170px;
 	border-radius: 50%;
 	margin-top: -40px;
 	z-index: 10;
 	cursor: pointer;
-	/* margin-left: 150px; */
-	/* border: 1px solid #B9B9B9; */
-	/* box-sizing: border-box; */
-	/* filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3)); */
+	border: 3px solid #B9B9B9;
+	filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
 }
 
 .right-bottom {
@@ -1250,4 +1248,29 @@
 .list2,
 .list3 {
 	border-right: 1px solid #919191;
+}
+
+.editImg {
+	background-color: white;
+	border: 1px solid #9B9B9B;
+	display: flex;
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	right: 43px;
+	top: 45px;
+	z-index: 500;
+}
+
+.editImg img {
+	width: 20px;
+	height: 20px;
+
 }

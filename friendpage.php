@@ -17,7 +17,7 @@ if (isset($rowimg["img_name"])) {
     $FriendImgName = "Design\Image\LogoPic1.jpg";
   }
 }
-$sqlIsFriend = "SELECT * FROM friends WHERE user_id = '".$row["std_id"]."' AND friend_id = '".$_SESSION["std_id"]."'";
+$sqlIsFriend = "SELECT * FROM friends WHERE user_id = '" . $row["std_id"] . "' AND friend_id = '" . $_SESSION["std_id"] . "'";
 $resultIsFriend = mysqli_query($conn, $sqlIsFriend);
 $rowIsFriend = mysqli_fetch_assoc($resultIsFriend);
 if (isset($rowIsFriend)) {
@@ -100,13 +100,13 @@ if (isset($rowIsFriend)) {
     <div class="bottom-content">
       <div class="bottom">
         <div class="left-bottom">
-          <img src="<?php echo $FriendImgName?>" alt="">
+          <img src="<?php echo $FriendImgName ?>" alt="">
           <div class="info">
             <div class="name-bottom">
               <p><?php echo $row["std_fname"] . " " . $row["std_lname"] ?></p>
             </div>
             <div class="number-friends"><?php
-                                        $sqlfriend = "SELECT * FROM friends WHERE user_id = '".$row["std_id"]."'";
+                                        $sqlfriend = "SELECT * FROM friends WHERE user_id = '" . $row["std_id"] . "'";
                                         $resultfriend = mysqli_query($conn, $sqlfriend);
                                         $countfriend = mysqli_num_rows($resultfriend);
                                         echo $countfriend . " Friends";
@@ -115,7 +115,7 @@ if (isset($rowIsFriend)) {
           </div>
         </div>
         <div class="right-bottom">
-          <?php 
+          <?php
           if ($IsFriend == 0) {
             echo '
           <div class="add-friends">
@@ -128,7 +128,7 @@ if (isset($rowIsFriend)) {
             <img src="Design/Image/home-images/images/Group-add.svg" alt="">
             <p>Friends</p>
           </div>';
-        }
+          }
           ?>
           <div class="edit-profile">
             <img src="Design/Image/home-images/images/Group-edit.svg" alt="">
@@ -224,14 +224,14 @@ if (isset($rowIsFriend)) {
       </div>
       <div class="right-post">
         <?php
-        $sqlPost = "SELECT * FROM post WHERE author = '".$row["std_id"]."'";
+        $sqlPost = "SELECT * FROM post WHERE author = '" . $row["std_id"] . "'";
         $resultPost = mysqli_query($conn, $sqlPost);
         if (mysqli_num_rows($resultPost) > 0) {
           while ($rowPost = mysqli_fetch_assoc($resultPost)) {
           }
         }
         ?>
-       
+
 
       </div>
     </div>
