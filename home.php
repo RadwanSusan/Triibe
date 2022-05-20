@@ -364,15 +364,20 @@ session_start();
           <li class="more-list">
             <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more-list.svg" alt="settingIcon" />
           </li>
-          <li>
         </a>
-        <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
-        <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
+        <li>
+          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
+          <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
         </li>
+        <div class="settings">
+          <div class="Logout">Logout</div>
+        </div>
+
         <li>
           <img class="mapIcon-Light" src="Design/Image/home-images/images/mapIcon.svg" alt="mapIcon" />
           <img class="mapIcon-Dark" src="Design/Image/home-images/images/mapIcon2.svg" alt="mapIcon" />
         </li>
+
         <li>
           <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" />
           <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" />

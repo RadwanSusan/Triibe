@@ -160,6 +160,20 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".Logout").addEventListener("click", () => {
+	confirm("Are you sure you want to leave this page?", () => {
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				logout: 1,
+			},
+			success: function (data) {
+				window.location.href = "login.php";
+			}
+	});
+});
+});
 	document.querySelector(".box").addEventListener("click", () => {
     window.location.href = "home.php";
   });
@@ -782,6 +796,7 @@ particlesJS("particles-js", {
 });
 if (window.history.replaceState) {
 	window.history.replaceState(null, null, window.location.href);
+
 }
 document.querySelector(".chat").addEventListener("click", () => {
 	window.location.href = "chat.php";

@@ -278,8 +278,9 @@ $idAttr = null;
         </i>
         <button class='send' type="submit" data-std_id='<?php echo $_SESSION["std_id"] ?>' data-idAttr='<?php echo $_COOKIE["idAttr"] ?>' data-fname='<?php echo $_SESSION["std_fname"] ?>'>Send</button>
       </div>
-      <script id="message-template" type="text/x-handlebars-template">
 
+
+      <script id="message-template" type="text/x-handlebars-template">
       </script>
       <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
       <script src="bootstrap-js/all.min.js"></script>

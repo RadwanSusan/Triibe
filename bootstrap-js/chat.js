@@ -57,6 +57,16 @@ $(document).ready(function () {
 	hoverAnimationOut(".locIcon", "mouseout", ".locIcon", "animate__heartBeat");
 	hoverAnimation(".FileLink", "mouseover", ".FileLink", "animate__heartBeat");
 	hoverAnimationOut(".FileLink", "mouseout", ".FileLink", "animate__heartBeat");
+	const searchItem2 = document.querySelectorAll(".searchItem2");
+	searchItem2.forEach((item) => {
+		item.addEventListener("click",(e) => {
+			const friend_id = item.getAttribute("friend_id");
+			e.preventDefault();
+			document.cookie = `idAttr = ${friend_id}`;
+			document.querySelector(".chat").style.display = "block";
+			console.log("hi");
+	});
+	});
 	$(".chatSearch").on("input", function () {
 		if ($(this).val() == "") {
 			$(".searchArea2").hide();
@@ -68,7 +78,7 @@ $(document).ready(function () {
 			url: "backBone.php",
 			type: "POST",
 			data: {
-				search2: 1,
+				search3: 1,
 				name: $(".chatSearch").val().toLowerCase(),
 				std_id,
 			},
