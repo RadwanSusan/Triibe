@@ -17,27 +17,33 @@ if (isset($rowimg["img_name"])) {
     $FriendImgName = "Design\Image\LogoPic1.jpg";
   }
 }
-$sqlIsFriend = "SELECT * FROM friends WHERE user_id = '" . $row["std_id"] . "' AND friend_id = '" . $_SESSION["std_id"] . "'";
-$resultIsFriend = mysqli_query($conn, $sqlIsFriend);
-$rowIsFriend = mysqli_fetch_assoc($resultIsFriend);
-if (isset($rowIsFriend)) {
-  $IsFriend = 1;
-} else {
-  $IsFriend = 0;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
-  <link rel="stylesheet" href="bootstrap-css/all.min.css" />
-  <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
-  <link id="theme" rel="stylesheet" href="bootstrap-css/personal.css" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Triibe profile</title>
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
+  <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bootstrap-css/all.min.css" />
+  <link rel="stylesheet" href="node_modules/animate.css/animate.css" />
+  <link id="theme" rel="stylesheet" href="bootstrap-css/personal.css" />
+  <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
+  <script type="text/javascript">
+    function alert(message) {
+      alertify.defaults.glossary.title = 'My Title';
+      alertify.alert("Triibe", message);
+    }
+
+    function confirm(message, function1, function2) {
+      alertify.defaults.glossary.title = 'My Title';
+      alertify.confirm("Triibe", message, function1, function2);
+    }
+  </script>
 </head>
 
 <body>
@@ -116,19 +122,28 @@ if (isset($rowIsFriend)) {
         </div>
         <div class="right-bottom">
           <?php
-          if ($IsFriend == 0) {
-            echo '
-          <div class="add-friends">
+          echo '
+          <div class="add-friends" data-user_id="' . $row["std_id"] . '">
             <img src="Design/Image/home-images/images/Group-add.svg" alt="">
             <p>Add Friends</p>
-          </div>';
-          } else {
-            echo '
-            <div class="add-friends">
+          </div>
+          <div class="RequestSent"  data-user_id="' . $row["std_id"] . '">
+            <img src="Design/Image/home-images/images/Group-add.svg" alt="">
+            <p>Cancel Request</p>
+          </div>
+            <div class="Friends" data-user_id="' . $row["std_id"] . '">
             <img src="Design/Image/home-images/images/Group-add.svg" alt="">
             <p>Friends</p>
-          </div>';
-          }
+          </div>
+          <div class="AcceptRequest" data-user_id="' . $row["std_id"] . '">
+            <img src="Design/Image/home-images/images/Group-add.svg" alt="">
+            <p>Accept Request</p>
+          </div>
+          <div class="RejectRequest" data-user_id="' . $row["std_id"] . '">
+          <img src="Design/Image/home-images/images/Group-add.svg" alt="">
+          <p>Reject Request</p>
+        </div>
+          ';
           ?>
           <div class="edit-profile">
             <img src="Design/Image/home-images/images/Group-edit.svg" alt="">
@@ -142,10 +157,10 @@ if (isset($rowIsFriend)) {
     </div>
     <div class="list-photo-content">
       <div class="list">
-        <a href="">Posts</a>
-        <a href="">Friends</a>
-        <a href="">Photos</a>
-        <a href="">Videos</a>
+        <a href="#" class="posts" data-account_id="<?php echo $id ?>">Posts</a>
+        <a href="#" class="friends" data-account_id="<?php echo $id ?>">Friends</a>
+        <a href="#" class="photos" data-account_id="<?php echo $id ?>">Photos</a>
+        <a href="#" class="videos" data-account_id="<?php echo $id ?>">Videos</a>
       </div>
     </div>
     <div class="content-personal-post">
@@ -224,6 +239,11 @@ if (isset($rowIsFriend)) {
       </div>
       <div class="right-post">
         <?php
+        if (isset($_COOKIE["show"]) == false) {
+          $show = 1;
+        } else {
+          $show = $_COOKIE["show"];
+        }
         $sqlPost = "SELECT * FROM post WHERE author = '" . $row["std_id"] . "'";
         $resultPost = mysqli_query($conn, $sqlPost);
         if (mysqli_num_rows($resultPost) > 0) {
