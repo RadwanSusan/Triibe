@@ -1,9 +1,5 @@
 // jshint esversion: 6
 $(document).ready(() => {
-	document.querySelector(".write-post-input").addEventListener("click", () => {
-		document.querySelector(".content1").style.opacity = "20%";
-		document.querySelector(".post-card").style.display = "block";
-	});
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});
