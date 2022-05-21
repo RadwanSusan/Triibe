@@ -293,13 +293,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
         <div class="bottom">
           <div class="left-bottom">
             <img class="left-bottom-img" src="<?php echo $_SESSION["personalProfile"] ?>" alt="">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" id="profileImgForm">
               <label class="editImg" for="profileImg">
                 <img src="Design/Image/home-images/images/edit-image.svg" alt="">
               </label>
               <input type="file" name="profileImgUpload" id="profileImg" accept=".png,.jpg,.jpeg,.gif" style="display:none;" />
               <label class="submit" for="submitImg">
-                <input type="submit" id="submitImg" value="Upload" name="profileImgPost" />
+                <input type="submit" id="submitImg" value="Upload" name="profileImgPost" hidden />
               </label>
             </form>
             <div class="info">

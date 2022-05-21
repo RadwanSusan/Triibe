@@ -1,6 +1,10 @@
 // jshint esversion: 6
 $(document).ready(() => {
-		
+	document.getElementById("profileImgForm").onchange = () => {
+		setTimeout(() => {
+			document.getElementById("submitImg").click();
+		}, 300);
+	};
 	document.querySelector(".write-post-input").addEventListener("click", () => {
 		document.querySelector(".content1").style.opacity = "20%";
 		document.querySelector(".post-card").style.display = "block";
@@ -12,7 +16,6 @@ $(document).ready(() => {
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});
-
 	$(".post-image").on("contextmenu", (e) => false);
 	const modal = document.querySelector(".modal");
 	const img = document.querySelectorAll(".post-image");
