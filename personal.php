@@ -93,8 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
       }
     }
   }
-if($_SERVER["REQUEST_METHOD"]=="POST" ) {
+if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST["editProfileSubmit"])) {
 
+      $sql = "SELECT * FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {}
 }
 ?>
 <!DOCTYPE html>
@@ -126,17 +129,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ) {
 
 <body>
   <form class="EditInfoForm" method="post">
-    <input type="text" class="description">
-    <input type="text" class="AddUni">
-    <input type="text" class="major">
-    <input type="text" class="livesIn">
-    <input type="text" class="fromTo">
-    <input type="text" class="instagramLink">
-    <input type="text" class="facebookLink">
-    <input type="text" class="snapchatLink">
-    <input type="text" class="githubLink">
-    <input type="text" class="linkedinLink">
-    <input type="text" class="twitterLink">
+    <input type="text" class="description" name="description">
+    <input type="text" class="AddUni" name="AddUni">
+    <input type="text" class="major"name="major">
+    <input type="text" class="livesIn"name="livesIn">
+    <input type="text" class="fromTo"name="fromTo">
+    <input type="text" class="instagramLink"name="instagramLink">
+    <input type="text" class="facebookLink"name="facebookLink">
+    <input type="text" class="snapchatLink"name="snapchatLink">
+    <input type="text" class="githubLink"name="githubLink">
+    <input type="text" class="linkedinLink"name="linkedinLink">
+    <input type="text" class="twitterLink"name="twitterLink">
     <input type="submit" name="editProfileSubmit" class="editProfileSubmit" value="editProfileSubmit">
   </form>
   <div class="post-card slide-in-elliptic-top-fwd">
