@@ -280,12 +280,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
       <div class="top">
         <div>
           <img src="Design/Image/home-images/images/farme.svg" alt="">
-          <div class="edit-cover-content">
-            <div class=".Edit-cover">
-              <img src="Design/Image/home-images/images/edit cover.svg" alt="">
+          <form class="edit-cover-content" method="POST" enctype="multipart/form-data" id="">
+            <div class="Edit-cover">
+              <label id="" for="CoverImg">
+                <img src="Design/Image/home-images/images/edit2.svg" alt="" />
+              </label>
+              <input type="file" name="profileCoverUpload" id="CoverImg" accept=".png,.jpg,.jpeg,.gif" style="display:none;" />
+              <label class="submit" for="submitImg">
+                <input type="submit" id="submitCoverImg" value="Upload" name="profileCoverPost" hidden />
+              </label>
               <p>Edit cover</p>
             </div>
-          </div>
+          </form>
         </div>
         <!-- <img src="Design/Image/home-images/images/Linear_Layer.svg" alt=""> -->
       </div>
