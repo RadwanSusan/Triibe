@@ -1,5 +1,8 @@
 // jshint esversion: 6
 $(document).ready(() => {
+	document.querySelector(".edit-profile").addEventListener("click", () => {
+		document.querySelector(".EditInfoForm").style.display = "flex";
+	});
 	document.getElementById("profileImgForm").onchange = () => {
 		setTimeout(() => {
 			document.getElementById("submitImg").click();

@@ -20,16 +20,16 @@ if (mysqli_num_rows($result1) > 0) {
     }
   }
 }
-$sqlcover="SELECT img_name FROM profile_info WHERE std_id = '".$_SESSION["std_id"]."'";
-$resultcover=mysqli_query($conn,$sqlcover);
-$rowcover=mysqli_fetch_assoc($resultcover);
+$sqlcover = "SELECT img_name FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
+$resultcover = mysqli_query($conn, $sqlcover);
+$rowcover = mysqli_fetch_assoc($resultcover);
 if (isset($rowcover["img_name"])) {
   $_SESSION["coverimg_name"] = $rowcover["img_name"];
 } else {
   if ($row["gender"] == 1) {
-     $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
+    $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
   } else {
-     $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
+    $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
   }
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
@@ -118,6 +118,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
 </head>
 
 <body>
+  <form class="EditInfoForm">
+    <input type="text" class="description">
+    <input type="text" class="AddUni">
+    <input type="text" class="major">
+    <input type="text" class="livesIn">
+    <input type="text" class="fromTo">
+    <input type="text" class="instagramLink">
+    <input type="text" class="facebookLink">
+    <input type="text" class="snapchatLink">
+    <input type="text" class="githubLink">
+    <input type="text" class="linkedinLink">
+    <input type="text" class="twitterLink">
+    <input type="submit" class="editProfileSubmit" value="editProfileSubmit">
+  </form>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">
       <div class="left-top-card">
