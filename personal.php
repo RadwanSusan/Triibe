@@ -1,7 +1,41 @@
 <?php
 include_once "connection.php";
 session_start();
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  if (isset($_GET['profileImg'])) {
+    echo "<pre>";
+    print_r($_FILES);
+    echo "</pre>";
+    $image = $_GET['profileImg'];
+    $img = basename($_FILES["profileImg"]["name"]);
+    $image_temp = $_FILES['profileImg']['tmp_name'];
+    $image_size = $_FILES['profileImg']['size'];
+    $imageError =['profileImg']['error'];
+    $imageExt = explode('.', $img);
+    $imageActualExt = strtolower(end($imageExt));
+    $imgNameNew = uniqid('', true) . "." . $imageActualExt;
+    $imgDestination = 'db_images/' . $imgNameNew;
+    $sql = "INSERT INTO img (img_name) VALUES ('$imgDestination')";
+    mysqli_query($conn, $sql);
+    if (move_uploaded_file($_FILES['profileImg']['tmp_name'], $imgDestination)) {
+      $sql = "SELECT * FROM img WHERE img_name = '$imgDestination'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $img_id = $row['img_id'];
+    $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
+    $result = mysqli_query($conn, $sql);     
+    header("Location: personal.php");
+  } else {
+     echo "File not uploaded";
+     print_r($_FILES);
+  }
+    
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -247,39 +281,14 @@ session_start();
         <div class="bottom">
           <div class="left-bottom">
             <img class="left-bottom-img" src="<?php echo $_SESSION['img_name'] ?>" alt="">
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              $file = $_FILES['profileImg'];
-              $fileName = $_FILES['profileImg']['name'];
-              $fileTmpName = $_FILES['profileImg']['tmp_name'];
-              $fileSize = $_FILES['profileImg']['size'];
-              $fileError = $_FILES['profileImg']['error'];
-              $fileExt = explode('.', $fileName);
-              $fileActualExt = strtolower(end($fileExt));
-              $ext = $fileActualExt;
-              if ($fileError === 0) {
-                if ($fileSize < 10000000) {
-                  $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-                  $fileDestination = 'db_images/' . $fileNameNew;
-                  move_uploaded_file($fileTmpName, $fileDestination);
-                  $sql = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
-                  $result = mysqli_query($conn, $sql);
-                  $sql = "SELECT * FROM img WHERE img_name = '$fileDestination'";
-                  $result = mysqli_query($conn, $sql);
-                  $row = mysqli_fetch_assoc($result);
-                  $img_id = $row['img_id'];
-                  $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
-                  $result = mysqli_query($conn, $sql);
-                  echo "<script>console.log('hi')</script>";
-                }
-              }
-            }
-            ?>
-            <form method="POST" id="profileImgForm">
+            <form method="GET" id="profileImgForm" enctype="multipart/form-data">
               <label class="editImg" for="profileImg">
                 <img src="Design/Image/home-images/images/edit-image.svg" alt="">
               </label>
-              <input type="file" name="profileImg" id="profileImg" style="display: none" accept=".png,.jpg,.jpeg,.gif" />
+              <input type="file" name="profileImg" id="profileImg" accept=".png,.jpg,.jpeg,.gif" />
+              <label class="submit" for="submitImg">
+                <input type="submit" id="submitImg" name="" />
+              </label>
             </form>
             <div class="info">
               <div class="name-bottom">
