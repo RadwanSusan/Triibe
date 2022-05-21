@@ -98,6 +98,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
   $sql = "SELECT * FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
+    $sql = "UPDATE profile_info SET discerption = '" . $_POST["description"] . "',
+    uni='Studies " . $_POST["major"] . " at " . $_POST["AddUni"] . "' ,
+     lives_in = '" . $_POST["livesIn"] . "',
+    fromto = '" . $_POST["fromTo"] . "' ,
+     instagram = '" . $_POST["instagramLink"] . "',
+     facebook='" . $_POST["facebookLink"] . "',
+      github = '" . $_POST["githubLink"] . "',
+       linkedin = '" . $_POST["linkedinLink"] . "',
+       snapchat ='" . $_POST["snapchatLink"] . "',
+        twitter='" . $_POST["twitterLink"] . "'
+         WHERE std_id = '" . $_SESSION["std_id"] . "'";
+    mysqli_query($conn, $sql);
+    header("Location: personal.php");
+  } else {
+    $sql = "INSERT INTO profile_info (discerption,uni,lives_in,fromto,instagram,facebook,github,linkedin,snapchat,twitter,std_id) VALUES ('" . $_POST["description"] . "','Studies " . $_POST["major"] . " at " . $_POST["AddUni"] . "','" . $_POST["livesIn"] . "','" . $_POST["fromTo"] . "','" . $_POST["instagramLink"] . "','" . $_POST["facebookLink"] . "','" . $_POST["githubLink"] . "','" . $_POST["linkedinLink"] . "','" . $_POST["snapchatLink"] . "','" . $_POST["twitterLink"] . "','" . $_SESSION["std_id"] . "')";
+    mysqli_query($conn, $sql);
+    header("Location: personal.php");
   }
 }
 ?>
@@ -129,18 +146,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
 </head>
 
 <body>
+  <?php
+  $sql = "SELECT * FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  ?>
   <form class="EditInfoForm" method="post">
-    <input type="text" class="description" placeholder="description" name="description">
-    <input type="text" class="AddUni" placeholder="AddUni" name="AddUni">
-    <input type="text" class="major" placeholder="major" name="major">
-    <input type="text" class="livesIn" placeholder="livesIn" name="livesIn">
-    <input type="text" class="fromTo" placeholder="fromTo" name="fromTo">
-    <input type="text" class="instagramLink" placeholder="instagramLink" name="instagramLink">
-    <input type="text" class="facebookLink" placeholder="facebookLink" name="facebookLink">
-    <input type="text" class="snapchatLink" placeholder="snapchatLink" name="snapchatLink">
-    <input type="text" class="githubLink" placeholder="githubLink" name="githubLink">
-    <input type="text" class="linkedinLink" placeholder="linkedinLink" name="linkedinLink">
-    <input type="text" class="twitterLink" placeholder="twitterLink" name="twitterLink">
+    <input type="text" class="description" placeholder="description" name="description" value="<?php echo $row['discerption'] ?>">
+    <input type="text" class="AddUni" placeholder="AddUni" name="AddUni" value="<?php $uniName = explode('at', $row['uni']);
+                                                                                echo $uniName[1]; ?>">
+    <input type="text" class="major" placeholder="major" name="major" value="<?php $majorName = explode('at', $row['uni']);
+                                                                              $majorName = explode('Studies', $majorName[0]);
+                                                                              echo $majorName[1]; ?>">
+    <input type="text" class="livesIn" placeholder="livesIn" name="livesIn" value="<?php echo $row['lives_in'] ?>">
+    <input type="text" class="fromTo" placeholder="fromTo" name="fromTo" value="<?php echo $row['fromto'] ?>">
+    <input type="text" class="instagramLink" placeholder="instagramLink" name="instagramLink" value="<?php echo $row['instagram'] ?>">
+    <input type="text" class="facebookLink" placeholder="facebookLink" name="facebookLink" value="<?php echo $row['facebook'] ?>">
+    <input type="text" class="snapchatLink" placeholder="snapchatLink" name="snapchatLink" value="<?php echo $row['snapchat'] ?>">
+    <input type="text" class="githubLink" placeholder="githubLink" name="githubLink" value="<?php echo $row['github'] ?>">
+    <input type="text" class="linkedinLink" placeholder="linkedinLink" name="linkedinLink" value="<?php echo $row['linkedin'] ?>">
+    <input type="text" class="twitterLink" placeholder="twitterLink" name="twitterLink" value="<?php echo $row['twitter'] ?>">
     <input type="submit" name="editProfileSubmit" class="editProfileSubmit" value="editProfileSubmit">
   </form>
   <div class="post-card slide-in-elliptic-top-fwd">
@@ -411,31 +436,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
       <div class="content-left">
         <div class="left-post">
           <h1 class="h1">Bio</h1>
+          <?php
+          $sql = "SELECT * FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_assoc($result);
+          ?>
           <div class="title-bio">
-            <div class="name">Stickin' to the plan 🃏</div>
-            <img src="Design/Image/home-images/images/bio-title.svg" alt="">
+            <div class="name"><?php echo $row["discerption"] ?></div>
           </div>
           <div class="bio bio1">
             <img src="Design/Image/home-images/images/bio1.svg" alt="">
-            <div class="name name2">Studies Software Engineering at Al-Hussein
-              Bin Talal University</div>
+            <div class="name name2"><?php echo $row["uni"] ?></div>
           </div>
           <div class="bio bio3">
             <img src="Design/Image/home-images/images/bio2.svg" alt="">
-            <div class="name">Lives in <?php echo $_SESSION["loc"]; ?></div>
+            <div class="name">Lives in <?php echo $row["lives_in"] ?></div>
           </div>
           <div class="bio bio4">
             <img src="Design/Image/home-images/images/bio3.png" alt="">
-            <div class="name">From <?php echo $_SESSION["loc"]; ?></div>
+            <div class="name">From <?php echo $row["fromto"] ?></div>
           </div>
           <div class="bio bio5">
-            <img src="Design/Image/home-images/images/bio4.png" alt="">
-            <div class="name">radwan_susan4</div>
+            <a href="<?php echo $row["instagram"]; ?>"><img src="Design/Image/home-images/images/bio4.png" alt=""></a>
           </div>
-          <div class="bio bio2">
-            <img src="Design/Image/home-images/images/bio5.png" alt="">
-            <div class="name">Radwan Susan</div>
-          </div>
+          <?php
+          if (!isset($row["github"]) || $row["github"] == "") {
+            echo "";
+          } else {
+            echo ' <div class="bio bio2">
+            <a href=' . $row["github"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+          </div>';
+          }
+          ?>
+          <?php
+          if (!isset($row["facebook"]) || $row["facebook"] == "") {
+            echo "";
+          } else {
+            echo ' <div class="bio bio2">
+            <a href=' . $row["facebook"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+          </div>';
+          }
+          ?>
+          <?php
+          if (!isset($row["twitter"]) || $row["twitter"] == "") {
+            echo "";
+          } else {
+            echo ' <div class="bio bio2">
+            <a href=' . $row["twitter"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+          </div>';
+          }
+          ?>
+          <?php
+          if (!isset($row["linkedin"]) || $row["linkedin"] == "") {
+            echo "";
+          } else {
+            echo ' <div class="bio bio2">
+            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+          </div>';
+          }
+          ?>
+          <?php
+          if (!isset($row["snapchat"]) || $row["snapchat"] == "") {
+            echo "";
+          } else {
+            echo ' <div class="bio bio2">
+            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+          </div>';
+          }
+          ?>
         </div>
         <div class="left-post left-post-two">
           <div class="photo-see">
