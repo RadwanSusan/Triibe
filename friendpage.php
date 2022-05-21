@@ -17,6 +17,18 @@ if (isset($rowimg["img_name"])) {
     $FriendImgName = "Design\Image\LogoPic1.jpg";
   }
 }
+$sqlcover = "SELECT img_name FROM profile_info WHERE std_id = '" . $row["std_id"] . "'";
+$resultcover = mysqli_query($conn, $sqlcover);
+$rowcover = mysqli_fetch_assoc($resultcover);
+if (isset($rowcover["img_name"])) {
+  $FriendcoverName = $rowcover["img_name"];
+} else {
+  if ($row1["gender"] == 1) {
+    $FriendcoverName= "Design\Image\LogoPic0.jpg";
+  } else {
+    $FriendcoverName = "Design\Image\LogoPic1.jpg";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,10 +105,10 @@ if (isset($rowimg["img_name"])) {
   <div class="content1">
     <div class="top">
       <div>
-        <img src="Design/Image/home-images/images/farme.svg" alt="">
+        <img src="" alt="">
         <div class="edit-cover-content">
           <div class=".edit-cover">
-            <img src="Design/Image/home-images/images/edit cover.svg" alt="">
+            <img src="<?php echo $FriendcoverName ?>" alt="">
             <p>Edit cover</p>
           </div>
         </div>
