@@ -76,6 +76,7 @@ $badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك",
         foreach ($badwords as $badword) {
           if ($word == $badword) {
             $usingBadWords = true;
+            break;
           }
         }
       }

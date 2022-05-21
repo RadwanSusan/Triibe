@@ -51,6 +51,21 @@ if (isset($_POST['friendclick'])) {
 }
 if (isset($_POST['delete'])) {
 	$post_id1 = $_POST['post_id1'];
+	$sql ="SELECT * FROM post WHERE post_id = '$post_id1'";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
+	if($row["img_id"] != null) {
+		$sqlimg = "DELETE FROM img WHERE img_id = '$row[img_id]'";
+		$resultimg = mysqli_query($conn, $sqlimg);
+	}
+	if($row["video_id"] != null) {
+		$sqlvid = "DELETE FROM video WHERE video_id = '$row[video_id]'";
+		$resultvid = mysqli_query($conn, $sqlvid);	
+	}
+	if($row["fileId"] != null) {
+		$sqlvid = "DELETE FROM files WHERE fileId = '$row[fileId]'";
+		$resultvid = mysqli_query($conn, $sqlvid);	
+	}
 	$sql = "DELETE FROM post WHERE post_id = '$post_id1'";
 	$result = mysqli_query($conn, $sql);
 }

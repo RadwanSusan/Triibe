@@ -23,8 +23,8 @@ $rowcover = mysqli_fetch_assoc($resultcover);
 if (isset($rowcover["img_name"])) {
   $FriendcoverName = $rowcover["img_name"];
 } else {
-  if ($row1["gender"] == 1) {
-    $FriendcoverName= "Design\Image\LogoPic0.jpg";
+  if ($row["gender"] == 1) {
+    $FriendcoverName = "Design\Image\LogoPic0.jpg";
   } else {
     $FriendcoverName = "Design\Image\LogoPic1.jpg";
   }
