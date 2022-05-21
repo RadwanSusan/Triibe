@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 08:15 PM
+-- Generation Time: May 21, 2022 at 08:43 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -32,8 +32,16 @@ CREATE TABLE `profile_info` (
   `snapchat` varchar(100) DEFAULT NULL,
   `img_name` varchar(200) DEFAULT NULL,
   `discerption` varchar(100) DEFAULT NULL,
-  `fromto` varchar(50) DEFAULT NULL
+  `fromto` varchar(50) DEFAULT NULL,
+  `twitter` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile_info`
+--
+
+INSERT INTO `profile_info` (`std_id`, `uni`, `lives_in`, `instagram`, `facebook`, `github`, `linkedin`, `snapchat`, `img_name`, `discerption`, `fromto`, `twitter`) VALUES
+(120180612100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'db_images/6289328a886cd4.40161268.jpg', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
