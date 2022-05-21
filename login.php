@@ -53,6 +53,9 @@ session_start();
             $sqlfriends = "SELECT * FROM friends WHERE user_id = '$student_number'";
             $resultfriends = mysqli_query($conn, $sqlfriends);
             $rowfriends = mysqli_fetch_assoc($resultfriends);
+            $sqlcover="SELECT img_name FROM profile_info WHERE std_id = '$student_number'";
+            $resultcover=mysqli_query($conn,$sqlcover);
+            $rowcover=mysqli_fetch_assoc($resultcover);
             $_SESSION["std_id"] = $row["std_id"];
             $_SESSION["std_fname"] = $row["std_fname"];
             $_SESSION["std_lname"] = $row["std_lname"];
@@ -71,6 +74,15 @@ session_start();
                   $_SESSION["img_name"] = "Design\Image\LogoPic0.jpg";
                } else {
                   $_SESSION["img_name"] = "Design\Image\LogoPic1.jpg";
+               }
+            }
+            if (isset($rowcover["img_name"])) {
+               $_SESSION["coverimg_name"] = $rowcover["img_name"];
+            } else {
+               if ($row["gender"] == 1) {
+                  $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
+               } else {
+                  $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
                }
             }
             $_SESSION["friends"] = $rowfriends;

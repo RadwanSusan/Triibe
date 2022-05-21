@@ -5,6 +5,11 @@ $(document).ready(() => {
 			document.getElementById("submitImg").click();
 		}, 300);
 	};
+	document.getElementById("coverImgForm").onchange = () => {
+		setTimeout(() => {
+			document.getElementById("submitCoverImg").click();
+		}, 300);
+	};
 	document.querySelector(".write-post-input").addEventListener("click", () => {
 		document.querySelector(".content1").style.opacity = "20%";
 		document.querySelector(".post-card").style.display = "block";

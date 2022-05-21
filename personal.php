@@ -20,6 +20,18 @@ if (mysqli_num_rows($result1) > 0) {
     }
   }
 }
+$sqlcover="SELECT img_name FROM profile_info WHERE std_id = '".$_SESSION["std_id"]."'";
+$resultcover=mysqli_query($conn,$sqlcover);
+$rowcover=mysqli_fetch_assoc($resultcover);
+if (isset($rowcover["img_name"])) {
+  $_SESSION["coverimg_name"] = $rowcover["img_name"];
+} else {
+  if ($row["gender"] == 1) {
+     $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
+  } else {
+     $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
+  }
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
   if (!empty($_FILES['profileImgUpload'])) {
     $file = $_FILES['profileImgUpload'];
@@ -43,6 +55,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
         $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
         $result = mysqli_query($conn, $sql);
         header("Location: personal.php");
+      }
+    }
+  }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
+  if (!empty($_FILES['profileCoverUpload'])) {
+    $file = $_FILES['profileCoverUpload'];
+    $fileName = $_FILES['profileCoverUpload']['name'];
+    $fileTmpName = $_FILES['profileCoverUpload']['tmp_name'];
+    $fileSize = $_FILES['profileCoverUpload']['size'];
+    $fileError = $_FILES['profileCoverUpload']['error'];
+    $fileType = $_FILES['profileCoverUpload']['type'];
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    if ($fileError === 0) {
+      $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+      $fileDestination = 'db_images/' . $fileNameNew;
+      $sql = "UPDATE profile_info SET img_name = '$fileDestination' WHERE std_id = '" . $_SESSION["std_id"] . "'";
+      if (mysqli_query($conn, $sql)) {
+        if (move_uploaded_file($fileTmpName, $fileDestination)) {
+          $_SESSION["profileCover"] = $fileDestination;
+          header("Location: personal.php");
+        }
+      } else {
+        $sql = "INSERT INTO profile_info (img_name,std_id) VALUES ('$fileDestination','" . $_SESSION["std_id"] . "')";
+        mysqli_query($conn, $sql);
+        if (move_uploaded_file($fileTmpName, $fileDestination)) {
+          $_SESSION["profileCover"] = $fileDestination;
+          header("Location: personal.php");
+        }
       }
     }
   }
@@ -279,8 +321,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
     <div class="headerBackground bg-pan-top">
       <div class="top">
         <div>
-          <img src="Design/Image/home-images/images/farme.svg" alt="">
-          <form class="edit-cover-content" method="POST" enctype="multipart/form-data" id="">
+          <img src="<?php echo $_SESSION['coverimg_name'] ?> " alt="">
+          <form class="edit-cover-content" method="POST" enctype="multipart/form-data" id="coverImgForm">
             <div class="Edit-cover">
               <label id="" for="CoverImg">
                 <img src="Design/Image/home-images/images/edit2.svg" alt="" />
