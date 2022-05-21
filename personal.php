@@ -18,20 +18,21 @@ if (mysqli_num_rows($result1) > 0) {
         $_SESSION["personalProfile"] = "Design\Image\LogoPic1.jpg";
       }
     }
+    $sqlcover = "SELECT img_name FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
+    $resultcover = mysqli_query($conn, $sqlcover);
+    $rowcover = mysqli_fetch_assoc($resultcover);
+    if (isset($rowcover["img_name"])) {
+      $_SESSION["coverimg_name"] = $rowcover["img_name"];
+    } else {
+      if ($row1["gender"] == 1) {
+        $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
+      } else {
+        $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
+      }
+    }
   }
 }
-$sqlcover = "SELECT img_name FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
-$resultcover = mysqli_query($conn, $sqlcover);
-$rowcover = mysqli_fetch_assoc($resultcover);
-if (isset($rowcover["img_name"])) {
-  $_SESSION["coverimg_name"] = $rowcover["img_name"];
-} else {
-  if ($row1["gender"] == 1) {
-    $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
-  } else {
-    $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
-  }
-}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
   if (!empty($_FILES['profileImgUpload'])) {
     $file = $_FILES['profileImgUpload'];
