@@ -73,22 +73,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
     if ($fileError === 0) {
       $fileNameNew = uniqid('', true) . "." . $fileActualExt;
       $fileDestination = 'db_images/' . $fileNameNew;
-      $sql = "UPDATE profile_info SET img_name = '$fileDestination' WHERE std_id = '" . $_SESSION["std_id"] . "'";
-      if (mysqli_query($conn, $sql)) {
+      $sql = "SELECT * FROM profile_info WHERE std_id = '" . $_SESSION["std_id"] . "'";
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        $sql = "UPDATE profile_info SET img_name = '$fileDestination' WHERE std_id = '" . $_SESSION["std_id"] . "'";
+      mysqli_query($conn, $sql);
         if (move_uploaded_file($fileTmpName, $fileDestination)) {
           $_SESSION["profileCover"] = $fileDestination;
           header("Location: personal.php");
-        }
       } else {
         $sql = "INSERT INTO profile_info (img_name,std_id) VALUES ('$fileDestination','" . $_SESSION["std_id"] . "')";
         mysqli_query($conn, $sql);
         if (move_uploaded_file($fileTmpName, $fileDestination)) {
           $_SESSION["profileCover"] = $fileDestination;
           header("Location: personal.php");
+         } 
         }
       }
     }
   }
+}
+if($_SERVER["REQUEST_METHOD"]=="POST" ) {
+
 }
 ?>
 <!DOCTYPE html>
@@ -119,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
 </head>
 
 <body>
-  <form class="EditInfoForm">
+  <form class="EditInfoForm" method="post">
     <input type="text" class="description">
     <input type="text" class="AddUni">
     <input type="text" class="major">
