@@ -1,41 +1,53 @@
 <?php
 include_once "connection.php";
 session_start();
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  if (isset($_GET['profileImg'])) {
-    echo "<pre>";
-    print_r($_FILES);
-    echo "</pre>";
-    $image = $_GET['profileImg'];
-    $img = basename($_FILES["profileImg"]["name"]);
-    $image_temp = $_FILES['profileImg']['tmp_name'];
-    $image_size = $_FILES['profileImg']['size'];
-    $imageError =['profileImg']['error'];
-    $imageExt = explode('.', $img);
-    $imageActualExt = strtolower(end($imageExt));
-    $imgNameNew = uniqid('', true) . "." . $imageActualExt;
-    $imgDestination = 'db_images/' . $imgNameNew;
-    $sql = "INSERT INTO img (img_name) VALUES ('$imgDestination')";
-    mysqli_query($conn, $sql);
-    if (move_uploaded_file($_FILES['profileImg']['tmp_name'], $imgDestination)) {
-      $sql = "SELECT * FROM img WHERE img_name = '$imgDestination'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $img_id = $row['img_id'];
-    $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
-    $result = mysqli_query($conn, $sql);     
-    header("Location: personal.php");
-  } else {
-     echo "File not uploaded";
-     print_r($_FILES);
+$sql1 = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
+$result1 = mysqli_query($conn, $sql1);
+if (mysqli_num_rows($result1) > 0) {
+  while ($row1 = mysqli_fetch_assoc($result1)) {
+    $imgid = $row1["img_id"];
+    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+    $resultimg = mysqli_query($conn, $sqlimg);
+    $rowimg = mysqli_fetch_assoc($resultimg);
+    if (isset($rowimg["img_name"])) {
+      $_SESSION["personalProfile"] = $rowimg["img_name"];
+    } else {
+      if ($row1["gender"] == 1) {
+        $_SESSION["personalProfile"] = "Design\Image\LogoPic0.jpg";
+      } else {
+        $_SESSION["personalProfile"] = "Design\Image\LogoPic1.jpg";
+      }
+    }
   }
-    
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
+  if (!empty($_FILES['profileImgUpload'])) {
+    $file = $_FILES['profileImgUpload'];
+    $fileName = $_FILES['profileImgUpload']['name'];
+    $fileTmpName = $_FILES['profileImgUpload']['tmp_name'];
+    $fileSize = $_FILES['profileImgUpload']['size'];
+    $fileError = $_FILES['profileImgUpload']['error'];
+    $fileType = $_FILES['profileImgUpload']['type'];
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    if ($fileError === 0) {
+      $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+      $fileDestination = 'db_images/' . $fileNameNew;
+      $sql = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+      mysqli_query($conn, $sql);
+      if (move_uploaded_file($fileTmpName, $fileDestination)) {
+        $sql = "SELECT * FROM img WHERE img_name = '$fileDestination'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $img_id = $row['img_id'];
+        $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        header("Location: personal.php");
+      }
+    }
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <?php
     $img_id = null;
     $video_id = null;
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["post"])) {
       $file = $_FILES['file'];
       $fileName = $_FILES['file']['name'];
       $fileTmpName = $_FILES['file']['tmp_name'];
@@ -280,14 +292,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       <div class="bottom-content">
         <div class="bottom">
           <div class="left-bottom">
-            <img class="left-bottom-img" src="<?php echo $_SESSION['img_name'] ?>" alt="">
-            <form method="GET" id="profileImgForm" enctype="multipart/form-data">
+            <img class="left-bottom-img" src="<?php echo $_SESSION["personalProfile"] ?>" alt="">
+            <form method="POST" enctype="multipart/form-data">
               <label class="editImg" for="profileImg">
                 <img src="Design/Image/home-images/images/edit-image.svg" alt="">
               </label>
-              <input type="file" name="profileImg" id="profileImg" accept=".png,.jpg,.jpeg,.gif" />
+              <input type="file" name="profileImgUpload" id="profileImg" accept=".png,.jpg,.jpeg,.gif" style="display:none;" />
               <label class="submit" for="submitImg">
-                <input type="submit" id="submitImg" name="" />
+                <input type="submit" id="submitImg" value="Upload" name="profileImgPost" />
               </label>
             </form>
             <div class="info">
