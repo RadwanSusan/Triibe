@@ -26,7 +26,7 @@ $rowcover = mysqli_fetch_assoc($resultcover);
 if (isset($rowcover["img_name"])) {
   $_SESSION["coverimg_name"] = $rowcover["img_name"];
 } else {
-  if ($row["gender"] == 1) {
+  if ($row1["gender"] == 1) {
     $_SESSION["coverimg_name"] = "Design\Image\LogoPic0.jpg";
   } else {
     $_SESSION["coverimg_name"] = "Design\Image\LogoPic1.jpg";
