@@ -55,6 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
         $img_id = $row['img_id'];
         $sql = "UPDATE student SET img_id = '$img_id' WHERE std_id = '" . $_SESSION["std_id"] . "'";
         $result = mysqli_query($conn, $sql);
+        $date = date("Y-m-d H:i:s", time());
+        $sql = "INSERT INTO post(created_date,author,form_id, img_id) VALUES ('$date', '" . $_SESSION["std_id"] . "', '2', '$img_id')";
+        $result = mysqli_query($conn, $sql);
         header("Location: personal.php");
       }
     }
@@ -473,7 +476,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["facebook"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+            <a href=' . $row["facebook"] . '><img src="Design/Image/home-images/images/iconmonstr-facebook-4.svg" alt=""></a>
           </div>';
           }
           ?>
@@ -482,7 +485,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["twitter"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+            <a href=' . $row["twitter"] . '><img src="Design/Image/home-images/images/iconmonstr-twitter-4.svg" alt=""></a>
           </div>';
           }
           ?>
@@ -491,7 +494,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/iconmonstr-linkedin-3" alt=""></a>
           </div>';
           }
           ?>
@@ -500,7 +503,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
+            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/iconmonstr-snapchat-1" alt=""></a>
           </div>';
           }
           ?>

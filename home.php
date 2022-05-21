@@ -1,6 +1,7 @@
 <?php
 include_once "connection.php";
 session_start();
+$badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك","قحبة","شرموطة","منيك","شرمط"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +70,16 @@ session_start();
     $video_id = null;
     $fileId = null;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $content = explode(" ",$_POST["content"]);
+      $usingBadWords = false;
+      foreach ($content as $word) {
+        foreach ($badwords as $badword) {
+          if ($word == $badword) {
+            $usingBadWords = true;
+          }
+        }
+      }
+      if($usingBadWords == false){
       $file = $_FILES['file'];
       $fileName = $_FILES['file']['name'];
       $fileTmpName = $_FILES['file']['tmp_name'];
@@ -263,7 +274,10 @@ session_start();
           echo "<script>alert('File type not supported');</script>";
         }
       }
+    }else{
+      echo "<script>alert('لا تسب');</script>";
     }
+  }
     ?>
     <form method="POST" enctype="multipart/form-data">
       <div class="mid-card">
