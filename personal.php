@@ -81,7 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
         if (move_uploaded_file($fileTmpName, $fileDestination)) {
           $_SESSION["profileCover"] = $fileDestination;
           header("Location: personal.php");
-      } else {
+      } 
+    } else {
         $sql = "INSERT INTO profile_info (img_name,std_id) VALUES ('$fileDestination','" . $_SESSION["std_id"] . "')";
         mysqli_query($conn, $sql);
         if (move_uploaded_file($fileTmpName, $fileDestination)) {
@@ -92,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileCoverPost"])) {
       }
     }
   }
-}
 if($_SERVER["REQUEST_METHOD"]=="POST" ) {
 
 }
@@ -137,7 +137,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST" ) {
     <input type="text" class="githubLink">
     <input type="text" class="linkedinLink">
     <input type="text" class="twitterLink">
-    <input type="submit" class="editProfileSubmit" value="editProfileSubmit">
+    <input type="submit" name="editProfileSubmit" class="editProfileSubmit" value="editProfileSubmit">
   </form>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">
