@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Pridi&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+
 ::selection {
   background-color: #747474;
   color: white;
@@ -294,7 +302,7 @@ border-radius: 13px;
 height: 35px;
 margin-top: 15px;
 padding-left: 15px;
-} 
+}
 
 .bio {
     position: relative;
@@ -393,7 +401,7 @@ margin: 5px;
     background: #FFFFFF;
     border: 1px solid #878787;
     border-radius: 17px;
-    
+
 }
 .card1 .bottom {
     display: flex;
@@ -429,7 +437,7 @@ margin-top: 10px;
 }
 .bottom .price{
     padding: 5px;
-    
+
 font-family: 'Pridi';
 font-style: normal;
 font-weight: 600;
@@ -439,17 +447,17 @@ line-height: 25px;
 
 
 color: #000000;
-} 
+}
 .bottom .contact {
     padding: 5px;
-    
+
 font-family: 'Pridi';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 25px;
 /* identical to box height */
-color: #000000;    
+color: #000000;
 background: #C4C4C4;
 border-radius: 4px;
 }
