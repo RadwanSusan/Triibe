@@ -419,10 +419,16 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" />
           <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" />
         </li>
-        <li>
+        <li class="NotificationsList">
           <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
           <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
         </li>
+        <div class="Notifications">
+          <p>Notifications</p>
+          <div class="NotificationBox">
+
+          </div>
+        </div>
         <li class="chat">
           <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
           <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />

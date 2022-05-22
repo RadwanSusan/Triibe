@@ -335,6 +335,13 @@ $(document).ready(function () {
 			document.querySelector(".settings").style.display = "none";
 		}
 	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		if (document.querySelector(".Notifications").style.display == "none") {
+			document.querySelector(".Notifications").style.display = "flex";
+		} else {
+			document.querySelector(".Notifications").style.display = "none";
+		}
+	});
 	document.querySelector(".card-inside-top").addEventListener("click", () => {
 		if (document.querySelector(".formIdSelector").style.display == "none") {
 			document.querySelector(".formIdSelector").style.display = "block";

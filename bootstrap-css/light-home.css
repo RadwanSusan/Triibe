@@ -2292,3 +2292,42 @@ canvas {
 .Logout p {
   margin: 0;
 }
+
+.Notifications {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.NotificationBox {
+  display: flex;
+  width: 90%;
+  height: 40px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.NotificationBox:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.NotificationBox p {
+  margin: 0;
+}

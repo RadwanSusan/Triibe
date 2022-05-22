@@ -1196,7 +1196,6 @@
 .write-post {
 	padding-left: 15px;
 	height: 30px;
-	/* width: 400px; */
 	background: #dcdcdc;
 	border-radius: 82px;
 	display: flex;
@@ -1210,7 +1209,6 @@
 	border: none;
 	cursor: pointer;
 	resize: none;
-	color: transparent;
 }
 
 .write-post:focus {
