@@ -43,10 +43,6 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 	document.querySelector(".infoIcon-Light").style.display = "none";
 	document.querySelector(".regIcon-Dark").style.display = "block";
 	document.querySelector(".regIcon-Light").style.display = "none";
-	document.querySelector(".otherLinksIcon-Dark").style.display = "block";
-	document.querySelector(".otherLinksIcon-Light").style.display = "none";
-	document.querySelector(".dropDownIcon-Dark").style.display = "block";
-	document.querySelector(".dropDownIcon-Light").style.display = "none";
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
@@ -65,10 +61,6 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".mapIcon-Dark").style.display = "none";
 	document.querySelector(".SettingsIcon-Light").style.display = "block";
 	document.querySelector(".SettingsIcon-Dark").style.display = "none";
-	// document.querySelector(".pagesIcon-Light").style.display = "block";
-	// document.querySelector(".pagesIcon-Dark").style.display = "none";
-	// document.querySelector(".Groups-Light").style.display = "block";
-	// document.querySelector(".Groups-Dark").style.display = "none";
 	document.querySelector(".savedPosts-Light").style.display = "block";
 	document.querySelector(".savedPosts-Dark").style.display = "none";
 	document.querySelector(".marketIcon-Light").style.display = "block";
@@ -81,10 +73,6 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".infoIcon-Dark").style.display = "none";
 	document.querySelector(".regIcon-Light").style.display = "block";
 	document.querySelector(".regIcon-Dark").style.display = "none";
-	document.querySelector(".otherLinksIcon-Light").style.display = "block";
-	document.querySelector(".otherLinksIcon-Dark").style.display = "none";
-	document.querySelector(".dropDownIcon-Light").style.display = "block";
-	document.querySelector(".dropDownIcon-Dark").style.display = "none";
 });
 document.querySelector(".themeLight").addEventListener("click", () => {
 	localStorage.setItem("theme", "light");
