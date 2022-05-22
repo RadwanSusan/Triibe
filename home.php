@@ -625,7 +625,7 @@ if (mysqli_num_rows($result1) > 0) {
                               </div>
                               <div class='right-post'>
                                  <img class='modify' src='Design/Image/home-images/images/Dots.svg'>
-                                 <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1'>
+                                 <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1' style='display: none;'>
                                   <form action='' class='form-container2'>
                                   <p>Post Settings</p>
                                   <button type='button' class='btn cancel1'>Close</button>
@@ -948,7 +948,7 @@ if (mysqli_num_rows($result1) > 0) {
                               </div>
                               <div class='right-post'>
                                  <img src='Design/Image/home-images/images/Dots.svg' class='modify'>
-                                 <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1'>
+                                 <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1' style='display: none;'>
                                   <form action='' class='form-container2'>
                                   <p>Post Settings</p>
                                   <button type='button' class='btn cancel1'>Close</button>
