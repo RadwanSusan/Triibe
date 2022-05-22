@@ -791,7 +791,7 @@
 .info .number-friends::after {
 	content: "";
 	position: absolute;
-	width: 68px;
+	width: 67px;
 	height: 1px;
 	background-color: #000000;
 	top: 24px;
