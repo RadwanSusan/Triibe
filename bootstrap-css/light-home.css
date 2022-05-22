@@ -647,7 +647,6 @@ body {
   border: none;
   cursor: pointer;
   resize: none;
-  color: transparent;
 }
 
 .write-post:focus {
