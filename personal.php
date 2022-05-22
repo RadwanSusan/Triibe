@@ -441,10 +441,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
     </div>
     <div class="list-photo-content">
       <div class="list">
-        <a href="">Posts</a>
-        <a href="">Friends</a>
-        <a href="">Photos</a>
-        <a href="">Videos</a>
+        <a href="" class="list-posts" >Posts</a>
+        <a href="" class="list-friends">Friends</a>
+        <a href="" class="list-photos">Photos</a>
+        <a href="" class="list-videos">Videos</a>
       </div>
     </div>
   </div>
@@ -525,7 +525,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
         <div class="photo-see">
 
           <h1>Photo</h1>
-          <div class="see-more">See more</div>
+          <div class="see-more seeMorePhoto">See more</div>
         </div>
         <div class="Photo">
           <?php
@@ -541,7 +541,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
       <div class="left-post left-post-two">
         <div class="photo-see">
           <h1>Friends</h1>
-          <div class="see-more">See more</div>
+          <div class="see-more seeMoreFriends">See more</div>
         </div>
         <div class="Friends">
           <div class="left-Friends">
@@ -588,6 +588,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
           </div>
         </div>
         <?php
+        if($_COOKIE["Personal_id"]==1){
         $likenum = 0;
         $sql = "SELECT * FROM post where author = " . $_SESSION["std_id"] . " order by created_date desc";
         $result = mysqli_query($conn, $sql);
@@ -804,6 +805,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             }
           }
         }
+      }else if($_COOKIE["Personal_id"]==2){
+        $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
+                $result1 = mysqli_query($conn, $sql1);
+                if (mysqli_num_rows($result1) > 0) {
+                  while ($row1 = mysqli_fetch_assoc($result1)) {
+                    $imgid = $row1["img_id"];
+                    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                    $resultimg = mysqli_query($conn, $sqlimg);
+                    $rowimg = mysqli_fetch_assoc($resultimg);
+                    if (isset($rowimg["img_name"])) {
+                      $imgName = $rowimg["img_name"];
+                    } else {
+                      if ($row1["gender"] == 1) {
+                        $imgName = "Design\Image\LogoPic0.jpg";
+                      } else {
+                        $imgName = "Design\Image\LogoPic1.jpg";
+                      }
+                    }
+                    echo "<div class='namePhoto'>
+                              <img src='" . $imgName . "' alt='image'>
+                              <div class='names'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
+                            </div>";
+                  }
+                }
+              }
+            } 
+      }else if($_COOKIE["Personal_id"]==3){
+        $sql = "SELECT * FROM img WHERE album_id = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<img src='".$row["img_name"]."' alt='image'>";
+        }
+      }else{
+        $sql = "SELECT * FROM video WHERE album_id = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<video width='800px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+          <source src='" . $row["video_name"] . "' type='video/mp4'>
+       </video>";
+        }
+      }
         ?>
       </div>
     </div>

@@ -1,5 +1,38 @@
 // jshint esversion: 6
 $(document).ready(() => {
+	if (document.cookie.indexOf("Personal_id") == -1) {
+		document.cookie = "Personal_id=1";
+	}
+	document.querySelector('.list-posts').addEventListener('click', (e) => {
+		e.preventDefault();
+		document.cookie = `Personal_id=1`;
+		window.location.href = "personal.php";
+	});
+	document.querySelector('.list-friends').addEventListener('click', (e) => {
+		e.preventDefault();
+		document.cookie = `Personal_id=2`;
+		window.location.href = "personal.php";
+	});
+	document.querySelector('.seeMoreFriends').addEventListener('click', (e) => {
+		e.preventDefault();
+		document.cookie = `Personal_id=2`;
+		window.location.href = "personal.php";
+	});
+	document.querySelector('.list-photos').addEventListener('click', (e) => {
+		e.preventDefault();
+		document.cookie = `Personal_id=3`;
+		window.location.href = "personal.php";
+	});
+	document.querySelector('.seeMorePhoto').addEventListener('click', (e) => {
+		e.preventDefault();
+		document.cookie = `Personal_id=3`;
+		window.location.href = "personal.php";
+	});
+	document.querySelector('.list-videos').addEventListener('click', (e) => {
+		e.preventDefault();
+		document.cookie = `Personal_id=4`;
+		window.location.href = "personal.php";
+	});
 	document.querySelector(".edit-profile").addEventListener("click", () => {
 		document.querySelector(".EditInfoForm").style.display = "flex";
 	});
