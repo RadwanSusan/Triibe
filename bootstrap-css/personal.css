@@ -749,10 +749,6 @@
 	width: 160px;
 }
 
-.Photo img {
-	padding: 2px;
-}
-
 .left-post-two {
 	margin-top: 15px;
 }
@@ -1336,4 +1332,18 @@
 	border-radius: 10px;
 	box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
 	border: 1px solid #9B9B9B;
+}
+
+.Photo {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.Photo img {
+	width: 166px;
+	height: 166px;
+	border-radius: 8px;
+	object-fit: cover;
+	padding: 2px;
 }
