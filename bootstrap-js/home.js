@@ -161,7 +161,7 @@ hoverAnimationOut(
 );
 $(document).ready(function () {
 	document.querySelector(".Logout").addEventListener("click", () => {
-		confirm("Are you sure you want to leave this page?", () => {
+		confirm("Are you sure you want to Logout?", () => {
 			$.ajax({
 				url: "backBone.php",
 				type: "POST",
@@ -327,6 +327,13 @@ $(document).ready(function () {
 				},
 			);
 		});
+	});
+	document.querySelector(".settingsList").addEventListener("click", () => {
+		if (document.querySelector(".settings").style.display == "none") {
+			document.querySelector(".settings").style.display = "flex";
+		} else {
+			document.querySelector(".settings").style.display = "none";
+		}
 	});
 	document.querySelector(".card-inside-top").addEventListener("click", () => {
 		document.querySelector(".formIdSelector").style.display = "block";
@@ -737,13 +744,18 @@ window.addEventListener("click", (e) => {
 	}
 });
 document.querySelector(".tagIcon").addEventListener("click", () => {
-	document.getElementById("myForm").style.display = "block";
+	if (document.getElementById("myForm").style.display == "none") {
+		document.getElementById("myForm").style.display = "block";
+	} else {
+		document.getElementById("myForm").style.display = "none";
+	}
 });
 const modify = document.querySelectorAll(".modify");
 modify.forEach((element) => {
 	element.addEventListener("click", () => {
 		const formElement = element.parentElement.children[1];
-		formElement.style.display = "block";
+		formElement.style.display =
+			formElement.style.display == "none" ? "block" : "none";
 	});
 });
 const cancel = document.querySelectorAll(".cancel1");

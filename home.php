@@ -399,12 +399,15 @@ if (mysqli_num_rows($result1) > 0) {
             <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more-list.svg" alt="settingIcon" />
           </li>
         </a>
-        <li>
+        <li class="settingsList">
           <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
           <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
         </li>
         <div class="settings">
-          <div class="Logout">Logout</div>
+          <p>Settings</p>
+          <div class="Logout">
+            <p>Logout</p>
+          </div>
         </div>
 
         <li>
@@ -621,7 +624,7 @@ if (mysqli_num_rows($result1) > 0) {
                               </div>
                               </div>
                               <div class='right-post'>
-                                 <img src='Design/Image/home-images/images/Dots.svg' class='modify'>
+                                 <img class='modify' src='Design/Image/home-images/images/Dots.svg'>
                                  <div class='form-popup1 animate__animated animate__fadeIn animate__faster' id='myForm1'>
                                   <form action='' class='form-container2'>
                                   <p>Post Settings</p>
