@@ -363,7 +363,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
         </li>
       </ul>
       <div class="nav-user-icon online">
-        <img src="<?php echo $_SESSION["img_name"] ?> " alt="">
+        <img src="<?php echo $_SESSION["personalProfile"] ?> " alt="">
         <div class="name">
           <?php echo $_SESSION["std_fname"]; ?>
         </div>
@@ -374,7 +374,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
     <div class="headerBackground bg-pan-top">
       <div class="top">
         <div>
-          <img src="<?php echo $_SESSION['coverimg_name'] ?> " alt="">
+          <img class="coverImage" src="<?php echo $_SESSION['coverimg_name'] ?> " alt="">
           <form class="edit-cover-content" method="POST" enctype="multipart/form-data" id="coverImgForm">
             <div class="Edit-cover">
               <label id="" for="CoverImg">

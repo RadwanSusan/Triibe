@@ -1,7 +1,26 @@
 <?php
 include_once "connection.php";
 session_start();
-$badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك","قحبة","شرموطة","منيك","شرمط"];
+$badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس امك", "قحبة", "شرموطة", "منيك", "شرمط"];
+$sql1 = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
+$result1 = mysqli_query($conn, $sql1);
+if (mysqli_num_rows($result1) > 0) {
+  while ($row1 = mysqli_fetch_assoc($result1)) {
+    $imgid = $row1["img_id"];
+    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+    $resultimg = mysqli_query($conn, $sqlimg);
+    $rowimg = mysqli_fetch_assoc($resultimg);
+    if (isset($rowimg["img_name"])) {
+      $_SESSION["personalProfile"] = $rowimg["img_name"];
+    } else {
+      if ($row1["gender"] == 1) {
+        $_SESSION["personalProfile"] = "Design\Image\LogoPic0.jpg";
+      } else {
+        $_SESSION["personalProfile"] = "Design\Image\LogoPic1.jpg";
+      }
+    }
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +89,7 @@ $badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك",
     $video_id = null;
     $fileId = null;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $content = explode(" ",$_POST["content"]);
+      $content = explode(" ", $_POST["content"]);
       $usingBadWords = false;
       foreach ($content as $word) {
         foreach ($badwords as $badword) {
@@ -80,205 +99,205 @@ $badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك",
           }
         }
       }
-      if($usingBadWords == false){
-      $file = $_FILES['file'];
-      $fileName = $_FILES['file']['name'];
-      $fileTmpName = $_FILES['file']['tmp_name'];
-      $fileSize = $_FILES['file']['size'];
-      $fileError = $_FILES['file']['error'];
-      $fileExt = explode('.', $fileName);
-      $fileActualExt = strtolower(end($fileExt));
-      $ext = $fileActualExt;
-      $fileUpload = $_FILES['fileLink'];
-      $fileUploadName = $_FILES['fileLink']['name'];
-      $fileUploadTmpName = $_FILES['fileLink']['tmp_name'];
-      $fileUploadSize = $_FILES['fileLink']['size'];
-      $fileUploadError = $_FILES['fileLink']['error'];
-      $fileUploadExt = explode('.', $fileUploadName);
-      $fileUploadActualExt = strtolower(end($fileUploadExt));
-      $fileNameNew2 = uniqid('', true) . "." . $fileUploadActualExt;
-      $fileDestination2 = 'db_files/' . $fileNameNew2;
-      if ($fileUploadName == "" || $fileUploadName == null) {
-        if ($ext == "" || $ext == null) {
-          $post = nl2br($_POST["content"]);
-          $form_id = $_POST["formId"];
-          $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , NULL , NULL)";
-          if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
-            echo "<script>alert('Please write something')</script>";
-          } else {
-            if (mysqli_query($conn, $sql)) {
-              echo "<script>alert('Post Success');</script>";
+      if ($usingBadWords == false) {
+        $file = $_FILES['file'];
+        $fileName = $_FILES['file']['name'];
+        $fileTmpName = $_FILES['file']['tmp_name'];
+        $fileSize = $_FILES['file']['size'];
+        $fileError = $_FILES['file']['error'];
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+        $ext = $fileActualExt;
+        $fileUpload = $_FILES['fileLink'];
+        $fileUploadName = $_FILES['fileLink']['name'];
+        $fileUploadTmpName = $_FILES['fileLink']['tmp_name'];
+        $fileUploadSize = $_FILES['fileLink']['size'];
+        $fileUploadError = $_FILES['fileLink']['error'];
+        $fileUploadExt = explode('.', $fileUploadName);
+        $fileUploadActualExt = strtolower(end($fileUploadExt));
+        $fileNameNew2 = uniqid('', true) . "." . $fileUploadActualExt;
+        $fileDestination2 = 'db_files/' . $fileNameNew2;
+        if ($fileUploadName == "" || $fileUploadName == null) {
+          if ($ext == "" || $ext == null) {
+            $post = nl2br($_POST["content"]);
+            $form_id = $_POST["formId"];
+            $date = date("Y-m-d H:i:s", time());
+            $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , NULL , NULL)";
+            if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
+              echo "<script>alert('Please write something')</script>";
             } else {
-              echo "<script>alert('Post Failed');</script>";
+              if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('Post Success');</script>";
+              } else {
+                echo "<script>alert('Post Failed');</script>";
+              }
             }
-          }
-        } else if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
-          if ($fileError === 0) {
-            if ($fileSize < 100000000) {
-              $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-              $fileDestination = 'db_images/' . $fileNameNew;
-              $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
-              mysqli_query($conn, $sqlimg);
-              move_uploaded_file($fileTmpName, $fileDestination);
+          } else if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
+            if ($fileError === 0) {
+              if ($fileSize < 100000000) {
+                $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                $fileDestination = 'db_images/' . $fileNameNew;
+                $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                mysqli_query($conn, $sqlimg);
+                move_uploaded_file($fileTmpName, $fileDestination);
+              } else {
+                echo "<script>alert('Your file is too big!')</script>";
+              }
             } else {
-              echo "<script>alert('Your file is too big!')</script>";
+              echo "<script>alert('There was an error uploading your file!')</script>";
+            }
+            $result = mysqli_query($conn, "SELECT * FROM img WHERE img_name = '$fileDestination'");
+            $row = mysqli_fetch_array($result);
+            $img_id = $row["img_id"];
+            $post = nl2br($_POST["content"]);
+            $form_id = $_POST["formId"];
+            $date = date("Y-m-d H:i:s", time());
+            $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , '$img_id' , NULL)";
+            if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
+              echo "<script>alert('Please write something')</script>";
+            } else {
+              if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('Post Success');</script>";
+              } else {
+                echo "<script>alert('Post Failed');</script>";
+              }
+            }
+          } else if ($ext == "mp4" || $ext == "webm") {
+            if ($fileError === 0) {
+              if ($fileSize < 100000000) {
+                $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                $fileDestination = 'db_images/' . $fileNameNew;
+                $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
+                mysqli_query($conn, $sqlVid);
+                move_uploaded_file($fileTmpName, $fileDestination);
+              } else {
+                echo "<script>alert('Your file is too big!')</script>";
+              }
+            } else {
+              echo "<script>alert('There was an error uploading your file!')</script>";
+            }
+            $result2 = mysqli_query($conn, "SELECT * FROM video WHERE video_name = '$fileDestination'");
+            $row2 = mysqli_fetch_array($result2);
+            $video_id = $row2["video_id"];
+            $post2 = nl2br($_POST["content"]);
+            $form_id = $_POST["formId"];
+            $date2 = date("Y-m-d H:i:s", time());
+            $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "','$form_id', NULL ,'$video_id')";
+            if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
+              echo "<script>alert('Please write something')</script>";
+            } else {
+              if (mysqli_query($conn, $sql2)) {
+                echo "<script>alert('Post Success');</script>";
+              } else {
+                echo "<script>alert('Post Failed');</script>";
+              }
             }
           } else {
-            echo "<script>alert('There was an error uploading your file!')</script>";
-          }
-          $result = mysqli_query($conn, "SELECT * FROM img WHERE img_name = '$fileDestination'");
-          $row = mysqli_fetch_array($result);
-          $img_id = $row["img_id"];
-          $post = nl2br($_POST["content"]);
-          $form_id = $_POST["formId"];
-          $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , '$img_id' , NULL)";
-          if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
-            echo "<script>alert('Please write something')</script>";
-          } else {
-            if (mysqli_query($conn, $sql)) {
-              echo "<script>alert('Post Success');</script>";
-            } else {
-              echo "<script>alert('Post Failed');</script>";
-            }
-          }
-        } else if ($ext == "mp4" || $ext == "webm") {
-          if ($fileError === 0) {
-            if ($fileSize < 100000000) {
-              $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-              $fileDestination = 'db_images/' . $fileNameNew;
-              $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
-              mysqli_query($conn, $sqlVid);
-              move_uploaded_file($fileTmpName, $fileDestination);
-            } else {
-              echo "<script>alert('Your file is too big!')</script>";
-            }
-          } else {
-            echo "<script>alert('There was an error uploading your file!')</script>";
-          }
-          $result2 = mysqli_query($conn, "SELECT * FROM video WHERE video_name = '$fileDestination'");
-          $row2 = mysqli_fetch_array($result2);
-          $video_id = $row2["video_id"];
-          $post2 = nl2br($_POST["content"]);
-          $form_id = $_POST["formId"];
-          $date2 = date("Y-m-d H:i:s", time());
-          $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "','$form_id', NULL ,'$video_id')";
-          if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
-            echo "<script>alert('Please write something')</script>";
-          } else {
-            if (mysqli_query($conn, $sql2)) {
-              echo "<script>alert('Post Success');</script>";
-            } else {
-              echo "<script>alert('Post Failed');</script>";
-            }
+            echo "<script>alert('File type not supported');</script>";
           }
         } else {
-          echo "<script>alert('File type not supported');</script>";
+          if ($fileUploadError === 0) {
+            if ($fileUploadSize < 100000000) {
+              if ($fileUploadError === 0) {
+                $sqlFile = "INSERT INTO files (fileName,fileOriginalName) VALUES ('$fileDestination2','$fileUploadName')";
+                mysqli_query($conn, $sqlFile);
+                move_uploaded_file($fileUploadTmpName, $fileDestination2);
+              }
+            } else {
+              echo "<script>alert('File is too big')</script>";
+            }
+          }
+          if ($ext == "" || $ext == null) {
+            $post = nl2br($_POST["content"]);
+            $form_id = $_POST["formId"];
+            $date = date("Y-m-d H:i:s", time());
+            $result0 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
+            $row0 = mysqli_fetch_array($result0);
+            $file_id = $row0["fileId"];
+            $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , NULL , NULL, '$file_id')";
+            if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null) && ($fileUploadName == "" || $fileUploadName == null)) {
+              echo "<script>alert('Please write something')</script>";
+            } else {
+              if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('Post Success');</script>";
+              } else {
+                echo "<script>alert('Post Failed');</script>";
+              }
+            }
+          } else if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
+            $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+            $fileDestination = 'db_images/' . $fileNameNew;
+            if ($fileError === 0) {
+              if ($fileSize < 100000000) {
+                $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                mysqli_query($conn, $sqlimg);
+                move_uploaded_file($fileTmpName, $fileDestination);
+              } else {
+                echo "<script>alert('Your file is too big!')</script>";
+              }
+            } else {
+              echo "<script>alert('There was an error uploading your file!')</script>";
+            }
+            $result = mysqli_query($conn, "SELECT * FROM img WHERE img_name = '$fileDestination'");
+            $row = mysqli_fetch_array($result);
+            $img_id = $row["img_id"];
+            $resultFile1 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
+            $rowFile1 = mysqli_fetch_array($resultFile1);
+            $file_id = $rowFile1["fileId"];
+            $post = nl2br($_POST["content"]);
+            $form_id = $_POST["form_id"];
+            $date = date("Y-m-d H:i:s", time());
+            $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId ) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , '$img_id' , NULL , '$file_id')";
+            if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
+              echo "<script>alert('Please write something')</script>";
+            } else {
+              if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('Post Success');</script>";
+              } else {
+                echo "<script>alert('Post Failed');</script>";
+              }
+            }
+          } else if ($ext == "mp4" || $ext == "webm") {
+            $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+            $fileDestination3 = 'db_images/' . $fileNameNew;
+            if ($fileError === 0) {
+              if ($fileSize < 100000000) {
+                $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination3')";
+                mysqli_query($conn, $sqlVid);
+                move_uploaded_file($fileTmpName, $fileDestination3);
+              } else {
+                echo "<script>alert('Your file is too big!')</script>";
+              }
+            } else {
+              echo "<script>alert('There was an error uploading your file!')</script>";
+            }
+            $result2 = mysqli_query($conn, "SELECT * FROM video WHERE video_name = '$fileDestination3'");
+            $row2 = mysqli_fetch_array($result2);
+            $video_id = $row2["video_id"];
+            $resultFile2 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
+            $rowFile2 = mysqli_fetch_array($resultFile2);
+            $file_id = $rowFile2["fileId"];
+            $post2 = nl2br($_POST["content"]);
+            $form_id = $_POST["formId"];
+            $date2 = date("Y-m-d H:i:s", time());
+            $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id , fileId) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "','$form_id', NULL ,'$video_id' , '$file_id')";
+            if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
+              echo "<script>alert('Please write something')</script>";
+            } else {
+              if (mysqli_query($conn, $sql2)) {
+                echo "<script>alert('Post Success');</script>";
+              } else {
+                echo "<script>alert('Post Failed');</script>";
+              }
+            }
+          } else {
+            echo "<script>alert('File type not supported');</script>";
+          }
         }
       } else {
-        if ($fileUploadError === 0) {
-          if ($fileUploadSize < 100000000) {
-            if ($fileUploadError === 0) {
-              $sqlFile = "INSERT INTO files (fileName,fileOriginalName) VALUES ('$fileDestination2','$fileUploadName')";
-              mysqli_query($conn, $sqlFile);
-              move_uploaded_file($fileUploadTmpName, $fileDestination2);
-            }
-          } else {
-            echo "<script>alert('File is too big')</script>";
-          }
-        }
-        if ($ext == "" || $ext == null) {
-          $post = nl2br($_POST["content"]);
-          $form_id = $_POST["formId"];
-          $date = date("Y-m-d H:i:s", time());
-          $result0 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
-          $row0 = mysqli_fetch_array($result0);
-          $file_id = $row0["fileId"];
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , NULL , NULL, '$file_id')";
-          if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null) && ($fileUploadName == "" || $fileUploadName == null)) {
-            echo "<script>alert('Please write something')</script>";
-          } else {
-            if (mysqli_query($conn, $sql)) {
-              echo "<script>alert('Post Success');</script>";
-            } else {
-              echo "<script>alert('Post Failed');</script>";
-            }
-          }
-        } else if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
-          $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-          $fileDestination = 'db_images/' . $fileNameNew;
-          if ($fileError === 0) {
-            if ($fileSize < 100000000) {
-              $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
-              mysqli_query($conn, $sqlimg);
-              move_uploaded_file($fileTmpName, $fileDestination);
-            } else {
-              echo "<script>alert('Your file is too big!')</script>";
-            }
-          } else {
-            echo "<script>alert('There was an error uploading your file!')</script>";
-          }
-          $result = mysqli_query($conn, "SELECT * FROM img WHERE img_name = '$fileDestination'");
-          $row = mysqli_fetch_array($result);
-          $img_id = $row["img_id"];
-          $resultFile1 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
-          $rowFile1 = mysqli_fetch_array($resultFile1);
-          $file_id = $rowFile1["fileId"];
-          $post = nl2br($_POST["content"]);
-          $form_id = $_POST["form_id"];
-          $date = date("Y-m-d H:i:s", time());
-          $sql = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id, fileId ) VALUES ('$post', '$date','" . $_SESSION["std_id"] . "' , '$form_id' , '$img_id' , NULL , '$file_id')";
-          if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
-            echo "<script>alert('Please write something')</script>";
-          } else {
-            if (mysqli_query($conn, $sql)) {
-              echo "<script>alert('Post Success');</script>";
-            } else {
-              echo "<script>alert('Post Failed');</script>";
-            }
-          }
-        } else if ($ext == "mp4" || $ext == "webm") {
-          $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-          $fileDestination3 = 'db_images/' . $fileNameNew;
-          if ($fileError === 0) {
-            if ($fileSize < 100000000) {
-              $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination3')";
-              mysqli_query($conn, $sqlVid);
-              move_uploaded_file($fileTmpName, $fileDestination3);
-            } else {
-              echo "<script>alert('Your file is too big!')</script>";
-            }
-          } else {
-            echo "<script>alert('There was an error uploading your file!')</script>";
-          }
-          $result2 = mysqli_query($conn, "SELECT * FROM video WHERE video_name = '$fileDestination3'");
-          $row2 = mysqli_fetch_array($result2);
-          $video_id = $row2["video_id"];
-          $resultFile2 = mysqli_query($conn, "SELECT * FROM files WHERE fileName = '$fileDestination2'");
-          $rowFile2 = mysqli_fetch_array($resultFile2);
-          $file_id = $rowFile2["fileId"];
-          $post2 = nl2br($_POST["content"]);
-          $form_id = $_POST["formId"];
-          $date2 = date("Y-m-d H:i:s", time());
-          $sql2 = "INSERT INTO post ( content , created_date , author , form_id , img_id, video_id , fileId) VALUES ('$post2', '$date2','" . $_SESSION["std_id"] . "','$form_id', NULL ,'$video_id' , '$file_id')";
-          if (($_POST["content"] == "" || $_POST["content"] == null || $_POST["content"] == "<br>" || $_POST["content"] == "<br/>") && ($fileName == "" || $fileName == null)) {
-            echo "<script>alert('Please write something')</script>";
-          } else {
-            if (mysqli_query($conn, $sql2)) {
-              echo "<script>alert('Post Success');</script>";
-            } else {
-              echo "<script>alert('Post Failed');</script>";
-            }
-          }
-        } else {
-          echo "<script>alert('File type not supported');</script>";
-        }
+        echo "<script>alert('لا تسب');</script>";
       }
-    }else{
-      echo "<script>alert('لا تسب');</script>";
     }
-  }
     ?>
     <form method="POST" enctype="multipart/form-data">
       <div class="mid-card">
@@ -407,7 +426,7 @@ $badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك",
         </li>
       </ul>
       <div class="nav-user-icon online">
-        <a href='personal.php'><img src="<?php echo $_SESSION["img_name"]; ?>" alt="" /></a>
+        <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" alt="" /></a>
         <a href='personal.php'>
           <div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
@@ -504,7 +523,7 @@ $badwords =["fuck","shit","bitch","asshole","dick","pussy","كس","كس امك",
       </div>
       <div class="write-post-container">
         <div class="user-profile">
-          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="">
+          <img src="<?php echo $_SESSION["personalProfile"] ?>" alt="">
           <div class="write-post-input">
             <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
           </div>

@@ -114,6 +114,7 @@
 	cursor: pointer;
 	margin-right: 10px;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	object-fit: cover;
 }
 
 .nav-user-icon {
@@ -236,14 +237,30 @@
 	/* margin-left: 450px; */
 }
 
+.coverImage {
+	width: 1100px;
+	height: 500px;
+	border-radius: 0px 0px 10px 10px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	object-fit: cover;
+	border: 1px solid #616161;
+}
+
 .left-bottom-img {
 	width: 170px;
+	height: 170px;
 	border-radius: 50%;
 	margin-top: -40px;
 	z-index: 10;
 	cursor: pointer;
 	border: 3px solid #B9B9B9;
 	filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	object-fit: cover;
 }
 
 .right-bottom {
@@ -370,6 +387,7 @@
 	margin-right: 5px;
 	margin-left: 2px;
 	margin-top: 0.99px;
+	object-fit: cover;
 }
 
 /* .user-profile img {
@@ -417,6 +435,7 @@
 	height: 31px;
 	box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
 	border-radius: 50%;
+	object-fit: cover;
 }
 
 .top-post {
@@ -687,13 +706,12 @@
 .Edit-cover {
 	display: flex;
 	align-items: center;
-	/* background: white; */
+	background: white;
 	padding: 0px 6px 0px 10px;
-	margin-right: 10px;
+	margin-top: 55px;
 	border-radius: 7px;
 	background: #C4C4C4;
-	border: 1px solid #929292;
-	/* border: 1px solid rgb(176, 176, 176); */
+	border: 1px solid rgb(176, 176, 176);
 	cursor: pointer
 }
 
