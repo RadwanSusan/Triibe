@@ -336,13 +336,16 @@ $(document).ready(function () {
 		}
 	});
 	document.querySelector(".card-inside-top").addEventListener("click", () => {
-		document.querySelector(".formIdSelector").style.display = "block";
+		if (document.querySelector(".formIdSelector").style.display == "none") {
+			document.querySelector(".formIdSelector").style.display = "block";
+		} else {
+			document.querySelector(".formIdSelector").style.display = "none";
+		}
 	});
 	document.querySelector(".btn-primary").addEventListener("click", (e) => {
 		e.preventDefault();
 		document.querySelector(".formIdSelector").style.display = "none";
 	});
-	// if the form_id cookie does not exist then set it to 1
 	if (document.cookie.indexOf("form_id") == -1) {
 		document.cookie = "form_id=1";
 	}
@@ -638,6 +641,14 @@ $(document).ready(function () {
 			setEndOfContenteditable(textareaDiv);
 		});
 	});
+	document.querySelector(".my-textarea").addEventListener("click", () => {
+		if (
+			document.querySelector(".my-textarea").innerHTML ==
+			"Write something here..."
+		) {
+			document.querySelector(".my-textarea").innerHTML = "";
+		}
+	});
 	$(".my-textarea").on("input", function () {
 		const text = $(this).html();
 		const textareaForm = document.querySelector(".card-write-post");
@@ -706,7 +717,7 @@ document.querySelector(".exitCard").addEventListener("click", () => {
 	document.querySelector(".nav").style.opacity = "100%";
 	document.querySelector(".post-card").style.display = "none";
 	document.querySelector(".card-write-post").value = "";
-	document.querySelector(".my-textarea").innerHTML = "";
+	document.querySelector(".my-textarea").innerHTML = "Write something here...";
 });
 $(".post-image").on("contextmenu", (e) => false);
 const modal = document.querySelector(".modal");

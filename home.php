@@ -301,12 +301,12 @@ if (mysqli_num_rows($result1) > 0) {
     ?>
     <form method="POST" enctype="multipart/form-data">
       <div class="mid-card">
-        <div class="my-textarea" contenteditable="true"></div>
+        <div class="my-textarea" contenteditable="true">Write something here...</div>
         <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name="content"></textarea>
       </div>
-      <div class="formIdSelector">
+      <div class="formIdSelector animate__animated animate__fadeIn animate__faster" style="display: none;">
         <p>Choose where to post:</p>
-        <div class="radioInputBox animate__animated animate__fadeIn animate__faster">
+        <div class="radioInputBox">
           <input class="formIdInput1" type="radio" name="formId" id="formId1" value="1" checked />
           <label class="formIdLabel1" for="formId1">Public</label>
         </div>
