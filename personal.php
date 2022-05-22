@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["profileImgPost"])) {
     if ($fileError === 0) {
       $fileNameNew = uniqid('', true) . "." . $fileActualExt;
       $fileDestination = 'db_images/' . $fileNameNew;
-      $sql = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+      $sql = "INSERT INTO img (img_name,album_id) VALUES ('$fileDestination','".$_SESSION["std_id"]."')";
       mysqli_query($conn, $sql);
       if (move_uploaded_file($fileTmpName, $fileDestination)) {
         $sql = "SELECT * FROM img WHERE img_name = '$fileDestination'";
@@ -528,10 +528,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
           <div class="see-more">See more</div>
         </div>
         <div class="Photo">
-          <img src="/Design/Image/home-images/images/p1.svg" alt="image">
-          <img src="/Design/Image/home-images/images/p2.svg" alt="image">
-          <img src="/Design/Image/home-images/images/p3.svg" alt="image">
-          <img src="/Design/Image/home-images/images/p4.svg" alt="image">
+          <?php
+          $sql = "SELECT * FROM img WHERE album_id = '" . $_SESSION["std_id"] . "' LIMIT 4";
+          $result = mysqli_query($conn, $sql);
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo "<img src='".$row["img_name"]."' alt='image'>";
+          }
+          
+          ?>
         </div>
       </div>
       <div class="left-post left-post-two">

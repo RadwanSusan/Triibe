@@ -51,20 +51,20 @@ if (isset($_POST['friendclick'])) {
 }
 if (isset($_POST['delete'])) {
 	$post_id1 = $_POST['post_id1'];
-	$sql ="SELECT * FROM post WHERE post_id = '$post_id1'";
+	$sql = "SELECT * FROM post WHERE post_id = '$post_id1'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
-	if($row["img_id"] != null) {
+	if ($row["img_id"] != null) {
 		$sqlimg = "DELETE FROM img WHERE img_id = '$row[img_id]'";
 		$resultimg = mysqli_query($conn, $sqlimg);
 	}
-	if($row["video_id"] != null) {
+	if ($row["video_id"] != null) {
 		$sqlvid = "DELETE FROM video WHERE video_id = '$row[video_id]'";
-		$resultvid = mysqli_query($conn, $sqlvid);	
+		$resultvid = mysqli_query($conn, $sqlvid);
 	}
-	if($row["fileId"] != null) {
+	if ($row["fileId"] != null) {
 		$sqlvid = "DELETE FROM files WHERE fileId = '$row[fileId]'";
-		$resultvid = mysqli_query($conn, $sqlvid);	
+		$resultvid = mysqli_query($conn, $sqlvid);
 	}
 	$sql = "DELETE FROM post WHERE post_id = '$post_id1'";
 	$result = mysqli_query($conn, $sql);
@@ -280,7 +280,8 @@ if (isset($_POST['SRGS'])) {
 }
 if (isset($_POST['add_friends'])) {
 	$user_id = $_POST['user_id'];
-	$sql = "INSERT INTO friends_request (sender,receiver) VALUES ('" . $_SESSION['std_id'] . "','" . $user_id . "')";
+	$date = date("Y-m-d H:i:s");
+	$sql = "INSERT INTO friends_request (sender,receiver,date) VALUES ('" . $_SESSION['std_id'] . "','" . $user_id . "','$date')";
 	$result = mysqli_query($conn, $sql);
 }
 if (isset($_POST['RequestSent'])) {
@@ -291,14 +292,14 @@ if (isset($_POST['RequestSent'])) {
 }
 if (isset($_POST['checkFriendStatus'])) {
 	$user_id = $_POST['user_id'];
-	$sqlIsFriendRequestACD = "SELECT * FROM friends_request WHERE sender = '$user_id' AND receiver = '" . $_SESSION["std_id"] . "' AND status = 0";
+	$sqlIsFriendRequestACD = "SELECT * FROM friends_request WHERE sender = '$user_id' AND receiver = '" . $_SESSION["std_id"] . "'";
 	$resultIsFriendRequestACD = mysqli_query($conn, $sqlIsFriendRequestACD);
 	$rowIsFriendRequestACD = mysqli_fetch_assoc($resultIsFriendRequestACD);
 	if (isset($rowIsFriendRequestACD)) {
 		$IsFriend = 3;
 		echo $IsFriend;
 	} else {
-		$sqlIsFriendRequest = "SELECT * FROM friends_request WHERE sender = '" . $_SESSION["std_id"] . "' AND receiver = '$user_id' AND status = 0";
+		$sqlIsFriendRequest = "SELECT * FROM friends_request WHERE sender = '" . $_SESSION["std_id"] . "' AND receiver = '$user_id'";
 		$resultIsFriendRequest = mysqli_query($conn, $sqlIsFriendRequest);
 		$rowIsFriendRequest = mysqli_fetch_assoc($resultIsFriendRequest);
 		if (isset($rowIsFriendRequest)) {
@@ -343,4 +344,8 @@ if (isset($_POST['logout'])) {
 	unset($_SESSION);
 	session_destroy();
 	session_write_close();
+}
+if (isset($_POST['notificationsClear'])) {
+	$sql = "UPDATE friends_request SET status = 1 WHERE receiver = '" . $_SESSION['std_id'] . "'";
+	$result = mysqli_query($conn, $sql);
 }

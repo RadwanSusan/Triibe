@@ -177,6 +177,19 @@ $(document).ready(function () {
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				notificationsClear: 1,
+			},
+			success: function (data) {
+				document.querySelector(".notificationCount").style.display =
+					"none";
+			}
+		});
+	});
 	document.querySelector(".SRGS").addEventListener("click", (e) => {
 		e.preventDefault();
 		$.ajax({

@@ -137,7 +137,7 @@ if (mysqli_num_rows($result1) > 0) {
               if ($fileSize < 100000000) {
                 $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                 $fileDestination = 'db_images/' . $fileNameNew;
-                $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                $sqlimg = "INSERT INTO img (img_name ,album_id) VALUES ('$fileDestination','".$_SESSION["std_id"]."')";
                 mysqli_query($conn, $sqlimg);
                 move_uploaded_file($fileTmpName, $fileDestination);
               } else {
@@ -167,7 +167,7 @@ if (mysqli_num_rows($result1) > 0) {
               if ($fileSize < 100000000) {
                 $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                 $fileDestination = 'db_images/' . $fileNameNew;
-                $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination')";
+                $sqlVid = "INSERT INTO video (video_name,album_id) VALUES ('$fileDestination','" . $_SESSION["std_id"] . "')";
                 mysqli_query($conn, $sqlVid);
                 move_uploaded_file($fileTmpName, $fileDestination);
               } else {
@@ -229,7 +229,7 @@ if (mysqli_num_rows($result1) > 0) {
             $fileDestination = 'db_images/' . $fileNameNew;
             if ($fileError === 0) {
               if ($fileSize < 100000000) {
-                $sqlimg = "INSERT INTO img (img_name) VALUES ('$fileDestination')";
+                $sqlimg = "INSERT INTO img (img_name,album_id) VALUES ('$fileDestination','".$_SESSION["std_id"]."')";
                 mysqli_query($conn, $sqlimg);
                 move_uploaded_file($fileTmpName, $fileDestination);
               } else {
@@ -262,7 +262,7 @@ if (mysqli_num_rows($result1) > 0) {
             $fileDestination3 = 'db_images/' . $fileNameNew;
             if ($fileError === 0) {
               if ($fileSize < 100000000) {
-                $sqlVid = "INSERT INTO video (video_name) VALUES ('$fileDestination3')";
+                $sqlVid = "INSERT INTO video (video_name,album_id) VALUES ('$fileDestination3','" . $_SESSION["std_id"] . "')";
                 mysqli_query($conn, $sqlVid);
                 move_uploaded_file($fileTmpName, $fileDestination3);
               } else {
@@ -425,18 +425,59 @@ if (mysqli_num_rows($result1) > 0) {
           $result = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result) > 0) {
             $count = mysqli_num_rows($result);
-            echo "<span class='notification'>$count</span>";
+            echo "<span class='notificationCount'>$count</span>";
           }
           ?>
-        <li>
           <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
           <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
         </li>
         <div class="Notifications">
           <p>Notifications</p>
-          <div class="NotificationBox">
+          <?php
+          $sql = "SELECT * FROM friends_request WHERE receiver = '" . $_SESSION["std_id"] . "'order by date desc";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["sender"] . "'";
+              $result1 = mysqli_query($conn, $sql1);
+              if (mysqli_num_rows($result1) > 0) {
+                while ($row1 = mysqli_fetch_assoc($result1)) {
+                  $now = new DateTime();
+                  $post = new DateTime($row["date"]);
+                  $diff = $now->diff($post);
+                  $diff->format("%a");
+                  $diffday = $diff->format("%a");
+                  $diffhour = $diff->format("%h");
+                  $diffminute = $diff->format("%i");
+                  $diffsecond = $diff->format("%s");
+                  $diffdaystr = (string)$diffday;
+                  $diffhourstr = (string)$diffhour;
+                  $diffminutestr = (string)$diffminute;
+                  $diffsecondstr = (string)$diffsecond;
+                  $difftime = $diffsecondstr . "second ago";
+                  if ($diffdaystr == "0") {
+                    if ($diffhourstr == "0") {
+                      if ($diffminutestr == "0") {
+                        $difftime = $diffsecondstr . "s ago";
+                      } else {
+                        $difftime = $diffminutestr . "m ago";
+                      }
+                    } else {
+                      $difftime = $diffhourstr . "h ago";
+                    }
+                  } else {
+                    $difftime = $diffdaystr . "d ago";
+                  }
+                  echo "<a href='friendpage.php?account_id=" . $row1["account_id"] . "'><div class='NotificationBox'>
+                  <p>$difftime</p>
+                        <p>" . $row1['std_fname'] . " " . $row1["std_lname"] . " sent you a friend request </p>
+                 </div></a>";
+                }
+              }
+            }
+          }
 
-          </div>
+          ?>
         </div>
         <li class="chat">
           <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
@@ -1244,13 +1285,6 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="regIcon-Light" src="Design/Image/home-images/images/RegIcon.svg" alt="" />
           <img class="regIcon-Dark" src="Design/Image/home-images/images/RegIcon2.svg" alt="" />
           <span>Student registration system</span>
-        </a>
-        <a href="#">
-          <img class="otherLinksIcon-Light" src="Design/Image/home-images/images/otherLinks-icon.svg" alt="" />
-          <img class="otherLinksIcon-Dark" src="Design/Image/home-images/images/otherLinks-icon2.svg" alt="" />
-          <span class="other-link">Other links</span>
-          <img class="dropDownIcon-Light" src="Design/Image/home-images/images/dropDown-icon.svg" alt="">
-          <img class="dropDownIcon-Dark" src="Design/Image/home-images/images/dropDown-icon2.svg" alt="">
         </a>
       </div>
     </div>

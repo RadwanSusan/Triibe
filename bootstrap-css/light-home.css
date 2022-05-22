@@ -2331,12 +2331,12 @@ canvas {
 .NotificationBox p {
   margin: 0;
 }
-.notification {
+.notificationCount {
   display: flex;
   position: absolute;
   flex-direction: column;
-  top :8px;
-  right: 238px;
+  top :0px;
+  right: -3px;
   z-index: 500;
   width: 16px;
   height: 16px;
