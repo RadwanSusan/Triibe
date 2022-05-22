@@ -419,6 +419,14 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" />
           <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" />
         </li>
+          <?php
+          $sql = "SELECT * FROM friends_request WHERE receiver = '".$_SESSION["std_id"]."' AND status = '0' ";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            $count = mysqli_num_rows($result);
+            echo "<span class='notification'>$count</span>";
+          }
+          // ?>
         <li>
           <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
           <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
