@@ -161,22 +161,22 @@ hoverAnimationOut(
 );
 $(document).ready(function () {
 	document.querySelector(".Logout").addEventListener("click", () => {
-	confirm("Are you sure you want to leave this page?", () => {
-		$.ajax({
-			url: "backBone.php",
-			type: "POST",
-			data: {
-				logout: 1,
-			},
-			success: function (data) {
-				window.location.href = "login.php";
-			}
+		confirm("Are you sure you want to leave this page?", () => {
+			$.ajax({
+				url: "backBone.php",
+				type: "POST",
+				data: {
+					logout: 1,
+				},
+				success: function (data) {
+					window.location.href = "login.php";
+				},
+			});
+		});
 	});
-});
-});
 	document.querySelector(".box").addEventListener("click", () => {
-    window.location.href = "home.php";
-  });
+		window.location.href = "home.php";
+	});
 	document.querySelector(".SRGS").addEventListener("click", (e) => {
 		e.preventDefault();
 		$.ajax({
@@ -185,9 +185,9 @@ $(document).ready(function () {
 			data: {
 				SRGS: 1,
 			},
-			success (data){
+			success(data) {
 				window.location.href = "project/info.php";
-			} 
+			},
 		});
 	});
 	const group = document.querySelectorAll(".group-list-item");
@@ -335,6 +335,13 @@ $(document).ready(function () {
 		e.preventDefault();
 		document.querySelector(".formIdSelector").style.display = "none";
 	});
+	// if the form_id cookie does not exist then set it to 1
+	if (document.cookie.indexOf("form_id") == -1) {
+		document.cookie = "form_id=1";
+	}
+	if (document.cookie.indexOf("postBtn") == -1) {
+		document.cookie = "postBtn=1";
+	}
 	document.querySelector(".post-public").addEventListener("click", () => {
 		document.cookie = "form_id=1";
 		window.location.href = "home.php";
@@ -796,7 +803,6 @@ particlesJS("particles-js", {
 });
 if (window.history.replaceState) {
 	window.history.replaceState(null, null, window.location.href);
-
 }
 document.querySelector(".chat").addEventListener("click", () => {
 	window.location.href = "chat.php";
