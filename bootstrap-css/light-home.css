@@ -223,6 +223,7 @@ body {
   height: 45px;
   background: rgba(0, 0, 0, 0.51);
   left: -16px;
+  border-radius: 20px;
 }
 
 .online::after {
@@ -2038,7 +2039,7 @@ canvas {
 .post-public {
   background-color: #fff;
   border-radius: 4px;
-  width: 80px;
+  width: 110px;
   height: 36px;
   text-align: center;
   padding-top: 6px;
@@ -2054,7 +2055,7 @@ canvas {
 .post-friend {
   background-color: #f1f1f1;
   border-radius: 4px;
-  width: 80px;
+  width: 110px;
   height: 36px;
   text-align: center;
   padding-top: 6px;

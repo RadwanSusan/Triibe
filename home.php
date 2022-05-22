@@ -532,9 +532,9 @@ if (mysqli_num_rows($result1) > 0) {
           </div>
         </div>
         <div class="post-place">
-          <p class="post-public hvr-underline-from-center"> Public </p>
+          <p class="post-public hvr-underline-from-center"> Public Posts </p>
           <span></span>
-          <p class="post-friend hvr-underline-from-center"> Friend </p>
+          <p class="post-friend hvr-underline-from-center"> Friends Posts</p>
         </div>
         <?php
         $likenum = 0;
