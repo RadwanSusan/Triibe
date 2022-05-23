@@ -789,3 +789,29 @@ canvas {
 	height: 20px;
 	cursor: pointer;
 }
+
+.chatImageDiv {
+	width: 50%;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	isolation: isolate;
+	z-index: 202;
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chatImage {
+	width: 50%;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	align-self: center;
+}

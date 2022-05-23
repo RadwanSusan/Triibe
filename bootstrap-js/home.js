@@ -173,9 +173,8 @@ $(document).ready(function () {
 				notificationsClear: 1,
 			},
 			success: function (data) {
-				document.querySelector(".notificationCount").style.display =
-					"none";
-			}
+				document.querySelector(".notificationCount").style.display = "none";
+			},
 		});
 	});
 	document.querySelector(".SRGS").addEventListener("click", (e) => {
@@ -216,7 +215,7 @@ $(document).ready(function () {
 					author,
 				},
 				success(data) {
-					let newArray = [];
+					const newArray = [];
 					const commentArray = data.split("</p>");
 					commentArray.forEach((comment) => {
 						comment += "</p>";
@@ -227,8 +226,7 @@ $(document).ready(function () {
 						for (let i = 0; i < newArray.length; i += 4) {
 							commentArray.push(newArray.slice(i, i + 4));
 						}
-						// every 4 elements in the array is a comment
-						for (let i = 0; i < commentArray.length; i + 4) {
+						for (const i = 0; i < commentArray.length; i + 4) {
 							const commentContent = document.createElement("div");
 							commentContent.classList.add("commentContent");
 							commentContent.innerHTML =

@@ -17,6 +17,8 @@
 $(document).ready(function () {
 	if ($(window).width() < 1000) {
 		$(".noUserSelectedPara").css("display", "none");
+	} else {
+		$(".noUserSelectedPara").css("display", "flex");
 	}
 	// document.querySelector("#image").addEventListener("change", (event) => {
 	// 	var reader = new FileReader();
