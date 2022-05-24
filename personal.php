@@ -581,8 +581,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
       <div class="right-post">
         <div class="write-post-container">
           <div class="user-profile">
-            <!-- <img src="Design/Image/home image/images/profile-pic.png" alt=""> -->
-            <img src="<?php echo $_SESSION["personalProfile"]; ?>" alt="zzzzzzz">
+            <img src="<?php echo $_SESSION["personalProfile"]; ?>" alt="personalProfileImg">
             <div class="write-post-input">
               <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
             </div>

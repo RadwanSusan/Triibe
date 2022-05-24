@@ -166,7 +166,7 @@ if (isset($_POST['share'])) {
 	$sql = "SELECT * FROM post WHERE post_id = '$post_id'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
-	$sql = "INSERT INTO post (content, created_date, author , form_id , img_id, video_id) VALUES ('" . $row["content"] . "', '" . $dateNow . "', '" . $row["author"] . "', '" . $row["form_id"] . "', '" . $row["img_id"] . "', '" . $row["video_id"] . "')";
+	$sql = "INSERT INTO post (content, created_date, author , form_id , img_id, video_id, share_original,share_new) VALUES ('" . $row["content"] . "', '" . $dateNow . "', '" . $row["author"] . "', '" . $row["form_id"] . "', '" . $row["img_id"] . "', '" . $row["video_id"] . "','" . $row["author"] . "','" . $_SESSION["std_id"] . "')";
 	$result = mysqli_query($conn, $sql);
 }
 if (isset($_POST['save'])) {
