@@ -472,9 +472,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             <img src="Design/Image/home-images/images/bio3.png" alt="">
             <div class="name">From <?php echo $row["fromto"] ?></div>
           </div>
-          <div class="bio bio5">
-            <a href="<?php echo $row["instagram"]; ?>"><img src="Design/Image/home-images/images/bio4.png" alt=""></a>
-          </div>
+          <?php
+          if (!isset($row['instagram']) || $row['instagram'] == "") {
+            echo "";
+          } else {
+            echo "<div class='bio bio5'>
+            <a href='" . $row['instagram'] . "'><img src='Design/Image/home-images/images/bio4.png' alt=''></a>
+          </div>";
+          }
+          ?>
           <?php
           if (!isset($row["github"]) || $row["github"] == "") {
             echo "";
