@@ -255,7 +255,7 @@ if (isset($rowcover["img_name"])) {
           <div class="photo-see">
 
             <h1>Photo</h1>
-            <div class="see-more seeMorePhoto">See more</div>
+            <a href="<?php echo " friendpage.php?account_id=" . $id; ?>"> <div class="see-more seeMorePhoto">See more</div></a>
           </div>
           <div class="Photo">
             <?php
@@ -271,7 +271,7 @@ if (isset($rowcover["img_name"])) {
         <div class="left-post">
           <div class="photo-see">
             <h1>Friends</h1>
-            <div class="see-more seeMoreFriends">See more</div>
+            <a href="<?php echo " friendpage.php?account_id=" . $id; ?>"><div class="see-more seeMoreFriends">See more</div></a>
           </div>
           <div class="Friends">
             <div class="left-Friends">
