@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2022 at 01:30 PM
+-- Generation Time: May 25, 2022 at 04:03 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -263,13 +263,30 @@ CREATE TABLE `friends` (
 --
 
 INSERT INTO `friends` (`user_id`, `friend_id`) VALUES
-(120180612114, 120180612100),
-(120180612114, 120180612122),
-(120180612100, 120180612114),
-(120180612100, 120180612122),
 (120180612122, 120180612100),
+(120180612100, 120180612122),
 (120180612122, 120180612114),
-(120180612122, 999999999999);
+(120180612114, 120180612122);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friends_request`
+--
+
+CREATE TABLE `friends_request` (
+  `sender` bigint(12) NOT NULL,
+  `receiver` bigint(12) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 0,
+  `date` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `friends_request`
+--
+
+INSERT INTO `friends_request` (`sender`, `receiver`, `status`, `date`) VALUES
+(120180612999, 120180612100, 1, '2022-05-22 19:36:02');
 
 -- --------------------------------------------------------
 
@@ -279,47 +296,24 @@ INSERT INTO `friends` (`user_id`, `friend_id`) VALUES
 
 CREATE TABLE `img` (
   `img_id` bigint(12) NOT NULL,
-  `img_name` varchar(100) DEFAULT NULL
+  `img_name` varchar(100) DEFAULT NULL,
+  `album_id` bigint(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `img`
 --
 
-INSERT INTO `img` (`img_id`, `img_name`) VALUES
-(17, 'db_images/6274e40b33b176.24674153.jpg'),
-(18, 'db_images/6274e45e241ba7.18311670.jpg'),
-(19, 'db_images/62766c93927512.39943630.jpg'),
-(20, 'db_images/62769f36c273e2.96906771.jpg'),
-(21, 'db_images/62769f628d0e33.74290344.jpg'),
-(22, 'db_images/6279416aedb728.62951057.jpg'),
-(23, 'db_images/627c127ec15958.82315971.jpg'),
-(24, 'db_images/6280f702d94a78.06525526.jpg'),
-(25, 'db_images/6280fe26decdc5.24087413.jpg'),
-(26, 'db_images/628164adf0b4d9.96321788.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `majors`
---
-
--- phpMyAdmin SQL Dump
--- version 5.1.3
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: May 19, 2022 at 08:14 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
---
--- Database: `triibe`
---
+INSERT INTO `img` (`img_id`, `img_name`, `album_id`) VALUES
+(64, 'db_images/628a78d2c52109.60813168.gif', 120180612100),
+(65, 'db_images/628a79f3841a61.56048157.png', 120180612100),
+(66, 'db_images/628a7dd063fdf8.43443753.jpg', 120180612122),
+(67, 'db_images/628a7e5d5ad1d5.72109562.gif', 120180612122),
+(68, 'db_images/628a7ef8c78f14.83796826.gif', 120180612122),
+(69, 'db_images/628a7f8617a817.74825648.gif', 120180612122),
+(70, 'db_images/628a7f8bdd06a5.73747657.gif', 120180612122),
+(71, 'db_images/628a7fecbb30a3.46252092.png', 120180612122),
+(72, 'db_images/628a7ff1758b11.29623231.jpg', 120180612122);
 
 -- --------------------------------------------------------
 
@@ -360,8 +354,8 @@ INSERT INTO `majors` (`ID`, `Major_No`, `Major_Name`, `Coll_Major_No`) VALUES
 (19, '03', 'الهندسة الكيميائية', '05'),
 (20, '07', 'الهندسة المكانيكية', '05'),
 (21, '11', 'هندسة الحاسوب', '05'),
-(22, '12', 'هندسة البرمجيات', '06'),
-(23, '14', 'علم الحاسوب', '06'),
+(22, '14', 'هندسة البرمجيات', '06'),
+(23, '12', 'علم الحاسوب', '06'),
 (24, '13', 'نظم المعلومات الحاسوبية', '06'),
 (25, '15', 'علم البيانات والذكاء الاصطناعي', '06'),
 (26, '08', 'قانون عام', '14'),
@@ -372,39 +366,6 @@ INSERT INTO `majors` (`ID`, `Major_No`, `Major_Name`, `Coll_Major_No`) VALUES
 (31, '13', 'المحاسبة والعلوم المالية والمصرفية', '04'),
 (32, '33', 'الادارة المالية', '04'),
 (33, '51', 'التسويق', '04');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `majors`
---
-ALTER TABLE `majors`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Major_No` (`Major_No`,`Coll_Major_No`),
-  ADD KEY `Coll_Major_No_FK` (`Coll_Major_No`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `majors`
---
-ALTER TABLE `majors`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `majors`
---
-ALTER TABLE `majors`
-  ADD CONSTRAINT `Coll_Major_No_FK` FOREIGN KEY (`Coll_Major_No`) REFERENCES `colleges` (`Coll_No`) ON DELETE NO ACTION ON UPDATE CASCADE;
-COMMIT;
 
 -- --------------------------------------------------------
 
@@ -497,7 +458,9 @@ INSERT INTO `messages` (`id`, `from_user`, `to_user`, `message`, `time`, `status
 (120180612122, 120180612122, 120180612100, 'How Are You?', '2022-05-17 04:13:37', ''),
 (120180612122, 120180612122, 120180612100, 'Hello World', '2022-05-17 04:14:00', ''),
 (120180612122, 120180612122, 120180612100, 'Have Fun', '2022-05-17 04:14:19', ''),
-(120180612122, 120180612122, 120180612100, 'gfgfg', '2022-05-17 11:59:17', '');
+(120180612122, 120180612122, 120180612100, 'gfgfg', '2022-05-17 11:59:17', ''),
+(120180612122, 120180612122, 120180612100, 'adssad', '2022-05-22 13:30:24', ''),
+(120180612122, 120180612122, 120180612100, 'طيزي<br />\n<br />\n<br />\n', '2022-05-23 23:39:31', '');
 
 -- --------------------------------------------------------
 
@@ -515,30 +478,99 @@ CREATE TABLE `post` (
   `img_id` bigint(12) DEFAULT NULL,
   `likes_count` mediumtext NOT NULL DEFAULT '0',
   `video_id` bigint(12) DEFAULT NULL,
-  `fileId` bigint(12) DEFAULT NULL
+  `fileId` bigint(12) DEFAULT NULL,
+  `share_original` bigint(12) DEFAULT NULL,
+  `share_new` bigint(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`post_id`, `title`, `content`, `created_date`, `author`, `form_id`, `img_id`, `likes_count`, `video_id`, `fileId`) VALUES
-(138, NULL, 'Hello World', '2022-05-09 18:29:30', 120180612122, 1, 22, '0', NULL, NULL),
-(140, NULL, 'Hello World', '2022-05-12 13:49:00', 120180612122, 1, 22, '1', 0, NULL),
-(141, NULL, 'hamza', '2022-05-12 15:26:04', 120180612122, 2, NULL, '0', NULL, NULL),
-(142, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-12 21:43:20', 120180612122, 1, NULL, '1', NULL, NULL),
-(143, NULL, 'p1', '2022-05-13 22:30:36', 120180612122, 1, NULL, '0', NULL, NULL),
-(144, NULL, 'h1', '2022-05-13 22:32:09', 120201408061, 2, NULL, '0', NULL, NULL),
-(145, NULL, 't1', '2022-05-13 22:32:23', 120201408061, 2, NULL, '0', NULL, NULL),
-(146, NULL, '2', '2022-05-13 22:33:03', 120201408061, 1, NULL, '0', NULL, NULL),
-(147, NULL, 'jhjh', '2022-05-13 22:42:25', 120201408061, 2, NULL, '0', NULL, NULL),
-(148, NULL, 'n,m', '2022-05-13 22:45:09', 120201408061, 2, NULL, '0', NULL, NULL),
-(149, NULL, 'mbbmnb', '2022-05-14 18:50:24', 120180612122, 2, NULL, '0', NULL, NULL),
-(150, NULL, 'Hi Radwan&nbsp; <a href=\"friendpage.php?account_id=882342624\">@RadwanSusan</a>', '2022-05-14 21:07:00', 120180612100, 2, NULL, '1', NULL, NULL),
-(151, NULL, '', '2022-05-15 14:50:10', 120180612122, 1, 24, '0', NULL, NULL),
-(152, NULL, '', '2022-05-15 15:20:38', 120180612122, 1, 25, '0', NULL, NULL),
-(153, NULL, 'dfdfdfd&nbsp; <a href=\"friendpage.php?account_id=251986197\">@omarthaer</a>&nbsp; <a href=\"https://www.google.com/maps/search/?api=1&amp;query=30.203269311724867,35.73259097092972\">My Location</a>', '2022-05-15 22:38:05', 120180612122, 0, 26, '0', NULL, 40),
-(154, NULL, 'vfgf <a href=\"friendpage.php?account_id=945532290\">@zaidmohammad</a> <a href=\"https://www.google.com/maps/search/?api=1&query=30.203269311724867,35.73259097092972\">My Location</a>', '2022-05-15 22:38:33', 120180612122, 1, NULL, '1', NULL, 41);
+INSERT INTO `post` (`post_id`, `title`, `content`, `created_date`, `author`, `form_id`, `img_id`, `likes_count`, `video_id`, `fileId`, `share_original`, `share_new`) VALUES
+(138, NULL, 'Hello World', '2022-05-09 18:29:30', 120180612122, 1, 22, '0', NULL, NULL, NULL, NULL),
+(140, NULL, 'Hello World', '2022-05-12 13:49:00', 120180612122, 1, 22, '0', 0, NULL, NULL, NULL),
+(141, NULL, 'hamza', '2022-05-12 15:26:04', 120180612122, 2, NULL, '0', NULL, NULL, NULL, NULL),
+(142, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-12 21:43:20', 120180612122, 1, NULL, '1', NULL, NULL, NULL, NULL),
+(143, NULL, 'p1', '2022-05-13 22:30:36', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(144, NULL, 'h1', '2022-05-13 22:32:09', 120201408061, 2, NULL, '0', NULL, NULL, NULL, NULL),
+(145, NULL, 't1', '2022-05-13 22:32:23', 120201408061, 2, NULL, '0', NULL, NULL, NULL, NULL),
+(146, NULL, '2', '2022-05-13 22:33:03', 120201408061, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(147, NULL, 'jhjh', '2022-05-13 22:42:25', 120201408061, 2, NULL, '0', NULL, NULL, NULL, NULL),
+(148, NULL, 'n,m', '2022-05-13 22:45:09', 120201408061, 2, NULL, '0', NULL, NULL, NULL, NULL),
+(149, NULL, 'mbbmnb', '2022-05-14 18:50:24', 120180612122, 2, NULL, '0', NULL, NULL, NULL, NULL),
+(150, NULL, 'Hi Radwan&nbsp; <a href=\"friendpage.php?account_id=882342624\">@RadwanSusan</a>', '2022-05-14 21:07:00', 120180612100, 2, NULL, '1', NULL, NULL, NULL, NULL),
+(151, NULL, '', '2022-05-15 14:50:10', 120180612122, 1, 24, '0', NULL, NULL, NULL, NULL),
+(152, NULL, '', '2022-05-15 15:20:38', 120180612122, 1, 25, '0', NULL, NULL, NULL, NULL),
+(153, NULL, 'dfdfdfd&nbsp; <a href=\"friendpage.php?account_id=251986197\">@omarthaer</a>&nbsp; <a href=\"https://www.google.com/maps/search/?api=1&amp;query=30.203269311724867,35.73259097092972\">My Location</a>', '2022-05-15 22:38:05', 120180612122, 0, 26, '0', NULL, 40, NULL, NULL),
+(154, NULL, 'vfgf <a href=\"friendpage.php?account_id=945532290\">@zaidmohammad</a> <a href=\"https://www.google.com/maps/search/?api=1&query=30.203269311724867,35.73259097092972\">My Location</a>', '2022-05-15 22:38:33', 120180612122, 1, NULL, '0', NULL, 41, NULL, NULL),
+(155, NULL, 'sadmasd,', '2022-05-19 18:49:12', 120180612122, 6, NULL, '0', NULL, NULL, NULL, NULL),
+(156, NULL, 'dsadkasd', '2022-05-19 18:49:21', 120180612122, 114, NULL, '0', NULL, NULL, NULL, NULL),
+(157, NULL, '.d,sd.sd', '2022-05-19 18:49:29', 120180612122, 21, NULL, '1', NULL, NULL, NULL, NULL),
+(158, NULL, ' <a href=\"friendpage.php?account_id=251986197\">@omarthaer</a>', '2022-05-19 19:54:04', 120180612122, 1, NULL, '1', NULL, NULL, NULL, NULL),
+(159, NULL, 'nbnmbnb', '2022-05-19 20:57:15', 120180612122, 28, NULL, '0', NULL, NULL, NULL, NULL),
+(160, NULL, 'ddd', '2022-05-21 19:00:09', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(161, NULL, NULL, '2022-05-22 12:12:41', 120180612122, 2, 72, '0', NULL, NULL, NULL, NULL),
+(162, NULL, NULL, '2022-05-22 12:16:13', 120180612122, 2, 73, '0', NULL, NULL, NULL, NULL),
+(163, NULL, NULL, '2022-05-22 12:16:31', 120180612122, 2, 74, '0', NULL, NULL, NULL, NULL),
+(164, NULL, NULL, '2022-05-22 12:16:37', 120180612122, 2, 75, '0', NULL, NULL, NULL, NULL),
+(165, NULL, NULL, '2022-05-22 12:17:08', 120180612122, 2, 76, '0', NULL, NULL, NULL, NULL),
+(166, NULL, NULL, '2022-05-22 12:24:23', 120180612122, 2, 77, '0', NULL, NULL, NULL, NULL),
+(167, NULL, NULL, '2022-05-22 12:28:13', 120180612122, 2, 78, '0', NULL, NULL, NULL, NULL),
+(168, NULL, NULL, '2022-05-22 12:36:30', 120180612122, 2, 79, '0', NULL, NULL, NULL, NULL),
+(169, NULL, NULL, '2022-05-22 12:38:24', 120180612122, 2, 80, '0', NULL, NULL, NULL, NULL),
+(170, NULL, NULL, '2022-05-22 12:38:44', 120180612122, 2, 81, '0', NULL, NULL, NULL, NULL),
+(171, NULL, NULL, '2022-05-22 12:49:59', 120180612122, 2, 82, '0', NULL, NULL, NULL, NULL),
+(172, NULL, NULL, '2022-05-22 12:51:01', 120180612122, 2, 83, '0', NULL, NULL, NULL, NULL),
+(173, NULL, NULL, '2022-05-22 12:54:19', 120180612122, 2, 84, '0', NULL, NULL, NULL, NULL),
+(174, NULL, NULL, '2022-05-22 12:54:51', 120180612122, 2, 85, '0', NULL, NULL, NULL, NULL),
+(175, NULL, NULL, '2022-05-22 12:55:03', 120180612122, 2, 86, '0', NULL, NULL, NULL, NULL),
+(176, NULL, NULL, '2022-05-22 12:58:09', 120180612122, 2, 87, '0', NULL, NULL, NULL, NULL),
+(177, NULL, NULL, '2022-05-22 12:58:19', 120180612122, 2, 88, '0', NULL, NULL, NULL, NULL),
+(178, NULL, 's', '2022-05-22 14:13:53', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(179, NULL, 's', '2022-05-22 14:14:08', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(180, NULL, 's', '2022-05-22 14:14:14', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(181, NULL, 's', '2022-05-22 14:14:20', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(182, NULL, '', '2022-05-22 14:14:28', 120180612122, 1, 89, '0', NULL, NULL, NULL, NULL),
+(183, NULL, 's', '2022-05-22 14:14:37', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(184, NULL, 's', '2022-05-22 14:14:42', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(185, NULL, 's', '2022-05-22 14:14:49', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(186, NULL, 's', '2022-05-22 14:14:54', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(187, NULL, 's', '2022-05-22 14:15:00', 120180612122, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(188, NULL, 's', '2022-05-22 14:15:05', 120180612122, 1, NULL, '1', NULL, NULL, NULL, NULL),
+(190, NULL, NULL, '2022-05-22 20:15:44', 120180612122, 2, 66, '0', NULL, NULL, NULL, NULL),
+(191, NULL, NULL, '2022-05-22 20:18:05', 120180612122, 2, 67, '0', NULL, NULL, NULL, NULL),
+(192, NULL, NULL, '2022-05-22 20:20:40', 120180612122, 2, 68, '0', NULL, NULL, NULL, NULL),
+(193, NULL, NULL, '2022-05-22 20:23:02', 120180612122, 2, 69, '0', NULL, NULL, NULL, NULL),
+(194, NULL, NULL, '2022-05-22 20:23:07', 120180612122, 2, 70, '0', NULL, NULL, NULL, NULL),
+(195, NULL, NULL, '2022-05-22 20:24:44', 120180612122, 2, 71, '0', NULL, NULL, NULL, NULL),
+(196, NULL, NULL, '2022-05-22 20:24:49', 120180612122, 2, 72, '0', NULL, NULL, NULL, NULL),
+(198, NULL, 's', '2022-05-24 08:57:57', 120180612122, 1, 0, '0', 0, NULL, NULL, NULL),
+(199, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-24 08:58:22', 120180612122, 1, 0, '1', 0, NULL, NULL, NULL),
+(200, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-24 09:06:53', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(201, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:27:20', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(202, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:27:25', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(203, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:29:12', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(204, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:29:51', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(205, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:30:19', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(206, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:33:02', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(207, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:37:17', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(208, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:37:52', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(209, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:38:02', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(210, NULL, ' <a href=\"https://www.google.com/maps/search/?api=1&query=30.20359834444542,35.7322464014865\">My Location</a>', '2022-05-25 08:39:03', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(211, NULL, 's', '2022-05-25 08:52:20', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(212, NULL, 's', '2022-05-25 08:53:42', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(213, NULL, 's', '2022-05-25 08:54:15', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(214, NULL, 'p1', '2022-05-25 09:25:28', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612122),
+(215, NULL, 's', '2022-05-25 09:33:48', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612100),
+(216, NULL, 'p1', '2022-05-25 09:34:04', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612100),
+(217, NULL, 'p1', '2022-05-25 10:02:28', 120180612122, 1, 0, '0', 0, NULL, 120180612122, 120180612100),
+(218, NULL, '', '2022-05-25 10:09:48', 120180612122, 2, 67, '0', 0, NULL, 120180612122, 120180612100),
+(219, NULL, 'asdsadd', '2022-05-25 10:14:19', 120180612100, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(220, NULL, 'sa,mdas,md111', '2022-05-25 10:16:14', 120180612100, 1, NULL, '0', NULL, NULL, NULL, NULL),
+(221, NULL, 'sa,mdas,md111', '2022-05-25 10:16:24', 120180612100, 1, 0, '0', 0, NULL, 120180612100, 120180612100),
+(222, NULL, '', '2022-05-25 10:16:59', 120180612122, 2, 72, '0', 0, NULL, 120180612122, 120180612100),
+(223, NULL, '', '2022-05-25 10:17:15', 120180612122, 2, 72, '0', 0, NULL, 120180612122, 120180612100);
 
 -- --------------------------------------------------------
 
@@ -574,8 +606,40 @@ INSERT INTO `post_likes` (`post_id`, `std_id`) VALUES
 (135, 120180612122),
 (150, 120180612122),
 (142, 120180612122),
-(140, 120180612122),
-(154, 120180612122);
+(157, 120180612122),
+(158, 120180612122),
+(188, 120180612122),
+(189, 120180612122),
+(199, 120180612122);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile_info`
+--
+
+CREATE TABLE `profile_info` (
+  `std_id` bigint(12) NOT NULL,
+  `uni` varchar(100) DEFAULT NULL,
+  `lives_in` varchar(100) DEFAULT NULL,
+  `instagram` varchar(100) DEFAULT NULL,
+  `facebook` varchar(100) DEFAULT NULL,
+  `github` varchar(100) DEFAULT NULL,
+  `linkedin` varchar(100) DEFAULT NULL,
+  `snapchat` varchar(100) DEFAULT NULL,
+  `img_name` varchar(200) DEFAULT NULL,
+  `discerption` varchar(100) DEFAULT NULL,
+  `fromto` varchar(50) DEFAULT NULL,
+  `twitter` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile_info`
+--
+
+INSERT INTO `profile_info` (`std_id`, `uni`, `lives_in`, `instagram`, `facebook`, `github`, `linkedin`, `snapchat`, `img_name`, `discerption`, `fromto`, `twitter`) VALUES
+(120180612100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'db_images/6289328a886cd4.40161268.jpg', NULL, NULL, NULL),
+(120180612122, 'Studies  <br /><b>Warning</b>:  Undefined array key 1 in <b>C:xampphtdocsTriibepersonal.php</b> on l', '', 'sss', '', '', '', '', 'db_images/628a191888da88.56051391.jpg', 'Hi', '', '');
 
 -- --------------------------------------------------------
 
@@ -598,7 +662,9 @@ INSERT INTO `saved_post` (`keeper_id`, `post_id`) VALUES
 (120180612122, 132),
 (120180612122, 131),
 (120180612122, 113),
-(120180612122, 140);
+(120180612122, 140),
+(120180612100, 221),
+(120180612100, 223);
 
 -- --------------------------------------------------------
 
@@ -713,7 +779,10 @@ INSERT INTO `std_crs_temp` (`std_id`, `sub_id`, `sem_id`, `degree`) VALUES
 (1, 142, 10, NULL),
 (1, 182, 10, NULL),
 (3, 118, 10, NULL),
-(3, 130, 10, NULL);
+(3, 130, 10, NULL),
+(5, 97, 10, NULL),
+(5, 108, 10, NULL),
+(5, 115, 10, NULL);
 
 -- --------------------------------------------------------
 
@@ -1085,9 +1154,9 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `College_Year`, `email`, `status`, `created_date`, `account_id`, `img_id`) VALUES
-(120180612100, '0799317489', 'omar', 'thaer', 'maan', 'IT', 1, 4, '120180612100@st.ahu.edu.jo', 1, '2022-03-28', 251986197, NULL),
-(120180612114, '56789', 'zaid', 'mohammad', 'maan', 'IT', 1, 4, '120180612114@st.ahu.edu.jo', 0, '2022-03-28', 945532290, NULL),
-(120180612122, 'Blackbox@007', 'Radwan', 'Susan', '', '', 1, 4, '120180612122@st.ahu.edu.jo', 1, '2022-05-04', 882342624, NULL),
+(120180612100, '0799317489', 'omar', 'thaer', 'maan', 'IT', 1, 4, '120180612100@st.ahu.edu.jo', 1, '2022-03-28', 251986197, 59),
+(120180612114, '56789', 'zaid', 'mohammad', 'maan', 'IT', 1, 4, '120180612114@st.ahu.edu.jo', 1, '2022-03-28', 945532290, NULL),
+(120180612122, 'Blackbox@007', 'Radwan', 'Susan', '', '', 1, 4, '120180612122@st.ahu.edu.jo', 1, '2022-05-04', 882342624, 72),
 (120180612999, '12345', 'samer', 'khaled', '', '', 1, 4, '120180612999@st.ahu.edu.jo', 0, '2022-04-01', 697723097, NULL),
 (120201408061, '123456789', 'amer', 'hindawi', '', '', 1, 4, '120201408061@st.ahu.edu.jo', 0, '2022-04-05', 949058306, NULL),
 (999999999999, 'AdminBox@007', 'Triibe', 'Team', '', '', 1, 1, '999999999999@st.ahu.edu.jo', 0, '2022-05-04', 528706628, NULL);
@@ -1123,7 +1192,8 @@ INSERT INTO `students` (`id`, `Std_No`, `Std_Name`, `SSN`, `mobile`, `Email`, `A
 (1, '120210612001', 'احمد عامر احمد الشراونة', '2000309896', '0779356222', '120210612001@st.ahu.edu.jo', 'عمان-ضاحية لرشيد', 'ahmad123', 23, 339635, '1999-11-29', 1, 3, 4),
 (2, '120200614019', 'سجى احمد محمود القرعان', '9993024150', '0789789788', '120200614019@st.ahu.edu.jo', 'جرش', 'ahmad271', 22, 0, '1999-01-05', 1, 3, 2),
 (3, '120190612001', 'معاذ عماد سمور', '9983010890', '0798092033', '120190612001@st.ahu.edu.jo', 'ماركا الجنوبية', 'moath261', 23, 389198, '1998-06-15', 1, 2, 2),
-(4, '120190614045', 'رحمه سالم دواس الدهامشة', '9953024390', '0776824560', '120190614045@st.ahu.edu.jo', 'الجيزة', 'rahma231', 22, 0, '1995-04-14', 2, 3, 1);
+(4, '120190614045', 'رحمه سالم دواس الدهامشة', '9953024390', '0776824560', '120190614045@st.ahu.edu.jo', 'الجيزة', 'rahma231', 22, 0, '1995-04-14', 2, 3, 1),
+(5, '120180612122', 'Radwan Susan', '1201806121', '0786604495', '0', 'irbid', 'Blackbox@007', 22, NULL, NULL, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1243,7 +1313,7 @@ INSERT INTO `subjects` (`id`, `class_num`, `crs_id`, `days`, `from_hour`, `to_ho
 (94, 1, 26, 1, 8, 9.3, 52, 90),
 (95, 1, 85, 1, 11, 12.3, 53, 50),
 (96, 1, 37, 2, 12, 13, 54, 70),
-(97, 2, 37, 1, 13, 14, 54, 70),
+(97, 2, 37, 1, 13, 14, 54, 69),
 (98, 1, 32, 2, 10, 11, 55, 80),
 (99, 2, 32, 1, 11, 12.3, 55, 80),
 (100, 1, 33, 2, 12, 13, 56, 90),
@@ -1254,14 +1324,14 @@ INSERT INTO `subjects` (`id`, `class_num`, `crs_id`, `days`, `from_hour`, `to_ho
 (105, 1, 61, 2, 10, 11, 59, 75),
 (106, 3, 1, 1, 15.3, 17, 61, 90),
 (107, 2, 1, 2, 18, 19, 62, 90),
-(108, 4, 1, 1, 17, 18.3, 63, 90),
+(108, 4, 1, 1, 17, 18.3, 63, 89),
 (109, 1, 1, 2, 17, 18, 64, 90),
 (110, 2, 30, 2, 13, 14, 65, 40),
 (111, 3, 30, 1, 9.3, 11, 66, 40),
 (112, 1, 30, 2, 10, 11, 67, 40),
 (113, 1, 43, 3, 14, 15.3, 68, 30),
 (114, 2, 43, 1, 14, 15.3, 68, 30),
-(115, 5, 46, 1, 14, 15.3, 64, 25),
+(115, 5, 46, 1, 14, 15.3, 64, 24),
 (116, 3, 46, 3, 14, 15.3, 66, 25),
 (117, 4, 46, 1, 11, 12.3, 64, 25),
 (118, 2, 46, 2, 12, 13, 68, 25),
@@ -1480,8 +1550,16 @@ INSERT INTO `teachers` (`id`, `t_name`) VALUES
 
 CREATE TABLE `video` (
   `video_id` bigint(12) NOT NULL,
-  `video_name` varchar(100) NOT NULL
+  `video_name` varchar(100) NOT NULL,
+  `album_id` bigint(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `video`
+--
+
+INSERT INTO `video` (`video_id`, `video_name`, `album_id`) VALUES
+(26, 'db_images/628a79d046ef96.48444691.mp4', 120180612100);
 
 --
 -- Indexes for dumped tables
@@ -1545,6 +1623,12 @@ ALTER TABLE `majors_hour`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`post_id`);
+
+--
+-- Indexes for table `profile_info`
+--
+ALTER TABLE `profile_info`
+  ADD PRIMARY KEY (`std_id`);
 
 --
 -- Indexes for table `semesters`
@@ -1659,7 +1743,7 @@ ALTER TABLE `files`
 -- AUTO_INCREMENT for table `img`
 --
 ALTER TABLE `img`
-  MODIFY `img_id` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `img_id` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `majors`
@@ -1671,7 +1755,7 @@ ALTER TABLE `majors`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `post_id` bigint(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -1689,7 +1773,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `video`
 --
 ALTER TABLE `video`
-  MODIFY `video_id` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `video_id` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
