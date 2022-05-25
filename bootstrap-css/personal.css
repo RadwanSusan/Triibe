@@ -1347,3 +1347,221 @@
 	object-fit: cover;
 	padding: 2px;
 }
+
+@media (max-width: 920px) {
+  .content-personal-post {
+    /* display: flex; */
+    /* justify-content: center; */
+    padding-top: 20px;
+	display: block;
+}
+.left-post {
+	width: 100%;
+}
+.right-post {
+	margin-top: 15px;
+}
+.content1 .bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* width: 43%; */
+    /* background: blue; */
+    /* margin-left: 430px; */
+}
+}
+@media (min-width: 921px) {
+	.top-post .left-post {
+    display: flex;
+    align-items: center;
+    background: #b9b9b9;
+    border-radius: 200px;
+    height: 38px;
+    /* width: fit-content; */
+    width: 750%;
+}
+	}
+
+	
+  .inside-top {
+    margin-left: 0px;
+    font-family: "Pridi";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000000;
+    text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+}
+
+	}
+
+@media (min-width: 919px and max-width: 1225px) {
+.left-post .name {
+    position: relative;
+    text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+    margin-left: 9px;
+    font-family: "Pridi";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    /* line-height: 19px; */
+    color: #000000;
+}
+.inside-top {
+    margin-left: 0px;
+    font-family: "Pridi";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 26px;
+    color: #000000;
+    text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+}
+}
+
+@media (max-width: 919px) {
+	.content-personal-post .right-post {
+    /* width: 36%; */
+    width: ;
+}
+	.left-post .name {
+    position: relative;
+    text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+    margin-left: 9px;
+    font-family: "Pridi";
+    font-style: normal;
+    font-weight: 650;
+    font-size: 15px;
+    /* line-height: 19px; */
+    color: #000000;
+}
+.top-post {
+    width: 168%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+	.left-bottom-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: -40px;
+    z-index: 10;
+    cursor: pointer;
+    border: 3px solid #B9B9B9;
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+.editImg {
+    background-color: white;
+    border: 1px solid #9B9B9B;
+    display: flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    right: -93px;
+    top: -42px;
+    z-index: 500;
+}
+
+.post {
+    width: 277%;
+    margin-top: 12px;
+    border: 1px solid rgba(30, 30, 30, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0px 3px 4px rgb(0 0 0 / 25%);
+    border-radius: 12px;
+    /* width: fit-content; */
+    height: fit-content;
+}
+.user-profile {
+    width: 269%;
+    display: flex;
+    align-items: center;
+    background: #b9b9b9;
+    /* width: fit-content; */
+    box-shadow: 0px 3px 4px rgb(0 0 0 / 50%);
+    border-radius: 27px;
+    height: 40px;
+}
+.edit-profile {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    background: #c4c4c4;
+    border: 1px solid #b0b0b0;
+    box-sizing: border-box;
+    border-radius: 7px;
+    cursor: pointer;
+    padding-left: 12px;
+}
+.coverImage {
+    width: 397px;
+    height: 294px;
+    border-radius: 0px 0px 10px 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    border: 1px solid #616161;
+}
+.content1 {
+    width: fit-content;
+    /* width: 100%; */
+    /* background-color: #E7E7E7; */
+    /* height: 100%; */
+    display: block;
+    margin-top: 1px;
+    border-top: 2px solid rgba(55, 55, 55, 0.25);
+    border-radius: 5px 5px 0px 0px;
+}
+.right-bottom {
+	display: block;
+}
+.left-bottom{
+	display: block;
+}
+.info {
+    margin-top: -55px;
+    margin-left: 12px;
+}
+.info .name-bottom {
+    font-family: "Pridi";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18.9px;
+    line-height: 47px;
+    color: #000000;
+}
+.Edit-cover {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 0px 6px 0px 10px;
+    margin-top: -94px;
+    margin-left: 44px;
+    border-radius: 7px;
+    background: #C4C4C4;
+    border: 1px solid rgb(176, 176, 176);
+    cursor: pointer;
+}
+.Edit-cover p {
+	display: none;
+}
+}
