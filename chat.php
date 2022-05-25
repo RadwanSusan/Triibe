@@ -167,6 +167,39 @@ $idAttr = null;
       </li>";
           }
         }
+        if (isset($_GET["account_id"])) {
+          $sql = "SELECT * FROM student where std_id = '" . $_GET["account_id"] . "'";
+          $result = mysqli_query($conn, $sql);
+          $row = mysqli_fetch_array($result);
+          $img_id = $row["img_id"];
+          $status = $row["status"];
+          if ($status == "0") {
+            $status = "<i class='fa fa-circle offline'></i> offline";
+          } else {
+            $status = "<i class='fa fa-circle online2'></i> online";
+          }
+          $sql3 = "SELECT * FROM img where img_id = '" . $img_id . "'";
+          $result3 = mysqli_query($conn, $sql3);
+          $row3 = mysqli_fetch_array($result3);
+          if (isset($row3["img_name"])) {
+            $img_name = $row3["img_name"];
+          } else {
+            if ($row["gender"] == 1) {
+              $img_name = "Design\Image\LogoPic0.jpg";
+            } else {
+              $img_name = "Design\Image\LogoPic1.jpg";
+            }
+          }
+          echo "<li class='clearfix chatfriend' data-id='" . $row["std_id"] . "'>
+        <img src='" . $img_name . "' alt='avatar'/>
+        <div class='about'>
+          <div class='name2'>" . $row["std_fname"] . " " . $row["std_lname"] . "</div>
+          <div class='status'>
+            " . $status . "
+          </div>
+        </div>
+      </li>";
+        }
         ?>
       </ul>
     </div>

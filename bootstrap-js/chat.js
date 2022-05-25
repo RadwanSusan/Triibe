@@ -61,13 +61,13 @@ $(document).ready(function () {
 	hoverAnimationOut(".FileLink", "mouseout", ".FileLink", "animate__heartBeat");
 	const searchItem2 = document.querySelectorAll(".searchItem2");
 	searchItem2.forEach((item) => {
-		item.addEventListener("click",(e) => {
+		item.addEventListener("click", (e) => {
 			const friend_id = item.getAttribute("friend_id");
 			e.preventDefault();
 			document.cookie = `idAttr = ${friend_id}`;
 			document.querySelector(".chat").style.display = "block";
 			console.log("hi");
-	});
+		});
 	});
 	$(".chatSearch").on("input", function () {
 		if ($(this).val() == "") {
@@ -80,7 +80,7 @@ $(document).ready(function () {
 			url: "backBone.php",
 			type: "POST",
 			data: {
-				search3: 1,
+				search2: 1,
 				name: $(".chatSearch").val().toLowerCase(),
 				std_id,
 			},

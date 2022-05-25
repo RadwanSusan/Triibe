@@ -118,37 +118,7 @@ if (isset($_POST['search2'])) {
 				} else {
 					$imgname = $rowimg['img_name'];
 				}
-				echo "<a href='friendpage.php?account_id=" . $row["account_id"] . "' class='searchItem2' friend_id='" . $row["std_id"] . "'>
-							<img src='" . $imgname . "' alt=''/>
-							<p>" . $row["std_fname"] . " " . $row["std_lname"] . "</p>
-						</a>";
-			}
-		}
-	} else {
-		echo "<div class='notFound2'><p>Not Found</p></div>";
-	}
-}
-
-if (isset($_POST['search3'])) {
-	$sql = "SELECT * FROM student WHERE std_fname LIKE '%" . $_POST['name'] . "%' OR std_lname LIKE '%" . $_POST['name'] . "%'";
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			if ($row['std_id'] != $_POST['std_id']) {
-				$imgid = $row["img_id"];
-				$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-				$resultimg = mysqli_query($conn, $sqlimg);
-				$rowimg = mysqli_fetch_assoc($resultimg);
-				if ($rowimg == null) {
-					if ($row['gender'] == 1) {
-						$imgname	= "Design/Image/LogoPic0.jpg";
-					} else {
-						$imgname	= "Design/Image/LogoPic1.jpg";
-					}
-				} else {
-					$imgname = $rowimg['img_name'];
-				}
-				echo "<a href='#' class='searchItem2' friend_id='" . $row["std_id"] . "'>
+				echo "<a href='chat.php?account_id=" . $row["std_id"] . "' class='searchItem2' friend_id='" . $row["std_id"] . "'>
 							<img src='" . $imgname . "' alt=''/>
 							<p>" . $row["std_fname"] . " " . $row["std_lname"] . "</p>
 						</a>";

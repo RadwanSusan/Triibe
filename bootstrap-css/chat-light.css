@@ -40,11 +40,13 @@ body {
 
 .people-list {
 	width: 260px;
+	height: 868px;
 	float: left;
+	overflow-x: hidden;
 }
 
 .people-list .search {
-	padding: 20px;
+	padding: 15px;
 }
 
 .people-list input {

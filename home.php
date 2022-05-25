@@ -403,7 +403,7 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
           <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
         </li>
-        <div class="settings">
+        <div class="settings" style="display: none;">
           <p>Settings</p>
           <div class="Logout">
             <p>Logout</p>
