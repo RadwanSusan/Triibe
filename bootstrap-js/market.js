@@ -23,4 +23,10 @@ $(document).ready(function() {
   document.querySelector(".closeContact").addEventListener("click", function() {
     document.querySelector(".contactBox").style.display = "none";
   });
+  document.querySelector(".addProduct").addEventListener("click", function() {
+    document.querySelector(".post-card").style.display = "block";
+  });
+  document.querySelector(".exitCard").addEventListener("click", function() {
+    document.querySelector(".post-card").style.display = "none";
+  });
 });

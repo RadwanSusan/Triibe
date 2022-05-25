@@ -497,3 +497,200 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-right: auto;
   margin-top: 20px;
 }
+.post-card {
+  position: absolute;
+  display: none;
+  width: 524px;
+  height: 300px;
+  background: #ffffff;
+  border: 1px solid #7b7b7b;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+  border-radius: 16px;
+  justify-content: space-between;
+  flex-direction: column;
+  top: 35%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 500;
+}
+.top-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 10px 10px 10px;
+}
+.left-top-card {
+  display: flex;
+  align-items: center;
+  background: #d8d8d8;
+  border-radius: 200px;
+  user-select: none;
+  cursor: default;
+}
+.right-top-card img {
+  background: #d8d8d8;
+  padding: 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  user-select: none;
+}
+.card-name-photo {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 200px;
+  margin: 2px;
+  padding-right: 10px;
+}
+.card-user-photo {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.card-name {
+  font-family: "Pridi";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 5px;
+}
+.card-inside-top {
+  padding: 7px 10px 5px 5px;
+  cursor: pointer;
+}
+
+.PublicChoice {
+  display: none;
+}
+
+.FriendChoice {
+  margin-bottom: 2px;
+}
+.right-top-card img {
+  background: #d8d8d8;
+  padding: 9px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  user-select: none;
+}
+.mid-card {
+  height: 50%;
+  margin: 10px 10px 0px 10px;
+}
+.card-write-post {
+  width: 100%;
+  height: 160px;
+  background: #d8d8d8;
+  border-radius: 9px;
+  padding: 8px;
+  font-family: "Pridi";
+  border: none;
+  resize: none;
+  user-select: none;
+}
+.my-textarea {
+  width: 100%;
+  height: 170px;
+  background: #d8d8d8;
+  border-radius: 9px;
+  padding: 8px;
+  font-family: "Pridi";
+  border: none;
+  resize: none;
+  user-select: none;
+  outline: none;
+  text-align: left;
+  font-size: 16px;
+  overflow-y: scroll;
+  overflow-y: auto;
+}
+.down-card p {
+  position: relative;
+  margin-bottom: 0px;
+  font-size: 18px;
+  font-family: "Pridi";
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.down-card p::after {
+  content: "";
+  position: absolute;
+  width: 1.5px;
+  height: 35px;
+  background: #686868;
+  right: -17px;
+  top: -3px;
+  border-radius: 50px;
+}
+.left-down-card {
+  display: flex;
+  align-items: center;
+  width: 76%;
+  background: #d8d8d8;
+  padding: 13px;
+  border-radius: 9px;
+  justify-content: space-between;
+  user-select: none;
+}
+.icon-down img {
+  margin-right: 11px;
+  width: 21px;
+  cursor: pointer;
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  background-color: #ffffff;
+  top: 315px;
+  right: 70px;
+  z-index: 9;
+  border-radius: 16px;
+  width: 280px;
+  box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 15%);
+}
+
+.form-popup a {
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  margin: 10px 6px 0px 5px;
+  padding-left: 5px;
+}
+.fileUpload_Button {
+  display: none;
+}
+.FileLink_Button {
+  display: none;
+}
+
+.form-popup a:last-child {
+  margin-bottom: 10px;
+}
+.post-write {
+  padding: 12px 25px 12px 25px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  font-family: "Pridi";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+}
+.post-write:hover {
+  background-color: #d8d8d8;
+}

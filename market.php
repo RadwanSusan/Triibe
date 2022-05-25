@@ -81,6 +81,72 @@ session_start();
       </div>
     </div>
   </nav>
+  <div class="post-card slide-in-elliptic-top-fwd">
+    <div class="top-card">
+      <div class="left-top-card">
+        <div class="card-name-photo">
+          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>" alt="">
+          <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
+        </div>
+        <div class="card-inside-top">
+          <img class="PublicChoice" src="Design/Image/home-images/images/ball2.svg" alt="" style="display:inline-block;">
+          <img class="FriendChoice" src="Design/Image/home-images/images/friends_Post.svg" alt="" style="display:none;">
+          <img src="Design/Image/home-images/images/card-down.svg" alt="">
+        </div>
+      </div>
+      <div class="right-top-card">
+        <img class="exitCard" src="Design/Image/home-images/images/exit-card.svg" alt="">
+      </div>
+    </div>
+    <?php
+    $img_id = null;
+    $video_id = null;
+    $fileId = null;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $file = $_FILES['file'];
+      $fileName = $_FILES['file']['name'];
+      $fileTmpName = $_FILES['file']['tmp_name'];
+      $fileSize = $_FILES['file']['size'];
+      $fileError = $_FILES['file']['error'];
+      $fileExt = explode('.', $fileName);
+      $fileActualExt = strtolower(end($fileExt));
+      $ext = $fileActualExt;
+      $content = $_POST['content'];
+      $price = $_POST['price'];
+      $phone = $_POST['phone'];
+      $date = date("Y-m-d H:i:s", time());
+      if($price != ""){
+      $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+      $fileDestination = 'db_images/' . $fileNameNew;
+      move_uploaded_file($fileTmpName, $fileDestination);
+      $sql = "INSERT INTO market_post (content,created_date, author , img_name , price, phone_number) VALUES ('$content','$date','" . $_SESSION["std_id"] . "','$fileDestination','$price','$phone')";
+      mysqli_query($conn, $sql);
+      }
+    }
+    ?>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="mid-card">
+        <textarea class="card-write-post" rows="3" placeholder="Write A Post ..." name="content"></textarea>
+      </div>
+      <div class="down-card">
+        <div class="left-down-card">
+          <p>Add to your post</p>
+          <div class="icon-down">
+            <input type="text" class="price" placeholder="Price" name="price">
+            <input type="text" class="phone" placeholder="Phone Number" name="phone">
+            <label class="uploadLabel" for="uploadfile">
+              <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
+            </label>
+            <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.mp4,.mkv">
+            <div class="form-popup arrow-div animate__animated animate__fadeIn animate__faster" id="myForm">
+            </div>
+            <input type="submit" class="post-write" value="POST" name="post">
+    </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
   <div class="container1">
     <div class="main">
       <div class="left">
@@ -113,15 +179,15 @@ session_start();
         </div>
         <div class="bio bio2">
           <img src="Design/image market/selling.svg" alt="">
-          <div class="name1">Add a product</div>
+          <div class="name1 addProduct">Add a product</div>
         </div>
       </div>
-    <div class="contactBox">
-      <div class="chatlink">
-        <p>chat</p>
-        <button class="closeContact">close</button>
+      <div class="contactBox">
+        <div class="chatlink">
+          <p>chat</p>
+          <button class="closeContact">close</button>
+        </div>
       </div>
-    </div>
       <div class="right">
         <h1>Today picks</h1>
         <div class="all-Ele">
@@ -134,58 +200,55 @@ session_start();
               $result2 = mysqli_query($conn, $sql2);
               $row2 = mysqli_fetch_array($result2);
               $imgid = $row2["img_id"];
-                  $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-                  $resultimg = mysqli_query($conn, $sqlimg);
-                  $rowimg = mysqli_fetch_assoc($resultimg);
-                  if (isset($rowimg["img_name"])) {
-                    $userImage = $rowimg["img_name"];
+              $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+              $resultimg = mysqli_query($conn, $sqlimg);
+              $rowimg = mysqli_fetch_assoc($resultimg);
+              if (isset($rowimg["img_name"])) {
+                $userImage = $rowimg["img_name"];
+              } else {
+                if ($row2["gender"] == 1) {
+                  $userImage = "Design\Image\LogoPic0.jpg";
+                } else {
+                  $userImage = "Design\Image\LogoPic1.jpg";
+                }
+              }
+              $imgPost = $row["img_name"];
+              $now = new DateTime();
+              $post = new DateTime($row["created_date"]);
+              $diff = $now->diff($post);
+              $diff->format("%a");
+              $diffday = $diff->format("%a");
+              $diffhour = $diff->format("%h");
+              $diffminute = $diff->format("%i");
+              $diffsecond = $diff->format("%s");
+              $diffdaystr = (string)$diffday;
+              $diffhourstr = (string)$diffhour;
+              $diffminutestr = (string)$diffminute;
+              $diffsecondstr = (string)$diffsecond;
+              $difftime = $diffsecondstr . "second ago";
+              if ($diffdaystr == "0") {
+                if ($diffhourstr == "0") {
+                  if ($diffminutestr == "0") {
+                    $difftime = $diffsecondstr . "s ago";
                   } else {
-                    if ($row2["gender"] == 1) {
-                      $userImage = "Design\Image\LogoPic0.jpg";
-                    } else {
-                      $userImage = "Design\Image\LogoPic1.jpg";
-                    }
+                    $difftime = $diffminutestr . "m ago";
                   }
-                  $sql3 = "SELECT * FROM img WHERE img_id = '" . $row["img_id"] . "'";
-                  $result3 = mysqli_query($conn, $sql3);
-                  $row3 = mysqli_fetch_array($result3);
-                  $imgPost = $row3["img_name"];
-                  $now = new DateTime();
-                  $post = new DateTime($row["created_date"]);
-                  $diff = $now->diff($post);
-                  $diff->format("%a");
-                  $diffday = $diff->format("%a");
-                  $diffhour = $diff->format("%h");
-                  $diffminute = $diff->format("%i");
-                  $diffsecond = $diff->format("%s");
-                  $diffdaystr = (string)$diffday;
-                  $diffhourstr = (string)$diffhour;
-                  $diffminutestr = (string)$diffminute;
-                  $diffsecondstr = (string)$diffsecond;
-                  $difftime = $diffsecondstr . "second ago";
-                  if ($diffdaystr == "0") {
-                    if ($diffhourstr == "0") {
-                      if ($diffminutestr == "0") {
-                        $difftime = $diffsecondstr . "s ago";
-                      } else {
-                        $difftime = $diffminutestr . "m ago";
-                      }
-                    } else {
-                      $difftime = $diffhourstr . "h ago";
-                    }
-                  } else {
-                    $difftime = $diffdaystr . "d ago";
-                  }
-              echo" <div class='img1-card1'>
+                } else {
+                  $difftime = $diffhourstr . "h ago";
+                }
+              } else {
+                $difftime = $diffdaystr . "d ago";
+              }
+              echo " <div class='img1-card1'>
               <div class='img1'>
                 <img src='$imgPost' alt='img'>
               </div>
               <div class='card1'>
                 <div class='left-post'>
                   <div class='top'>
-                    <a class='name-photo' href='friendpage.php?account_id=".$row2["account_id"]."'>
-                      <img src='".$userImage."'>
-                      <div class='name'>".$row2["std_fname"] . " " . $row2["std_lname"] ."</div>
+                    <a class='name-photo' href='friendpage.php?account_id=" . $row2["account_id"] . "'>
+                      <img src='" . $userImage . "'>
+                      <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</div>
                     </a>
                     <div class='inside-top'>
                       $difftime
@@ -194,11 +257,11 @@ session_start();
                   </div>
                 </div>
                 <div class='mid'>
-                  <p>".$row["content"]."</p>
+                  <p>" . $row["content"] . "</p>
                 </div>
                 <div class='bottom'>
-                  <div class='price'>".$row["price"]."</div>
-                  <div class='contact' data-MPID='".$row["market_post_id"]."' >Contact</div>
+                  <div class='price'>" . $row["price"] . "</div>
+                  <div class='contact' data-MPID='" . $row["market_post_id"] . "' >Contact</div>
                 </div>
               </div>
             </div>";
