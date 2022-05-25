@@ -621,6 +621,7 @@ body {
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
 }
 
 .user-profile img {
@@ -668,13 +669,13 @@ body {
 
 .post {
 	margin-top: 17px;
-	border: 1px solid rgba(30, 30, 30, 0.35);
+	border: 1px solid #353535;
 	box-sizing: border-box;
 	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 12px;
 	width: auto;
 	height: auto;
-	background: #151515f2;
+	background: #10151b70;
 }
 
 .left-post .name-photo img {
@@ -759,7 +760,7 @@ body {
 	font-weight: 400;
 	font-size: 17px;
 	line-height: 26px;
-	color: #000000;
+	color: #fff;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -824,12 +825,12 @@ body {
 	-moz-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	background-color: #151515;
+	background-color: #13171c70;
 	border-radius: 14px;
 }
 
 .content-end {
-	background: #555;
+	background: #13171c70;
 	border: 1px solid rgba(0, 0, 0, 0.21);
 	border-radius: 7px;
 	margin: 0 10px 0 10px;
@@ -850,7 +851,7 @@ body {
 	margin: 15px 0 0 0;
 	height: 30px;
 	padding: 19px;
-	background-color: #151515f2;
+	background-color: #070c1370;
 	position: relative;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -865,7 +866,7 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 1px;
-	background-color: #838383;
+	background-color: #353535;
 	top: 0;
 	left: 0;
 }
@@ -925,7 +926,7 @@ body {
 	position: absolute;
 	width: 1px;
 	height: 37px;
-	background-color: #838383;
+	background-color: #353535;
 	bottom: -19px;
 	left: 9.7rem;
 }
@@ -935,7 +936,7 @@ body {
 	position: absolute;
 	width: 1px;
 	height: 37px;
-	background-color: #838383;
+	background-color: #353535;
 	bottom: -19px;
 	left: 9.7rem;
 }
@@ -945,7 +946,7 @@ body {
 	position: absolute;
 	width: 1px;
 	height: 37px;
-	background-color: #838383;
+	background-color: #353535;
 	bottom: -19px;
 	left: 9.7rem;
 }
@@ -1096,7 +1097,7 @@ body {
 }
 
 .scrollToTopBtn {
-	background-color: #e7e7e7;
+	background-color: #15191e;
 	border: none;
 	color: white;
 	cursor: pointer;
@@ -1118,7 +1119,7 @@ body {
 	-o-user-select: none;
 	user-select: none;
 	cursor: pointer;
-	border: #b5b5b5 solid 1px;
+	border: #423f3f solid 1px;
 	border-radius: 50%;
 }
 
@@ -1672,7 +1673,7 @@ canvas {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #00010A;
+	background-color: #1d2025;
 	background-image: url("");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1844,7 +1845,7 @@ canvas {
 }
 
 .write-post-container2 {
-	background: #10151B80;
+	background: #1f2933;
 	border-radius: 12px;
 	height: 120%;
 	padding: 8px;
@@ -2057,7 +2058,6 @@ canvas {
 }
 
 .post-public {
-	background-color: #fff;
 	border-radius: 4px;
 	width: 110px;
 	height: 36px;
@@ -2065,6 +2065,7 @@ canvas {
 	padding-top: 6px;
 	font-family: "Pridi";
 	user-select: none;
+	border-color: #000;
 }
 
 .post-public:hover {
@@ -2073,7 +2074,6 @@ canvas {
 }
 
 .post-friend {
-	background-color: #945454;
 	border-radius: 4px;
 	width: 110px;
 	height: 36px;
@@ -2081,6 +2081,7 @@ canvas {
 	padding-top: 6px;
 	font-family: "Pridi";
 	user-select: none;
+	border-color: #000;
 }
 
 .post-friend:hover {

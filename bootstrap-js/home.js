@@ -27,10 +27,6 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 	document.querySelector(".mapIcon-Light").style.display = "none";
 	document.querySelector(".SettingsIcon-Dark").style.display = "block";
 	document.querySelector(".SettingsIcon-Light").style.display = "none";
-	// document.querySelector(".pagesIcon-Dark").style.display = "block";
-	// document.querySelector(".pagesIcon-Light").style.display = "none";
-	// document.querySelector(".Groups-Dark").style.display = "block";
-	// document.querySelector(".Groups-Light").style.display = "none";
 	document.querySelector(".savedPosts-Dark").style.display = "block";
 	document.querySelector(".savedPosts-Light").style.display = "none";
 	document.querySelector(".marketIcon-Dark").style.display = "block";
@@ -75,22 +71,17 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".regIcon-Dark").style.display = "none";
 });
 document.querySelector(".themeLight").addEventListener("click", () => {
-	localStorage.setItem("theme", "light");
+	document.cookie = "theme=light";
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
-	localStorage.setItem("theme", "dark");
+	document.cookie = "theme=dark";
 });
-if (localStorage.getItem("theme") === "light") {
+if (document.cookie.includes("theme=light")) {
 	document.querySelector(".themeLight").click();
 }
-if (localStorage.getItem("theme") === "dark") {
+if (document.cookie.includes("theme=dark")) {
 	document.querySelector(".themeDark").click();
 }
-window.onload = function () {
-	if (localStorage.getItem("like") === "liked") {
-		document.querySelector(".like").classList.add("liked");
-	}
-};
 const hoverAnimation = (
 	hoverElement,
 	eventType,
@@ -156,7 +147,7 @@ $(document).ready(function () {
 				data: {
 					logout: 1,
 				},
-				success: function (data) {
+				success(data) {
 					window.location.href = "login.php";
 				},
 			});
@@ -172,7 +163,7 @@ $(document).ready(function () {
 			data: {
 				notificationsClear: 1,
 			},
-			success: function (data) {
+			success(data) {
 				document.querySelector(".notificationCount").style.display = "none";
 			},
 		});
@@ -369,11 +360,11 @@ $(document).ready(function () {
 		document.cookie = "postBtn=2";
 	});
 	if (document.cookie.includes("postBtn=1")) {
-		document.querySelector(".post-public").style.backgroundColor = "#fff";
-		document.querySelector(".post-friend").style.backgroundColor = "#f1f1f1";
+		document.querySelector(".post-public").style.backgroundColor = "#efc8a3";
+		document.querySelector(".post-friend").style.backgroundColor = "#626364";
 	} else {
-		document.querySelector(".post-public").style.backgroundColor = "#f1f1f1";
-		document.querySelector(".post-friend").style.backgroundColor = "#fff";
+		document.querySelector(".post-public").style.backgroundColor = "#626364";
+		document.querySelector(".post-friend").style.backgroundColor = "#efc8a3";
 	}
 	document.querySelectorAll(".save").forEach((element) => {
 		element.addEventListener("click", () => {
@@ -390,7 +381,6 @@ $(document).ready(function () {
 				success() {
 					alert("Post saved");
 					element.style.display = "none";
-
 					element.nextElementSibling.style.display = "flex";
 				},
 			});
