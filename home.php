@@ -431,7 +431,7 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
           <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
         </li>
-        <div class="Notifications">
+        <div class="Notifications" style="display: none;">
           <p>Notifications</p>
           <?php
           $sql = "SELECT * FROM friends_request WHERE receiver = '" . $_SESSION["std_id"] . "'order by date desc";
