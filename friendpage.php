@@ -173,13 +173,13 @@ if (isset($rowcover["img_name"])) {
     </div>
     <div class="content-personal-post">
       <div class="content-left">
-        <div class="left-post">
+        <?php
+        $sql = "SELECT * FROM profile_info WHERE std_id = '" . $row["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        $rowinfo = mysqli_fetch_assoc($result);
+        if (mysqli_num_rows($result)) {
+          echo ' <div class="left-post">
           <h1>Bio</h1>
-          <?php
-          $sql = "SELECT * FROM profile_info WHERE std_id = '" . $row["std_id"] . "'";
-          $result = mysqli_query($conn, $sql);
-          $rowinfo = mysqli_fetch_assoc($result);
-          ?>
           <div class="title-bio">
             <div class="name"><?php echo $rowinfo["discerption"] ?></div>
             <img src="Design/Image/home-images/images/bio-title.svg" alt="">
@@ -195,8 +195,8 @@ if (isset($rowcover["img_name"])) {
           <div class="bio">
             <img src="Design/Image/home-images/images/bio3.png" alt="">
             <div class="name">From <?php echo $rowinfo["fromto"] ?></div>
-          </div>
-          <?php
+          </div>';
+
           if (!isset($rowinfo['instagram']) || $rowinfo['instagram'] == "") {
             echo "";
           } else {
@@ -204,8 +204,8 @@ if (isset($rowcover["img_name"])) {
             <a href='" . $rowinfo['instagram'] . "'><img src='Design/Image/home-images/images/bio4.png' alt=''></a>
           </div>";
           }
-          ?>
-          <?php
+
+
           if (!isset($rowinfo["github"]) || $rowinfo["github"] == "") {
             echo "";
           } else {
@@ -213,8 +213,6 @@ if (isset($rowcover["img_name"])) {
             <a href=' . $rowinfo["github"] . '><img src="Design/Image/home-images/images/bio5.png" alt=""></a>
           </div>';
           }
-          ?>
-          <?php
           if (!isset($rowinfo["facebook"]) || $rowinfo["facebook"] == "") {
             echo "";
           } else {
@@ -222,8 +220,6 @@ if (isset($rowcover["img_name"])) {
             <a href=' . $rowinfo["facebook"] . '><img src="Design/Image/home-images/images/iconmonstr-facebook-4.svg" alt=""></a>
           </div>';
           }
-          ?>
-          <?php
           if (!isset($rowinfo["twitter"]) || $rowinfo["twitter"] == "") {
             echo "";
           } else {
@@ -231,8 +227,6 @@ if (isset($rowcover["img_name"])) {
             <a href=' . $rowinfo["twitter"] . '><img src="Design/Image/home-images/images/iconmonstr-twitter-4.svg" alt=""></a>
           </div>';
           }
-          ?>
-          <?php
           if (!isset($rowinfo["linkedin"]) || $rowinfo["linkedin"] == "") {
             echo "";
           } else {
@@ -240,8 +234,6 @@ if (isset($rowcover["img_name"])) {
             <a href=' . $rowinfo["linkedin"] . '><img src="Design/Image/home-images/images/iconmonstr-linkedin-3" alt=""></a>
           </div>';
           }
-          ?>
-          <?php
           if (!isset($rowinfo["snapchat"]) || $rowinfo["snapchat"] == "") {
             echo "";
           } else {
@@ -249,13 +241,25 @@ if (isset($rowcover["img_name"])) {
             <a href=' . $rowinfo["snapchat"] . '><img src="Design/Image/home-images/images/iconmonstr-snapchat-1" alt=""></a>
           </div>';
           }
-          ?>
-        </div>
+
+          echo '</div>';
+        } else {
+          echo '<div class="left-post">
+          <h1>Bio</h1>
+          <div class="title-bio">
+            <div class="name">No Bio</div>
+            <img src="Design/Image/home-images/images/bio-title.svg" alt="">
+            </div>
+            </div>';
+        }
+        ?>
         <div class="left-post">
           <div class="photo-see">
 
             <h1>Photo</h1>
-            <a href="<?php echo " friendpage.php?account_id=" . $id; ?>"> <div class="see-more seeMorePhoto">See more</div></a>
+            <a href="<?php echo " friendpage.php?account_id=" . $id; ?>">
+              <div class="see-more seeMorePhoto">See more</div>
+            </a>
           </div>
           <div class="Photo">
             <?php
@@ -271,7 +275,9 @@ if (isset($rowcover["img_name"])) {
         <div class="left-post">
           <div class="photo-see">
             <h1>Friends</h1>
-            <a href="<?php echo " friendpage.php?account_id=" . $id; ?>"><div class="see-more seeMoreFriends">See more</div></a>
+            <a href="<?php echo " friendpage.php?account_id=" . $id; ?>">
+              <div class="see-more seeMoreFriends">See more</div>
+            </a>
           </div>
           <div class="Friends">
             <div class="left-Friends">
