@@ -410,12 +410,12 @@ if (mysqli_num_rows($result1) > 0) {
           </div>
         </div>
 
-        <li>
+        <li class="map">
           <img class="mapIcon-Light" src="Design/Image/home-images/images/mapIcon.svg" alt="mapIcon" />
           <img class="mapIcon-Dark" src="Design/Image/home-images/images/mapIcon2.svg" alt="mapIcon" />
         </li>
 
-        <li>
+        <li class="theme">
           <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" />
           <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" />
         </li>
@@ -483,6 +483,9 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
           <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />
         </li>
+         <li class="more-list">
+            <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more2.svg" alt="settingIcon" />
+          </li>
       </ul>
       <div class="nav-user-icon online">
         <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" alt="" /></a>

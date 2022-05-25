@@ -89,7 +89,7 @@ if($num > 0)
                     $count1  +=  $row2["h1"];
                 }
                 else  if($row2["ty"] == "جامعة اختياري")
-                {
+        
                     $count2  +=  $row2["h1"];
                 }
                 else  if($row2["ty"] == "كلية اجباري")
@@ -213,7 +213,7 @@ if(isset($_POST["sub3"]))
                     <div class="col-md-4">
                         <label class="labels">المعدل التراكمي</label>
                         <input type="text" class="form-control" value="<?php
-                        if($sum != 0) 
+                       if($sum != 0) 
                         echo round($degree/ $sum,2);
                         else
                         echo "غير متاح";
