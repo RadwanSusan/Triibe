@@ -1,6 +1,8 @@
 <?php
 include_once "connection.php";
 session_start();
+$badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس امك", "قحبة", "شرموطة", "منيك", "شرمط"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +105,17 @@ session_start();
     $video_id = null;
     $fileId = null;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $content = explode(" ", $_POST["content"]);
+      $usingBadWords = false;
+      foreach ($content as $word) {
+        foreach ($badwords as $badword) {
+          if ($word == $badword) {
+            $usingBadWords = true;
+            break;
+          }
+        }
+      }
+      if ($usingBadWords == false) {
       $file = $_FILES['file'];
       $fileName = $_FILES['file']['name'];
       $fileTmpName = $_FILES['file']['tmp_name'];
@@ -116,13 +129,30 @@ session_start();
       $phone = $_POST['phone'];
       $date = date("Y-m-d H:i:s", time());
       if($price != ""){
-      $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-      $fileDestination = 'db_images/' . $fileNameNew;
-      move_uploaded_file($fileTmpName, $fileDestination);
-      $sql = "INSERT INTO market_post (content,created_date, author , img_name , price, phone_number) VALUES ('$content','$date','" . $_SESSION["std_id"] . "','$fileDestination','$price','$phone')";
-      mysqli_query($conn, $sql);
+        if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
+          if ($fileError === 0) {
+            if ($fileSize < 100000000) {
+              $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+              $fileDestination = 'db_images/' . $fileNameNew;
+              move_uploaded_file($fileTmpName, $fileDestination);
+              $sql = "INSERT INTO market_post (content,created_date, author , img_name , price, phone_number) VALUES ('$content','$date','" . $_SESSION["std_id"] . "','$fileDestination','$price','$phone')";
+              mysqli_query($conn, $sql);
+            } else {
+              echo "<script>alert('Your file is too big!')</script>";
+            }
+          } else {
+            echo "<script>alert('There was an error uploading your file!')</script>";
+          }
+      } else {
+        echo "<script>alert('please insert a new image')</script>";
       }
+    }else{
+      echo "<script>alert('Please insert price')</script>";
     }
+  } else {
+    echo "<script>alert('لا تسب')</script>";
+  }
+}
     ?>
     <form method="POST" enctype="multipart/form-data">
       <div class="mid-card">
