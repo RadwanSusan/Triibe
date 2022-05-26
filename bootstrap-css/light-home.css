@@ -1098,7 +1098,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding-right: 2px;
+  padding-right: 3px;
   z-index: 1000;
   opacity: 0;
   transform: translateY(100px);
