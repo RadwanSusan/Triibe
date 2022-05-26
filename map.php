@@ -498,8 +498,7 @@ if (mysqli_num_rows($result1) > 0) {
       </div>
    </nav>
    <br>
-   <br>
-   <iframe src="https://my.atlistmaps.com/map/5af7905c-717e-4c65-9276-d7207902c5d8?share=true" allow="geolocation" width="100%" height="800PX" frameborder="0" scrolling="no" allowfullscreen></iframe>
+   <iframe src="https://my.atlistmaps.com/map/5af7905c-717e-4c65-9276-d7207902c5d8?share=true" allow="geolocation" width="100%" height="850PX" frameborder="0" scrolling="no" allowfullscreen></iframe>
    <button class="scrollToTopBtn">☝️</button>
    <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
    <script src="bootstrap-js/all.min.js"></script>
