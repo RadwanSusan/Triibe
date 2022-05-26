@@ -40,7 +40,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: rgba(16, 21, 27, .8);
+	background: #10151b42;
 	padding: 5px 2%;
 	border: 1px solid #464646;
 	border-radius: 10px;
@@ -135,8 +135,12 @@ body {
 	left: -8px;
 }
 
+.nav-right ul li img:hover {
+	filter: invert(95%) sepia(100%) saturate(14%) hue-rotate(213deg) brightness(104%) contrast(104%);
+}
+
 .nav-right ul li:hover {
-	background-color: #222;
+	background-color: #ffc186;
 }
 
 .themeDark {
@@ -332,7 +336,6 @@ body {
 	margin-left: 10px;
 	margin-right: 30px;
 	margin-top: 3px;
-	filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .group-list {
@@ -440,7 +443,7 @@ body {
 }
 
 .group-page a:hover {
-	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	color: #cacaca;
 }
 
 .group-page a::after {
@@ -535,7 +538,7 @@ body {
 }
 
 .group-page2 a:hover {
-	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	color: #cacaca;
 }
 
 .group-page2 a::after {
@@ -735,6 +738,7 @@ body {
 	align-items: center;
 	background: #2C2C2C;
 	border-radius: 200px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.45);
 }
 
 .inside-top {
@@ -751,6 +755,7 @@ body {
 .inside-top img {
 	padding-right: 5px;
 	margin-top: 2px;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
 }
 
 .inside-top2 {
@@ -774,6 +779,11 @@ body {
 	margin-right: 5px;
 	color: #525252;
 	cursor: pointer;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.modify:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .mid-post p {
@@ -887,6 +897,11 @@ body {
 	height: 22px;
 	cursor: pointer;
 	margin-top: 2px;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.likeHollow:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .likeFilled {
@@ -894,6 +909,11 @@ body {
 	height: 18px;
 	cursor: pointer;
 	margin: 2px 2px 2px 2px;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.likeFilled:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .comment img {
@@ -901,24 +921,44 @@ body {
 	height: 25px;
 	cursor: pointer;
 	margin-top: 3px;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.comment img:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .share img {
 	width: 24px;
 	height: 24px;
 	cursor: pointer;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.share img:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .save img {
 	width: 24px;
 	height: 24px;
 	cursor: pointer;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.save img:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .saved img {
 	width: 27px;
 	height: 19px;
 	cursor: pointer;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.saved img:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(50%);
 }
 
 .like::after {
@@ -1060,6 +1100,9 @@ body {
 
 .housingIcon-Dark {
 	display: none;
+	width: 21px !important;
+	margin-left: 13px !important;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
 }
 
 .elearningIcon-Dark {
@@ -1144,7 +1187,7 @@ body {
 	font-family: "Pridi";
 	font-style: normal;
 	font-weight: 400;
-	color: #fff;
+	color: #e8e7e7;
 	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -1211,7 +1254,7 @@ body {
 	display: flex;
 	align-items: center;
 	width: 76%;
-	background: #0d0d0d;
+	background: #252424;
 	padding: 13px;
 	border-radius: 9px;
 	justify-content: space-between;
@@ -1232,21 +1275,22 @@ body {
 
 .post-write {
 	padding: 12px 25px 12px 25px;
-	background: #0d0d0d;
-	border: 1px solid #2d2d2d;
+	background: #252424;
+	border: 1px solid #e8e7e7;
 	box-sizing: border-box;
 	border-radius: 0.25rem;
 	font-family: "Pridi";
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
-	color: white;
+	color: #e8e7e7;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 	transition: all 0.4s ease;
 }
 
 .post-write:hover {
-	background-color: #d8d8d8;
+	background-color: #efb176;
+	color: #000;
 }
 
 .card-name-photo {
@@ -1259,7 +1303,7 @@ body {
 }
 
 .right-top-card img {
-	background: #2c2c2c;
+	background: #efb176;
 	padding: 9px;
 	border-radius: 50%;
 	cursor: pointer;
@@ -1272,6 +1316,7 @@ body {
 	margin-right: 11px;
 	width: 21px;
 	cursor: pointer;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
 }
 
 .card-name {
@@ -1395,8 +1440,9 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 25px;
-	margin: 15px 10px 10px 10px;
+	margin: 6px 10px 10px 10px;
 	padding-top: 10px;
+	color: white;
 }
 
 .tagH1:after {
@@ -1404,28 +1450,28 @@ body {
 	display: block;
 	width: 100%;
 	height: 1.5px;
-	background-color: #000000;
+	background-color: #dbdbdb;
 	border-radius: 50px;
 	margin: 0 auto;
 	margin-top: 3px;
 }
 
 .btn {
-	background-color: #ffffff;
+	background-color: #efc8a3;
 	border: 1px solid #000000;
 	box-sizing: border-box;
 	font-family: "Pridi";
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
-	color: #000000;
+	color: #171717;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 	transition: all 0.4s ease;
 	margin: 0px 4px 4px 20px;
 }
 
 .btn:hover {
-	background-color: #d8d8d8;
+	background-color: #ffc186;
 }
 
 .open-button {
@@ -1457,7 +1503,7 @@ body {
 .form-popup {
 	display: none;
 	position: fixed;
-	background-color: #ffffff;
+	background-color: #10151b;
 	top: 315px;
 	right: 70px;
 	z-index: 9;
@@ -1468,10 +1514,18 @@ body {
 
 .form-popup a {
 	text-decoration: none;
-	color: #000000;
+	color: #ebebea;
 	display: block;
 	margin: 10px 6px 0px 5px;
 	padding-left: 5px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.form-popup a:hover {
+	color: #cfcfcf;
 }
 
 .form-popup a:last-child {
@@ -1481,7 +1535,7 @@ body {
 .form-container2 {
 	max-width: 300px;
 	padding: 5px;
-	background-color: #ffffff;
+	background-color: #10151b;
 	font-family: poppins, sans-serif;
 	border: 1px solid rgb(123, 123, 123);
 	box-shadow: rgba(0, 0, 0, 0.29) 0px 0px 18px 2px;
@@ -1494,7 +1548,7 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
-	color: #000000;
+	color: #e8e7e7;
 	margin-left: 20px;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
@@ -1506,7 +1560,7 @@ body {
 
 .form-container2 a {
 	text-decoration: none;
-	color: #000000;
+	color: #e8e7e7;
 	display: block;
 	margin: 4px 6px 0px 5px;
 	padding-left: 5px;
@@ -1527,13 +1581,14 @@ body {
 	width: 36px !important;
 	height: 36px !important;
 	border-radius: 50%;
+	filter: none !important;
 }
 
 .innerTag {
 	width: 96%;
 	height: auto;
 	max-height: 300px;
-	background-color: #e9e9e9;
+	background-color: #252424;
 	margin: 5px;
 	border-radius: 9px;
 	display: inline-block;
@@ -1595,7 +1650,7 @@ body {
 }
 
 .arrow-div {
-	border: 5px solid #cacaca;
+	border: 2px solid #828282;
 }
 
 .arrow-div:after,
@@ -1729,11 +1784,16 @@ canvas {
 	flex-direction: column;
 	align-items: center;
 	border-radius: 4px;
-	background: #cbcbcb62;
+	background: #3c3c3ca8;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	outline: #000;
 	z-index: 200;
 	backdrop-filter: blur(10px);
+	border: 1px solid #6d6d6d;
+}
+
+.searchArea:empty {
+	border: none;
 }
 
 .searchItem {
@@ -1741,7 +1801,7 @@ canvas {
 	height: 59px;
 	display: flex;
 	align-items: center;
-	background-color: #f8f8f8;
+	background-color: #0d1218;
 	border-radius: 10px;
 	isolation: isolate;
 	z-index: 202;
@@ -1751,7 +1811,7 @@ canvas {
 .searchItem:hover {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
-	background-color: #f1f1f1;
+	background-color: #202935;
 }
 
 .searchItem img {
@@ -1767,7 +1827,7 @@ canvas {
 	position: fixed;
 	left: 60px;
 	font-size: 14px;
-	color: #000;
+	color: #fff;
 	margin-top: 18px;
 	font-family: "pridi";
 	font-size: 19px;
@@ -1779,7 +1839,7 @@ canvas {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #f8f8f8;
+	background-color: #0d1218;
 	border-radius: 10px;
 	isolation: isolate;
 	z-index: 202;
@@ -1789,15 +1849,17 @@ canvas {
 .notFound p {
 	position: fixed;
 	font-size: 14px;
-	color: #000;
+	color: #fff;
 	margin-top: 18px;
 	font-family: "pridi";
 	font-size: 19px;
 }
 
 .savedPosts-Light {
-	width: 21px !important;
-	margin-left: 13px !important;
+	width: 33px !important;
+	height: 34px !important;
+	margin-left: 7px !important;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
 }
 
 .marketIcon-Light {
@@ -1869,7 +1931,7 @@ canvas {
 .my-textarea {
 	width: 100%;
 	height: 170px;
-	background: #0d0d0d;
+	background: #252424;
 	border-radius: 9px;
 	padding: 8px;
 	font-family: "Pridi";
@@ -1881,7 +1943,12 @@ canvas {
 	font-size: 16px;
 	overflow-y: scroll;
 	overflow-y: auto;
-	color: white;
+	color: #e8e7e7;
+}
+
+.exitCard:hover {
+	cursor: pointer;
+	background-color: #ffc186;
 }
 
 .my-textarea div {
@@ -2066,11 +2133,12 @@ canvas {
 	font-family: "Pridi";
 	user-select: none;
 	border-color: #000;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .post-public:hover {
-	background-color: #f8f8f8;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	background-color: #ffc186 !important;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.6);
 }
 
 .post-friend {
@@ -2082,19 +2150,29 @@ canvas {
 	font-family: "Pridi";
 	user-select: none;
 	border-color: #000;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .post-friend:hover {
-	background-color: #f8f8f8;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	background-color: #ffc186 !important;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.6);
 }
 
 .PublicChoice {
 	display: none;
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
 }
 
 .FriendChoice {
 	margin-bottom: 2px;
+}
+
+.choiceDropDown {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%);
+}
+
+.choiceDropDown:hover {
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(40%);
 }
 
 .commentBox {
@@ -2193,10 +2271,6 @@ canvas {
 
 @media(max-width:684px) {
 	.search-box {
-		background-color: rgb(248, 248, 248);
-		border-radius: 45px;
-		display: flex;
-		align-items: center;
 		padding: 2px 10px 0px;
 	}
 }
@@ -2251,21 +2325,10 @@ canvas {
 
 	.inside-top {
 		margin-left: 7px;
-		font-family: Pridi;
-		font-style: normal;
-		font-weight: 400;
 		font-size: 12px;
-		line-height: 26px;
-		color: rgb(0, 0, 0);
-		text-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
 	}
 
 	.left-post .shareDesc {
-		color: rgb(0, 0, 0);
-		text-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
-		font-family: Pridi;
-		font-style: normal;
-		font-weight: 400;
 		font-size: 12px;
 		margin-left: 5px;
 	}
@@ -2277,11 +2340,6 @@ canvas {
 	}
 
 	.left-post .name {
-		color: rgb(0, 0, 0);
-		text-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
-		font-family: Pridi;
-		font-style: normal;
-		font-weight: 400;
 		font-size: 13px;
 		margin-left: 5px;
 	}

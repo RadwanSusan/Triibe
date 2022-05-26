@@ -77,7 +77,7 @@ if (mysqli_num_rows($result1) > 0) {
         <div class="card-inside-top">
           <img class="PublicChoice" src="Design/Image/home-images/images/ball2.svg" alt="" style="display:inline-block;">
           <img class="FriendChoice" src="Design/Image/home-images/images/friends_Post.svg" alt="" style="display:none;">
-          <img src="Design/Image/home-images/images/card-down.svg" alt="">
+          <img class="choiceDropDown" src="Design/Image/home-images/images/card-down.svg" alt="">
         </div>
       </div>
       <div class="right-top-card">
@@ -328,7 +328,7 @@ if (mysqli_num_rows($result1) > 0) {
             <label class="uploadLabel" for="tagfriend">
               <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
             </label>
-            <div class="form-popup arrow-div animate__animated animate__fadeIn animate__faster" id="myForm">
+            <div class="form-popup arrow-div animate__animated animate__fadeIn animate__faster" id="myForm" style="display: none;">
               <form action="" class="form-container">
                 <h1 class="tagH1">Tag someone</h1>
                 <button type="button" class="btn cancel">Close</button>
@@ -483,9 +483,9 @@ if (mysqli_num_rows($result1) > 0) {
           <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
           <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />
         </li>
-         <li class="more-list">
-            <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more2.svg" alt="settingIcon" />
-          </li>
+        <li class="more-list">
+          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more2.svg" alt="settingIcon" />
+        </li>
       </ul>
       <div class="nav-user-icon online">
         <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" alt="" /></a>
@@ -1477,7 +1477,7 @@ if (mysqli_num_rows($result1) > 0) {
           <span> Saved posts</span>
         </a>
         <a href="Friends.php">
-          <img class="savedPosts-Light" src="Design/Image/home-images/images/friend.svg" alt="" />
+          <img class="savedPosts-Light" src="Design/Image/home-images/images/Groups.svg" alt="" />
           <span> Friends</span>
         </a>
         <a href="market.php">
