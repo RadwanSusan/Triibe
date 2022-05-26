@@ -7,8 +7,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 
 ::selection {
-	background-color: #747474;
-	color: white;
+	background-color: #82828229;
+	color: tomato;
 }
 
 ::-ms-reveal {
@@ -798,7 +798,7 @@ body {
 	font-family: "Pridi";
 	font-style: normal;
 	font-weight: 400;
-	color: #fff;
+	color: #d0d0d0;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
