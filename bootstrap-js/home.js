@@ -71,10 +71,10 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".regIcon-Dark").style.display = "none";
 });
 document.querySelector(".themeLight").addEventListener("click", () => {
-	document.cookie = "theme=light";
+	document.cookie = "theme=light; SameSite=None; Secure";
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
-	document.cookie = "theme=dark";
+	document.cookie = "theme=dark; SameSite=None; Secure";
 });
 if (document.cookie.includes("theme=light")) {
 	document.querySelector(".themeLight").click();

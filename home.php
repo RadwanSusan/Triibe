@@ -1,6 +1,10 @@
 <?php
 include_once "connection.php";
 session_start();
+$themeStyleSheet = 'light-home.css';
+if ($_COOKIE['theme'] == 'light') {
+  $themeStyleSheet = 'dark-home.css';
+}
 $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس امك", "قحبة", "شرموطة", "منيك", "شرمط"];
 $sql1 = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
 $result1 = mysqli_query($conn, $sql1);
@@ -42,7 +46,7 @@ if (mysqli_num_rows($result1) > 0) {
   <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
-  <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
+  <link id="theme" rel="stylesheet" href="bootstrap-css/<?php echo $themeStyleSheet ?>" />
   <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
   <script type="text/javascript">
     function alert(message) {
