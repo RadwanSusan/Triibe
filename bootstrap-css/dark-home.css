@@ -1131,12 +1131,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	background: rgb(248, 248, 248);
+	background: #3c3c3c;
 	border-radius: 9px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: rgb(185, 185, 185);
+	background: #efc8a3;
 	border-radius: 50px;
 }
 
