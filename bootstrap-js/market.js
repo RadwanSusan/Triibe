@@ -29,4 +29,12 @@ $(document).ready(function() {
   document.querySelector(".exitCard").addEventListener("click", function() {
     document.querySelector(".post-card").style.display = "none";
   });
+  document.querySelector(".yourProduct").addEventListener("click", function() {
+    document.cookie = "yourProduct = 1 "; 
+    window.location.href="market.php";
+  });
+  document.querySelector(".browseAll").addEventListener("click", function() {
+    document.cookie = "yourProduct = 2 "; 
+    window.location.href="market.php";
+  });
 });

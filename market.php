@@ -116,43 +116,43 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
         }
       }
       if ($usingBadWords == false) {
-      $file = $_FILES['file'];
-      $fileName = $_FILES['file']['name'];
-      $fileTmpName = $_FILES['file']['tmp_name'];
-      $fileSize = $_FILES['file']['size'];
-      $fileError = $_FILES['file']['error'];
-      $fileExt = explode('.', $fileName);
-      $fileActualExt = strtolower(end($fileExt));
-      $ext = $fileActualExt;
-      $content = $_POST['content'];
-      $price = $_POST['price'];
-      $phone = $_POST['phone'];
-      $date = date("Y-m-d H:i:s", time());
-      if($price != ""){
-        if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
-          if ($fileError === 0) {
-            if ($fileSize < 100000000) {
-              $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-              $fileDestination = 'db_images/' . $fileNameNew;
-              move_uploaded_file($fileTmpName, $fileDestination);
-              $sql = "INSERT INTO market_post (content,created_date, author , img_name , price, phone_number) VALUES ('$content','$date','" . $_SESSION["std_id"] . "','$fileDestination','$price','$phone')";
-              mysqli_query($conn, $sql);
+        $file = $_FILES['file'];
+        $fileName = $_FILES['file']['name'];
+        $fileTmpName = $_FILES['file']['tmp_name'];
+        $fileSize = $_FILES['file']['size'];
+        $fileError = $_FILES['file']['error'];
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+        $ext = $fileActualExt;
+        $content = $_POST['content'];
+        $price = $_POST['price'];
+        $phone = $_POST['phone'];
+        $date = date("Y-m-d H:i:s", time());
+        if ($price != "") {
+          if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
+            if ($fileError === 0) {
+              if ($fileSize < 100000000) {
+                $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                $fileDestination = 'db_images/' . $fileNameNew;
+                move_uploaded_file($fileTmpName, $fileDestination);
+                $sql = "INSERT INTO market_post (content,created_date, author , img_name , price, phone_number) VALUES ('$content','$date','" . $_SESSION["std_id"] . "','$fileDestination','$price','$phone')";
+                mysqli_query($conn, $sql);
+              } else {
+                echo "<script>alert('Your file is too big!')</script>";
+              }
             } else {
-              echo "<script>alert('Your file is too big!')</script>";
+              echo "<script>alert('There was an error uploading your file!')</script>";
             }
           } else {
-            echo "<script>alert('There was an error uploading your file!')</script>";
+            echo "<script>alert('please insert a new image')</script>";
           }
+        } else {
+          echo "<script>alert('Please insert price')</script>";
+        }
       } else {
-        echo "<script>alert('please insert a new image')</script>";
+        echo "<script>alert('لا تسب')</script>";
       }
-    }else{
-      echo "<script>alert('Please insert price')</script>";
     }
-  } else {
-    echo "<script>alert('لا تسب')</script>";
-  }
-}
     ?>
     <form method="POST" enctype="multipart/form-data">
       <div class="mid-card">
@@ -193,7 +193,7 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
         </div>
         <div class="bio bio1">
           <img src="Design/image market/browse.svg" alt="">
-          <div class="name1 name3">Browse all</div>
+          <div class="name1 name3 browseAll">Browse all</div>
         </div>
         <div class="bio bio3">
           <img src="Design/image market/notification.svg" alt="">
@@ -205,7 +205,7 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
         </div>
         <div class="bio bio5">
           <img src="Design/image market/buying.svg" alt="">
-          <div class="name1">Buying</div>
+          <div class="name1 yourProduct">your Product</div>
         </div>
         <div class="bio bio2">
           <img src="Design/image market/selling.svg" alt="">
@@ -223,53 +223,59 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
         <div class="all-Ele">
           <div class="all-Ele-top">
             <?php
-            $sql = "SELECT * FROM market_post order by created_date desc";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_array($result)) {
-              $sql2 = "SELECT * FROM student where std_id = '" . $row["author"] . "'";
-              $result2 = mysqli_query($conn, $sql2);
-              $row2 = mysqli_fetch_array($result2);
-              $imgid = $row2["img_id"];
-              $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-              $resultimg = mysqli_query($conn, $sqlimg);
-              $rowimg = mysqli_fetch_assoc($resultimg);
-              if (isset($rowimg["img_name"])) {
-                $userImage = $rowimg["img_name"];
-              } else {
-                if ($row2["gender"] == 1) {
-                  $userImage = "Design\Image\LogoPic0.jpg";
+            if (isset($_COOKIE["yourProduct"]) == false) {
+              $yourProduct = 2;
+            } else {
+              $yourProduct = $_COOKIE["yourProduct"];
+            }
+            if ($yourProduct == 2) {
+              $sql = "SELECT * FROM market_post order by created_date desc";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_array($result)) {
+                $sql2 = "SELECT * FROM student where std_id = '" . $row["author"] . "'";
+                $result2 = mysqli_query($conn, $sql2);
+                $row2 = mysqli_fetch_array($result2);
+                $imgid = $row2["img_id"];
+                $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                $resultimg = mysqli_query($conn, $sqlimg);
+                $rowimg = mysqli_fetch_assoc($resultimg);
+                if (isset($rowimg["img_name"])) {
+                  $userImage = $rowimg["img_name"];
                 } else {
-                  $userImage = "Design\Image\LogoPic1.jpg";
-                }
-              }
-              $imgPost = $row["img_name"];
-              $now = new DateTime();
-              $post = new DateTime($row["created_date"]);
-              $diff = $now->diff($post);
-              $diff->format("%a");
-              $diffday = $diff->format("%a");
-              $diffhour = $diff->format("%h");
-              $diffminute = $diff->format("%i");
-              $diffsecond = $diff->format("%s");
-              $diffdaystr = (string)$diffday;
-              $diffhourstr = (string)$diffhour;
-              $diffminutestr = (string)$diffminute;
-              $diffsecondstr = (string)$diffsecond;
-              $difftime = $diffsecondstr . "second ago";
-              if ($diffdaystr == "0") {
-                if ($diffhourstr == "0") {
-                  if ($diffminutestr == "0") {
-                    $difftime = $diffsecondstr . "s ago";
+                  if ($row2["gender"] == 1) {
+                    $userImage = "Design\Image\LogoPic0.jpg";
                   } else {
-                    $difftime = $diffminutestr . "m ago";
+                    $userImage = "Design\Image\LogoPic1.jpg";
+                  }
+                }
+                $imgPost = $row["img_name"];
+                $now = new DateTime();
+                $post = new DateTime($row["created_date"]);
+                $diff = $now->diff($post);
+                $diff->format("%a");
+                $diffday = $diff->format("%a");
+                $diffhour = $diff->format("%h");
+                $diffminute = $diff->format("%i");
+                $diffsecond = $diff->format("%s");
+                $diffdaystr = (string)$diffday;
+                $diffhourstr = (string)$diffhour;
+                $diffminutestr = (string)$diffminute;
+                $diffsecondstr = (string)$diffsecond;
+                $difftime = $diffsecondstr . "second ago";
+                if ($diffdaystr == "0") {
+                  if ($diffhourstr == "0") {
+                    if ($diffminutestr == "0") {
+                      $difftime = $diffsecondstr . "s ago";
+                    } else {
+                      $difftime = $diffminutestr . "m ago";
+                    }
+                  } else {
+                    $difftime = $diffhourstr . "h ago";
                   }
                 } else {
-                  $difftime = $diffhourstr . "h ago";
+                  $difftime = $diffdaystr . "d ago";
                 }
-              } else {
-                $difftime = $diffdaystr . "d ago";
-              }
-              echo " <div class='img1-card1'>
+                echo " <div class='img1-card1'>
               <div class='img1'>
                 <img src='$imgPost' alt='img'>
               </div>
@@ -295,6 +301,81 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
                 </div>
               </div>
             </div>";
+              }
+            } else {
+              $sql = "SELECT * FROM market_post WHERE author =" . $_SESSION["std_id"] . " order by created_date desc";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_array($result)) {
+                $sql2 = "SELECT * FROM student where std_id = '" . $row["author"] . "'";
+                $result2 = mysqli_query($conn, $sql2);
+                $row2 = mysqli_fetch_array($result2);
+                $imgid = $row2["img_id"];
+                $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                $resultimg = mysqli_query($conn, $sqlimg);
+                $rowimg = mysqli_fetch_assoc($resultimg);
+                if (isset($rowimg["img_name"])) {
+                  $userImage = $rowimg["img_name"];
+                } else {
+                  if ($row2["gender"] == 1) {
+                    $userImage = "Design\Image\LogoPic0.jpg";
+                  } else {
+                    $userImage = "Design\Image\LogoPic1.jpg";
+                  }
+                }
+                $imgPost = $row["img_name"];
+                $now = new DateTime();
+                $post = new DateTime($row["created_date"]);
+                $diff = $now->diff($post);
+                $diff->format("%a");
+                $diffday = $diff->format("%a");
+                $diffhour = $diff->format("%h");
+                $diffminute = $diff->format("%i");
+                $diffsecond = $diff->format("%s");
+                $diffdaystr = (string)$diffday;
+                $diffhourstr = (string)$diffhour;
+                $diffminutestr = (string)$diffminute;
+                $diffsecondstr = (string)$diffsecond;
+                $difftime = $diffsecondstr . "second ago";
+                if ($diffdaystr == "0") {
+                  if ($diffhourstr == "0") {
+                    if ($diffminutestr == "0") {
+                      $difftime = $diffsecondstr . "s ago";
+                    } else {
+                      $difftime = $diffminutestr . "m ago";
+                    }
+                  } else {
+                    $difftime = $diffhourstr . "h ago";
+                  }
+                } else {
+                  $difftime = $diffdaystr . "d ago";
+                }
+                echo " <div class='img1-card1'>
+              <div class='img1'>
+                <img src='$imgPost' alt='img'>
+              </div>
+              <div class='card1'>
+                <div class='left-post'>
+                  <div class='top'>
+                    <a class='name-photo' href='friendpage.php?account_id=" . $row2["account_id"] . "'>
+                      <img src='" . $userImage . "'>
+                      <div class='name'>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</div>
+                    </a>
+                    <div class='inside-top'>
+                      $difftime
+                      <img src='Design/Image/home-images/images/ball.svg'>
+                    </div>
+                  </div>
+                </div>
+                <div class='mid'>
+                  <p>" . $row["content"] . "</p>
+                </div>
+                <div class='bottom'>
+                  <div class='price'>" . $row["price"] . "</div>
+                  <div class='contact' data-MPID='" . $row["market_post_id"] . "' >Contact</div>
+                </div>
+              </div>
+            </div>";
+              }
             }
             ?>
 
