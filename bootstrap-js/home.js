@@ -139,6 +139,9 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".map").addEventListener("click", () => {
+		window.location.href = "map.php";
+	});
 	document.querySelector(".Logout").addEventListener("click", () => {
 		confirm("Are you sure you want to Logout?", () => {
 			$.ajax({
