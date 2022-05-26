@@ -2,8 +2,10 @@
 include_once "connection.php";
 session_start();
 $themeStyleSheet = 'light-home.css';
-if ($_COOKIE['theme'] == 'light') {
-  $themeStyleSheet = 'dark-home.css';
+if(isset($_COOKIE['theme'])){
+  if ($_COOKIE['theme'] == 'light') {
+    $themeStyleSheet = 'dark-home.css';
+  }
 }
 $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس امك", "قحبة", "شرموطة", "منيك", "شرمط"];
 $sql1 = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
