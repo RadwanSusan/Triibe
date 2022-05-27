@@ -2,7 +2,7 @@
 include_once "connection.php";
 session_start();
 $themeStyleSheet = 'light-home.css';
-if(isset($_COOKIE['theme'])){
+if (isset($_COOKIE['theme'])) {
   if ($_COOKIE['theme'] == 'light') {
     $themeStyleSheet = 'dark-home.css';
   }
@@ -50,6 +50,7 @@ if (mysqli_num_rows($result1) > 0) {
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
   <link id="theme" rel="stylesheet" href="bootstrap-css/<?php echo $themeStyleSheet ?>" />
   <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js" integrity="sha512-dQIiHSl2hr3NWKKLycPndtpbh5iaHLo6MwrXm7F0FM5e+kL2U16oE9uIwPHUl6fQBeCthiEuV/rzP3MiAB8Vfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript">
     function alert(message) {
       alertify.defaults.glossary.title = 'My Title';
@@ -65,6 +66,21 @@ if (mysqli_num_rows($result1) > 0) {
 
 <body>
   <div id="particles-js"></div>
+  <div class="storyUploadBox" style="display: none;">
+    <h1>Upload A Story</h1>
+    <p>Upload from webcam</p>
+    <p>Upload image From A file</p>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file" id="file" />
+      <input type="submit" name="UploadStoryImage" value="submit" />
+    </form>
+    <p>Upload video From A file</p>
+    <p>(Max Length is 1min)</p>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file2" id="file2" />
+      <input type="submit" name="UploadStoryVideo" value="submit" />
+    </form>
+  </div>
   <div class="commentBox">
     <p class="commentHeader">Comments</p>
     <div class="commentList">
@@ -568,26 +584,28 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">
         <div class="story">
-          <img src="Design/Image/home-images/images/upload.png" alt="">
+          <img class="UploadStory" src="Design/Image/home-images/images/upload.png" alt="">
           <p>
             <?php
             echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"];
             ?>
           </p>
         </div>
-        <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_assoc($result)) {
-            $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-            $result1 = mysqli_query($conn, $sql1);
-            if (mysqli_num_rows($result1) > 0) {
-              while ($row1 = mysqli_fetch_assoc($result1)) {
-                echo "<div class='story'><img src='Design/Image/home-images/images/upload.png'><p>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</p></div>";
-              }
-            }
-          }
-        } ?>
+        <?php
+        // $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+        // $result = mysqli_query($conn, $sql);
+        // if (mysqli_num_rows($result) > 0) {
+        //   while ($row = mysqli_fetch_assoc($result)) {
+        //     $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
+        //     $result1 = mysqli_query($conn, $sql1);
+        //     if (mysqli_num_rows($result1) > 0) {
+        //       while ($row1 = mysqli_fetch_assoc($result1)) {
+        //         echo "<div class='story'><img src='Design/Image/home-images/images/upload.png'><p>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</p></div>";
+        //       }
+        //     }
+        //   }
+        // }
+        ?>
       </div>
       <div class="write-post-container">
         <div class="user-profile">
@@ -1517,6 +1535,13 @@ if (mysqli_num_rows($result1) > 0) {
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
   </div>
+  <!-- <div class="modalStorie">
+    <span class="close">&times;</span>
+    <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
+    <video width='300px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+      <source src='" . $row3["video_name"] . "' type='video/mp4'>
+    </video>
+  </div> -->
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>

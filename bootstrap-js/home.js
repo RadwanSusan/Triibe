@@ -139,6 +139,12 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".UploadStory").addEventListener("click", () => {
+		document.querySelector(".storyUploadBox").style.display =
+			document.querySelector(".storyUploadBox").style.display == "none"
+				? "block"
+				: "none";
+	});
 	document.querySelector(".map").addEventListener("click", () => {
 		window.location.href = "map.php";
 	});

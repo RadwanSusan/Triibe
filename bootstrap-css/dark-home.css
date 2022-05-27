@@ -2526,3 +2526,18 @@ canvas {
 	justify-content: center;
 	font-size: 15px;
 }
+
+.storyUploadBox {
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 500;
+	width: 400px;
+	height: 700px;
+	background-color: #5e5e5e;
+	color: white;
+	border-radius: 8px;
+}
