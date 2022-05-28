@@ -327,9 +327,11 @@ if (isset($_POST['editPost'])) {
 		if ($editContent != "") {
 			$sql = "UPDATE post SET content = '$editContent' WHERE post_id = '$post_id' AND author = '$author_id'";
 			$result = mysqli_query($conn, $sql);
+			echo "success";
 		} else {
 			echo "<script>alert('Please Enter Content');</script>";
 		}
-	} else
+	} else{
 		echo "<script>alert('You are not the author of this post');</script>";
+	}
 }

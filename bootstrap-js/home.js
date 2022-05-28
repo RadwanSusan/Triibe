@@ -161,7 +161,6 @@ $(document).ready(function () {
 		});
 		const EditBtn = element.parentElement.children[1].children[1];
 		EditBtn.addEventListener("click", (e) => {
-			e.preventDefault();
 			const editContent = document.querySelector(".edit-text").value;
 			const post_id = EditBtn.getAttribute("data-post_id");
 			const author_id = EditBtn.getAttribute("data-author_id");
@@ -174,7 +173,11 @@ $(document).ready(function () {
 					post_id,
 					author_id,
 				},
-				success: (data) => {},
+				success: (data) => {
+					if (data === "success") {
+						location.reload();
+					}
+				},
 			});
 		});
 	});
