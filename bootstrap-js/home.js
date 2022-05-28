@@ -161,26 +161,24 @@ $(document).ready(function () {
 		});
 		const EditBtn = element.parentElement.children[1];
 		const EditTextArea = element.parentElement.children[0];
-		EditBtn.forEach((element) => {
-			element.addEventListener("click", (e) => {
-				console.log(element);
-				e.preventDefault();
-				const editContent = document.querySelector(".edit-text").value;
-				console.log(editContent);
-				const post_id = EditBtn.getAttribute("data-post_id");
-				const author_id = EditBtn.getAttribute("data-author_id");
-				console.log(post_id);
-				console.log(author_id);
-				$.ajax({
-					url: "backBone.php",
-					method: "POST",
-					data: {
-						editContent: editContent,
-						post_id: post_id,
-						author_id: author_id,
-						editPost: 1,
-					},
-				});
+		EditBtn.addEventListener("click", (e) => {
+			console.log(element);
+			e.preventDefault();
+			const editContent = document.querySelector(".edit-text").value;
+			console.log(editContent);
+			const post_id = EditBtn.getAttribute("data-post_id");
+			const author_id = EditBtn.getAttribute("data-author_id");
+			console.log(post_id);
+			console.log(author_id);
+			$.ajax({
+				url: "backBone.php",
+				method: "POST",
+				data: {
+					editContent: editContent,
+					post_id: post_id,
+					author_id: author_id,
+					editPost: 1,
+				},
 			});
 		});
 	});
