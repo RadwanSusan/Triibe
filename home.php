@@ -774,9 +774,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
-                                  <div class='modifyPost'>
+                                  <div class='modifyPost' style='display:none;'>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
-                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'>Edit</button>
+                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
                                   <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
@@ -830,9 +830,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
-                                  <div class='modifyPost'>
+                                  <div class='modifyPost' style='display:none;'>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
-                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'>Edit</button>
+                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
                                   <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
@@ -1159,9 +1159,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
-                                  <div class='modifyPost'>
+                                  <div class='modifyPost' style='display:none;'>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
-                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'>Edit</button>
+                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
                                   <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
@@ -1215,9 +1215,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
-                                  <div class='modifyPost'>
+                                  <div class='modifyPost' style='display:none;'>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
-                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'>Edit</button>
+                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
                                   <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
@@ -1271,9 +1271,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <button type='button' class='btn cancel1'>Close</button>
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
-                                  <div class='modifyPost'>
+                                  <div class='modifyPost' style='display:none;'>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
-                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'>Edit</button>
+                                  <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
                                   <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>

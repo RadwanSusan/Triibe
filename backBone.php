@@ -319,17 +319,17 @@ if (isset($_POST['notificationsClear'])) {
 	$sql = "UPDATE friends_request SET status = 1 WHERE receiver = '" . $_SESSION['std_id'] . "'";
 	$result = mysqli_query($conn, $sql);
 }
-if(isset($_POST['editPost'])){
+if (isset($_POST['editPost'])) {
 	$editContent = $_POST['editContent'];
 	$post_id = $_POST['post_id'];
 	$author_id = $_POST['author_id'];
-	if($author_id == $_SESSION['std_id']){
-		if($editContent != ""){
-		$sql = "UPDATE post SET content = '$editContent' WHERE post_id = '$post_id' AND author_id = '$author_id'";
-		$result = mysqli_query($conn, $sql);
-		}else{
+	if ($author_id == $_SESSION['std_id']) {
+		if ($editContent != "") {
+			$sql = "UPDATE post SET content = '$editContent' WHERE post_id = '$post_id' AND author = '$author_id'";
+			$result = mysqli_query($conn, $sql);
+		} else {
 			echo "<script>alert('Please Enter Content');</script>";
 		}
-	}else
+	} else
 		echo "<script>alert('You are not the author of this post');</script>";
 }
