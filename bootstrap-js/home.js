@@ -145,6 +145,46 @@ $(document).ready(function () {
 				? "block"
 				: "none";
 	});
+	const modify = document.querySelectorAll(".modify");
+	modify.forEach((element) => {
+		element.addEventListener("click", () => {
+			const formElement = element.parentElement.children[1];
+			formElement.style.display =
+				formElement.style.display == "none" ? "block" : "none";
+		});
+	});
+	document.querySelectorAll(".edit").forEach((element) => {
+		element.addEventListener("click", () => {
+			const EditPostBox = element.parentElement.children[1];
+			EditPostBox.style.display =
+				EditPostBox.style.display == "none" ? "block" : "none";
+		});
+		const EditBtn = element.parentElement.children[1];
+		const EditTextArea = element.parentElement.children[0];
+		EditBtn.forEach((element) => {
+			element.addEventListener("click", (e) => {
+				console.log(element);
+				e.preventDefault();
+				const editContent = document.querySelector(".edit-text").value;
+				console.log(editContent);
+				const post_id = EditBtn.getAttribute("data-post_id");
+				const author_id = EditBtn.getAttribute("data-author_id");
+				console.log(post_id);
+				console.log(author_id);
+				$.ajax({
+					url: "backBone.php",
+					method: "POST",
+					data: {
+						editContent: editContent,
+						post_id: post_id,
+						author_id: author_id,
+						editPost: 1,
+					},
+				});
+			});
+		});
+	});
+
 	document.querySelector(".map").addEventListener("click", () => {
 		window.location.href = "map.php";
 	});
@@ -765,14 +805,6 @@ document.querySelector(".tagIcon").addEventListener("click", () => {
 	} else {
 		document.getElementById("myForm").style.display = "none";
 	}
-});
-const modify = document.querySelectorAll(".modify");
-modify.forEach((element) => {
-	element.addEventListener("click", () => {
-		const formElement = element.parentElement.children[1];
-		formElement.style.display =
-			formElement.style.display == "none" ? "block" : "none";
-	});
 });
 const cancel = document.querySelectorAll(".cancel1");
 cancel.forEach((element) => {
