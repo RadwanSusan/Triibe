@@ -86,7 +86,15 @@ session_start();
                }
             }
             $_SESSION["friends"] = $rowfriends;
-            header("location: home.php");
+            if($row["account_type"]==1){
+               header("location: home.php");
+            }
+            else if($row["account_type"]==2){
+               header("location: home.php");
+            }
+            else {
+               header("location: admin.php");
+            }
          } else {
             echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>';
          }
