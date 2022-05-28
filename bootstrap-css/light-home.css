@@ -2186,14 +2186,8 @@ canvas {
     margin-left: -98px;
     height: 308px;
   }
-  
+}
 
-  @media (max-width: 910px) {
-   {
-    display: block;
-    width: 300px;
-    margin-left: -98px
-  }
 @media (max-width: 910px) {
   .search-box {
     width: 45px;
@@ -2303,6 +2297,7 @@ canvas {
   .box img {
     display: none;
   }
+}
 
   @media (max-width: 684px) {
   .logoLight {
