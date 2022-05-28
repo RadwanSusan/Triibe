@@ -1,21 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 10:20 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: May 28, 2022 at 02:41 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `triibe`
@@ -28,6 +22,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `student` (
+  `account_type` int(1) NOT NULL DEFAULT 1,
   `std_id` bigint(12) NOT NULL,
   `std_pass` varchar(30) NOT NULL,
   `std_fname` varchar(15) NOT NULL,
@@ -47,12 +42,13 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `College_Year`, `email`, `status`, `created_date`, `account_id`, `img_id`) VALUES
-(120180612100, '0799317489', 'omar', 'thaer', 'maan', 'IT', 1, 4, '120180612100@st.ahu.edu.jo', 0, '2022-03-28', 251986197, 1),
-(120180612114, '56789', 'zaid', 'mohammad', 'maan', 'IT', 1, 4, '120180612114@st.ahu.edu.jo', 0, '2022-03-28', 945532290, 2),
-(120180612122, '12345', 'radwan', 'susan', 'maan', 'IT', 1, 5, '120180612122@st.ahu.edu.jo', 0, '2022-03-28', 547594119, 3),
-(120180612999, '12345', 'samer', 'khaled', '', '', 1, 4, '120180612999@st.ahu.edu.jo', 0, '2022-04-01', 697723097, NULL),
-(120201408061, '123456789', 'amer', 'hindawi', '', '', 1, 4, '120201408061@st.ahu.edu.jo', 0, '2022-04-05', 949058306, NULL);
+INSERT INTO `student` (`account_type`, `std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `collage`, `gender`, `College_Year`, `email`, `status`, `created_date`, `account_id`, `img_id`) VALUES
+(1, 120180612100, '0799317489', 'omar', 'thaer', 'maan', 'IT', 1, 4, '120180612100@st.ahu.edu.jo', 1, '2022-03-28', 251986197, 59),
+(3, 120180612114, '56789', 'zaid', 'mohammad', 'maan', 'IT', 1, 4, '120180612114@st.ahu.edu.jo', 1, '2022-03-28', 945532290, 74),
+(1, 120180612122, 'Blackbox@007', 'Radwan', 'Susan', '', '', 1, 4, '120180612122@st.ahu.edu.jo', 1, '2022-05-04', 882342624, 72),
+(1, 120180612999, '12345', 'samer', 'khaled', '', '', 1, 4, '120180612999@st.ahu.edu.jo', 0, '2022-04-01', 697723097, NULL),
+(1, 120201408061, '123456789', 'amer', 'hindawi', '', '', 1, 4, '120201408061@st.ahu.edu.jo', 0, '2022-04-05', 949058306, NULL),
+(1, 999999999999, 'AdminBox@007', 'Triibe', 'Team', '', '', 1, 1, '999999999999@st.ahu.edu.jo', 0, '2022-05-04', 528706628, NULL);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +60,3 @@ INSERT INTO `student` (`std_id`, `std_pass`, `std_fname`, `std_lname`, `loc`, `c
 ALTER TABLE `student`
   ADD PRIMARY KEY (`std_id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
