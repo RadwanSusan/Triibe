@@ -200,7 +200,7 @@ if (isset($_POST['getcomment'])) {
 	$author = $_POST['author'];
 	$sql = "SELECT * FROM comment WHERE post_id = '$post_id' order by created_date";
 	$result = mysqli_query($conn, $sql);
-	$count = mysqli_num_rows($result);
+	$count = mysqli_num_rows($result); 
 	if ($count > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			$sql = "SELECT * FROM student WHERE std_id = '" . $row["post_std_id"] . "'";
