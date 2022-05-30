@@ -1636,13 +1636,13 @@ if (mysqli_num_rows($result1) > 0) {
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
   </div>
-  <!-- <div class="modalStorie">
+  <div class="modalStory">
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
     <video width='300px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
       <source src='" . $row3["video_name"] . "' type='video/mp4'>
     </video>
-  </div> -->
+  </div>
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>

@@ -560,15 +560,17 @@ body {
   border-radius: 50%;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
 }
-.story-vid{
+
+.story-vid {
   position: relative;
   top: -50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  object-fit:cover;  /* This is the mainly problematic line*/
-  overflow:hidden;
-  width:100%;
-  height:100%;
+  object-fit: cover;
+  /* This is the mainly problematic line*/
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .story-gallery {
@@ -1363,6 +1365,19 @@ body {
 }
 
 .modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modalStory {
   display: none;
   position: fixed;
   z-index: 1001;
