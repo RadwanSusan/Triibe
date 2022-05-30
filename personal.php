@@ -424,7 +424,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
                 echo $countfriend . " Friends";
                 echo '</div>';
               }
-
               ?>
             </div>
           </div>
