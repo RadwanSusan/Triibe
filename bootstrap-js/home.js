@@ -145,6 +145,13 @@ $(document).ready(function () {
 				? "block"
 				: "none";
 	});
+	const story = document.querySelectorAll(".story");
+	story.forEach((ele) => {
+		ele.addEventListener("click", () => {
+			const author_id = ele.getAttribute("data-AthStory");
+			window.location.href = "story.php?author_id=" + author_id;
+		});
+	});
 	const modify = document.querySelectorAll(".modify");
 	modify.forEach((element) => {
 		element.addEventListener("click", () => {

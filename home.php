@@ -646,7 +646,7 @@ if (mysqli_num_rows($result1) > 0) {
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
-            $sql1 = "SELECT * FROM story WHERE author = '" . $row["friend_id"] . "' order by author ";
+            $sql1 = "SELECT * FROM story WHERE author = '" . $row["friend_id"] . "' GROUP by author order by author ";
             $result1 = mysqli_query($conn, $sql1);
             if (mysqli_num_rows($result1) > 0) {
               while ($row1 = mysqli_fetch_assoc($result1)) {
@@ -668,9 +668,9 @@ if (mysqli_num_rows($result1) > 0) {
                       }
                     }
                     if (isset($row1["img_name"])) {
-                      echo "<div class='story' style ='background-image:url(" . $row1['img_name'] . ")'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
+                      echo "<div class='story' style ='background-image:url(" . $row1['img_name'] . ")' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
                     } else {
-                      echo "<div class='story'><img src='$imgname'>
+                      echo "<div class='story' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'>
                 <video class='story-vid'>
                 <source src='" . $row1['video_name'] . "'>
                 </video>
