@@ -66,18 +66,68 @@ if (mysqli_num_rows($result1) > 0) {
 
 <body>
   <div id="particles-js"></div>
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["UploadStoryImage"])) {
+    $file = $_FILES['fileimg'];
+    $fileName = $_FILES['fileimg']['name'];
+    $fileTmpName = $_FILES['fileimg']['tmp_name'];
+    $fileSize = $_FILES['fileimg']['size'];
+    $fileError = $_FILES['fileimg']['error'];
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    $ext = $fileActualExt;
+    if ($fileError === 0) {
+      if ($fileSize < 100000000) {
+        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+        $fileDestination = 'db_images/' . $fileNameNew;
+        $date = date("h:i:s");
+        $sqlimg = "INSERT INTO story (author,created_date,img_name) VALUES ('" . $_SESSION["std_id"] . "','$date','" . $fileDestination . "')";
+        mysqli_query($conn, $sqlimg);
+        move_uploaded_file($fileTmpName, $fileDestination);
+      } else {
+        echo "<script>alert('Your file is too big!')</script>";
+      }
+    } else {
+      echo "<script>alert('There was an error uploading your file!')</script>";
+    }
+  }
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["UploadStoryVideo"])) {
+    $file = $_FILES['filevid'];
+    $fileName = $_FILES['filevid']['name'];
+    $fileTmpName = $_FILES['filevid']['tmp_name'];
+    $fileSize = $_FILES['filevid']['size'];
+    $fileError = $_FILES['filevid']['error'];
+    $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    $ext = $fileActualExt;
+    if ($fileError === 0) {
+      if ($fileSize < 100000000) {
+        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+        $fileDestination = 'db_images/' . $fileNameNew;
+        $date = date("h:i:s");
+        $sqlimg = "INSERT INTO story (author,created_date,video_name) VALUES ('" . $_SESSION["std_id"] . "','$date','" . $fileDestination . "')";
+        mysqli_query($conn, $sqlimg);
+        move_uploaded_file($fileTmpName, $fileDestination);
+      } else {
+        echo "<script>alert('Your file is too big!')</script>";
+      }
+    } else {
+      echo "<script>alert('There was an error uploading your file!')</script>";
+    }
+  }
+  ?>
   <div class="storyUploadBox" style="display: none;">
     <h1>Upload A Story</h1>
     <p>Upload from webcam</p>
     <p>Upload image From A file</p>
     <form method="post" enctype="multipart/form-data">
-      <input type="file" name="file" id="file" />
+      <input type="file" name="fileimg" id="file" accept=".jpg,.png,.gif,jpeg" />
       <input type="submit" name="UploadStoryImage" value="submit" />
     </form>
     <p>Upload video From A file</p>
     <p>(Max Length is 1min)</p>
     <form method="post" enctype="multipart/form-data">
-      <input type="file" name="file2" id="file2" />
+      <input type="file" name="filevid" id="file2" accept=".mp4,.mkv" />
       <input type="submit" name="UploadStoryVideo" value="submit" />
     </form>
   </div>
@@ -110,7 +160,7 @@ if (mysqli_num_rows($result1) > 0) {
     $img_id = null;
     $video_id = null;
     $fileId = null;
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["post"])) {
       $content = explode(" ", $_POST["content"]);
       $usingBadWords = false;
       foreach ($content as $word) {
@@ -592,19 +642,46 @@ if (mysqli_num_rows($result1) > 0) {
           </p>
         </div>
         <?php
-        // $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
-        // $result = mysqli_query($conn, $sql);
-        // if (mysqli_num_rows($result) > 0) {
-        //   while ($row = mysqli_fetch_assoc($result)) {
-        //     $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-        //     $result1 = mysqli_query($conn, $sql1);
-        //     if (mysqli_num_rows($result1) > 0) {
-        //       while ($row1 = mysqli_fetch_assoc($result1)) {
-        //         echo "<div class='story'><img src='Design/Image/home-images/images/upload.png'><p>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</p></div>";
-        //       }
-        //     }
-        //   }
-        // }
+        $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $sql1 = "SELECT * FROM story WHERE author = '" . $row["friend_id"] . "' order by author ";
+            $result1 = mysqli_query($conn, $sql1);
+            if (mysqli_num_rows($result1) > 0) {
+              while ($row1 = mysqli_fetch_assoc($result1)) {
+                $sql2 = "SELECT * FROM student WHERE std_id = '" . $row1["author"] . "'";
+                $result2 = mysqli_query($conn, $sql2);
+                if (mysqli_num_rows($result2) > 0) {
+                  while ($row2 = mysqli_fetch_assoc($result2)) {
+                    $imgid = $row2["img_id"];
+                    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                    $resultimg = mysqli_query($conn, $sqlimg);
+                    $rowimg = mysqli_fetch_assoc($resultimg);
+                    if (isset($rowimg["img_name"])) {
+                      $imgname = $rowimg["img_name"];
+                    } else {
+                      if ($row2["gender"] == 1) {
+                        $imgname = "Design\Image\LogoPic0.jpg";
+                      } else {
+                        $imgname = "Design\Image\LogoPic1.jpg";
+                      }
+                    }
+                    if (isset($row1["img_name"])) {
+                      echo "<div class='story' style ='background-image:url(" . $row1['img_name'] . ")'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
+                    } else {
+                      echo "<div class='story'><img src='$imgname'>
+                <video class='story-vid'>
+                <source src='" . $row1['video_name'] . "'>
+                </video>
+                <p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         ?>
       </div>
       <div class="write-post-container">
