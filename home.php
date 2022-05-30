@@ -668,9 +668,9 @@ if (mysqli_num_rows($result1) > 0) {
                       }
                     }
                     if (isset($row1["img_name"])) {
-                      echo "<div class='story' style ='background-image:url(" . $row1['img_name'] . ")' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
+                      echo "<div class='story storyF' style ='background-image:url(" . $row1['img_name'] . ")' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
                     } else {
-                      echo "<div class='story' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'>
+                      echo "<div class='story storyF' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'>
                 <video class='story-vid'>
                 <source src='" . $row1['video_name'] . "'>
                 </video>

@@ -20,34 +20,52 @@ session_start();
    <main>
 
       <div id="carousel">
-
-         <div class="hideLeft">
-            <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
-         </div>
-
-         <div class="prevLeftSecond">
-            <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
-         </div>
-
-         <div class="prev">
-            <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-         </div>
-
-         <div class="selected">
-            <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-         </div>
-
-         <div class="next">
-            <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-         </div>
-
-         <div class="nextRightSecond">
-            <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-         </div>
-
-         <div class="hideRight">
-            <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
-         </div>
+         <?php
+         $sql1 = "SELECT * FROM story WHERE author = '" . $_GET["author_id"] . "'";
+         $result1 = mysqli_query($conn, $sql1);
+         if (mysqli_num_rows($result1) > 0) {
+            while ($row1 = mysqli_fetch_assoc($result1)) {
+               $sql2 = "SELECT * FROM student WHERE std_id = '" . $row1["author"] . "'";
+               $result2 = mysqli_query($conn, $sql2);
+               if (mysqli_num_rows($result2) > 0) {
+                  while ($row2 = mysqli_fetch_assoc($result2)) {
+                     $imgid = $row2["img_id"];
+                     $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                     $resultimg = mysqli_query($conn, $sqlimg);
+                     $rowimg = mysqli_fetch_assoc($resultimg);
+                     if (isset($rowimg["img_name"])) {
+                        $imgname = $rowimg["img_name"];
+                     } else {
+                        if ($row2["gender"] == 1) {
+                           $imgname = "Design\Image\LogoPic0.jpg";
+                        } else {
+                           $imgname = "Design\Image\LogoPic1.jpg";
+                        }
+                     }
+                     if (mysqli_num_rows($result2) == 1) {
+                        if (isset($row2["video_name"])) {
+                           echo "<div class='selected'>
+                           <video width='600px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+                           <source src='" . $row1["video_name"] . "' type='video/mp4'>
+                         </video>
+                     </div>";
+                        }
+                     } else if (isset($row1["img_name"])) {
+                        echo "<div class='selected'>
+                    <img src='" . $row1["img_name"] . "'>
+                 </div>";
+                     } else {
+                        echo "<div class='next'>
+                   <video width='600px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+                     <source src='" . $row1["video_name"] . "' type='video/mp4'>
+                   </video>
+                </div>";
+                     }
+                  }
+               }
+            }
+         }
+         ?>
 
       </div>
 

@@ -145,43 +145,6 @@ $(document).ready(function () {
 				? "block"
 				: "none";
 	});
-	const modalStory = document.querySelector(".modal-story");
-	const modalContent = document.querySelector(".modal-content");
-	const videoElement = document.querySelector(".videoElement");
-	const vidSource = document.querySelector(".vidSource");
-	img.forEach((element) => {
-		element.addEventListener("click", () => {
-			modal.style.display = "block";
-			modalImg.src = element.src;
-			document.body.style.overflow = "hidden";
-			if (element.height >= 800) {
-				modalImg.style.maxWidth = "370px";
-			} else if (element.height >= 700 && element.height < 800) {
-				modalImg.style.maxWidth = "500px";
-			} else if (element.height >= 400 && element.height < 700) {
-				modalImg.style.maxWidth = "670px";
-			} else if (element.height >= 300 && element.height < 400) {
-				modalImg.style.maxWidth = "770px";
-			} else if (element.height >= 200 && element.height < 300) {
-				modalImg.style.maxWidth = "1200px";
-			} else {
-				modalImg.style.maxWidth = "1400px";
-			}
-		});
-	});
-	const story = document.querySelectorAll(".story");
-	story.forEach((ele) => {
-		ele.addEventListener("click", () => {
-			const author_id = ele.getAttribute("data-AthStory");
-			$.ajax({
-				url: `backBone.php`,
-				type: "POST",
-				data: {
-					GetStory : 1,
-					author_id,
-				},
-		});
-	});
 	const modify = document.querySelectorAll(".modify");
 	modify.forEach((element) => {
 		element.addEventListener("click", () => {
@@ -805,6 +768,31 @@ const closeBtn = document.querySelector(".close");
 img.forEach((element) => {
 	element.addEventListener("click", () => {
 		modal.style.display = "block";
+		modalImg.src = element.src;
+		document.body.style.overflow = "hidden";
+		if (element.height >= 800) {
+			modalImg.style.maxWidth = "370px";
+		} else if (element.height >= 700 && element.height < 800) {
+			modalImg.style.maxWidth = "500px";
+		} else if (element.height >= 400 && element.height < 700) {
+			modalImg.style.maxWidth = "670px";
+		} else if (element.height >= 300 && element.height < 400) {
+			modalImg.style.maxWidth = "770px";
+		} else if (element.height >= 200 && element.height < 300) {
+			modalImg.style.maxWidth = "1200px";
+		} else {
+			modalImg.style.maxWidth = "1400px";
+		}
+	});
+});
+const modalStory = document.querySelector(".modalStory");
+const Story = document.querySelectorAll(".story");
+const modalContent = document.querySelector(".modal-content");
+const videoElement = document.querySelector(".videoElement");
+const vidSource = document.querySelector(".vidSource");
+Story.forEach((element) => {
+	element.addEventListener("click", () => {
+		modalStory.style.display = "block";
 		modalImg.src = element.src;
 		document.body.style.overflow = "hidden";
 		if (element.height >= 800) {

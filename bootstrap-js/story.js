@@ -24,7 +24,6 @@ function moveToSelected(element) {
 	$(prevSecond).prevAll().removeClass().addClass("hideLeft");
 }
 
-// Eventos teclado
 $(document).keydown(function (e) {
 	switch (e.which) {
 		case 37: // left
