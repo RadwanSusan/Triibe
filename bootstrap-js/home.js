@@ -803,10 +803,7 @@ story.forEach((element) => {
 			},
 			success(response) {
 				const stories = JSON.parse(response);
-				while (i != -1) {
-					if (i >= stories.length) {
-						i = -1;
-					}
+				
 					if (
 						stories[i].img_name != null ||
 						stories[i].img_name != undefined ||
@@ -828,29 +825,16 @@ story.forEach((element) => {
 						} else {
 							modalContent.style.maxWidth = "1400px";
 						}
-						i++;
-					} else {
-						modalStory.style.display = "block";
-						videoElement.style.display = "block";
-						console.log(stories[i].video_name);
-						vidSource.src = stories[i].video_name;
-						vidSource.play();
-						document.body.style.overflow = "hidden";
-						if (element.height >= 800) {
-							modalContent.style.maxWidth = "370px";
-						} else if (element.height >= 700 && element.height < 800) {
-							modalContent.style.maxWidth = "500px";
-						} else if (element.height >= 400 && element.height < 700) {
-							modalContent.style.maxWidth = "670px";
-						} else if (element.height >= 300 && element.height < 400) {
-							modalContent.style.maxWidth = "770px";
-						} else if (element.height >= 200 && element.height < 300) {
-							modalContent.style.maxWidth = "1200px";
-						} else {
-							modalContent.style.maxWidth = "1400px";
-						}
-					}
-				}
+						document.querySelector(".next_story").addEventListener("click", () => {
+							if(i >= stories.length) {
+							i = 0;
+							}
+							i++;
+						});
+						document.querySelector(".prev_story").addEventListener("click", () => {
+							i--;
+						});
+					} 
 			},
 		});
 	});
