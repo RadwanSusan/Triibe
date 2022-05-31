@@ -804,7 +804,7 @@ story.forEach((element) => {
 			},
 			success(response) {
 				const stories = JSON.parse(response);
-				while(i != 0) {
+				while(i !=-1) {
 					if(i>=stories.length) { i = 0;}
 					if(stories[i].img_name != null || stories[i].img_name != undefined || stories[i].img_name != "")	{
 						modalStory.style.display = "block";
