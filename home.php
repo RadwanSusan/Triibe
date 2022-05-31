@@ -668,9 +668,9 @@ if (mysqli_num_rows($result1) > 0) {
                       }
                     }
                     if (isset($row1["img_name"])) {
-                      echo "<div class='story storyF' style ='background-image:url(" . $row1['img_name'] . ")' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
+                      echo "<div class='story storyF' style ='background-image:url(" . $row1['img_name'] . ")' data-AthStory='" . $row["friend_id"] . "'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
                     } else {
-                      echo "<div class='story storyF' data-AthStory='".$row["friend_id"] ."'><img src='$imgname'>
+                      echo "<div class='story storyF' data-AthStory='" . $row["friend_id"] . "'><img src='$imgname'>
                 <video class='story-vid'>
                 <source src='" . $row1['video_name'] . "'>
                 </video>
@@ -1637,11 +1637,11 @@ if (mysqli_num_rows($result1) > 0) {
     <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
   </div>
   <div class="modalStory">
-    <span class="close">&times;</span>
-    <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
-    <video class="videoElement" width='300px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+    <span class="close2">&times;</span>
+    <img class="modal-content2 slide-in-elliptic-top-fwd" id="img01">
+    <!-- <video class="videoElement" width='300px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
       <source class="vidSource" src='" . $row3["video_name"] . "' type='video/mp4'>
-    </video>
+    </video> -->
   </div>
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>

@@ -1411,6 +1411,15 @@ body {
 	box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
 }
 
+.modal-content2 {
+	margin: auto;
+	display: block;
+	width: 70%;
+	max-width: 700px;
+	max-height: fit-content;
+	box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
+}
+
 .slide-in-elliptic-top-fwd {
 	-webkit-animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -1433,8 +1442,29 @@ body {
 	cursor: pointer;
 }
 
+.close2 {
+	position: fixed;
+	top: 15px;
+	left: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close2:hover,
+.close2:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
 @media only screen and (max-width: 700px) {
 	.modal-content {
+		width: 100%;
+	}
+
+	.modal-content2 {
 		width: 100%;
 	}
 }
