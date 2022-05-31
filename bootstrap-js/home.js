@@ -785,29 +785,44 @@ img.forEach((element) => {
 		}
 	});
 });
-const modalStory = document.querySelector(".modalStory");
-const Story = document.querySelectorAll(".story");
-const modalContent = document.querySelector(".modal-content");
-const videoElement = document.querySelector(".videoElement");
-const vidSource = document.querySelector(".vidSource");
-Story.forEach((element) => {
+
+const story = document.querySelectorAll(".story");
+story.forEach((element) => {
 	element.addEventListener("click", () => {
-		modalStory.style.display = "block";
-		modalImg.src = element.src;
-		document.body.style.overflow = "hidden";
-		if (element.height >= 800) {
-			modalImg.style.maxWidth = "370px";
+		const author_id = element.getAttribute("data-AthStory");
+		$.ajax({
+			url: "backBone.php",
+			type: "post",	
+			data: {
+				getStory: 1,
+				author_id,
+			},
+			success(response) {
+				 const stories = JSON.parse(response);
+				console.table(stories);
+				console.log(stories[0]["author"]);
+				const modalStory = document.querySelector(".modalStory");
+        const modalContent = document.querySelector(".modal-content");
+        const videoElement = document.querySelector(".videoElement");
+        const vidSource = document.querySelector(".vidSource");
+		    modalStory.style.display = "block";
+		    modalContent.src = stories[1]["img_name"];
+		    document.body.style.overflow = "hidden";
+		    if (element.height >= 800) {
+			   modalContent.style.maxWidth = "370px";
 		} else if (element.height >= 700 && element.height < 800) {
-			modalImg.style.maxWidth = "500px";
+			modalContent.style.maxWidth = "500px";
 		} else if (element.height >= 400 && element.height < 700) {
-			modalImg.style.maxWidth = "670px";
+			modalContent.style.maxWidth = "670px";
 		} else if (element.height >= 300 && element.height < 400) {
-			modalImg.style.maxWidth = "770px";
+			modalContent.style.maxWidth = "770px";
 		} else if (element.height >= 200 && element.height < 300) {
-			modalImg.style.maxWidth = "1200px";
+			modalContent.style.maxWidth = "1200px";
 		} else {
-			modalImg.style.maxWidth = "1400px";
+			modalContent.style.maxWidth = "1400px";
 		}
+			},
+		});
 	});
 });
 

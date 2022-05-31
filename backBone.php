@@ -200,7 +200,7 @@ if (isset($_POST['getcomment'])) {
 	$author = $_POST['author'];
 	$sql = "SELECT * FROM comment WHERE post_id = '$post_id' order by created_date";
 	$result = mysqli_query($conn, $sql);
-	$count = mysqli_num_rows($result); 
+	$count = mysqli_num_rows($result);
 	if ($count > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			$sql = "SELECT * FROM student WHERE std_id = '" . $row["post_std_id"] . "'";
@@ -331,7 +331,41 @@ if (isset($_POST['editPost'])) {
 		} else {
 			echo "<script>alert('Please Enter Content');</script>";
 		}
-	} else{
+	} else {
 		echo "<script>alert('You are not the author of this post');</script>";
 	}
+}
+if (isset($_POST["getStory"])) {
+	$author_id = $_POST['author_id'];
+	$storyArray = array();
+	$sql = "SELECT * FROM story WHERE author = '$author_id'";
+	$result = mysqli_query($conn, $sql);
+	while ($row = mysqli_fetch_assoc($result)) {
+		array_push($storyArray, $row);
+	}
+	echo json_encode($storyArray);
+
+
+
+
+
+	// $sql1 = "SELECT * FROM story WHERE author = '" . $row["friend_id"] . "' GROUP by author order by author ";
+	// $result1 = mysqli_query($conn, $sql1);
+	// if (mysqli_num_rows($result1) > 0) {
+	// 	while ($row1 = mysqli_fetch_assoc($result1)) {
+	// 		$sql2 = "SELECT * FROM student WHERE std_id = '" . $row1["author"] . "'";
+	// 		$result2 = mysqli_query($conn, $sql2);
+	// 		if (mysqli_num_rows($result2) > 0) {
+	// 			while ($row2 = mysqli_fetch_assoc($result2)) {
+	// 				$imgid = $row2["img_id"];
+	// 				$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+	// 				$resultimg = mysqli_query($conn, $sqlimg);
+	// 				$rowimg = mysqli_fetch_assoc($resultimg);
+	// 				if (isset($rowimg["img_name"])) {
+	// 					$imgname = $rowimg["img_name"];
+	// 				}
+	// 			} 
+	// 		}
+	// 	}
+	// }
 }
