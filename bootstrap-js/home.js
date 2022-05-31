@@ -800,7 +800,7 @@ story.forEach((element) => {
 			success(response) {
 				 const stories = JSON.parse(response);
 				console.table(stories);
-				console.log(stories[0]["author"]);
+				console.log(stories[1]["img_name"]);
 				const modalStory = document.querySelector(".modalStory");
         const modalContent = document.querySelector(".modal-content");
         const videoElement = document.querySelector(".videoElement");
