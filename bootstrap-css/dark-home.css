@@ -69,6 +69,7 @@ body {
 .box::after {
 	content: "";
 	position: absolute;
+	border-radius: 20px;
 	width: 2px;
 	height: 39px;
 	right: -22px;
