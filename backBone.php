@@ -343,32 +343,16 @@ if (isset($_POST["getStory"])) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		array_push($storyArray, $row);
 	}
+  $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND friend_id != $author_id";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while ($row1 = mysqli_fetch_assoc($result)) {
+	$sql1 = "SELECT * FROM story WHERE author = '" . $row1["friend_id"] . "' order by author ";
+	$result1 = mysqli_query($conn, $sql1);
+	while ($row2 = mysqli_fetch_assoc($result)) {
+			array_push($storyArray, $row2);
+		}
+	}
+}
 	echo json_encode($storyArray);
-
-
-
-	// $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND user_id != $author_id";
-	// $result = mysqli_query($conn, $sql);
-	// if (mysqli_num_rows($result) > 0) {
-	// 	while ($row = mysqli_fetch_assoc($result)) {
-	// $sql1 = "SELECT * FROM story WHERE author = '" . $row["friend_id"] . "' GROUP by author order by author ";
-	// $result1 = mysqli_query($conn, $sql1);
-	// if (mysqli_num_rows($result1) > 0) {
-	// 	while ($row1 = mysqli_fetch_assoc($result1)) {
-	// 		$sql2 = "SELECT * FROM student WHERE std_id = '" . $row1["author"] . "'";
-	// 		$result2 = mysqli_query($conn, $sql2);
-	// 		if (mysqli_num_rows($result2) > 0) {
-	// 			while ($row2 = mysqli_fetch_assoc($result2)) {
-	// 				$imgid = $row2["img_id"];
-	// 				$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-	// 				$resultimg = mysqli_query($conn, $sqlimg);
-	// 				$rowimg = mysqli_fetch_assoc($resultimg);
-	// 				if (isset($rowimg["img_name"])) {
-	// 					$imgname = $rowimg["img_name"];
-	// 				}
-	// 			} 
-	// 		}
-	// 	}
-	// }
-  //}
 }

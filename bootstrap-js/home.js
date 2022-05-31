@@ -803,7 +803,8 @@ story.forEach((element) => {
 			},
 			success(response) {
 				const stories = JSON.parse(response);
-
+				console.log(stories);
+				console.table(stories);
 				if (
 					stories[i].img_name != null ||
 					stories[i].img_name != undefined ||
@@ -813,12 +814,14 @@ story.forEach((element) => {
 					document
 						.querySelector(".next_story")
 						.addEventListener("click", () => {
-							modalContent.src = stories[i++].img_name;
+							modalContent.src = stories[++i].img_name;
 						});
 					document
 						.querySelector(".prev_story")
 						.addEventListener("click", () => {
-							modalContent.src = stories[i--].img_name;
+							if(i >= 0){
+							modalContent.src = stories[--i].img_name;
+						}
 						});
 					modalContent.src = stories[i].img_name;
 					document.body.style.overflow = "hidden";
@@ -835,19 +838,6 @@ story.forEach((element) => {
 					} else {
 						modalContent.style.maxWidth = "1400px";
 					}
-					document
-						.querySelector(".next_story")
-						.addEventListener("click", () => {
-							if (i >= stories.length) {
-								i = 0;
-							}
-							i++;
-						});
-					document
-						.querySelector(".prev_story")
-						.addEventListener("click", () => {
-							i--;
-						});
 				}
 			},
 		});
