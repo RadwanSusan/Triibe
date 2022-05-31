@@ -805,7 +805,7 @@ story.forEach((element) => {
 			success(response) {
 				const stories = JSON.parse(response);
 				while(i !=-1) {
-					if(i>=stories.length) { i = 0;}
+					if(i>=stories.length) { i = -1;}
 					if(stories[i].img_name != null || stories[i].img_name != undefined || stories[i].img_name != "")	{
 						modalStory.style.display = "block";
 				modalContent.src = stories[i].img_name;
@@ -823,6 +823,7 @@ story.forEach((element) => {
 				} else {
 					modalContent.style.maxWidth = "1400px";
 				}
+				i++;
 					}	else {
 						modalStory.style.display = "block";
 						videoElement.style.display = "block";
