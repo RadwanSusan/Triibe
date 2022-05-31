@@ -791,10 +791,10 @@ const modalStory = document.querySelector(".modalStory");
 const modalContent = document.querySelector(".modal-content2");
 const videoElement = document.querySelector(".videoElement");
 const vidSource = document.querySelector(".vidSource");
-let i = 0;
 story.forEach((element) => {
 	element.addEventListener("click", () => {
 		const author_id = element.getAttribute("data-AthStory");
+		let i = 0;
 		$.ajax({
 			url: "backBone.php",
 			type: "post",
