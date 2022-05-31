@@ -347,8 +347,10 @@ if (isset($_POST["getStory"])) {
 
 
 
-
-
+	// $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND user_id != $author_id";
+	// $result = mysqli_query($conn, $sql);
+	// if (mysqli_num_rows($result) > 0) {
+	// 	while ($row = mysqli_fetch_assoc($result)) {
 	// $sql1 = "SELECT * FROM story WHERE author = '" . $row["friend_id"] . "' GROUP by author order by author ";
 	// $result1 = mysqli_query($conn, $sql1);
 	// if (mysqli_num_rows($result1) > 0) {
@@ -368,4 +370,5 @@ if (isset($_POST["getStory"])) {
 	// 		}
 	// 	}
 	// }
+  //}
 }
