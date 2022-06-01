@@ -1061,3 +1061,11 @@ Element.prototype.hasClass = function (className) {
 		new RegExp(`(^|\\s)${className}(\\s|$)`).test(this.className)
 	);
 };
+
+document.querySelector(".show_Likes").addEventListener("click", () => {
+	if (document.querySelector(".show_Likes_Box").style.display == "none") {
+		document.querySelector(".show_Likes_Box").style.display = "flex";
+	} else {
+		document.querySelector(".show_Likes_Box").style.display = "none";
+	}
+});

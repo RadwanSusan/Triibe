@@ -1668,6 +1668,7 @@ if (mysqli_num_rows($result1) > 0) {
       <source class="vidSource" type='video/mp4'>
     </video>
   </div>
+  <div class="show_Likes_Box" style="display: none;"></div>
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>
