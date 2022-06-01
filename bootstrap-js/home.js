@@ -749,6 +749,15 @@ $(document).ready(function () {
 		setEndOfContenteditable(textarea);
 	});
 });
+setInterval(()=>{
+	$.ajax({
+		url: "backBone.php",
+		type: "post",
+		data: {
+			checkStrory: 1,
+		}
+	});
+},10000);
 document
 	.querySelector("div[contenteditable]")
 	.addEventListener("paste", function (e) {

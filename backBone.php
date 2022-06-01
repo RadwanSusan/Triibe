@@ -356,3 +356,41 @@ if (isset($_POST["getStory"])) {
 }
 	echo json_encode($storyArray);
 }
+if (isset($_POST['checkStrory'])){
+	$sql = "SELECT * FROM story ";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = mysqli_fetch_assoc($result)){
+			$now = new DateTime();
+			$post = new DateTime($row["created_date"]);
+			$diff = $now->diff($post);
+			$diff->format("%a");
+			$diffday = $diff->format("%a");
+			$diffhour = $diff->format("%h");
+			$diffminute = $diff->format("%i");
+			$diffsecond = $diff->format("%s");
+			$diffdaystr = (string)$diffday;
+			$diffhourstr = (string)$diffhour;
+			$diffminutestr = (string)$diffminute;
+			$diffsecondstr = (string)$diffsecond;
+			$difftime = $diffsecondstr . "second ago";
+			if ($diffdaystr == "0") {
+				if ($diffhourstr == "0") {
+					if ($diffminutestr == "0") {
+						$difftime = $diffsecondstr ;
+					} else {
+						$difftime = $diffminutestr ;
+					}
+				} else {
+					$difftime = $diffhourstr ;
+				}
+			} else {
+				$difftime = $diffdaystr ;
+			}
+			if ($difftime == $diffdaystr ) {
+				$sql1 = "DELETE FROM story WHERE story_id = '" . $row["story_id"] . "'";
+				$result1 = mysqli_query($conn, $sql1);
+			} 
+		}
+	}
+}
