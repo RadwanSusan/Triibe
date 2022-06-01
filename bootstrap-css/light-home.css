@@ -612,6 +612,10 @@ body {
   max-height: 80px;
 }
 
+.story:first-child {
+  cursor: auto;
+}
+
 .story img {
   position: absolute;
   width: 45px;

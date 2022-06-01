@@ -405,11 +405,21 @@ $(document).ready(function () {
 		document.cookie = "postBtn=2";
 	});
 	if (document.cookie.includes("postBtn=1")) {
-		document.querySelector(".post-public").style.backgroundColor = "#efc8a3";
-		document.querySelector(".post-friend").style.backgroundColor = "#626364";
+		if (document.cookie.includes("theme=dark")) {
+			document.querySelector(".post-public").style.backgroundColor = "#fff";
+			document.querySelector(".post-friend").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-public").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-friend").style.backgroundColor = "#626364";
+		}
 	} else {
-		document.querySelector(".post-public").style.backgroundColor = "#626364";
-		document.querySelector(".post-friend").style.backgroundColor = "#efc8a3";
+		if (document.cookie.includes("theme=dark")) {
+			document.querySelector(".post-friend").style.backgroundColor = "#fff";
+			document.querySelector(".post-public").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-friend").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-public").style.backgroundColor = "#626364";
+		}
 	}
 	document.querySelectorAll(".save").forEach((element) => {
 		element.addEventListener("click", () => {
