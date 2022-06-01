@@ -53,9 +53,9 @@ session_start();
             $sqlfriends = "SELECT * FROM friends WHERE user_id = '$student_number'";
             $resultfriends = mysqli_query($conn, $sqlfriends);
             $rowfriends = mysqli_fetch_assoc($resultfriends);
-            $sqlcover="SELECT img_name FROM profile_info WHERE std_id = '$student_number'";
-            $resultcover=mysqli_query($conn,$sqlcover);
-            $rowcover=mysqli_fetch_assoc($resultcover);
+            $sqlcover = "SELECT img_name FROM profile_info WHERE std_id = '$student_number'";
+            $resultcover = mysqli_query($conn, $sqlcover);
+            $rowcover = mysqli_fetch_assoc($resultcover);
             $_SESSION["std_id"] = $row["std_id"];
             $_SESSION["std_fname"] = $row["std_fname"];
             $_SESSION["std_lname"] = $row["std_lname"];
@@ -86,13 +86,11 @@ session_start();
                }
             }
             $_SESSION["friends"] = $rowfriends;
-            if($row["account_type"]==1){
+            if ($row["account_type"] == 1) {
                header("location: home.php");
-            }
-            else if($row["account_type"]==2){
+            } else if ($row["account_type"] == 2) {
                header("location: home.php");
-            }
-            else {
+            } else {
                header("location: admin.php");
             }
          } else {
@@ -106,7 +104,6 @@ session_start();
             <img class="closedEye" src="Design/Image/Password-ClosedEye.svg" alt="eye" />
             <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />
             <button type="submit" href="" class="loginBtn hvr-underline-from-center">Log In</button>
-            <a href="" class="forget">Forgotten password?</a>
             <div class="sign-up">
                <a href="newaccount.php" class="sign-up-btn hvr-underline-from-center">Create New Account</a>
             </div>

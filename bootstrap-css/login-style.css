@@ -62,12 +62,14 @@ body {
   align-content: center;
   align-items: center;
 }
+
 @media (max-width: 950px) {
   .box h1 {
-	  font-size: 75px;
+    font-size: 75px;
   }
+
   .box img {
-	  width: 73px;
+    width: 73px;
   }
 }
 
@@ -76,6 +78,7 @@ body {
   align-items: flex-start;
   user-select: none;
 }
+
 .left2 {
   width: 600px;
   align-items: flex-start;
@@ -151,12 +154,10 @@ body {
 
 .form1 {
   width: 400px;
-  height: 400px;
-  background: linear-gradient(
-    180deg,
-    rgba(220, 220, 220, 0.56) 0.01%,
-    rgba(255, 255, 255, 0) 102.36%
-  );
+  height: 350px;
+  background: linear-gradient(180deg,
+      rgba(220, 220, 220, 0.56) 0.01%,
+      rgba(255, 255, 255, 0) 102.36%);
   border-radius: 10px;
   display: flex;
   padding: 20px;
@@ -304,11 +305,9 @@ body {
   width: 600px;
   position: relative;
   top: 0px;
-  background: linear-gradient(
-    180.01deg,
-    rgba(166, 166, 166, 0.26) 0.01%,
-    rgba(255, 255, 255, 0) 102.36%
-  );
+  background: linear-gradient(180.01deg,
+      rgba(166, 166, 166, 0.26) 0.01%,
+      rgba(255, 255, 255, 0) 102.36%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
@@ -427,9 +426,9 @@ span.gender {
   transition: all 0.3s ease;
 }
 
-#dot-1:checked ~ .category .one,
-#dot-2:checked ~ .category .two,
-#dot-3:checked ~ .category .three {
+#dot-1:checked~.category .one,
+#dot-2:checked~.category .two,
+#dot-3:checked~.category .three {
   border-color: #d9d9d9;
   background: #0f0d10;
 }
@@ -731,26 +730,26 @@ body::-webkit-scrollbar {
   z-index: 1000;
 }
 
-.parallax > use {
+.parallax>use {
   animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
-.parallax > use:nth-child(1) {
+.parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
 
-.parallax > use:nth-child(2) {
+.parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
 
-.parallax > use:nth-child(3) {
+.parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
 
-.parallax > use:nth-child(4) {
+.parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
