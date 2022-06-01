@@ -1062,10 +1062,11 @@ Element.prototype.hasClass = function (className) {
 	);
 };
 
-document.querySelector(".show_Likes").addEventListener("click", () => {
-	if (document.querySelector(".show_Likes_Box").style.display == "none") {
-		document.querySelector(".show_Likes_Box").style.display = "flex";
-	} else {
-		document.querySelector(".show_Likes_Box").style.display = "none";
-	}
+document.querySelectorAll(".show_Likes").forEach((element) => {
+	element.addEventListener("click", () => {
+		document.querySelector(".show_Likes_Box").style.display =
+			document.querySelector(".show_Likes_Box").style.display == "none"
+				? "flex"
+				: "none";
+	});
 });
