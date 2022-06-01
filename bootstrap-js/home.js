@@ -757,7 +757,7 @@ setInterval(()=>{
 			checkStrory: 1,
 		}
 	});
-},10000);
+},500000000);
 document
 	.querySelector("div[contenteditable]")
 	.addEventListener("paste", function (e) {
