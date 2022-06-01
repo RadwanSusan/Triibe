@@ -519,6 +519,7 @@ body {
   height: 1px;
   background: #000000;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .group-page2 a {
@@ -624,6 +625,7 @@ body {
   top: 10px;
   left: 10px;
   border-radius: 5px solid #626262;
+  cursor: pointer;
 }
 
 .story p {
