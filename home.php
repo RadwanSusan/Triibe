@@ -477,6 +477,9 @@ if (mysqli_num_rows($result1) > 0) {
         </li>
         <div class="settings" style="display: none;">
           <p>Settings</p>
+          <div class="forget-pass">
+            <p>Change password</p>
+          </div>
           <div class="Logout">
             <p>Logout</p>
           </div>

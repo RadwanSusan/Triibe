@@ -2517,14 +2517,40 @@ canvas {
 	justify-content: center;
 	align-items: center;
 }
+.forget-pass {
+	display: flex;
+	width: 95%;
+	height: 50px;
+	background-color: #0d1218;
+	border-radius: 8px;
+	font-family: "Pridi";
+	font-size: 16px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: none;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	padding: auto;
+	justify-content: center;
+	align-items: center;
+}
 
 .Logout:hover {
 	background-color: #151c24;
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 }
+.forget-pass:hover {
+	background-color: #151c24;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
 
 .Logout p {
+	margin: 0;
+	color: #fff;
+}
+.forget-pass p {
 	margin: 0;
 	color: #fff;
 }

@@ -326,6 +326,8 @@ $(document).ready(function () {
 			});
 		});
 	});
+	document.querySelector(".forget-pass").addEventListener("click", () => {
+	});
 	document.querySelector(".formIdLabel1").addEventListener("click", () => {
 		document.querySelector(".FriendChoice").style.display = "none";
 		document.querySelector(".PublicChoice").style.display = "inline-block";

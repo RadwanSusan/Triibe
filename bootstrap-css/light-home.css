@@ -2574,6 +2574,23 @@ canvas {
   align-items: center;
   border: none;
 }
+.forget-pass {
+  display: flex;
+  width: 95%;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
 
 .story :hover {
   opacity: 75%;
@@ -2584,8 +2601,16 @@ canvas {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
+.forget-pass:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 
 .Logout p {
+  margin: 0;
+}
+.forget-pass p {
   margin: 0;
 }
 
