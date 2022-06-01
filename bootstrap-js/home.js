@@ -287,26 +287,26 @@ $(document).ready(function () {
 				success(data) {
 					const comment = JSON.parse(data);
 					console.table(comment);
-					for(let i = 0; i < comment.length; i++) {
-							const commentContent = document.createElement("div");
-							commentContent.classList.add("commentContent");
-							const commentParagraph = document.createElement("p");
-							commentParagraph.classList.add("commentParagraph");
-							commentParagraph.innerHTML = comment[i][0] + " " + comment[0][1];
-							const commentImg = document.createElement("img");
-							commentImg.classList.add("commentImg");
-							commentImg.src = comment[i][2];
-							const commentContent2= document.createElement("p");
-							commentContent2.classList.add("commentContent2");
-							commentContent2.innerHTML = comment[i][3];
-							const commentDate = document.createElement("p");
-							commentDate.classList.add("commentDate");
-							commentDate.innerHTML = comment[i][4];
-							commentContent.appendChild(commentParagraph);
-							commentContent.appendChild(commentImg);
-							commentContent.appendChild(commentContent2);
-							commentContent.appendChild(commentDate);
-							document.querySelector(".commentBox").appendChild(commentContent);
+					for (let i = 0; i < comment.length; i++) {
+						const commentContent = document.createElement("div");
+						commentContent.classList.add("commentContent");
+						const commentParagraph = document.createElement("p");
+						commentParagraph.classList.add("commentParagraph");
+						commentParagraph.innerHTML = comment[i][0] + " " + comment[0][1];
+						const commentImg = document.createElement("img");
+						commentImg.classList.add("commentImg");
+						commentImg.src = comment[i][2];
+						const commentContent2 = document.createElement("p");
+						commentContent2.classList.add("commentContent2");
+						commentContent2.innerHTML = comment[i][3];
+						const commentDate = document.createElement("p");
+						commentDate.classList.add("commentDate");
+						commentDate.innerHTML = comment[i][4];
+						commentContent.appendChild(commentParagraph);
+						commentContent.appendChild(commentImg);
+						commentContent.appendChild(commentContent2);
+						commentContent.appendChild(commentDate);
+						document.querySelector(".commentBox").appendChild(commentContent);
 					}
 				},
 			});
@@ -327,6 +327,7 @@ $(document).ready(function () {
 		});
 	});
 	document.querySelector(".forget-pass").addEventListener("click", () => {
+		window.location.href = "changePassword.php";
 	});
 	document.querySelector(".formIdLabel1").addEventListener("click", () => {
 		document.querySelector(".FriendChoice").style.display = "none";
@@ -751,15 +752,15 @@ $(document).ready(function () {
 		setEndOfContenteditable(textarea);
 	});
 });
-setInterval(()=>{
+setInterval(() => {
 	$.ajax({
 		url: "backBone.php",
 		type: "post",
 		data: {
 			checkStrory: 1,
-		}
+		},
 	});
-},500000000);
+}, 500000000);
 document
 	.querySelector("div[contenteditable]")
 	.addEventListener("paste", function (e) {
@@ -866,14 +867,14 @@ story.forEach((element) => {
 					type: "post",
 					data: {
 						getStoryInfo: 1,
-					personStoryId: stories[i].author,
+						personStoryId: stories[i].author,
 					},
 					success(response) {
 						const storyInfo = JSON.parse(response);
 						storyName.textContent = storyInfo[0] + " " + storyInfo[1];
 						storyTime.textContent = stories[i].created_date;
 						storyImg.src = storyInfo[2];
-					}
+					},
 				});
 				if (
 					stories[i].img_name != null ||
@@ -897,7 +898,7 @@ story.forEach((element) => {
 									storyName.textContent = storyInfo[0] + " " + storyInfo[1];
 									storyTime.textContent = stories[i].created_date;
 									storyImg.src = storyInfo[2];
-								}
+								},
 							});
 						});
 					document
@@ -910,14 +911,14 @@ story.forEach((element) => {
 									type: "post",
 									data: {
 										getStoryInfo: 1,
-									personStoryId: stories[i].author,
+										personStoryId: stories[i].author,
 									},
 									success(response) {
 										const storyInfo = JSON.parse(response);
 										storyName.textContent = storyInfo[0] + " " + storyInfo[1];
 										storyTime.textContent = stories[i].created_date;
 										storyImg.src = storyInfo[2];
-									}
+									},
 								});
 							}
 						});
