@@ -195,14 +195,6 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
           <img src="Design/image market/browse.svg" alt="">
           <div class="name1 name3 browseAll">Browse all</div>
         </div>
-        <div class="bio bio3">
-          <img src="Design/image market/notification.svg" alt="">
-          <div class="name1">Notifiactions</div>
-        </div>
-        <div class="bio bio4">
-          <img src="Design/image market/inbox.svg" alt="">
-          <div class="name1">Inbox</div>
-        </div>
         <div class="bio bio5">
           <img src="Design/image market/buying.svg" alt="">
           <div class="name1 yourProduct">your Product</div>

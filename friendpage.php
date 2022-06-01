@@ -181,20 +181,20 @@ if (isset($rowcover["img_name"])) {
           echo ' <div class="left-post">
           <h1>Bio</h1>
           <div class="title-bio">
-            <div class="name"><?php echo $rowinfo["discerption"] ?></div>
+            <div class="name">'. $rowinfo["discerption"].'</div>
             <img src="Design/Image/home-images/images/bio-title.svg" alt="">
           </div>
           <div class="bio">
             <img src="Design/Image/home-images/images/bio1.svg" alt="">
-            <div class="name name2"><?php echo $rowinfo["uni"] ?></div>
+            <div class="name name2">'.$rowinfo["uni"] .'</div>
           </div>
           <div class="bio">
             <img src="Design/Image/home-images/images/bio2.svg" alt="">
-            <div class="name">Lives in <?php echo $rowinfo["lives_in"] ?></div>
+            <div class="name">Lives in '. $rowinfo["lives_in"] .'</div>
           </div>
           <div class="bio">
             <img src="Design/Image/home-images/images/bio3.png" alt="">
-            <div class="name">From <?php echo $rowinfo["fromto"] ?></div>
+            <div class="name">From '.$rowinfo["fromto"] .'</div>
           </div>';
 
           if (!isset($rowinfo['instagram']) || $rowinfo['instagram'] == "") {

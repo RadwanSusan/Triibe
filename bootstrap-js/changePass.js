@@ -8,7 +8,6 @@ $(".unmask").on("click", function () {
 $(".password").on("keyup", function () {
 	var p_c = $("#p-c");
 	var p = $("#p");
-	console.log(p.val() + p_c.val());
 	if (p.val().length > 0) {
 		if (p.val() != p_c.val()) {
 			$("#valid").html("Passwords Don't Match");
