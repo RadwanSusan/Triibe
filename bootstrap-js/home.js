@@ -39,6 +39,23 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 	document.querySelector(".infoIcon-Light").style.display = "none";
 	document.querySelector(".regIcon-Dark").style.display = "block";
 	document.querySelector(".regIcon-Light").style.display = "none";
+	if (document.cookie.includes("postBtn=1")) {
+		if (document.cookie.includes("theme=light")) {
+			document.querySelector(".post-public").style.backgroundColor = "#fff";
+			document.querySelector(".post-friend").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-public").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-friend").style.backgroundColor = "#626364";
+		}
+	} else {
+		if (document.cookie.includes("theme=light")) {
+			document.querySelector(".post-friend").style.backgroundColor = "#fff";
+			document.querySelector(".post-public").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-friend").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-public").style.backgroundColor = "#626364";
+		}
+	}
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
@@ -69,6 +86,23 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".infoIcon-Dark").style.display = "none";
 	document.querySelector(".regIcon-Light").style.display = "block";
 	document.querySelector(".regIcon-Dark").style.display = "none";
+	if (document.cookie.includes("postBtn=1")) {
+		if (document.cookie.includes("theme=light")) {
+			document.querySelector(".post-public").style.backgroundColor = "#fff";
+			document.querySelector(".post-friend").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-public").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-friend").style.backgroundColor = "#626364";
+		}
+	} else {
+		if (document.cookie.includes("theme=light")) {
+			document.querySelector(".post-friend").style.backgroundColor = "#fff";
+			document.querySelector(".post-public").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-friend").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-public").style.backgroundColor = "#626364";
+		}
+	}
 });
 document.querySelector(".themeLight").addEventListener("click", () => {
 	document.cookie = "theme=light; SameSite=None; Secure";
