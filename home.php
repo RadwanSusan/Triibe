@@ -1602,7 +1602,7 @@ if (mysqli_num_rows($result1) > 0) {
           <span> Saved posts</span>
         </a>
         <a href="Friends.php">
-          <img class="savedPosts-Light" src="Design/Image/home-images/images/Groups.svg" />
+          <img class="marketIcon-Light" src="Design/Image/home-images/images/Groups.svg" />
           <span> Friends</span>
         </a>
         <a href="market.php">
