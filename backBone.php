@@ -198,6 +198,8 @@ if (isset($_POST['getcomment'])) {
 	$post_id = $_POST['post_id'];
 	$std_id = $_POST['std_id'];
 	$author = $_POST['author'];
+	$allComments = array();
+	$comment = array();
 	$sql = "SELECT * FROM comment WHERE post_id = '$post_id' order by created_date";
 	$result = mysqli_query($conn, $sql);
 	$count = mysqli_num_rows($result);
@@ -218,9 +220,42 @@ if (isset($_POST['getcomment'])) {
 					$imgname = "Design\Image\LogoPic1.jpg";
 				}
 			}
-			echo "<p>'" . $row2['std_fname'] . "" . $row2['std_lname'] . "'</p><img src='" . $imgname . "'><p>'" . $row['content'] . "'</p><p>'" . $row['created_date'] . "'</p>";
+			$now = new DateTime();
+			$post = new DateTime($row["created_date"]);
+			$diff = $now->diff($post);
+			$diff->format("%a");
+			$diffday = $diff->format("%a");
+			$diffhour = $diff->format("%h");
+			$diffminute = $diff->format("%i");
+			$diffsecond = $diff->format("%s");
+			$diffdaystr = (string)$diffday;
+			$diffhourstr = (string)$diffhour;
+			$diffminutestr = (string)$diffminute;
+			$diffsecondstr = (string)$diffsecond;
+			$difftime = $diffsecondstr . "second ago";
+			if ($diffdaystr == "0") {
+				if ($diffhourstr == "0") {
+					if ($diffminutestr == "0") {
+						$difftime = $diffsecondstr . "s ago";
+					} else {
+						$difftime = $diffminutestr . "m ago";
+					}
+				} else {
+					$difftime = $diffhourstr . "h ago";
+				}
+			} else {
+				$difftime = $diffdaystr . "d ago";
+			}
+			array_push($comment, $row2['std_fname'], $row2['std_lname'], $imgname, $row['content'], $difftime);
+			array_push($allComments, $comment);
+			array_pop($comment);
+			array_pop($comment);
+			array_pop($comment);
+			array_pop($comment);
+			array_pop($comment);
 		}
 	}
+	echo json_encode($allComments);
 }
 if (isset($_POST['commentsend'])) {
 	$post_id = $_POST['post_id'];
