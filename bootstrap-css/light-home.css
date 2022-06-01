@@ -1911,7 +1911,8 @@ canvas {
   width: 21px !important;
   margin-left: 13px !important;
 }
-.Friends-Light{
+
+.Friends-Light {
   width: 27px !important;
 }
 
@@ -3092,4 +3093,9 @@ canvas {
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
   }
+}
+
+.show_Likes {
+  position: relative;
+  left: 130px;
 }

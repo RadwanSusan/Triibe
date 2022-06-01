@@ -945,6 +945,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
+                                          <img class='show_Likes' src='Design/Image/home-images/images/card-down.svg'>
                                        ";
                       $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                       $result3 = mysqli_query($conn, $sql4);
@@ -1019,6 +1020,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                         <div class='like'>
+                                          <img class='show_Likes' src='Design/Image/home-images/images/card-down.svg'>
                                         ";
                       $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                       $result7 = mysqli_query($conn, $sql7);
@@ -1084,6 +1086,7 @@ if (mysqli_num_rows($result1) > 0) {
                     echo "<div class='end-post'>
                               <div class='likes'>
                                  <div class='like'>
+                                          <img class='show_Likes' src='Design/Image/home-images/images/card-down.svg'>
                                   ";
                     $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                     $result4 = mysqli_query($conn, $sql5);
@@ -1386,6 +1389,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
+                                          <img class='show_Likes' src='Design/Image/home-images/images/card-down.svg'>
                                        ";
                   $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                   $result3 = mysqli_query($conn, $sql4);
@@ -1460,6 +1464,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                         <div class='like'>
+                                          <img class='show_Likes' src='Design/Image/home-images/images/card-down.svg'>
                                         ";
                   $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                   $result7 = mysqli_query($conn, $sql7);
@@ -1525,6 +1530,7 @@ if (mysqli_num_rows($result1) > 0) {
                 echo "<div class='end-post'>
                               <div class='likes'>
                                  <div class='like'>
+                                          <img class='show_Likes' src='Design/Image/home-images/images/card-down.svg'>
                                   ";
                 $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                 $result4 = mysqli_query($conn, $sql5);
