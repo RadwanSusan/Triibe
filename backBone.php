@@ -456,3 +456,34 @@ if (isset($_POST["getStoryInfo"])) {
 	}
 	echo json_encode($personInfo);
 }
+if (isset($_POST['show_Likes'])) {
+	$post_id = $_POST['post_id'];
+	$like = array();
+	$allLikes = array();
+	$sql = "SELECT distinct std_id FROM post_likes WHERE post_id = '$post_id'";
+	$result = mysqli_query($conn, $sql);
+	while ($row = mysqli_fetch_assoc($result)) {
+		$sql1 = "SELECT * FROM student WHERE std_id = '" . $row["std_id"] . "'";
+		$result1 = mysqli_query($conn, $sql1);
+		$row1 = mysqli_fetch_assoc($result1);
+		$sql2 = "SELECT * FROM img WHERE img_id = '" . $row1["img_id"] . "'";
+		$result2 = mysqli_query($conn, $sql2);
+		$row2 = mysqli_fetch_assoc($result2);
+		if (isset($row2["img_name"])) {
+			$row2["img_name"] = $row2["img_name"];
+		} else {
+			if ($row1["gender"] == 1) {
+				$row2["img_name"] = "Design\Image\LogoPic0.jpg";
+			} else {
+				$row2["img_name"] = "Design\Image\LogoPic1.jpg";
+			}
+		}
+		array_push($like, $row1["std_fname"], $row1["std_lname"], $row2["img_name"], $row1["account_id"]);
+		array_push($allLikes, $like);
+		array_pop($like);
+		array_pop($like);
+		array_pop($like);
+		array_pop($like);
+	}
+	echo json_encode($allLikes);
+}
