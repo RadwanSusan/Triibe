@@ -819,9 +819,9 @@ story.forEach((element) => {
 					document
 						.querySelector(".prev_story")
 						.addEventListener("click", () => {
-							if(i >= 0){
-							modalContent.src = stories[--i].img_name;
-						}
+							if (i >= 0) {
+								modalContent.src = stories[--i].img_name;
+							}
 						});
 					modalContent.src = stories[i].img_name;
 					document.body.style.overflow = "hidden";
@@ -932,3 +932,33 @@ if (window.history.replaceState) {
 document.querySelector(".chat").addEventListener("click", () => {
 	window.location.href = "chat.php";
 });
+
+const dropdown = document.querySelectorAll(".dropdown");
+const dropdownArray = Array.prototype.slice.call(dropdown, 0);
+dropdownArray.forEach(function (el) {
+	const button = el.querySelector('a[data-toggle="dropdown"]');
+	const menu = el.querySelector(".dropdown-menu");
+	const arrow = button.querySelector("i.icon-arrow");
+
+	button.onclick = (event) => {
+		if (!menu.hasClass("show")) {
+			menu.classList.add("show");
+			menu.classList.remove("hide");
+			arrow.classList.add("open");
+			arrow.classList.remove("close");
+		} else {
+			menu.classList.remove("show");
+			menu.classList.add("hide");
+			arrow.classList.remove("open");
+			arrow.classList.add("close");
+		}
+		event.preventDefault();
+	};
+});
+
+Element.prototype.hasClass = function (className) {
+	return (
+		this.className &&
+		new RegExp(`(^|\\s)${className}(\\s|$)`).test(this.className)
+	);
+};

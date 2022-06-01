@@ -143,17 +143,17 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>" alt="">
+          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
-          <img class="PublicChoice" src="Design/Image/home-images/images/ball2.svg" alt="" style="display:inline-block;">
-          <img class="FriendChoice" src="Design/Image/home-images/images/friends_Post.svg" alt="" style="display:none;">
-          <img class="choiceDropDown" src="Design/Image/home-images/images/card-down.svg" alt="">
+          <img class="PublicChoice" src="Design/Image/home-images/images/ball2.svg" style="display:inline-block;">
+          <img class="FriendChoice" src="Design/Image/home-images/images/friends_Post.svg" style="display:none;">
+          <img class="choiceDropDown" src="Design/Image/home-images/images/card-down.svg">
         </div>
       </div>
       <div class="right-top-card">
-        <img class="exitCard" src="Design/Image/home-images/images/exit-card.svg" alt="">
+        <img class="exitCard" src="Design/Image/home-images/images/exit-card.svg">
       </div>
     </div>
     <?php
@@ -394,11 +394,11 @@ if (mysqli_num_rows($result1) > 0) {
           <p>Add to your post</p>
           <div class="icon-down">
             <label class="uploadLabel" for="uploadfile">
-              <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
+              <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg">
             </label>
             <input class="fileUpload_Button" type="file" name="file" id="uploadfile" accept=".gif,.jpg,.jpeg,.png,.doc,.mp4,.mkv">
             <label class="uploadLabel" for="tagfriend">
-              <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg" alt="">
+              <img class="tagIcon" src="Design/Image/home-images/images/tagIcon.svg">
             </label>
             <div class="tag-F form-popup arrow-div animate__animated animate__fadeIn animate__faster" id="myForm" style="display: none;">
               <form action="" class="form-container">
@@ -438,13 +438,13 @@ if (mysqli_num_rows($result1) > 0) {
                 </div>
               </form>
             </div>
-            <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
+            <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg">
             <label class="uploadLabel" for="uploadfile">
-              <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg" alt="">
+              <img class="gifIcon" src="Design/Image/home-images/images/GIFicon.svg">
             </label>
             <input class="fileUpload_Button" type="file" name="fileGif" id="uploadGif" accept=".gif">
             <label class="FileLink_Button_Label" for="FileUpload">
-              <img class="FileLink" src="Design/Image/home-images/images/FileLink.svg" alt="">
+              <img class="FileLink" src="Design/Image/home-images/images/FileLink.svg">
             </label>
             <input class="FileLink_Button" type="file" name="fileLink" id="FileUpload">
           </div>
@@ -560,7 +560,7 @@ if (mysqli_num_rows($result1) > 0) {
         </li>
       </ul>
       <div class="nav-user-icon online">
-        <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" alt="" /></a>
+        <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" /></a>
         <a href='personal.php'>
           <div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
@@ -634,7 +634,7 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">
         <div class="story" style="background-image: url('<?php echo $_SESSION["personalProfile"]; ?>');">
-          <img class="UploadStory" src="Design/Image/home-images/images/upload.png" alt="">
+          <img class="UploadStory" src="Design/Image/home-images/images/upload.png">
           <p>
             <?php
             echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"];
@@ -671,9 +671,6 @@ if (mysqli_num_rows($result1) > 0) {
                       echo "<div class='story storyF' style ='background-image:url(" . $row1['img_name'] . ")' data-AthStory='" . $row["friend_id"] . "'><img src='$imgname'><p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
                     } else {
                       echo "<div class='story storyF' data-AthStory='" . $row["friend_id"] . "'><img src='$imgname'>
-                <video class='story-vid'>
-                <source src='" . $row1['video_name'] . "'>
-                </video>
                 <p>" . $row2["std_fname"] . " " . $row2["std_lname"] . "</p></div>";
                     }
                   }
@@ -686,7 +683,7 @@ if (mysqli_num_rows($result1) > 0) {
       </div>
       <div class="write-post-container">
         <div class="user-profile">
-          <img src="<?php echo $_SESSION["personalProfile"] ?>" alt="">
+          <img src="<?php echo $_SESSION["personalProfile"] ?>">
           <div class="write-post-input">
             <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
           </div>
@@ -1597,38 +1594,50 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="right-sidebar">
       <div class="imp-link">
         <a href="savedPosts.php">
-          <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" alt="" />
-          <img class="savedPosts-Dark" src="Design/Image/home-images/images/saved-posts2.svg" alt="" />
+          <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" />
+          <img class="savedPosts-Dark" src="Design/Image/home-images/images/saved-posts2.svg" />
           <span> Saved posts</span>
         </a>
         <a href="Friends.php">
-          <img class="savedPosts-Light" src="Design/Image/home-images/images/Groups.svg" alt="" />
+          <img class="savedPosts-Light" src="Design/Image/home-images/images/Groups.svg" />
           <span> Friends</span>
         </a>
         <a href="market.php">
-          <img class="marketIcon-Light" src="Design/Image/home-images/images/market-Icon.svg" alt="" />
-          <img class="marketIcon-Dark" src="Design/Image/home-images/images/market-Icon2.svg" alt="" />
+          <img class="marketIcon-Light" src="Design/Image/home-images/images/market-Icon.svg" />
+          <img class="marketIcon-Dark" src="Design/Image/home-images/images/market-Icon2.svg" />
           <span>Market</span>
         </a>
         <a href="http://elearning.ahu.edu.jo/login/index.php">
-          <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" alt="" />
-          <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt="" />
+          <img class="elearningIcon-Light" src="Design/Image/home-images/images/elearning-icon.svg" />
+          <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" />
           <span>E-Learning</span>
         </a>
         <a class="SRGS" href="#">
-          <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" alt="" />
-          <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" alt="" />
+          <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
+          <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
           <span>Student Reg Guidance System</span></a>
         <a href="http://sis.ahu.edu.jo/">
-          <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" alt="" />
-          <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" alt="" />
+          <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" />
+          <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" />
           <span>Student information system</span>
         </a>
         <a href="http://reg.ahu.edu.jo/">
-          <img class="regIcon-Light" src="Design/Image/home-images/images/RegIcon.svg" alt="" />
-          <img class="regIcon-Dark" src="Design/Image/home-images/images/RegIcon2.svg" alt="" />
+          <img class="regIcon-Light" src="Design/Image/home-images/images/RegIcon.svg" />
+          <img class="regIcon-Dark" src="Design/Image/home-images/images/RegIcon2.svg" />
           <span>Student registration system</span>
         </a>
+        <li class="dropdown">
+          <a href="#" data-toggle="dropdown">
+            <img class="learn-dark" src="Design/Image/home-images/images/sololearn.svg" />
+            <span>Learning Sites</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="https://www.researchgate.net/">Research Gate</a></li>
+            <li><a href="https://www.coursera.org/">Coursera</a></li>
+            <li><a href="https://www.udemy.com/">Udemy</a></li>
+            <li><a href="https://www.edx.org/">Edx</a></li>
+          </ul>
+        </li>
       </div>
     </div>
   </div>

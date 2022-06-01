@@ -2,6 +2,7 @@
 include_once "connection.php";
 session_start();
 $idAttr = null;
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="en">
