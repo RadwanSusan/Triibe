@@ -843,6 +843,9 @@ const modalStory = document.querySelector(".modalStory");
 const modalContent = document.querySelector(".modal-content2");
 const videoElement = document.querySelector(".videoElement");
 const vidSource = document.querySelector(".vidSource");
+const storyName = document.querySelector(".storyName");
+const storyTime = document.querySelector(".storyTime");
+const storyImg = document.querySelector(".storyImg");
 story.forEach((element) => {
 	element.addEventListener("click", () => {
 		const author_id = element.getAttribute("data-AthStory");
@@ -856,8 +859,20 @@ story.forEach((element) => {
 			},
 			success(response) {
 				const stories = JSON.parse(response);
-				console.log(stories);
-				console.table(stories);
+				$.ajax({
+					url: "backBone.php",
+					type: "post",
+					data: {
+						getStoryInfo: 1,
+					personStoryId: stories[i].author,
+					},
+					success(response) {
+						const storyInfo = JSON.parse(response);
+						storyName.textContent = storyInfo[0] + " " + storyInfo[1];
+						storyTime.textContent = stories[i].created_date;
+						storyImg.src = storyInfo[2];
+					}
+				});
 				if (
 					stories[i].img_name != null ||
 					stories[i].img_name != undefined ||
@@ -868,12 +883,40 @@ story.forEach((element) => {
 						.querySelector(".next_story")
 						.addEventListener("click", () => {
 							modalContent.src = stories[++i].img_name;
+							$.ajax({
+								url: "backBone.php",
+								type: "post",
+								data: {
+									getStoryInfo: 1,
+									personStoryId: stories[i].author,
+								},
+								success(response) {
+									const storyInfo = JSON.parse(response);
+									storyName.textContent = storyInfo[0] + " " + storyInfo[1];
+									storyTime.textContent = stories[i].created_date;
+									storyImg.src = storyInfo[2];
+								}
+							});
 						});
 					document
 						.querySelector(".prev_story")
 						.addEventListener("click", () => {
 							if (i >= 0) {
 								modalContent.src = stories[--i].img_name;
+								$.ajax({
+									url: "backBone.php",
+									type: "post",
+									data: {
+										getStoryInfo: 1,
+									personStoryId: stories[i].author,
+									},
+									success(response) {
+										const storyInfo = JSON.parse(response);
+										storyName.textContent = storyInfo[0] + " " + storyInfo[1];
+										storyTime.textContent = stories[i].created_date;
+										storyImg.src = storyInfo[2];
+									}
+								});
 							}
 						});
 					modalContent.src = stories[i].img_name;

@@ -343,24 +343,24 @@ if (isset($_POST["getStory"])) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		array_push($storyArray, $row);
 	}
-  $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND friend_id != $author_id";
+	$sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND friend_id != $author_id";
 	$result = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($result) > 0) {
 		while ($row1 = mysqli_fetch_assoc($result)) {
-	$sql1 = "SELECT * FROM story WHERE author = '" . $row1["friend_id"] . "' order by author ";
-	$result1 = mysqli_query($conn, $sql1);
-	while ($row2 = mysqli_fetch_assoc($result)) {
-			array_push($storyArray, $row2);
+			$sql1 = "SELECT * FROM story WHERE author = '" . $row1["friend_id"] . "' order by author ";
+			$result1 = mysqli_query($conn, $sql1);
+			while ($row2 = mysqli_fetch_assoc($result1)) {
+				array_push($storyArray, $row2);
+			}
 		}
 	}
-}
 	echo json_encode($storyArray);
 }
-if (isset($_POST['checkStrory'])){
+if (isset($_POST['checkStrory'])) {
 	$sql = "SELECT * FROM story ";
 	$result = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_assoc($result)){
+		while ($row = mysqli_fetch_assoc($result)) {
 			$now = new DateTime();
 			$post = new DateTime($row["created_date"]);
 			$diff = $now->diff($post);
@@ -377,20 +377,47 @@ if (isset($_POST['checkStrory'])){
 			if ($diffdaystr == "0") {
 				if ($diffhourstr == "0") {
 					if ($diffminutestr == "0") {
-						$difftime = $diffsecondstr ;
+						$difftime = $diffsecondstr;
 					} else {
-						$difftime = $diffminutestr ;
+						$difftime = $diffminutestr;
 					}
 				} else {
-					$difftime = $diffhourstr ;
+					$difftime = $diffhourstr;
 				}
 			} else {
-				$difftime = $diffdaystr ;
+				$difftime = $diffdaystr;
 			}
-			if ($difftime == $diffdaystr ) {
+			if ($difftime == $diffdaystr) {
 				$sql1 = "DELETE FROM story WHERE story_id = '" . $row["story_id"] . "'";
 				$result1 = mysqli_query($conn, $sql1);
-			} 
+			}
 		}
 	}
+}
+if (isset($_POST["getStoryInfo"])) {
+	$personStoryId = $_POST['personStoryId'];
+	$personInfo = array();
+	$sql = "SELECT * FROM story WHERE author = '$personStoryId'";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			$sql1 = "SELECT * FROM student WHERE std_id = '" . $row["author"] . "'";
+			$result1 = mysqli_query($conn, $sql1);
+			$row1 = mysqli_fetch_assoc($result1);
+			$sql2 = "SELECT * FROM img WHERE img_id = '" . $row1["img_id"] . "'";
+			$result2 = mysqli_query($conn, $sql2);
+			$row2 = mysqli_fetch_assoc($result2);
+			if (isset($row2["img_name"])) {
+				$row2["img_name"] = $row2["img_name"];
+			} else {
+				if ($row1["gender"] == 1) {
+					$row2["img_name"] = "Design\Image\LogoPic0.jpg";
+				} else {
+					$row2["img_name"] = "Design\Image\LogoPic1.jpg";
+				}
+			}
+			array_push($personInfo, $row1["std_fname"], $row1["std_lname"], $row2["img_name"]);
+		}
+	}
+	echo json_encode($personInfo);
 }

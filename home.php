@@ -1648,6 +1648,11 @@ if (mysqli_num_rows($result1) > 0) {
   <div class="modalStory">
     <span class="close2">&times;</span>
     <span class="next_story">&times;</span>
+    <div class="storyInfo">
+      <p class="storyName"></p>
+      <p class="storyTime"></p>
+      <img src="" class="storyImg">
+    </div>
     <img class="modal-content2 slide-in-elliptic-top-fwd" id="img01">
     <span class="prev_story">&times;</span>
     <video width='300px' controls class='videoElement'>
