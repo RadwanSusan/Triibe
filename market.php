@@ -162,7 +162,7 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
         <div class="left-down-card">
           <p>Add to your post</p>
           <div class="icon-down">
-            <input type="text" class="price" placeholder="Price" name="price">
+            <input type="text" class="priceInput" placeholder="Price" name="price">
             <input type="text" class="phone" placeholder="Phone Number" name="phone">
             <label class="uploadLabel" for="uploadfile">
               <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
@@ -182,14 +182,6 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
       <div class="left">
         <div class="left-top">
           <h1 class="h2">Market place</h2>
-            <div class="setting">
-              <img src="Design/image market/setting.svg" alt="settingIcon">
-            </div>
-        </div>
-
-        <div class="search-box-2">
-          <img src="Design/Image/home-images/images/Search-Icon.svg" alt="search">
-          <input class="input" type="text" placeholder="Search">
         </div>
         <div class="bio bio1">
           <img src="Design/image market/browse.svg" alt="">
@@ -206,7 +198,7 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
       </div>
       <div class="contactBox">
         <div class="chatlink">
-          <p>chat</p>
+          <p class ="chatPage">chat</p>
           <button class="closeContact">close</button>
         </div>
       </div>

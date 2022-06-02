@@ -3,6 +3,7 @@ $(document).ready(function() {
   const contact = document.querySelectorAll(".contact");
   contact.forEach(function(element) {
     element.addEventListener("click", function() {
+      document.querySelector(".chatlink").removeChild(document.querySelector(".chatlink").lastChild);
       const MPID = element.getAttribute("data-MPID");
       document.querySelector(".contactBox").style.display = "block";
       $.ajax({
@@ -15,7 +16,8 @@ $(document).ready(function() {
         success(data) {
           const phoneP = document.createElement("p");
           phoneP.innerHTML = data;
-          document.querySelector(".contactBox").appendChild(phoneP);
+          document.querySelector(".chatlink").appendChild(phoneP);
+          document.querySelector(".chatPage").setAttribute("data-MPID", MPID);
         },
       });
     });
@@ -37,4 +39,22 @@ $(document).ready(function() {
     document.cookie = "yourProduct = 2 "; 
     window.location.href="market.php";
   });
+
+   document.querySelectorAll(".chatPage").forEach(function(element) {
+    element.addEventListener("click", function() {
+      const post_id = element.getAttribute("data-MPID");
+      $.ajax({
+        url: "backBone.php",
+        type: "POST",
+        data: {
+          MPChat :1,
+          post_id: post_id,
+        },
+        success(data) {
+                document.cookie = `idAttr = ${data}`;
+                window.location.href="chat.php";
+        },
+    });
+  });
+});
 });

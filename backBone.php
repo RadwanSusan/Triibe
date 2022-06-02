@@ -272,10 +272,17 @@ if (isset($_POST['MPContact'])) {
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
 	if (isset($row["phone_number"])) {
-		echo "<p> Phone Number : " . $row['phone_number'] . "</p>";
+		echo "Phone Number : " . $row['phone_number'] . "";
 	} else {
-		echo " <p>No Phone Number</p>";
+		echo "No Phone Number";
 	}
+}
+if (isset($_POST['MPChat'])) {
+	$MPID = $_POST['post_id'];
+	$sql = "SELECT * FROM market_post WHERE market_post_id = '$MPID'";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_assoc($result);
+	echo $row["author"];
 }
 if (isset($_POST['SRGS'])) {
 	$sql = "SELECT id FROM students WHERE Std_No = '" . $_SESSION['std_id'] . "'";
@@ -422,7 +429,7 @@ if (isset($_POST['checkStrory'])) {
 			} else {
 				$difftime = $diffdaystr;
 			}
-			if ($difftime == $diffdaystr) {
+			if ($difftime >= $diffdaystr) {
 				$sql1 = "DELETE FROM story WHERE story_id = '" . $row["story_id"] . "'";
 				$result1 = mysqli_query($conn, $sql1);
 			}

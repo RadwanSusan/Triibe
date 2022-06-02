@@ -622,28 +622,86 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   color: #000000;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-
-.down-card p::after {
-  content: "";
+.closeContact{
   position: absolute;
-  width: 1.5px;
-  height: 35px;
-  background: #686868;
-  right: -17px;
-  top: -3px;
-  border-radius: 50px;
+  top: 0px;
+  right: 0px;
+  background: #d8d8d8;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
 }
 .left-down-card {
   display: flex;
   align-items: center;
-  width: 76%;
+  width: 97%;
   background: #d8d8d8;
   padding: 13px;
   border-radius: 9px;
   justify-content: space-between;
   user-select: none;
+  height: 66px;
+  margin-left :8px;
 }
+.priceInput{
+  position: relative;
+  width: 50%;
+  height: 25px;
+  background: #fcfafa;
+  border-radius: 9px;
+  padding: 8px;
+  font-family: "Pridi";
+  border: none;
+  resize: none;
+  user-select: none;
+  outline: none;
+  text-align: left;
+  font-size: 16px;
+  overflow-y: scroll;
+  overflow-y: auto;
+  margin-left: 20px;
+  margin-bottom: -5px;
+  margin-top: 20px;
+  top: 2px;
+  left:35px;
+}
+.phone{
+  position: relative;
+  width: 50%;
+  height: 25px;
+  background: #fcfafa;
+  border-radius: 9px;
+  padding: 8px;
+  font-family: "Pridi";
+  border: none;
+  resize: none;
+  user-select: none;
+  outline: none;
+  text-align: left;
+  font-size: 16px;
+  overflow-y: scroll;
+  overflow-y: auto;
+  margin-left: 20px;
+  margin-top: -20px;
+  top: -7px;
+  left:35px;
+}
+
+.chatlink p{
+  position: relative;
+  margin-bottom: 0px;
+  font-size: 18px;
+  font-family: "Pridi";
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
 .icon-down img {
+  position: relative;
+  bottom: 21px;
+  left: 45px;
   margin-right: 11px;
   width: 21px;
   cursor: pointer;
@@ -678,6 +736,9 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 10px;
 }
 .post-write {
+  position: relative;
+  top: -22px;
+  right: -45px;
   padding: 12px 25px 12px 25px;
   background: #ffffff;
   border: 1px solid #000000;
