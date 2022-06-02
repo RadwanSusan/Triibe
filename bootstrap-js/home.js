@@ -18,6 +18,9 @@ if (document.cookie.indexOf("form_id") == -1) {
 if (document.cookie.indexOf("postBtn") == -1) {
 	document.cookie = "postBtn=1";
 }
+if (document.cookie.indexOf("theme") == -1) {
+	document.cookie = "theme=dark";
+}
 document.querySelector(".themeLight").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
 	theme.setAttribute("href", "bootstrap-css/dark-home.css");
