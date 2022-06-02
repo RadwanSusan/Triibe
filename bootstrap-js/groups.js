@@ -165,6 +165,35 @@ $(document).ready(function () {
     document.cookie = "postBtn= 1";
     window.location.href = "home.php";
   });
+	document.querySelector(".settingsList").addEventListener("click", () => {
+		if (document.querySelector(".settings").style.display == "none") {
+			document.querySelector(".settings").style.display = "flex";
+		} else {
+			document.querySelector(".settings").style.display = "none";
+		}
+	});
+	document.querySelector(".map").addEventListener("click", () => {
+		window.location.href = "map.php";
+	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				notificationsClear: 1,
+			},
+			success(data) {
+				document.querySelector(".notificationCount").style.display = "none";
+			},
+		});
+	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		if (document.querySelector(".Notifications").style.display == "none") {
+			document.querySelector(".Notifications").style.display = "flex";
+		} else {
+			document.querySelector(".Notifications").style.display = "none";
+		}
+	});
 	document.querySelector(".SRGS").addEventListener("click", (e) => {
 		e.preventDefault();
 		$.ajax({
