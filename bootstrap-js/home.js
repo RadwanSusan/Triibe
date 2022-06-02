@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		groupPage.appendChild(noFriends);
 	}
 });
+if (document.cookie.indexOf("form_id") == -1) {
+	document.cookie = "form_id=1";
+}
+if (document.cookie.indexOf("postBtn") == -1) {
+	document.cookie = "postBtn=1";
+}
 document.querySelector(".themeLight").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
 	theme.setAttribute("href", "bootstrap-css/dark-home.css");
@@ -425,12 +431,6 @@ $(document).ready(function () {
 		e.preventDefault();
 		document.querySelector(".formIdSelector").style.display = "none";
 	});
-	if (document.cookie.indexOf("form_id") == -1) {
-		document.cookie = "form_id=1";
-	}
-	if (document.cookie.indexOf("postBtn") == -1) {
-		document.cookie = "postBtn=1";
-	}
 	document.querySelector(".post-public").addEventListener("click", () => {
 		document.cookie = "form_id=1";
 		window.location.href = "home.php";
@@ -1061,35 +1061,38 @@ Element.prototype.hasClass = function (className) {
 		new RegExp(`(^|\\s)${className}(\\s|$)`).test(this.className)
 	);
 };
-const likeBox =document.querySelector(".show_Likes_Box");
+const likeBox = document.querySelector(".show_Likes_Box");
 document.querySelectorAll(".show_Likes").forEach((element) => {
 	element.addEventListener("click", () => {
 		document.querySelector(".show_Likes_Box").style.display =
 			document.querySelector(".show_Likes_Box").style.display == "none"
 				? "flex"
 				: "none";
-				const post_id = element.getAttribute("data-post_id");
-				$.ajax({
-					url : "backBone.php",
-					method : "POST",
-					data : {
-						post_id : post_id,
-						show_Likes : 1,
-					},
-					success : function(data){
-						const like = JSON.parse(data);
-						for (let i = 0; i < like.length; i++) {
-						const likeLink = document.createElement("a");
-						likeLink.classList.add("likeLink");
-						likeLink.setAttribute("href", "friendpage.php?account_id="+like[i][3]);
-						likeLink.innerHTML = like[i][0] + " " + like[i][1];
-						const likeimg = document.createElement("img");
-						likeimg.classList.add("likeimg");
-						likeimg.setAttribute("src", like[i][2]);
-						likeLink.appendChild(likeimg);
-						likeBox.appendChild(likeLink);
-					}
+		const post_id = element.getAttribute("data-post_id");
+		$.ajax({
+			url: "backBone.php",
+			method: "POST",
+			data: {
+				post_id: post_id,
+				show_Likes: 1,
+			},
+			success: function (data) {
+				const like = JSON.parse(data);
+				for (let i = 0; i < like.length; i++) {
+					const likeLink = document.createElement("a");
+					likeLink.classList.add("likeLink");
+					likeLink.setAttribute(
+						"href",
+						"friendpage.php?account_id=" + like[i][3],
+					);
+					likeLink.innerHTML = like[i][0] + " " + like[i][1];
+					const likeimg = document.createElement("img");
+					likeimg.classList.add("likeimg");
+					likeimg.setAttribute("src", like[i][2]);
+					likeLink.appendChild(likeimg);
+					likeBox.appendChild(likeLink);
 				}
-				});
+			},
+		});
 	});
 });
