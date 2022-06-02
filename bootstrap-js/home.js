@@ -203,7 +203,10 @@ $(document).ready(function () {
 	});
 	document.querySelectorAll(".editExit").forEach((element) => {
 		element.addEventListener("click", () => {
-			element.parentElement.parentElement.style.display = element.parentElement.parentElement.style.display == "block" ? "none" : "block";
+			element.parentElement.parentElement.style.display =
+				element.parentElement.parentElement.style.display == "block"
+					? "none"
+					: "block";
 		});
 	});
 	document.querySelectorAll(".edit").forEach((element) => {
@@ -535,11 +538,11 @@ $(document).ready(function () {
 	const like1 = document.querySelectorAll(".LikeParagraph");
 	like1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -572,11 +575,11 @@ $(document).ready(function () {
 	const likeHollow1 = document.querySelectorAll(".likeHollow");
 	likeHollow1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -609,11 +612,11 @@ $(document).ready(function () {
 	const Unlike1 = document.querySelectorAll(".UnLikeParagraph");
 	Unlike1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -646,11 +649,11 @@ $(document).ready(function () {
 	const likeFilled1 = document.querySelectorAll(".likeFilled");
 	likeFilled1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({

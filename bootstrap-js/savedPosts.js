@@ -12,124 +12,265 @@ document.addEventListener("DOMContentLoaded", () => {
 		groupPage.appendChild(noFriends);
 	}
 });
-// document.querySelector(".themeLight").addEventListener("click", () => {
-// 	const theme = document.querySelector("#theme");
-// 	theme.setAttribute("href", "bootstrap-css/dark-home.css");
-// 	document.querySelector(".themeLight").style.display = "none";
-// 	document.querySelector(".themeDark").style.display = "block";
-// 	document.querySelector(".logoDark").style.display = "block";
-// 	document.querySelector(".logoLight").style.display = "none";
-// 	document.querySelector(".chatDark").style.display = "block";
-// 	document.querySelector(".chatLight").style.display = "none";
-// 	document.querySelector(".notificationIcon-dark").style.display = "block";
-// 	document.querySelector(".notificationIcon-light").style.display = "none";
-// 	document.querySelector(".mapIcon-Dark").style.display = "block";
-// 	document.querySelector(".mapIcon-Light").style.display = "none";
-// 	document.querySelector(".SettingsIcon-Dark").style.display = "block";
-// 	document.querySelector(".SettingsIcon-Light").style.display = "none";
-// 	document.querySelector(".pagesIcon-Dark").style.display = "block";
-// 	document.querySelector(".pagesIcon-Light").style.display = "none";
-// 	document.querySelector(".Groups-Dark").style.display = "block";
-// 	document.querySelector(".Groups-Light").style.display = "none";
-// 	document.querySelector(".savedPosts-Dark").style.display = "block";
-// 	document.querySelector(".savedPosts-Light").style.display = "none";
-// 	document.querySelector(".marketIcon-Dark").style.display = "block";
-// 	document.querySelector(".marketIcon-Light").style.display = "none";
-// 	document.querySelector(".housingIcon-Dark").style.display = "block";
-// 	document.querySelector(".housingIcon-Light").style.display = "none";
-// 	document.querySelector(".elearningIcon-Dark").style.display = "block";
-// 	document.querySelector(".elearningIcon-Light").style.display = "none";
-// 	document.querySelector(".infoIcon-Dark").style.display = "block";
-// 	document.querySelector(".infoIcon-Light").style.display = "none";
-// 	document.querySelector(".regIcon-Dark").style.display = "block";
-// 	document.querySelector(".regIcon-Light").style.display = "none";
-// 	document.querySelector(".otherLinksIcon-Dark").style.display = "block";
-// 	document.querySelector(".otherLinksIcon-Light").style.display = "none";
-// 	document.querySelector(".dropDownIcon-Dark").style.display = "block";
-// 	document.querySelector(".dropDownIcon-Light").style.display = "none";
-// });
-// document.querySelector(".themeDark").addEventListener("click", () => {
-// 	const theme = document.querySelector("#theme");
-// 	theme.setAttribute("href", "bootstrap-css/light-home.css");
-// 	document.querySelector(".themeDark").style.display = "none";
-// 	document.querySelector(".themeLight").style.display = "block";
-// 	document.querySelector(".logoLight").style.display = "block";
-// 	document.querySelector(".logoDark").style.display = "none";
-// 	document.querySelector(".logoLight").style.display = "block";
-// 	document.querySelector(".logoDark").style.display = "none";
-// 	document.querySelector(".chatLight").style.display = "block";
-// 	document.querySelector(".chatDark").style.display = "none";
-// 	document.querySelector(".notificationIcon-light").style.display = "block";
-// 	document.querySelector(".notificationIcon-dark").style.display = "none";
-// 	document.querySelector(".mapIcon-Light").style.display = "block";
-// 	document.querySelector(".mapIcon-Dark").style.display = "none";
-// 	document.querySelector(".SettingsIcon-Light").style.display = "block";
-// 	document.querySelector(".SettingsIcon-Dark").style.display = "none";
-// 	document.querySelector(".pagesIcon-Light").style.display = "block";
-// 	document.querySelector(".pagesIcon-Dark").style.display = "none";
-// 	document.querySelector(".Groups-Light").style.display = "block";
-// 	document.querySelector(".Groups-Dark").style.display = "none";
-// 	document.querySelector(".savedPosts-Light").style.display = "block";
-// 	document.querySelector(".savedPosts-Dark").style.display = "none";
-// 	document.querySelector(".marketIcon-Light").style.display = "block";
-// 	document.querySelector(".marketIcon-Dark").style.display = "none";
-// 	document.querySelector(".housingIcon-Light").style.display = "block";
-// 	document.querySelector(".housingIcon-Dark").style.display = "none";
-// 	document.querySelector(".elearningIcon-Light").style.display = "block";
-// 	document.querySelector(".elearningIcon-Dark").style.display = "none";
-// 	document.querySelector(".infoIcon-Light").style.display = "block";
-// 	document.querySelector(".infoIcon-Dark").style.display = "none";
-// 	document.querySelector(".regIcon-Light").style.display = "block";
-// 	document.querySelector(".regIcon-Dark").style.display = "none";
-// 	document.querySelector(".otherLinksIcon-Light").style.display = "block";
-// 	document.querySelector(".otherLinksIcon-Dark").style.display = "none";
-// 	document.querySelector(".dropDownIcon-Light").style.display = "block";
-// 	document.querySelector(".dropDownIcon-Dark").style.display = "none";
-// });
+if (document.cookie.indexOf("form_id") == -1) {
+	document.cookie = "form_id=1";
+}
+if (document.cookie.indexOf("postBtn") == -1) {
+	document.cookie = "postBtn=1";
+}
+if (document.cookie.indexOf("theme") == -1) {
+	document.cookie = "theme=dark";
+}
 document.querySelector(".themeLight").addEventListener("click", () => {
-	localStorage.setItem("theme", "light");
+	const theme = document.querySelector("#theme");
+	theme.setAttribute("href", "bootstrap-css/dark-home.css");
+	document.querySelector(".themeLight").style.display = "none";
+	document.querySelector(".themeDark").style.display = "block";
+	document.querySelector(".logoDark").style.display = "block";
+	document.querySelector(".logoLight").style.display = "none";
+	document.querySelector(".chatDark").style.display = "block";
+	document.querySelector(".chatLight").style.display = "none";
+	document.querySelector(".notificationIcon-dark").style.display = "block";
+	document.querySelector(".notificationIcon-light").style.display = "none";
+	document.querySelector(".mapIcon-Dark").style.display = "block";
+	document.querySelector(".mapIcon-Light").style.display = "none";
+	document.querySelector(".SettingsIcon-Dark").style.display = "block";
+	document.querySelector(".SettingsIcon-Light").style.display = "none";
+	document.querySelector(".savedPosts-Dark").style.display = "block";
+	document.querySelector(".savedPosts-Light").style.display = "none";
+	document.querySelector(".marketIcon-Dark").style.display = "block";
+	document.querySelector(".marketIcon-Light").style.display = "none";
+	document.querySelector(".housingIcon-Dark").style.display = "block";
+	document.querySelector(".housingIcon-Light").style.display = "none";
+	document.querySelector(".elearningIcon-Dark").style.display = "block";
+	document.querySelector(".elearningIcon-Light").style.display = "none";
+	document.querySelector(".infoIcon-Dark").style.display = "block";
+	document.querySelector(".infoIcon-Light").style.display = "none";
+	document.querySelector(".regIcon-Dark").style.display = "block";
+	document.querySelector(".regIcon-Light").style.display = "none";
+	if (document.cookie.includes("postBtn=1")) {
+		if (document.cookie.includes("theme=light")) {
+			document.querySelector(".post-public").style.backgroundColor = "#fff";
+			document.querySelector(".post-friend").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-public").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-friend").style.backgroundColor = "#626364";
+		}
+	} else {
+		if (document.cookie.includes("theme=light")) {
+			document.querySelector(".post-friend").style.backgroundColor = "#fff";
+			document.querySelector(".post-public").style.backgroundColor = "#f2f2f2";
+		} else {
+			document.querySelector(".post-friend").style.backgroundColor = "#ffc186";
+			document.querySelector(".post-public").style.backgroundColor = "#626364";
+		}
+	}
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
-	localStorage.setItem("theme", "dark");
+	const theme = document.querySelector("#theme");
+	theme.setAttribute("href", "bootstrap-css/light-home.css");
+	document.querySelector(".themeDark").style.display = "none";
+	document.querySelector(".themeLight").style.display = "block";
+	document.querySelector(".logoLight").style.display = "block";
+	document.querySelector(".logoDark").style.display = "none";
+	document.querySelector(".logoLight").style.display = "block";
+	document.querySelector(".logoDark").style.display = "none";
+	document.querySelector(".chatLight").style.display = "block";
+	document.querySelector(".chatDark").style.display = "none";
+	document.querySelector(".notificationIcon-light").style.display = "block";
+	document.querySelector(".notificationIcon-dark").style.display = "none";
+	document.querySelector(".mapIcon-Light").style.display = "block";
+	document.querySelector(".mapIcon-Dark").style.display = "none";
+	document.querySelector(".SettingsIcon-Light").style.display = "block";
+	document.querySelector(".SettingsIcon-Dark").style.display = "none";
+	document.querySelector(".marketIcon-Light").style.display = "block";
+	document.querySelector(".marketIcon-Dark").style.display = "none";
+	document.querySelector(".housingIcon-Light").style.display = "block";
+	document.querySelector(".housingIcon-Dark").style.display = "none";
+	document.querySelector(".elearningIcon-Light").style.display = "block";
+	document.querySelector(".elearningIcon-Dark").style.display = "none";
+	document.querySelector(".infoIcon-Light").style.display = "block";
+	document.querySelector(".infoIcon-Dark").style.display = "none";
+	document.querySelector(".regIcon-Light").style.display = "block";
+	document.querySelector(".regIcon-Dark").style.display = "none";
 });
-if (localStorage.getItem("theme") === "light") {
+document.querySelector(".themeLight").addEventListener("click", () => {
+	document.cookie = "theme=light; SameSite=None; Secure";
+});
+document.querySelector(".themeDark").addEventListener("click", () => {
+	document.cookie = "theme=dark; SameSite=None; Secure";
+});
+if (document.cookie.includes("theme=light")) {
 	document.querySelector(".themeLight").click();
 }
-if (localStorage.getItem("theme") === "dark") {
+if (document.cookie.includes("theme=dark")) {
 	document.querySelector(".themeDark").click();
 }
-window.onload = function () {
-	if (localStorage.getItem("like") === "liked") {
-		document.querySelector(".like").classList.add("liked");
-	}
-};
-const hoverAnimation = (
-	hoverElement,
-	eventType,
-	animationElement,
-	animationName,
-) => {
-	document.querySelector(hoverElement).addEventListener(eventType, () => {
-		document
-			.querySelector(animationElement)
-			.classList.add("animate__animated", animationName);
-	});
-};
-const hoverAnimationOut = (
-	hoverElement,
-	eventType,
-	animationElement,
-	animationName,
-) => {
-	document.querySelector(hoverElement).addEventListener(eventType, () => {
-		document
-			.querySelector(animationElement)
-			.classList.remove("animate__animated", animationName);
-	});
-};
 $(document).ready(function () {
-	const delete1 = document.getElementsByClassName("delete");
-	Array.from(delete1).forEach((element) => {
+	const modify = document.querySelectorAll(".modify");
+	modify.forEach((element) => {
+		element.addEventListener("click", () => {
+			const formElement = element.parentElement.children[1];
+			formElement.style.display =
+				formElement.style.display == "none" ? "block" : "none";
+		});
+	});
+	document.querySelectorAll(".form-container2").forEach((element) => {
+		element.addEventListener("submit", (e) => {
+			e.preventDefault();
+		});
+	});
+	document.querySelectorAll(".editExit").forEach((element) => {
+		element.addEventListener("click", () => {
+			element.parentElement.parentElement.style.display =
+				element.parentElement.parentElement.style.display == "block"
+					? "none"
+					: "block";
+		});
+	});
+	document.querySelectorAll(".edit").forEach((element) => {
+		element.addEventListener("click", () => {
+			const EditPostBox = element.parentElement.children[1];
+			EditPostBox.style.display =
+				EditPostBox.style.display == "none" ? "block" : "none";
+		});
+		const EditBtn = element.parentElement.children[1].children[2];
+		EditBtn.addEventListener("click", (e) => {
+			const editContent = document.querySelector(".edit-text").value;
+			const post_id = EditBtn.getAttribute("data-post_id");
+			const author_id = EditBtn.getAttribute("data-author_id");
+			$.ajax({
+				url: "backBone.php",
+				method: "POST",
+				data: {
+					editPost: 1,
+					editContent,
+					post_id,
+					author_id,
+				},
+				success: (data) => {
+					if (data === "success") {
+						location.reload();
+					}
+				},
+			});
+		});
+	});
+	document.querySelector(".map").addEventListener("click", () => {
+		window.location.href = "map.php";
+	});
+	document.querySelector(".Logout").addEventListener("click", () => {
+		confirm("Are you sure you want to Logout?", () => {
+			$.ajax({
+				url: "backBone.php",
+				type: "POST",
+				data: {
+					logout: 1,
+				},
+				success() {
+					window.location.href = "login.php";
+				},
+			});
+		});
+	});
+	document.querySelector(".box").addEventListener("click", () => {
+		window.location.href = "home.php";
+	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				notificationsClear: 1,
+			},
+			success(data) {
+				document.querySelector(".notificationCount").style.display = "none";
+			},
+		});
+	});
+	document.querySelector(".SRGS").addEventListener("click", (e) => {
+		e.preventDefault();
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				SRGS: 1,
+			},
+			success(data) {
+				window.location.href = "project/info.php";
+			},
+		});
+	});
+	const group = document.querySelectorAll(".group-list-item");
+	group.forEach((item) => {
+		item.addEventListener("click", (e) => {
+			e.preventDefault();
+			const formId = item.getAttribute("data-form_id");
+			document.cookie = `form_id=${formId}`;
+			window.location.href = "groups.php";
+		});
+	});
+	document.querySelectorAll(".comment").forEach((element) => {
+		element.addEventListener("click", () => {
+			document.querySelector(".commentBox").style.display = "block";
+			const post_id = element.getAttribute("data-post_id");
+			const std_id = element.getAttribute("data-std_id");
+			const author = element.getAttribute("data-author");
+			$.ajax({
+				url: "backBone.php",
+				type: "POST",
+				data: {
+					getcomment: 1,
+					post_id,
+					std_id,
+					author,
+				},
+				success(data) {
+					const comment = JSON.parse(data);
+					console.table(comment);
+					for (let i = 0; i < comment.length; i++) {
+						const commentContent = document.createElement("div");
+						commentContent.classList.add("commentContent");
+						const commentParagraph = document.createElement("p");
+						commentParagraph.classList.add("commentParagraph");
+						commentParagraph.innerHTML = comment[i][0] + " " + comment[0][1];
+						const commentImg = document.createElement("img");
+						commentImg.classList.add("commentImg");
+						commentImg.src = comment[i][2];
+						const commentContent2 = document.createElement("p");
+						commentContent2.classList.add("commentContent2");
+						commentContent2.innerHTML = comment[i][3];
+						const commentDate = document.createElement("p");
+						commentDate.classList.add("commentDate");
+						commentDate.innerHTML = comment[i][4];
+						commentContent.appendChild(commentParagraph);
+						commentContent.appendChild(commentImg);
+						commentContent.appendChild(commentContent2);
+						commentContent.appendChild(commentDate);
+						document.querySelector(".commentBox").appendChild(commentContent);
+					}
+				},
+			});
+			document.querySelector(".sendComment").addEventListener("click", () => {
+				const comment = $(".commentArea").val();
+				$.ajax({
+					url: "backBone.php",
+					type: "POST",
+					data: {
+						commentsend: 1,
+						post_id,
+						std_id,
+						author,
+						comment,
+					},
+				});
+			});
+		});
+	});
+	document.querySelector(".forget-pass").addEventListener("click", () => {
+		window.location.href = "changePassword.php";
+	});
+	document.querySelectorAll(".delete").forEach((element) => {
 		element.addEventListener("click", () => {
 			const post_id1 = element.dataset.post_id;
 			const author_id = element.dataset.author_id;
@@ -158,8 +299,7 @@ $(document).ready(function () {
 			);
 		});
 	});
-	const share = document.querySelectorAll(".share");
-	share.forEach((element) => {
+	document.querySelectorAll(".share").forEach((element) => {
 		element.addEventListener("click", () => {
 			const sh_post_id = element.dataset.post_id;
 			const sh_author_id = element.dataset.author_id;
@@ -185,9 +325,21 @@ $(document).ready(function () {
 			);
 		});
 	});
-
-	const save = document.querySelectorAll(".save");
-	save.forEach((element) => {
+	document.querySelector(".settingsList").addEventListener("click", () => {
+		if (document.querySelector(".settings").style.display == "none") {
+			document.querySelector(".settings").style.display = "flex";
+		} else {
+			document.querySelector(".settings").style.display = "none";
+		}
+	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		if (document.querySelector(".Notifications").style.display == "none") {
+			document.querySelector(".Notifications").style.display = "flex";
+		} else {
+			document.querySelector(".Notifications").style.display = "none";
+		}
+	});
+	document.querySelectorAll(".save").forEach((element) => {
 		element.addEventListener("click", () => {
 			const save_post_id = element.dataset.post_id;
 			const save_keeper_id = element.dataset.keeper_id;
@@ -202,15 +354,12 @@ $(document).ready(function () {
 				success() {
 					alert("Post saved");
 					element.style.display = "none";
-					const Unsave_icon = element.nextElementSibling;
-					Unsave_icon.style.display = "flex";
-					window.location.href = "savedPosts.php";
+					element.nextElementSibling.style.display = "flex";
 				},
 			});
 		});
 	});
-	const unSave = document.querySelectorAll(".saved");
-	unSave.forEach((element) => {
+	document.querySelectorAll(".saved").forEach((element) => {
 		element.addEventListener("click", () => {
 			const unSave_post_id = element.dataset.post_id;
 			const unSave_keeper_id = element.dataset.keeper_id;
@@ -225,9 +374,7 @@ $(document).ready(function () {
 				success() {
 					alert("Post unsaved");
 					element.style.display = "none";
-					const Save_icon = element.previousElementSibling;
-					Save_icon.style.display = "flex";
-					window.location.href = "savedPosts.php";
+					element.previousElementSibling.style.display = "flex";
 				},
 			});
 		});
@@ -256,11 +403,11 @@ $(document).ready(function () {
 	const like1 = document.querySelectorAll(".LikeParagraph");
 	like1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -293,11 +440,11 @@ $(document).ready(function () {
 	const likeHollow1 = document.querySelectorAll(".likeHollow");
 	likeHollow1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -330,11 +477,11 @@ $(document).ready(function () {
 	const Unlike1 = document.querySelectorAll(".UnLikeParagraph");
 	Unlike1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -367,11 +514,11 @@ $(document).ready(function () {
 	const likeFilled1 = document.querySelectorAll(".likeFilled");
 	likeFilled1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -401,136 +548,363 @@ $(document).ready(function () {
 			});
 		});
 	});
-});
-setInterval(() => {
-	$(".LikeCount").each(function () {
-		const post_id = $(this).attr("post_id");
+	const setEndOfContenteditable = (elem) => {
+		const sel = window.getSelection();
+		sel.selectAllChildren(elem);
+		sel.collapseToEnd();
+	};
+	let change = true;
+	const tagFriend = document.querySelectorAll(".tagButton");
+	tagFriend.forEach((element) => {
+		element.addEventListener("click", () => {
+			const textareaDiv = document.querySelector(".my-textarea");
+			const textareaForm = document.querySelector(".card-write-post");
+			const text = textareaDiv.innerHTML;
+			const fName = $(element).attr("fName");
+			const lName = $(element).attr("lName");
+			const account_id = $(element).attr("account_id");
+			const fullName = `@${fName}${lName}`;
+			const fullNameLink = `<a href="friendpage.php?account_id=${account_id}">${fullName}</a>`;
+			textareaDiv.innerHTML = `${text} ${fullNameLink}`;
+			textareaForm.value = `${text} ${fullNameLink}`;
+			change = false;
+			$(".form-popup").hide();
+			setEndOfContenteditable(textareaDiv);
+			if (document.querySelector(".post-write").clicked == true) {
+				$.ajax({
+					url: "backBone.php",
+					type: "post",
+					data: {
+						tag: 1,
+						friend_id,
+						account_id,
+					},
+					success() {},
+				});
+			}
+		});
+	});
+	$(".my-textarea").on("input", function () {
+		const text = $(this).html();
+		const textareaForm = document.querySelector(".card-write-post");
+		if (change == true) {
+			textareaForm.value = text;
+			const regex = /<div><br><\/div>/g;
+			textareaForm.value = textareaForm.value.replace(regex, "");
+			return;
+		}
+		$(this).html(textareaForm.value);
+		change = true;
+		const textarea = document.querySelector(".my-textarea");
+		setEndOfContenteditable(textarea);
+	});
+	setInterval(() => {
 		$.ajax({
 			url: "backBone.php",
 			type: "post",
 			data: {
-				refreshLikeCount: 1,
-				post_id,
-			},
-			success(response) {
-				$(this).text(response);
+				checkStrory: 1,
 			},
 		});
-	});
-}, 5000);
-const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-const rootElement = document.documentElement;
-const handleScroll = () => {
-	const scrollTotal = 1700;
-	if (rootElement.scrollTop / scrollTotal > 0.8) {
-		scrollToTopBtn.classList.add("showBtn");
-	} else {
-		scrollToTopBtn.classList.remove("showBtn");
-	}
-};
-const scrollToTop = () => {
-	rootElement.scrollTo({
-		top: 0,
-		behavior: "smooth",
-	});
-};
-scrollToTopBtn.addEventListener("click", scrollToTop);
-document.addEventListener("scroll", handleScroll);
-$(".post-image").on("contextmenu", (e) => false);
-const modal = document.querySelector(".modal");
-const img = document.querySelectorAll(".post-image");
-const modalImg = document.querySelector(".modal-content");
-const closeBtn = document.querySelector(".close");
-img.forEach((element) => {
-	element.addEventListener("click", () => {
-		modal.style.display = "block";
-		modalImg.src = element.src;
-		document.body.style.overflow = "hidden";
-		if (modalImg.height > 850) {
-			modalImg.style.maxWidth = "500px";
-		} else if (modalImg.height < 600) {
-			modalImg.style.maxWidth = "1100px";
+	}, 500000000);
+
+	setInterval(() => {
+		$(".LikeCount").each(function () {
+			const post_id = $(this).attr("post_id");
+			$.ajax({
+				url: "backBone.php",
+				type: "post",
+				data: {
+					refreshLikeCount: 1,
+					post_id,
+				},
+				success(response) {
+					$(this).text(response);
+				},
+			});
+		});
+	}, 30000);
+	const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+	const rootElement = document.documentElement;
+	const handleScroll = () => {
+		const scrollTotal = 1700;
+		if (rootElement.scrollTop / scrollTotal > 0.8) {
+			scrollToTopBtn.classList.add("showBtn");
 		} else {
-			modalImg.style.maxWidth = "700px";
+			scrollToTopBtn.classList.remove("showBtn");
 		}
+	};
+	const scrollToTop = () => {
+		rootElement.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+	scrollToTopBtn.addEventListener("click", scrollToTop);
+	document.addEventListener("scroll", handleScroll);
+	$(".post-image").on("contextmenu", (e) => false);
+	const modal = document.querySelector(".modal");
+	const img = document.querySelectorAll(".post-image");
+	const modalImg = document.querySelector(".modal-content");
+	const closeBtn = document.querySelector(".close");
+	img.forEach((element) => {
+		element.addEventListener("click", () => {
+			modal.style.display = "block";
+			modalImg.src = element.src;
+			document.body.style.overflow = "hidden";
+			if (element.height >= 800) {
+				modalImg.style.maxWidth = "370px";
+			} else if (element.height >= 700 && element.height < 800) {
+				modalImg.style.maxWidth = "500px";
+			} else if (element.height >= 400 && element.height < 700) {
+				modalImg.style.maxWidth = "670px";
+			} else if (element.height >= 300 && element.height < 400) {
+				modalImg.style.maxWidth = "770px";
+			} else if (element.height >= 200 && element.height < 300) {
+				modalImg.style.maxWidth = "1200px";
+			} else {
+				modalImg.style.maxWidth = "1400px";
+			}
+		});
 	});
-});
-closeBtn.addEventListener("click", () => {
-	modal.style.display = "none";
-	document.body.style.overflow = "auto";
-	modalImg.style.maxWidth = "700px";
-});
-window.addEventListener("click", (e) => {
-	if (e.target == modal) {
+	const story = document.querySelectorAll(".story");
+	const modalStory = document.querySelector(".modalStory");
+	const modalContent = document.querySelector(".modal-content2");
+	const videoElement = document.querySelector(".videoElement");
+	const vidSource = document.querySelector(".vidSource");
+	const storyName = document.querySelector(".storyName");
+	const storyTime = document.querySelector(".storyTime");
+	const storyImg = document.querySelector(".storyImg");
+	story.forEach((element) => {
+		element.addEventListener("click", () => {
+			const author_id = element.getAttribute("data-AthStory");
+			let i = 0;
+			$.ajax({
+				url: "backBone.php",
+				type: "post",
+				data: {
+					getStory: 1,
+					author_id,
+				},
+				success(response) {
+					const stories = JSON.parse(response);
+					$.ajax({
+						url: "backBone.php",
+						type: "post",
+						data: {
+							getStoryInfo: 1,
+							personStoryId: stories[i].author,
+						},
+						success(response) {
+							const storyInfo = JSON.parse(response);
+							storyName.textContent = storyInfo[0] + " " + storyInfo[1];
+							storyTime.textContent = stories[i].created_date;
+							storyImg.src = storyInfo[2];
+						},
+					});
+					if (
+						stories[i].img_name != null ||
+						stories[i].img_name != undefined ||
+						stories[i].img_name != ""
+					) {
+						modalStory.style.display = "block";
+						document
+							.querySelector(".next_story")
+							.addEventListener("click", () => {
+								modalContent.src = stories[++i].img_name;
+								$.ajax({
+									url: "backBone.php",
+									type: "post",
+									data: {
+										getStoryInfo: 1,
+										personStoryId: stories[i].author,
+									},
+									success(response) {
+										const storyInfo = JSON.parse(response);
+										storyName.textContent = storyInfo[0] + " " + storyInfo[1];
+										storyTime.textContent = stories[i].created_date;
+										storyImg.src = storyInfo[2];
+									},
+								});
+							});
+						document
+							.querySelector(".prev_story")
+							.addEventListener("click", () => {
+								if (i >= 0) {
+									modalContent.src = stories[--i].img_name;
+									$.ajax({
+										url: "backBone.php",
+										type: "post",
+										data: {
+											getStoryInfo: 1,
+											personStoryId: stories[i].author,
+										},
+										success(response) {
+											const storyInfo = JSON.parse(response);
+											storyName.textContent = storyInfo[0] + " " + storyInfo[1];
+											storyTime.textContent = stories[i].created_date;
+											storyImg.src = storyInfo[2];
+										},
+									});
+								}
+							});
+						modalContent.src = stories[i].img_name;
+						document.body.style.overflow = "hidden";
+						if (element.height >= 800) {
+							modalContent.style.maxWidth = "370px";
+						} else if (element.height >= 700 && element.height < 800) {
+							modalContent.style.maxWidth = "500px";
+						} else if (element.height >= 400 && element.height < 700) {
+							modalContent.style.maxWidth = "670px";
+						} else if (element.height >= 300 && element.height < 400) {
+							modalContent.style.maxWidth = "770px";
+						} else if (element.height >= 200 && element.height < 300) {
+							modalContent.style.maxWidth = "1200px";
+						} else {
+							modalContent.style.maxWidth = "1400px";
+						}
+					}
+				},
+			});
+		});
+	});
+
+	closeBtn.addEventListener("click", () => {
 		modal.style.display = "none";
 		document.body.style.overflow = "auto";
-		modalImg.style.maxWidth = "700px";
-	}
-});
-const modify = document.querySelectorAll(".modify");
-modify.forEach((element) => {
-	element.addEventListener("click", () => {
-		const formElement = element.parentElement.children[1];
-		formElement.style.display = "block";
 	});
-});
-const cancel = document.querySelectorAll(".cancel1");
-cancel.forEach((element) => {
-	element.addEventListener("click", () => {
-		const formElement = element.parentElement.parentElement;
-		formElement.style.display = "none";
+	window.addEventListener("click", (e) => {
+		if (e.target == modal) {
+			modal.style.display = "none";
+			document.body.style.overflow = "auto";
+		}
 	});
-});
-particlesJS("particles-js", {
-	particles: {
-		number: { value: 160, density: { enable: true, value_area: 2000 } },
-		color: { value: "#ffffff" },
-		shape: {
-			type: "circle",
-			stroke: { width: 0, color: "#000000" },
-			polygon: { nb_sides: 5 },
-			image: { src: "img/github.svg", width: 100, height: 100 },
-		},
-		opacity: {
-			value: 0.5,
-			random: false,
-			anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
-		},
-		size: {
-			value: 3,
-			random: true,
-			anim: {
-				enable: false,
-				speed: 4.794668328818349,
-				size_min: 0.1,
-				sync: true,
+	window.addEventListener("click", (e) => {
+		if (e.target == modalStory) {
+			modalStory.style.display = "none";
+			document.body.style.overflow = "auto";
+		}
+	});
+	const cancel = document.querySelectorAll(".cancel1");
+	cancel.forEach((element) => {
+		element.addEventListener("click", () => {
+			const formElement = element.parentElement.parentElement;
+			formElement.style.display = "none";
+		});
+	});
+	particlesJS("particles-js", {
+		particles: {
+			number: { value: 120, density: { enable: true, value_area: 2000 } },
+			color: { value: "#ffffff" },
+			shape: {
+				type: "circle",
+				stroke: { width: 0, color: "#000000" },
+				polygon: { nb_sides: 5 },
+				image: { src: "img/github.svg", width: 100, height: 100 },
+			},
+			opacity: {
+				value: 0.5,
+				random: false,
+				anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+			},
+			size: {
+				value: 3,
+				random: true,
+				anim: {
+					enable: false,
+					speed: 4.794668328818349,
+					size_min: 0.1,
+					sync: true,
+				},
+			},
+			line_linked: {
+				enable: true,
+				distance: 220.96133965703635,
+				color: "#404040",
+				opacity: 0.12204657549380909,
+				width: 1,
+			},
+			move: {
+				enable: true,
+				speed: 1.5,
+				direction: "none",
+				random: false,
+				straight: false,
+				out_mode: "out",
+				bounce: true,
+				attract: { enable: false, rotateX: 600, rotateY: 1200 },
 			},
 		},
-		line_linked: {
-			enable: true,
-			distance: 220.96133965703635,
-			color: "#404040",
-			opacity: 0.12204657549380909,
-			width: 1,
-		},
-		move: {
-			enable: true,
-			speed: 3,
-			direction: "none",
-			random: false,
-			straight: false,
-			out_mode: "out",
-			bounce: true,
-			attract: { enable: false, rotateX: 600, rotateY: 1200 },
-		},
-	},
-	retina_detect: true,
-});
+		retina_detect: true,
+	});
+	if (window.history.replaceState) {
+		window.history.replaceState(null, null, window.location.href);
+	}
+	const dropdown = document.querySelectorAll(".dropdown");
+	const dropdownArray = Array.prototype.slice.call(dropdown, 0);
+	dropdownArray.forEach(function (el) {
+		const button = el.querySelector('a[data-toggle="dropdown"]');
+		const menu = el.querySelector(".dropdown-menu");
+		const arrow = button.querySelector("i.icon-arrow");
 
-if (window.history.replaceState) {
-	window.history.replaceState(null, null, window.location.href);
-}
+		button.onclick = (event) => {
+			if (!menu.hasClass("show")) {
+				menu.classList.add("show");
+				menu.classList.remove("hide");
+				arrow.classList.add("open");
+				arrow.classList.remove("close");
+			} else {
+				menu.classList.remove("show");
+				menu.classList.add("hide");
+				arrow.classList.remove("open");
+				arrow.classList.add("close");
+			}
+			event.preventDefault();
+		};
+	});
+	document.querySelector(".chat").addEventListener("click", () => {
+		window.location.href = "chat.php";
+	});
 
-document.querySelector(".box").addEventListener("click", () => {
-	window.location.href = "home.php";
+	Element.prototype.hasClass = function (className) {
+		return (
+			this.className &&
+			new RegExp(`(^|\\s)${className}(\\s|$)`).test(this.className)
+		);
+	};
+	const likeBox = document.querySelector(".show_Likes_Box");
+	document.querySelectorAll(".show_Likes").forEach((element) => {
+		element.addEventListener("click", () => {
+			document.querySelector(".show_Likes_Box").style.display =
+				document.querySelector(".show_Likes_Box").style.display == "none"
+					? "flex"
+					: "none";
+			const post_id = element.getAttribute("data-post_id");
+			$.ajax({
+				url: "backBone.php",
+				method: "POST",
+				data: {
+					post_id: post_id,
+					show_Likes: 1,
+				},
+				success: function (data) {
+					const like = JSON.parse(data);
+					for (let i = 0; i < like.length; i++) {
+						const likeLink = document.createElement("a");
+						likeLink.classList.add("likeLink");
+						likeLink.setAttribute(
+							"href",
+							"friendpage.php?account_id=" + like[i][3],
+						);
+						likeLink.innerHTML = like[i][0] + " " + like[i][1];
+						const likeimg = document.createElement("img");
+						likeimg.classList.add("likeimg");
+						likeimg.setAttribute("src", like[i][2]);
+						likeLink.appendChild(likeimg);
+						likeBox.appendChild(likeLink);
+					}
+				},
+			});
+		});
+	});
 });
