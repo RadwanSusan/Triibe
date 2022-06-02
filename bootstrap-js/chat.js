@@ -20,6 +20,35 @@ $(document).ready(function () {
 	} else {
 		$(".noUserSelectedPara").css("display", "flex");
 	}
+	document.querySelector(".settingsList").addEventListener("click", () => {
+		if (document.querySelector(".settings").style.display == "none") {
+			document.querySelector(".settings").style.display = "flex";
+		} else {
+			document.querySelector(".settings").style.display = "none";
+		}
+	});
+	document.querySelector(".map").addEventListener("click", () => {
+		window.location.href = "map.php";
+	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				notificationsClear: 1,
+			},
+			success(data) {
+				document.querySelector(".notificationCount").style.display = "none";
+			},
+		});
+	});
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
+		if (document.querySelector(".Notifications").style.display == "none") {
+			document.querySelector(".Notifications").style.display = "flex";
+		} else {
+			document.querySelector(".Notifications").style.display = "none";
+		}
+	});
 	// document.querySelector("#image").addEventListener("change", (event) => {
 	// 	var reader = new FileReader();
 	// 	reader.onload = function () {
