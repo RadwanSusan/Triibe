@@ -196,13 +196,23 @@ $(document).ready(function () {
 				formElement.style.display == "none" ? "block" : "none";
 		});
 	});
+	document.querySelectorAll(".form-container2").forEach((element) => {
+		element.addEventListener("submit", (e) => {
+			e.preventDefault();
+		});
+	});
+	document.querySelectorAll(".editExit").forEach((element) => {
+		element.addEventListener("click", () => {
+			element.parentElement.parentElement.style.display = element.parentElement.parentElement.style.display == "block" ? "none" : "block";
+		});
+	});
 	document.querySelectorAll(".edit").forEach((element) => {
 		element.addEventListener("click", () => {
 			const EditPostBox = element.parentElement.children[1];
 			EditPostBox.style.display =
 				EditPostBox.style.display == "none" ? "block" : "none";
 		});
-		const EditBtn = element.parentElement.children[1].children[1];
+		const EditBtn = element.parentElement.children[1].children[2];
 		EditBtn.addEventListener("click", (e) => {
 			const editContent = document.querySelector(".edit-text").value;
 			const post_id = EditBtn.getAttribute("data-post_id");
@@ -235,7 +245,7 @@ $(document).ready(function () {
 				data: {
 					logout: 1,
 				},
-				success(data) {
+				success() {
 					window.location.href = "login.php";
 				},
 			});
@@ -786,7 +796,7 @@ setInterval(() => {
 			},
 		});
 	});
-}, 5000);
+}, 30000);
 const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
 const rootElement = document.documentElement;
 const handleScroll = () => {

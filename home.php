@@ -796,6 +796,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
                                   <div class='modifyPost' style='display:none;'>
+                                    <div class='right-top-card'>
+                                      <img class='exitCard editExit' src='Design/Image/home-images/images/exit-card.svg'>
+                                   </div>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='button' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
@@ -852,6 +855,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
                                   <div class='modifyPost' style='display:none;'>
+                                                                      <div class='right-top-card'>
+                                      <img class='exitCard editExit' src='Design/Image/home-images/images/exit-card.svg'>
+                                   </div>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
@@ -908,6 +914,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
                                   <div class='modifyPost' style='display:none;'>
+                                                                      <div class='right-top-card'>
+                                      <img class='exitCard editExit' src='Design/Image/home-images/images/exit-card.svg'>
+                                   </div>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
@@ -945,7 +954,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
-                                          <img class='show_Likes' data-post_id='".$row["post_id"]."' src='Design/Image/home-images/images/card-down.svg'>
+                                          <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                        ";
                       $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                       $result3 = mysqli_query($conn, $sql4);
@@ -1020,7 +1029,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                         <div class='like'>
-                                          <img class='show_Likes' data-post_id='".$row["post_id"]."' src='Design/Image/home-images/images/card-down.svg'>
+                                          <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                         ";
                       $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                       $result7 = mysqli_query($conn, $sql7);
@@ -1086,7 +1095,7 @@ if (mysqli_num_rows($result1) > 0) {
                     echo "<div class='end-post'>
                               <div class='likes'>
                                  <div class='like'>
-                                          <img class='show_Likes'  data-post_id='".$row["post_id"]."' src='Design/Image/home-images/images/card-down.svg'>
+                                          <img class='show_Likes'  data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                   ";
                     $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                     $result4 = mysqli_query($conn, $sql5);
@@ -1240,6 +1249,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
                                   <div class='modifyPost' style='display:none;'>
+                                                                      <div class='right-top-card'>
+                                      <img class='exitCard editExit' src='Design/Image/home-images/images/exit-card.svg'>
+                                   </div>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
@@ -1296,6 +1308,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
                                   <div class='modifyPost' style='display:none;'>
+                                                                      <div class='right-top-card'>
+                                      <img class='exitCard editExit' src='Design/Image/home-images/images/exit-card.svg'>
+                                   </div>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
@@ -1352,6 +1367,9 @@ if (mysqli_num_rows($result1) > 0) {
                                   <div class='innerTag'>
                                   <a class='edit'>Edit post</a>
                                   <div class='modifyPost' style='display:none;'>
+                                                                      <div class='right-top-card'>
+                                      <img class='exitCard editExit' src='Design/Image/home-images/images/exit-card.svg'>
+                                   </div>
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
@@ -1389,7 +1407,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
-                                          <img class='show_Likes' data-post_id='".$row["post_id"]."' src='Design/Image/home-images/images/card-down.svg'>
+                                          <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                        ";
                   $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                   $result3 = mysqli_query($conn, $sql4);
@@ -1464,7 +1482,7 @@ if (mysqli_num_rows($result1) > 0) {
                                     </div>
                                     <div class='likes'>
                                         <div class='like'>
-                                          <img class='show_Likes' data-post_id='".$row["post_id"]."' src='Design/Image/home-images/images/card-down.svg'>
+                                          <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                         ";
                   $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                   $result7 = mysqli_query($conn, $sql7);
@@ -1530,7 +1548,7 @@ if (mysqli_num_rows($result1) > 0) {
                 echo "<div class='end-post'>
                               <div class='likes'>
                                  <div class='like'>
-                                          <img class='show_Likes' data-post_id='".$row["post_id"]."' src='Design/Image/home-images/images/card-down.svg'>
+                                          <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                   ";
                 $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                 $result4 = mysqli_query($conn, $sql5);
