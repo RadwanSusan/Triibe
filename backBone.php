@@ -265,6 +265,50 @@ if (isset($_POST['commentsend'])) {
 	$date = date("Y-m-d H:i:s", time());
 	$sql = "INSERT INTO comment (content , post_id, post_std_id, author,  created_date) VALUES ('" . $commentContent . "' , '" . $post_id . "' , '" . $std_id . "' , '" . $author . "' ,  '" . $date . "')";
 	$result = mysqli_query($conn, $sql);
+	$sql2 = "SELECT * FROM student WHERE std_id = '" . $std_id . "'";
+	$result2 = mysqli_query($conn, $sql2);
+	$row2 = mysqli_fetch_assoc($result2);
+	$sql3 = "SELECT * FROM img WHERE img_id = '" . $row2["img_id"] . "'";
+	$result3 = mysqli_query($conn, $sql3);
+	$row3 = mysqli_fetch_assoc($result3);
+	if (isset($row3["img_id"])) {
+		$imgname = $row3["img_name"];
+	} else {
+		if ($row2["gender"] == 1) {
+			$imgname = "Design\Image\LogoPic0.jpg";
+		} else {
+			$imgname = "Design\Image\LogoPic1.jpg";
+		}
+	}
+	$now = new DateTime();
+	$post = new DateTime($date);
+	$diff = $now->diff($post);
+	$diff->format("%a");
+	$diffday = $diff->format("%a");
+	$diffhour = $diff->format("%h");
+	$diffminute = $diff->format("%i");
+	$diffsecond = $diff->format("%s");
+	$diffdaystr = (string)$diffday;
+	$diffhourstr = (string)$diffhour;
+	$diffminutestr = (string)$diffminute;
+	$diffsecondstr = (string)$diffsecond;
+	$difftime = $diffsecondstr . "second ago";
+	if ($diffdaystr == "0") {
+		if ($diffhourstr == "0") {
+			if ($diffminutestr == "0") {
+				$difftime = $diffsecondstr . "s ago";
+			} else {
+				$difftime = $diffminutestr . "m ago";
+			}
+		} else {
+			$difftime = $diffhourstr . "h ago";
+		}
+	} else {
+		$difftime = $diffdaystr . "d ago";
+	}
+	$comment = array();
+	array_push($comment, $row2['std_fname'], $row2['std_lname'], $imgname, $commentContent, $difftime);
+	echo json_encode($comment);
 }
 if (isset($_POST['MPContact'])) {
 	$MPID = $_POST['MPID'];
