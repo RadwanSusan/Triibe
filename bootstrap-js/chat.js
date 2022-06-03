@@ -1,19 +1,4 @@
 // jshint esversion: 6
-// window.addEventListener("load", function () {
-// 	document.querySelector("#image").addEventListener("change", () => {
-// 		if (this.files && this.files[0]) {
-// 			//check if file is selected
-// 			const img = document.querySelector("#image"); //get image element
-// 			img.onload = () => {
-// 				//when image is loaded
-// 				URL.revokeObjectURL(img.src); //revoke URL
-// 			};
-// 			img.src = URL.createObjectURL(this.files[0]); //set image source
-// 			console.log(this.files[0]); //log file
-// 			console.log("Image selected");
-// 		}
-// 	});
-// });
 $(document).ready(function () {
 	if ($(window).width() < 1000) {
 		$(".noUserSelectedPara").css("display", "none");
@@ -49,15 +34,6 @@ $(document).ready(function () {
 			document.querySelector(".Notifications").style.display = "none";
 		}
 	});
-	// document.querySelector("#image").addEventListener("change", (event) => {
-	// 	var reader = new FileReader();
-	// 	reader.onload = function () {
-	// 		document.querySelector(".chatImageDiv").style.display = "flex";
-	// 		var output = document.querySelector(".chatImage");
-	// 		output.src = reader.result;
-	// 	};
-	// 	reader.readAsDataURL(event.target.files[0]);
-	// });
 	const hoverAnimation = (
 		hoverElement,
 		eventType,
@@ -133,9 +109,6 @@ $(document).ready(function () {
 	if (!document.cookie.includes("idAttr")) {
 		document.querySelector(".chat").style.display = "none";
 	}
-	// const nl2br = (str) => {
-	// 	return str.replace(/\n/g, "<br>");
-	// };
 	document.querySelector(".send").addEventListener("click", function () {
 		const message = document.querySelector(".messagetxt").value;
 		if (message.length == 0) {
@@ -256,4 +229,8 @@ $(document).ready(function () {
 		},
 		retina_detect: true,
 	});
+});
+
+document.querySelector(".box").addEventListener("click", () => {
+	window.location.href = "home.php";
 });
