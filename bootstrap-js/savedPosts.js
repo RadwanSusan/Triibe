@@ -23,7 +23,7 @@ if (document.cookie.indexOf("theme") == -1) {
 }
 document.querySelector(".themeLight").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
-	theme.setAttribute("href", "bootstrap-css/dark-home.css");
+	theme.setAttribute("href", "bootstrap-css/savedPosts-dark.css");
 	document.querySelector(".themeLight").style.display = "none";
 	document.querySelector(".themeDark").style.display = "block";
 	document.querySelector(".logoDark").style.display = "block";
@@ -68,7 +68,7 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
-	theme.setAttribute("href", "bootstrap-css/light-home.css");
+	theme.setAttribute("href", "bootstrap-css/savedPosts-dark.css");
 	document.querySelector(".themeDark").style.display = "none";
 	document.querySelector(".themeLight").style.display = "block";
 	document.querySelector(".logoLight").style.display = "block";

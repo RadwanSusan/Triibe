@@ -22,7 +22,7 @@ session_start();
   <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
-  <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
+  <link id="theme" rel="stylesheet" href="bootstrap-css/savedPosts-light.css" />
   <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
   <script type="text/javascript">
     function alert(message) {

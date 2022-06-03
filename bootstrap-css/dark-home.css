@@ -1132,6 +1132,26 @@ body {
 	display: none;
 }
 
+.savedPosts {
+	text-align: center;
+	color: white;
+	font-family: "pridi";
+	font-size: 39px;
+	margin-bottom: 20px;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.savedPosts::after {
+	content: "";
+	display: block;
+	width: 210px;
+	height: 2px;
+	background: rgb(229, 229, 229);
+	margin: 0 auto;
+	margin-top: -3px;
+	margin-bottom: 10px;
+}
+
 .savedPosts-Dark {
 	display: none;
 	width: 21px !important;
@@ -1963,26 +1983,6 @@ canvas {
 
 .otherLinksIcon-Light {
 	width: 28px !important;
-}
-
-.savedPosts {
-	text-align: center;
-	color: rgb(59, 59, 59);
-	font-family: "pridi";
-	font-size: 39px;
-	margin-bottom: 20px;
-	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.savedPosts::after {
-	content: "";
-	display: block;
-	width: 210px;
-	height: 2px;
-	background: rgb(59, 59, 59);
-	margin: 0 auto;
-	margin-top: -3px;
-	margin-bottom: 10px;
 }
 
 .write-post-container2 {
