@@ -324,14 +324,20 @@ $(document).ready(function () {
 						const commentDate = document.createElement("p");
 						commentDate.classList.add("commentDate");
 						commentDate.innerHTML = comment[i][4];
-						commentContent.appendChild(commentParagraph);
 						commentContent.appendChild(commentImg);
-						commentContent.appendChild(commentContent2);
+						commentContent.appendChild(commentParagraph);
 						commentContent.appendChild(commentDate);
+						commentContent.appendChild(commentContent2);
 						document.querySelector(".commentBox").appendChild(commentContent);
 					}
 				},
 			});
+			document
+				.querySelector(".closeBtnComment")
+				.addEventListener("click", () => {
+					document.querySelector(".commentBox").style.display = "none";
+				});
+
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({

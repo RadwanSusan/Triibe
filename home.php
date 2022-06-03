@@ -132,11 +132,12 @@ if (mysqli_num_rows($result1) > 0) {
     </form>
   </div>
   <div class="commentBox">
+    <div class="closeBtnComment btn">Close</div>
     <p class="commentHeader">Comments</p>
     <div class="commentList">
       <!-- <div class="commentContent"></div> -->
-      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
-      <button class="sendComment">Send</button>
+      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10" placeholder="Write your comment..."></textarea>
+      <button class="sendComment btn">Send</button>
     </div>
   </div>
   <div class="post-card slide-in-elliptic-top-fwd">
