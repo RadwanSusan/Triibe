@@ -379,21 +379,6 @@ error_reporting(E_ERROR | E_PARSE);
       </div>
       <div class="chat-message clearfix">
         <textarea class='messagetxt' name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
-        <i>
-          <label for="image">
-            <img class="imgIcon" src="Design/Image/home-images/images/ImageIcon.svg" alt="">
-          </label>
-          <input type="file" name="image" id="image" style="display: none;" accept="image/*" />
-        </i>
-        <i>
-          <img class="locIcon" src="Design/Image/home-images/images/locIcon.svg" alt="">
-        </i>
-        <i>
-          <label for="file">
-            <img class="FileLink" src="Design/Image/home-images/images/FileLink.svg" alt="">
-          </label>
-          <input type="file" name="file" id="file" style="display: none;" />
-        </i>
         <button class='send' type="submit" data-std_id='<?php echo $_SESSION["std_id"] ?>' data-idAttr='<?php echo $_COOKIE["idAttr"] ?>' data-fname='<?php echo $_SESSION["std_fname"] ?>'>Send</button>
       </div>
 
