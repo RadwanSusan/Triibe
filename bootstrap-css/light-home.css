@@ -1488,6 +1488,7 @@ body {
 }
 
 .close2 {
+  display: none;
   position: fixed;
   top: 15px;
   left: 35px;
