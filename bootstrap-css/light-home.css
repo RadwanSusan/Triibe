@@ -2250,6 +2250,7 @@ canvas {
 }
 
 .commentBox {
+  position: fixed !important;
   display: none;
   flex-direction: row;
   width: 500px;
@@ -3208,14 +3209,15 @@ canvas {
   display: flex;
   flex-direction: column;
 }
-.likeLink{
+
+.likeLink {
   text-decoration: none;
   color: #000;
 }
-.likeLink img{
+
+.likeLink img {
   width: 50%;
   height: 50%;
   border-radius: 50%;
 
 }
-

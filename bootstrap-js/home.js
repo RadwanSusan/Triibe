@@ -291,6 +291,14 @@ $(document).ready(function () {
 			window.location.href = "groups.php";
 		});
 	});
+	document.querySelector(".closeBtnComment").addEventListener("click", () => {
+		document.querySelector(".commentBox").style.display = "none";
+		const commentContent = document.querySelectorAll(".commentContent");
+		commentContent.forEach((element) => {
+			element.remove();
+		});
+	});
+
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
@@ -308,7 +316,6 @@ $(document).ready(function () {
 				},
 				success(data) {
 					const comment = JSON.parse(data);
-					console.table(comment);
 					for (let i = 0; i < comment.length; i++) {
 						const commentContent = document.createElement("div");
 						commentContent.classList.add("commentContent");
@@ -332,12 +339,6 @@ $(document).ready(function () {
 					}
 				},
 			});
-			document
-				.querySelector(".closeBtnComment")
-				.addEventListener("click", () => {
-					document.querySelector(".commentBox").style.display = "none";
-				});
-
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({
@@ -1090,10 +1091,10 @@ document.querySelectorAll(".show_Likes").forEach((element) => {
 			document.querySelector(".show_Likes_Box").style.display == "none"
 				? "flex"
 				: "none";
-				// delete all the children from the likes box
-				while (likeBox.firstChild) {
-					likeBox.removeChild(likeBox.firstChild);
-				}
+		// delete all the children from the likes box
+		while (likeBox.firstChild) {
+			likeBox.removeChild(likeBox.firstChild);
+		}
 		const post_id = element.getAttribute("data-post_id");
 		$.ajax({
 			url: "backBone.php",

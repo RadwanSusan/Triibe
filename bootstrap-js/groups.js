@@ -92,10 +92,10 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 document.querySelector(".themeDark").addEventListener("click", () => {
 	localStorage.setItem("theme", "dark");
 });
-if (localStorage.getItem("theme") === "light") {
+if (localStorage.getItem("theme") === "dark") {
 	document.querySelector(".themeLight").click();
 }
-if (localStorage.getItem("theme") === "dark") {
+if (localStorage.getItem("theme") === "light") {
 	document.querySelector(".themeDark").click();
 }
 window.onload = function () {
@@ -160,11 +160,11 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
-  document.querySelector(".box").addEventListener("click", () => {
-    document.cookie = `form_id = 1`;
-    document.cookie = "postBtn= 1";
-    window.location.href = "home.php";
-  });
+	document.querySelector(".box").addEventListener("click", () => {
+		document.cookie = `form_id = 1`;
+		document.cookie = "postBtn= 1";
+		window.location.href = "home.php";
+	});
 	document.querySelector(".settingsList").addEventListener("click", () => {
 		if (document.querySelector(".settings").style.display == "none") {
 			document.querySelector(".settings").style.display = "flex";
@@ -202,9 +202,9 @@ $(document).ready(function () {
 			data: {
 				SRGS: 1,
 			},
-			success (data){
+			success(data) {
 				window.location.href = "project/info.php";
-			} 
+			},
 		});
 	});
 	const group = document.querySelectorAll(".group-list-item");
@@ -492,9 +492,9 @@ $(document).ready(function () {
 				document.querySelector(".show_Likes_Box").style.display == "none"
 					? "flex"
 					: "none";
-					while (likeBox.firstChild) {
-						likeBox.removeChild(likeBox.firstChild);
-					}
+			while (likeBox.firstChild) {
+				likeBox.removeChild(likeBox.firstChild);
+			}
 			const post_id = element.getAttribute("data-post_id");
 			$.ajax({
 				url: "backBone.php",
