@@ -232,30 +232,29 @@ $(document).ready(function () {
 					author,
 				},
 				success(data) {
-					let newArray = [];
-					const commentArray = data.split("</p>");
-					commentArray.forEach((comment) => {
-						comment += "</p>";
-						newArray.push(comment);
-					});
-					newArray.forEach((comment) => {
-						const commentArray = [];
-						for (let i = 0; i < newArray.length; i += 4) {
-							commentArray.push(newArray.slice(i, i + 4));
-						}
-						// every 4 elements in the array is a comment
-						for (let i = 0; i < commentArray.length; i + 4) {
-							const commentContent = document.createElement("div");
-							commentContent.classList.add("commentContent");
-							commentContent.innerHTML =
-								commentArray[i] +
-								commentArray[i + 1] +
-								commentArray[i + 2] +
-								commentArray[i + 3];
-							document.querySelector(".commentBox").appendChild(commentContent);
-							console.table(newArray);
-						}
-					});
+					const comment = JSON.parse(data);
+					console.table(comment);
+					for (let i = 0; i < comment.length; i++) {
+						const commentContent = document.createElement("div");
+						commentContent.classList.add("commentContent");
+						const commentParagraph = document.createElement("p");
+						commentParagraph.classList.add("commentParagraph");
+						commentParagraph.innerHTML = comment[i][0] + " " + comment[0][1];
+						const commentImg = document.createElement("img");
+						commentImg.classList.add("commentImg");
+						commentImg.src = comment[i][2];
+						const commentContent2 = document.createElement("p");
+						commentContent2.classList.add("commentContent2");
+						commentContent2.innerHTML = comment[i][3];
+						const commentDate = document.createElement("p");
+						commentDate.classList.add("commentDate");
+						commentDate.innerHTML = comment[i][4];
+						commentContent.appendChild(commentParagraph);
+						commentContent.appendChild(commentImg);
+						commentContent.appendChild(commentContent2);
+						commentContent.appendChild(commentDate);
+						document.querySelector(".commentBox").appendChild(commentContent);
+					}
 				},
 			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
