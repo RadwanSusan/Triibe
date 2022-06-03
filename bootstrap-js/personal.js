@@ -67,7 +67,19 @@ $(document).ready(() => {
 			modal.style.display = "block";
 			modalImg.src = element.src;
 			document.body.style.overflow = "hidden";
-			modalImg.style.maxWidth = modalImg.height > 850 ? "600px" : "700px";
+			if (element.height >= 800) {
+				modalImg.style.maxWidth = "370px";
+			} else if (element.height >= 700 && element.height < 800) {
+				modalImg.style.maxWidth = "500px";
+			} else if (element.height >= 400 && element.height < 700) {
+				modalImg.style.maxWidth = "670px";
+			} else if (element.height >= 300 && element.height < 400) {
+				modalImg.style.maxWidth = "770px";
+			} else if (element.height >= 200 && element.height < 300) {
+				modalImg.style.maxWidth = "1200px";
+			} else {
+				modalImg.style.maxWidth = "1400px";
+			}
 		});
 	});
 	closeBtn.addEventListener("click", () => {
