@@ -26,73 +26,12 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 	theme.setAttribute("href", "bootstrap-css/savedPosts-dark.css");
 	document.querySelector(".themeLight").style.display = "none";
 	document.querySelector(".themeDark").style.display = "block";
-	document.querySelector(".logoDark").style.display = "block";
-	document.querySelector(".logoLight").style.display = "none";
-	document.querySelector(".chatDark").style.display = "block";
-	document.querySelector(".chatLight").style.display = "none";
-	document.querySelector(".notificationIcon-dark").style.display = "block";
-	document.querySelector(".notificationIcon-light").style.display = "none";
-	document.querySelector(".mapIcon-Dark").style.display = "block";
-	document.querySelector(".mapIcon-Light").style.display = "none";
-	document.querySelector(".SettingsIcon-Dark").style.display = "block";
-	document.querySelector(".SettingsIcon-Light").style.display = "none";
-	document.querySelector(".savedPosts-Dark").style.display = "block";
-	document.querySelector(".savedPosts-Light").style.display = "none";
-	document.querySelector(".marketIcon-Dark").style.display = "block";
-	document.querySelector(".marketIcon-Light").style.display = "none";
-	document.querySelector(".housingIcon-Dark").style.display = "block";
-	document.querySelector(".housingIcon-Light").style.display = "none";
-	document.querySelector(".elearningIcon-Dark").style.display = "block";
-	document.querySelector(".elearningIcon-Light").style.display = "none";
-	document.querySelector(".infoIcon-Dark").style.display = "block";
-	document.querySelector(".infoIcon-Light").style.display = "none";
-	document.querySelector(".regIcon-Dark").style.display = "block";
-	document.querySelector(".regIcon-Light").style.display = "none";
-	if (document.cookie.includes("postBtn=1")) {
-		if (document.cookie.includes("theme=light")) {
-			document.querySelector(".post-public").style.backgroundColor = "#fff";
-			document.querySelector(".post-friend").style.backgroundColor = "#f2f2f2";
-		} else {
-			document.querySelector(".post-public").style.backgroundColor = "#ffc186";
-			document.querySelector(".post-friend").style.backgroundColor = "#626364";
-		}
-	} else {
-		if (document.cookie.includes("theme=light")) {
-			document.querySelector(".post-friend").style.backgroundColor = "#fff";
-			document.querySelector(".post-public").style.backgroundColor = "#f2f2f2";
-		} else {
-			document.querySelector(".post-friend").style.backgroundColor = "#ffc186";
-			document.querySelector(".post-public").style.backgroundColor = "#626364";
-		}
-	}
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
 	const theme = document.querySelector("#theme");
-	theme.setAttribute("href", "bootstrap-css/savedPosts-dark.css");
+	theme.setAttribute("href", "bootstrap-css/savedPosts-light.css");
 	document.querySelector(".themeDark").style.display = "none";
 	document.querySelector(".themeLight").style.display = "block";
-	document.querySelector(".logoLight").style.display = "block";
-	document.querySelector(".logoDark").style.display = "none";
-	document.querySelector(".logoLight").style.display = "block";
-	document.querySelector(".logoDark").style.display = "none";
-	document.querySelector(".chatLight").style.display = "block";
-	document.querySelector(".chatDark").style.display = "none";
-	document.querySelector(".notificationIcon-light").style.display = "block";
-	document.querySelector(".notificationIcon-dark").style.display = "none";
-	document.querySelector(".mapIcon-Light").style.display = "block";
-	document.querySelector(".mapIcon-Dark").style.display = "none";
-	document.querySelector(".SettingsIcon-Light").style.display = "block";
-	document.querySelector(".SettingsIcon-Dark").style.display = "none";
-	document.querySelector(".marketIcon-Light").style.display = "block";
-	document.querySelector(".marketIcon-Dark").style.display = "none";
-	document.querySelector(".housingIcon-Light").style.display = "block";
-	document.querySelector(".housingIcon-Dark").style.display = "none";
-	document.querySelector(".elearningIcon-Light").style.display = "block";
-	document.querySelector(".elearningIcon-Dark").style.display = "none";
-	document.querySelector(".infoIcon-Light").style.display = "block";
-	document.querySelector(".infoIcon-Dark").style.display = "none";
-	document.querySelector(".regIcon-Light").style.display = "block";
-	document.querySelector(".regIcon-Dark").style.display = "none";
 });
 document.querySelector(".themeLight").addEventListener("click", () => {
 	document.cookie = "theme=light; SameSite=None; Secure";
@@ -879,9 +818,9 @@ $(document).ready(function () {
 				document.querySelector(".show_Likes_Box").style.display == "none"
 					? "flex"
 					: "none";
-					while (likeBox.firstChild) {
-						likeBox.removeChild(likeBox.firstChild);
-					}
+			while (likeBox.firstChild) {
+				likeBox.removeChild(likeBox.firstChild);
+			}
 			const post_id = element.getAttribute("data-post_id");
 			$.ajax({
 				url: "backBone.php",

@@ -97,6 +97,7 @@ body {
    margin-right: 8px;
    margin-left: -21px;
    margin-top: 6px;
+   filter: invert(1);
 }
 
 .logoDark {
@@ -139,6 +140,7 @@ body {
    position: absolute;
    top: 10px;
    left: -8px;
+   filter: invert(1);
 }
 
 .nav-right ul li img:hover {
@@ -151,6 +153,7 @@ body {
 
 .themeDark {
    display: none;
+   filter: none !important;
 }
 
 .nav-user-icon img {
