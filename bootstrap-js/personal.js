@@ -57,6 +57,7 @@ $(document).ready(() => {
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});
+
 	$(".post-image").on("contextmenu", (e) => false);
 	const modal = document.querySelector(".modal");
 	const img = document.querySelectorAll(".post-image");
@@ -89,6 +90,39 @@ $(document).ready(() => {
 	window.addEventListener("click", (e) => {
 		if (e.target == modal) {
 			modal.style.display = "none";
+			document.body.style.overflow = "auto";
+		}
+	});
+	$(".left-bottom-img").on("contextmenu", (e) => false);
+	const personalModel = document.getElementById("modal2");
+	const personalImg = document.querySelector(".left-bottom-img");
+	const PersonalModalImg = document.getElementById("modal-content");
+	const closePersonalModal = document.getElementById("close2");
+	personalImg.addEventListener("click", () => {
+		personalModel.style.display = "block";
+		PersonalModalImg.src = personalImg.src;
+		document.body.style.overflow = "hidden";
+		if (personalImg.height >= 800) {
+			PersonalModalImg.style.maxWidth = "200px";
+		} else if (personalImg.height >= 700 && personalImg.height < 800) {
+			PersonalModalImg.style.maxWidth = "300px";
+		} else if (personalImg.height >= 400 && personalImg.height < 700) {
+			PersonalModalImg.style.maxWidth = "400px";
+		} else if (personalImg.height >= 300 && personalImg.height < 400) {
+			PersonalModalImg.style.maxWidth = "500px";
+		} else if (personalImg.height >= 200 && personalImg.height < 300) {
+			PersonalModalImg.style.maxWidth = "600px";
+		} else {
+			PersonalModalImg.style.maxWidth = "700px";
+		}
+	});
+	closePersonalModal.addEventListener("click", () => {
+		personalModel.style.display = "none";
+		document.body.style.overflow = "auto";
+	});
+	window.addEventListener("click", (e) => {
+		if (e.target == personalModel) {
+			personalModel.style.display = "none";
 			document.body.style.overflow = "auto";
 		}
 	});

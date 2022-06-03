@@ -1298,7 +1298,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
   <div class="show_Likes_Box" style="display: none;"></div>
   <div class="modal">
     <span class="close">&times;</span>
-    <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
+    <img class="modal-content slide-in-elliptic-top-fwd">
+  </div>
+  <div class="modal" id="modal2">
+    <span class="close" id="close2">&times;</span>
+    <img class="modal-content slide-in-elliptic-top-fwd" id="modal-content">
   </div>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>
