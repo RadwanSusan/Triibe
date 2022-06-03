@@ -879,6 +879,9 @@ $(document).ready(function () {
 				document.querySelector(".show_Likes_Box").style.display == "none"
 					? "flex"
 					: "none";
+					while (likeBox.firstChild) {
+						likeBox.removeChild(likeBox.firstChild);
+					}
 			const post_id = element.getAttribute("data-post_id");
 			$.ajax({
 				url: "backBone.php",

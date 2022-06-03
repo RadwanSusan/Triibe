@@ -649,6 +649,7 @@ session_start();
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
+                                       <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                        ";
                 $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                 $result3 = mysqli_query($conn, $sql4);
@@ -723,6 +724,7 @@ session_start();
                                     </div>
                                     <div class='likes'>
                                         <div class='like'>
+                                        <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                         ";
                 $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                 $result7 = mysqli_query($conn, $sql7);
@@ -788,6 +790,7 @@ session_start();
               echo "<div class='end-post'>
                               <div class='likes'>
                                  <div class='like'>
+                                 <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                   ";
               $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
               $result4 = mysqli_query($conn, $sql5);
@@ -855,6 +858,8 @@ session_start();
         ?>
       </div>
     </div>
+    <div class="show_Likes_Box" style="display: none;"></div>
+
 
     <div class="right-sidebar">
       <div class="imp-link">
