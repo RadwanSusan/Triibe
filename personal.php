@@ -172,6 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
     <input type="text" class="linkedinLink" placeholder="linkedinLink" name="linkedinLink" value="<?php echo $row['linkedin'] ?>">
     <input type="text" class="twitterLink" placeholder="twitterLink" name="twitterLink" value="<?php echo $row['twitter'] ?>">
     <input type="submit" name="editProfileSubmit" class="editProfileSubmit" value="editProfileSubmit">
+    <input type="button" name="close" class="closeProf" value="close">
   </form>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">

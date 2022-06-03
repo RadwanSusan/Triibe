@@ -271,6 +271,9 @@ $(document).ready(function () {
 					: "block";
 		});
 	});
+	document.querySelector(".closeProf").addEventListener("click", () => {
+		document.querySelector(".EditInfoForm").style.display = "none";
+	});
 	document.querySelectorAll(".edit").forEach((element) => {
 		element.addEventListener("click", () => {
 			const EditPostBox = element.parentElement.children[1];
