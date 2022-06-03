@@ -1272,7 +1272,7 @@ body {
 }
 
 .post-card {
-	position: absolute;
+	position: fixed;
 	display: none;
 	width: 524px;
 	height: 300px;

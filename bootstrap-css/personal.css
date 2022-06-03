@@ -667,7 +667,7 @@
 }
 
 .post-card {
-	position: absolute;
+	position: fixed;
 	display: none;
 	width: 524px;
 	height: 300px;
@@ -4411,4 +4411,33 @@ canvas {
 	justify-content: center;
 	align-items: center;
 	z-index: 10000;
+}
+.imgContainer{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.imgContainer img{
+	width: 48%;
+	border-radius: 8px;
+	height: 30%;
+	object-fit: cover;
+	margin: 5px;
+}
+.FCont{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	margin: 8px;
+}
+.FCont div{
+	width: 48%;
+	border-radius: 8px;
+	height: 30%;
+	object-fit: cover;
+	margin: 5px;
 }
