@@ -356,7 +356,7 @@ $(document).ready(function () {
 						commentContent.classList.add("commentContent");
 						const commentParagraph = document.createElement("p");
 						commentParagraph.classList.add("commentParagraph");
-						commentParagraph.innerHTML = comment[i][0] + " " + comment[0][1];
+						commentParagraph.innerHTML = comment[i][0] + " " + comment[i][1];
 						const commentImg = document.createElement("img");
 						commentImg.classList.add("commentImg");
 						commentImg.src = comment[i][2];
