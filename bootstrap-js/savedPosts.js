@@ -149,6 +149,14 @@ $(document).ready(function () {
 			window.location.href = "groups.php";
 		});
 	});
+	document.querySelector(".closeBtnComment").addEventListener("click", () => {
+		document.querySelector(".commentBox").style.display = "none";
+		const commentContent = document.querySelectorAll(".commentContent");
+		commentContent.forEach((element) => {
+			element.remove();
+		});
+	});
+
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
@@ -166,7 +174,6 @@ $(document).ready(function () {
 				},
 				success(data) {
 					const comment = JSON.parse(data);
-					console.table(comment);
 					for (let i = 0; i < comment.length; i++) {
 						const commentContent = document.createElement("div");
 						commentContent.classList.add("commentContent");
@@ -182,23 +189,14 @@ $(document).ready(function () {
 						const commentDate = document.createElement("p");
 						commentDate.classList.add("commentDate");
 						commentDate.innerHTML = comment[i][4];
-						commentContent.appendChild(commentParagraph);
 						commentContent.appendChild(commentImg);
-						commentContent.appendChild(commentContent2);
+						commentContent.appendChild(commentParagraph);
 						commentContent.appendChild(commentDate);
+						commentContent.appendChild(commentContent2);
 						document.querySelector(".commentBox").appendChild(commentContent);
 					}
 				},
 			});
-			document
-				.querySelector(".closeBtnComment")
-				.addEventListener("click", () => {
-					document.querySelector(".commentBox").style.display = "none";
-					const commentContent = document.querySelectorAll(".commentContent");
-					commentContent.forEach((element) => {
-						element.remove();
-					});
-				});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({

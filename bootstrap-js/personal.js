@@ -334,6 +334,14 @@ $(document).ready(function () {
 			},
 		});
 	});
+	document.querySelector(".closeBtnComment").addEventListener("click", () => {
+		document.querySelector(".commentBox").style.display = "none";
+		const commentContent = document.querySelectorAll(".commentContent");
+		commentContent.forEach((element) => {
+			element.remove();
+		});
+	});
+
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
@@ -374,15 +382,6 @@ $(document).ready(function () {
 					}
 				},
 			});
-			document
-				.querySelector(".closeBtnComment")
-				.addEventListener("click", () => {
-					document.querySelector(".commentBox").style.display = "none";
-					const commentContent = document.querySelectorAll(".commentContent");
-					commentContent.forEach((element) => {
-						element.remove();
-					});
-				});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({

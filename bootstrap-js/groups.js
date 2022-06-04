@@ -152,13 +152,6 @@ $(document).ready(function () {
 		document.cookie = "postBtn= 1";
 		window.location.href = "home.php";
 	});
-	document.querySelector(".closeBtnComment").addEventListener("click", () => {
-		document.querySelector(".commentBox").style.display = "none";
-		const commentContent = document.querySelectorAll(".commentContent");
-		commentContent.forEach((element) => {
-			element.remove();
-		});
-	});
 	document.querySelector(".settingsList").addEventListener("click", () => {
 		if (document.querySelector(".settings").style.display == "none") {
 			document.querySelector(".settings").style.display = "flex";
@@ -210,6 +203,14 @@ $(document).ready(function () {
 			window.location.href = "groups.php";
 		});
 	});
+	document.querySelector(".closeBtnComment").addEventListener("click", () => {
+		document.querySelector(".commentBox").style.display = "none";
+		const commentContent = document.querySelectorAll(".commentContent");
+		commentContent.forEach((element) => {
+			element.remove();
+		});
+	});
+
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
