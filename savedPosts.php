@@ -727,7 +727,11 @@ session_start();
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
   </div>
-  <div class="show_Likes_Box" style="display: none;"></div>
+  <div class="show_Likes_Box" style="display: none;">
+    <div class="LikesExitBtn btn">Close</div>
+    <p class="LikesPara">Likes:</p>
+    <div class="likeContent"></div>
+  </div>
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>

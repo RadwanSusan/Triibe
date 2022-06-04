@@ -1345,7 +1345,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
     </div>
   </div>
   <button class="scrollToTopBtn">☝️</button>
-  <div class="show_Likes_Box" style="display: none;"></div>
+  <div class="show_Likes_Box" style="display: none;">
+    <div class="LikesExitBtn btn">Close</div>
+    <p class="LikesPara">Likes:</p>
+    <div class="likeContent"></div>
+  </div>
   <div class="modal">
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd">

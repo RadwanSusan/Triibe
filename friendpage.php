@@ -841,7 +841,11 @@ if (isset($rowcover["img_name"])) {
           </div>
         </div>
         <button class="scrollToTopBtn">☝️</button>
-        <div class="show_Likes_Box" style="display: none;"></div>
+        <div class="show_Likes_Box" style="display: none;">
+          <div class="LikesExitBtn btn">Close</div>
+          <p class="LikesPara">Likes:</p>
+          <div class="likeContent"></div>
+        </div>
         <div class="modal">
           <span class="close">&times;</span>
           <img class="modal-content slide-in-elliptic-top-fwd">

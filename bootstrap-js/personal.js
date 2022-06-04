@@ -374,13 +374,15 @@ $(document).ready(function () {
 					}
 				},
 			});
-			document.querySelector(".closeBtnComment").addEventListener("click", () => {
-				document.querySelector(".commentBox").style.display = "none";
-				const commentContent = document.querySelectorAll(".commentContent");
-				commentContent.forEach((element) => {
-					element.remove();
+			document
+				.querySelector(".closeBtnComment")
+				.addEventListener("click", () => {
+					document.querySelector(".commentBox").style.display = "none";
+					const commentContent = document.querySelectorAll(".commentContent");
+					commentContent.forEach((element) => {
+						element.remove();
+					});
 				});
-			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({
@@ -1064,39 +1066,48 @@ Element.prototype.hasClass = function (className) {
 		new RegExp(`(^|\\s)${className}(\\s|$)`).test(this.className)
 	);
 };
+document.querySelector(".LikesExitBtn").addEventListener("click", (e) => {
+	document.querySelector(".show_Likes_Box").style.display = "none";
+});
 const likeBox = document.querySelector(".show_Likes_Box");
+const likeContent = document.querySelector(".likeContent");
 document.querySelectorAll(".show_Likes").forEach((element) => {
 	element.addEventListener("click", () => {
 		document.querySelector(".show_Likes_Box").style.display =
 			document.querySelector(".show_Likes_Box").style.display == "none"
 				? "flex"
 				: "none";
-				while (likeBox.firstChild) {
-					likeBox.removeChild(likeBox.firstChild);
-				}
+		while (likeContent.firstChild) {
+			likeContent.removeChild(likeContent.firstChild);
+		}
 		const post_id = element.getAttribute("data-post_id");
 		$.ajax({
 			url: "backBone.php",
 			method: "POST",
 			data: {
-				post_id: post_id,
+				post_id,
 				show_Likes: 1,
 			},
-			success: function (data) {
+			success(data) {
 				const like = JSON.parse(data);
-				for (let i = 0; i < like.length; i++) {
-					const likeLink = document.createElement("a");
+				for (const element2 of like) {
+					let likeLink = document.createElement("a");
 					likeLink.classList.add("likeLink");
 					likeLink.setAttribute(
 						"href",
-						"friendpage.php?account_id=" + like[i][3],
+						`friendpage.php?account_id=${element2[3]}`,
 					);
-					likeLink.innerHTML = like[i][0] + " " + like[i][1];
 					const likeimg = document.createElement("img");
 					likeimg.classList.add("likeimg");
-					likeimg.setAttribute("src", like[i][2]);
+					likeimg.setAttribute("src", element2[2]);
 					likeLink.appendChild(likeimg);
-					likeBox.appendChild(likeLink);
+					likeContent.appendChild(likeLink);
+					likeBox.appendChild(likeContent);
+					const temp = `${element2[0]} ${element2[1]}`;
+					likeLink.innerHTML += temp;
+					if (likeContent.innerHTML == "") {
+						likeContent.style.display = "none";
+					}
 				}
 			},
 		});

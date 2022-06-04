@@ -859,9 +859,11 @@ session_start();
         ?>
       </div>
     </div>
-    <div class="show_Likes_Box" style="display: none;"></div>
-
-
+    <div class="show_Likes_Box" style="display: none;">
+      <div class="LikesExitBtn btn">Close</div>
+      <p class="LikesPara">Likes:</p>
+      <div class="likeContent"></div>
+    </div>
     <div class="right-sidebar">
       <div class="imp-link">
         <a href="savedPosts.php">

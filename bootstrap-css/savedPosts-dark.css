@@ -195,13 +195,64 @@ body {
    transform: translate(-50%, -50%);
    width: 300px;
    height: 500px;
-   background: #fff;
+   background: #1d2025;
    border-radius: 10px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
    flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   z-index: 100000;
+   z-index: 10000;
+   display: flex;
+   flex-direction: column;
+   overflow: auto;
+   border: 1px solid #4a4a4a;
+   flex-wrap: wrap;
+   align-content: center;
+}
+
+.LikesExitBtn {
+   display: inline-block;
+   width: 90%;
+   margin: 10px !important;
+}
+
+.LikesPara {
+   display: inline-block;
+   width: 100px;
+   font-size: 22px;
+   font-weight: bold;
+   margin-top: 10px;
+   margin-left: 8px;
+   font-family: 'Roboto', sans-serif;
+   text-decoration: underline;
+	color: #fff;
+}
+
+.likeContent {
+   background-color: rgba(209, 209, 209, 0.646);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: flex-start;
+   border-radius: 8px;
+   width: 90%;
+   margin: 10px;
+   padding: 7px;
+   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.likeLink {
+   text-decoration: none;
+   color: #000;
+   font-family: "Pridi";
+   font-size: 20px;
+
+}
+
+.likeLink img {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   margin: 8px;
+   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .search-box input {

@@ -1,6 +1,6 @@
 // jshint esversion: 6
 $(document).ready(() => {
-  document.querySelectorAll(".comment").forEach((element) => {
+	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
 			const post_id = element.getAttribute("data-post_id");
@@ -41,13 +41,15 @@ $(document).ready(() => {
 					}
 				},
 			});
-			document.querySelector(".closeBtnComment").addEventListener("click", () => {
-				document.querySelector(".commentBox").style.display = "none";
-				const commentContent = document.querySelectorAll(".commentContent");
-				commentContent.forEach((element) => {
-					element.remove();
+			document
+				.querySelector(".closeBtnComment")
+				.addEventListener("click", () => {
+					document.querySelector(".commentBox").style.display = "none";
+					const commentContent = document.querySelectorAll(".commentContent");
+					commentContent.forEach((element) => {
+						element.remove();
+					});
 				});
-			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({
@@ -87,7 +89,7 @@ $(document).ready(() => {
 			});
 		});
 	});
-  document.querySelectorAll(".share").forEach((element) => {
+	document.querySelectorAll(".share").forEach((element) => {
 		element.addEventListener("click", () => {
 			const sh_post_id = element.dataset.post_id;
 			const sh_author_id = element.dataset.author_id;
@@ -113,7 +115,7 @@ $(document).ready(() => {
 			);
 		});
 	});
-  document.querySelectorAll(".save").forEach((element) => {
+	document.querySelectorAll(".save").forEach((element) => {
 		element.addEventListener("click", () => {
 			const save_post_id = element.dataset.post_id;
 			const save_keeper_id = element.dataset.keeper_id;
@@ -133,7 +135,7 @@ $(document).ready(() => {
 			});
 		});
 	});
-  const modify = document.querySelectorAll(".modify");
+	const modify = document.querySelectorAll(".modify");
 	modify.forEach((element) => {
 		element.addEventListener("click", () => {
 			const formElement = element.parentElement.children[1];
@@ -141,7 +143,7 @@ $(document).ready(() => {
 				formElement.style.display == "none" ? "block" : "none";
 		});
 	});
-  document.querySelectorAll(".editExit").forEach((element) => {
+	document.querySelectorAll(".editExit").forEach((element) => {
 		element.addEventListener("click", () => {
 			element.parentElement.parentElement.style.display =
 				element.parentElement.parentElement.style.display == "block"
@@ -198,23 +200,23 @@ $(document).ready(() => {
 			});
 		});
 	});
-  if (document.cookie.indexOf("Personal_id") == -1) {
+	if (document.cookie.indexOf("Personal_id") == -1) {
 		document.cookie = "Personal_id=1";
 	}
-	document.querySelector('.list-posts').addEventListener('click', (e) => {
+	document.querySelector(".list-posts").addEventListener("click", (e) => {
 		//e.preventDefault();
 		document.cookie = `Personal_id=1`;
 		window.location.href = "friendpage.php";
 	});
-	document.querySelector('.list-friends').addEventListener('click', (e) => {
+	document.querySelector(".list-friends").addEventListener("click", (e) => {
 		//e.preventDefault();
 		document.cookie = `Personal_id=2`;
 		window.location.href = "friendpage.php";
 	});
-  document.querySelector(".map").addEventListener("click", () => {
+	document.querySelector(".map").addEventListener("click", () => {
 		window.location.href = "map.php";
 	});
-  document.querySelector(".NotificationsList").addEventListener("click", () => {
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
 		$.ajax({
 			url: "backBone.php",
 			type: "POST",
@@ -226,20 +228,20 @@ $(document).ready(() => {
 			},
 		});
 	});
-  document.querySelector(".NotificationsList").addEventListener("click", () => {
+	document.querySelector(".NotificationsList").addEventListener("click", () => {
 		if (document.querySelector(".Notifications").style.display == "none") {
 			document.querySelector(".Notifications").style.display = "flex";
 		} else {
 			document.querySelector(".Notifications").style.display = "none";
 		}
 	});
-  document.querySelector(".chat").addEventListener("click", () => {
-    window.location.href = "chat.php";
-  });
-  document.querySelector(".forget-pass").addEventListener("click", () => {
+	document.querySelector(".chat").addEventListener("click", () => {
+		window.location.href = "chat.php";
+	});
+	document.querySelector(".forget-pass").addEventListener("click", () => {
 		window.location.href = "changePassword.php";
 	});
-  document.querySelector(".Logout").addEventListener("click", () => {
+	document.querySelector(".Logout").addEventListener("click", () => {
 		confirm("Are you sure you want to Logout?", () => {
 			$.ajax({
 				url: "backBone.php",
@@ -253,7 +255,7 @@ $(document).ready(() => {
 			});
 		});
 	});
-  const like1 = document.querySelectorAll(".LikeParagraph");
+	const like1 = document.querySelectorAll(".LikeParagraph");
 	like1.forEach((element) => {
 		element.addEventListener("click", () => {
 			const likeHollow = element.parentElement.children[1];
@@ -401,29 +403,29 @@ $(document).ready(() => {
 			});
 		});
 	});
-  document.querySelector(".settingsList").addEventListener("click", () => {
+	document.querySelector(".settingsList").addEventListener("click", () => {
 		if (document.querySelector(".settings").style.display == "none") {
 			document.querySelector(".settings").style.display = "flex";
 		} else {
 			document.querySelector(".settings").style.display = "none";
 		}
 	});
-	document.querySelector('.seeMoreFriends').addEventListener('click', (e) => {
+	document.querySelector(".seeMoreFriends").addEventListener("click", (e) => {
 		//e.preventDefault();
 		document.cookie = `Personal_id=2`;
 		window.location.href = "friendpage.php";
 	});
-	document.querySelector('.list-photos').addEventListener('click', (e) => {
+	document.querySelector(".list-photos").addEventListener("click", (e) => {
 		//e.preventDefault();
 		document.cookie = `Personal_id=3`;
 		window.location.href = "friendpage.php";
 	});
-	document.querySelector('.seeMorePhoto').addEventListener('click', (e) => {
+	document.querySelector(".seeMorePhoto").addEventListener("click", (e) => {
 		//e.preventDefault();
 		document.cookie = `Personal_id=3`;
 		window.location.href = "friendpage.php";
 	});
-	document.querySelector('.list-videos').addEventListener('click', (e) => {
+	document.querySelector(".list-videos").addEventListener("click", (e) => {
 		//e.preventDefault();
 		document.cookie = `Personal_id=4`;
 		window.location.href = "friendpage.php";
@@ -431,74 +433,74 @@ $(document).ready(() => {
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});
-  const user_id = document.querySelector(".add-friends").getAttribute("data-user_id");
-  $.ajax({
-    url: "backBone.php",
-    method: "POST",
-    data: {
-      checkFriendStatus: 1,
-      user_id,
-    },
-    success: (data) => {
-      if(data == 1){
-        document.querySelector(".add-friends").style.display = "none";
-        document.querySelector(".RequestSent").style.display = "none";
-        document.querySelector(".AcceptRequest").style.display = "none";
-        document.querySelector(".RejectRequest").style.display = "none";
-      }else if(data == 0){
-        document.querySelector(".RequestSent").style.display = "none";
-        document.querySelector(".Friends").style.display = "none";
-        document.querySelector(".AcceptRequest").style.display = "none";
-        document.querySelector(".RejectRequest").style.display = "none";
-      }
-      else if(data == 2){
-        document.querySelector(".add-friends").style.display = "none";
-        document.querySelector(".Friends").style.display = "none";
-        document.querySelector(".AcceptRequest").style.display = "none";
-        document.querySelector(".RejectRequest").style.display = "none";
-      }
-      else if(data == 3){
-        document.querySelector(".add-friends").style.display = "none";
-        document.querySelector(".RequestSent").style.display = "none";
-        document.querySelector(".Friends").style.display = "none";
-      }
-    }  
-  });
-  setTimeout(() => {
-    const user_id = document.querySelector(".add-friends").getAttribute("data-user_id");
-    $.ajax({
-      url: "backBone.php",
-      method: "POST",
-      data: {
-        checkFriendStatus: 1,
-        user_id,
-      },
-      success: (data) => {
-        if(data == 1){
-          document.querySelector(".add-friends").style.display = "none";
-          document.querySelector(".RequestSent").style.display = "none";
-          document.querySelector(".AcceptRequest").style.display = "none";
-          document.querySelector(".RejectRequest").style.display = "none";
-        }else if(data == 0){
-          document.querySelector(".RequestSent").style.display = "none";
-          document.querySelector(".Friends").style.display = "none";
-          document.querySelector(".AcceptRequest").style.display = "none";
-          document.querySelector(".RejectRequest").style.display = "none";
-        }
-        else if(data == 2){
-          document.querySelector(".add-friends").style.display = "none";
-          document.querySelector(".Friends").style.display = "none";
-          document.querySelector(".AcceptRequest").style.display = "none";
-          document.querySelector(".RejectRequest").style.display = "none";
-        }
-        else if(data == 3){
-          document.querySelector(".add-friends").style.display = "none";
-          document.querySelector(".RequestSent").style.display = "none";
-          document.querySelector(".Friends").style.display = "none";
-        }
-      }  
-    });
-  }, 1000);
+	const user_id = document
+		.querySelector(".add-friends")
+		.getAttribute("data-user_id");
+	$.ajax({
+		url: "backBone.php",
+		method: "POST",
+		data: {
+			checkFriendStatus: 1,
+			user_id,
+		},
+		success: (data) => {
+			if (data == 1) {
+				document.querySelector(".add-friends").style.display = "none";
+				document.querySelector(".RequestSent").style.display = "none";
+				document.querySelector(".AcceptRequest").style.display = "none";
+				document.querySelector(".RejectRequest").style.display = "none";
+			} else if (data == 0) {
+				document.querySelector(".RequestSent").style.display = "none";
+				document.querySelector(".Friends").style.display = "none";
+				document.querySelector(".AcceptRequest").style.display = "none";
+				document.querySelector(".RejectRequest").style.display = "none";
+			} else if (data == 2) {
+				document.querySelector(".add-friends").style.display = "none";
+				document.querySelector(".Friends").style.display = "none";
+				document.querySelector(".AcceptRequest").style.display = "none";
+				document.querySelector(".RejectRequest").style.display = "none";
+			} else if (data == 3) {
+				document.querySelector(".add-friends").style.display = "none";
+				document.querySelector(".RequestSent").style.display = "none";
+				document.querySelector(".Friends").style.display = "none";
+			}
+		},
+	});
+	setTimeout(() => {
+		const user_id = document
+			.querySelector(".add-friends")
+			.getAttribute("data-user_id");
+		$.ajax({
+			url: "backBone.php",
+			method: "POST",
+			data: {
+				checkFriendStatus: 1,
+				user_id,
+			},
+			success: (data) => {
+				if (data == 1) {
+					document.querySelector(".add-friends").style.display = "none";
+					document.querySelector(".RequestSent").style.display = "none";
+					document.querySelector(".AcceptRequest").style.display = "none";
+					document.querySelector(".RejectRequest").style.display = "none";
+				} else if (data == 0) {
+					document.querySelector(".RequestSent").style.display = "none";
+					document.querySelector(".Friends").style.display = "none";
+					document.querySelector(".AcceptRequest").style.display = "none";
+					document.querySelector(".RejectRequest").style.display = "none";
+				} else if (data == 2) {
+					document.querySelector(".add-friends").style.display = "none";
+					document.querySelector(".Friends").style.display = "none";
+					document.querySelector(".AcceptRequest").style.display = "none";
+					document.querySelector(".RejectRequest").style.display = "none";
+				} else if (data == 3) {
+					document.querySelector(".add-friends").style.display = "none";
+					document.querySelector(".RequestSent").style.display = "none";
+					document.querySelector(".Friends").style.display = "none";
+				}
+			},
+		});
+	}, 1000);
 
 	$(".post-image").on("contextmenu", (e) => false);
 	const modal = document.querySelector(".modal");
@@ -513,162 +515,190 @@ $(document).ready(() => {
 			modalImg.style.maxWidth = modalImg.height > 850 ? "600px" : "700px";
 		});
 	});
-  document.querySelector(".add-friends").addEventListener("click", () => {
-    const user_id = document.querySelector(".add-friends").getAttribute("data-user_id");
-    $.ajax({
-      url: "backBone.php",
-      method: "POST",
-      data: {
-        add_friends: 1,
-        user_id,
-      },
-      success(data){
-        document.querySelector(".add-friends").style.display = "none";
-        document.querySelector(".RequestSent").style.display = "block";
-      }
-    });
-  });
-  document.querySelector(".RequestSent").addEventListener("click", () => {
-    const user_id = document.querySelector(".add-friends").getAttribute("data-user_id");
-    $.ajax({
-      url: "backBone.php",
-      method: "POST",
-      data: {
-        RequestSent: 1,
-        user_id,
-      },
-      success(data){
-        document.querySelector(".RequestSent").style.display = "none";
-        document.querySelector(".add-friends").style.display = "block";
-      }
-    });
-  });
-  document.querySelector(".AcceptRequest").addEventListener("click", () => {
-    const user_id = document.querySelector(".AcceptRequest").getAttribute("data-user_id");
-    $.ajax({
-      url: "backBone.php",
-      method: "POST",
-      data: {
-        AcceptRequest: 1,
-        user_id,
-      },
-      success(data){
-        document.querySelector(".AcceptRequest").style.display = "none";
-        document.querySelector(".RejectRequest").style.display = "none";
-        document.querySelector(".Friends").style.display = "block";
-      }
-    });
-  });
-  document.querySelector(".RejectRequest").addEventListener("click", () => {
-    const user_id = document.querySelector(".RejectRequest").getAttribute("data-user_id");
-    $.ajax({
-      url: "backBone.php",
-      method: "POST",
-      data: {
-        RejectRequest: 1,
-        user_id,
-      },
-      success(data){
-        document.querySelector(".RejectRequest").style.display = "none";
-        document.querySelector(".AcceptRequest").style.display = "none";
-        document.querySelector(".add-friends").style.display = "block";
-      }
-    });
-  });
-  document.querySelector(".Friends").addEventListener("click", () => {
-    confirm("Are you sure you want to remove this friend?", () => {
-    const user_id = document.querySelector(".Friends").getAttribute("data-user_id");
-    $.ajax({
-      url: "backBone.php",
-      method: "POST",
-      data: {
-        Friends: 1,
-        user_id,
-      },
-      success(data){
-        document.querySelector(".Friends").style.display = "none";
-        document.querySelector(".add-friends").style.display = "block";
-      }
-    });
-   });
-  });
-
-  document.querySelector(".posts").addEventListener("click", () => {
-    document.cookie = "show=1";
-    const account_id = document.querySelector(".posts").getAttribute("data-account_id");
-    window.location.href = `friendpage.php?account_id=${account_id}`;
-  });
-  document.querySelector(".friends").addEventListener("click", () => {
-    document.cookie = "show=2";
-    const account_id = document.querySelector(".friends").getAttribute("data-account_id");
-    window.location.href = `friendpage.php?account_id=${account_id}`;
-});
-document.querySelector(".photos").addEventListener("click", () => {
-  document.cookie = "show=3";
-  const account_id = document.querySelector(".photos").getAttribute("data-account_id");
-  window.location.href = `friendpage.php?account_id=${account_id}`;
-});
-document.querySelector(".videos").addEventListener("click", () => {
-  document.cookie = "show=4";
-  const account_id = document.querySelector(".videos").getAttribute("data-account_id");
-  window.location.href = `friendpage.php?account_id=${account_id}`;
-});
-});
-
-if (window.history.replaceState) {
-	window.history.replaceState(null, null, window.location.href);
-}
-const likeBox = document.querySelector(".show_Likes_Box");
-document.querySelectorAll(".show_Likes").forEach((element) => {
-	element.addEventListener("click", () => {
-		document.querySelector(".show_Likes_Box").style.display =
-			document.querySelector(".show_Likes_Box").style.display == "none"
-				? "flex"
-				: "none";
-				while (likeBox.firstChild) {
-					likeBox.removeChild(likeBox.firstChild);
-				}
-		const post_id = element.getAttribute("data-post_id");
+	document.querySelector(".add-friends").addEventListener("click", () => {
+		const user_id = document
+			.querySelector(".add-friends")
+			.getAttribute("data-user_id");
 		$.ajax({
 			url: "backBone.php",
 			method: "POST",
 			data: {
-				post_id: post_id,
-				show_Likes: 1,
+				add_friends: 1,
+				user_id,
 			},
-			success: function (data) {
-				const like = JSON.parse(data);
-				for (let i = 0; i < like.length; i++) {
-					const likeLink = document.createElement("a");
-					likeLink.classList.add("likeLink");
-					likeLink.setAttribute(
-						"href",
-						"friendpage.php?account_id=" + like[i][3],
-					);
-					likeLink.innerHTML = like[i][0] + " " + like[i][1];
-					const likeimg = document.createElement("img");
-					likeimg.classList.add("likeimg");
-					likeimg.setAttribute("src", like[i][2]);
-					likeLink.appendChild(likeimg);
-					likeBox.appendChild(likeLink);
-				}
+			success(data) {
+				document.querySelector(".add-friends").style.display = "none";
+				document.querySelector(".RequestSent").style.display = "block";
 			},
 		});
 	});
-	setInterval(() => {
-		$(".LikeCount").each(function () {
-			const post_id = $(this).attr("post_id");
+	document.querySelector(".RequestSent").addEventListener("click", () => {
+		const user_id = document
+			.querySelector(".add-friends")
+			.getAttribute("data-user_id");
+		$.ajax({
+			url: "backBone.php",
+			method: "POST",
+			data: {
+				RequestSent: 1,
+				user_id,
+			},
+			success(data) {
+				document.querySelector(".RequestSent").style.display = "none";
+				document.querySelector(".add-friends").style.display = "block";
+			},
+		});
+	});
+	document.querySelector(".AcceptRequest").addEventListener("click", () => {
+		const user_id = document
+			.querySelector(".AcceptRequest")
+			.getAttribute("data-user_id");
+		$.ajax({
+			url: "backBone.php",
+			method: "POST",
+			data: {
+				AcceptRequest: 1,
+				user_id,
+			},
+			success(data) {
+				document.querySelector(".AcceptRequest").style.display = "none";
+				document.querySelector(".RejectRequest").style.display = "none";
+				document.querySelector(".Friends").style.display = "block";
+			},
+		});
+	});
+	document.querySelector(".RejectRequest").addEventListener("click", () => {
+		const user_id = document
+			.querySelector(".RejectRequest")
+			.getAttribute("data-user_id");
+		$.ajax({
+			url: "backBone.php",
+			method: "POST",
+			data: {
+				RejectRequest: 1,
+				user_id,
+			},
+			success(data) {
+				document.querySelector(".RejectRequest").style.display = "none";
+				document.querySelector(".AcceptRequest").style.display = "none";
+				document.querySelector(".add-friends").style.display = "block";
+			},
+		});
+	});
+	document.querySelector(".Friends").addEventListener("click", () => {
+		confirm("Are you sure you want to remove this friend?", () => {
+			const user_id = document
+				.querySelector(".Friends")
+				.getAttribute("data-user_id");
 			$.ajax({
 				url: "backBone.php",
-				type: "post",
+				method: "POST",
 				data: {
-					refreshLikeCount: 1,
-					post_id,
+					Friends: 1,
+					user_id,
 				},
-				success(response) {
-					$(this).text(response);
+				success(data) {
+					document.querySelector(".Friends").style.display = "none";
+					document.querySelector(".add-friends").style.display = "block";
 				},
 			});
 		});
-	}, 30000);
+	});
+
+	// document.querySelector(".posts").addEventListener("click", () => {
+	// 	document.cookie = "show=1";
+	// 	const account_id = document
+	// 		.querySelector(".posts")
+	// 		.getAttribute("data-account_id");
+	// 	window.location.href = `friendpage.php?account_id=${account_id}`;
+	// });
+	// document.querySelector(".friends").addEventListener("click", () => {
+	// 	document.cookie = "show=2";
+	// 	const account_id = document
+	// 		.querySelector(".friends")
+	// 		.getAttribute("data-account_id");
+	// 	window.location.href = `friendpage.php?account_id=${account_id}`;
+	// });
+	// document.querySelector(".photos").addEventListener("click", () => {
+	// 	document.cookie = "show=3";
+	// 	const account_id = document
+	// 		.querySelector(".photos")
+	// 		.getAttribute("data-account_id");
+	// 	window.location.href = `friendpage.php?account_id=${account_id}`;
+	// });
+	// document.querySelector(".videos").addEventListener("click", () => {
+	// 	document.cookie = "show=4";
+	// 	const account_id = document
+	// 		.querySelector(".videos")
+	// 		.getAttribute("data-account_id");
+	// 	window.location.href = `friendpage.php?account_id=${account_id}`;
+	// });
+
+	if (window.history.replaceState) {
+		window.history.replaceState(null, null, window.location.href);
+	}
+	document.querySelector(".LikesExitBtn").addEventListener("click", (e) => {
+		document.querySelector(".show_Likes_Box").style.display = "none";
+	});
+	const likeBox = document.querySelector(".show_Likes_Box");
+	const likeContent = document.querySelector(".likeContent");
+	document.querySelectorAll(".show_Likes").forEach((element) => {
+		element.addEventListener("click", () => {
+
+			document.querySelector(".show_Likes_Box").style.display =
+				document.querySelector(".show_Likes_Box").style.display == "none"
+					? "flex"
+					: "none";
+			while (likeContent.firstChild) {
+				likeContent.removeChild(likeContent.firstChild);
+			}
+			const post_id = element.getAttribute("data-post_id");
+			$.ajax({
+				url: "backBone.php",
+				method: "POST",
+				data: {
+					post_id,
+					show_Likes: 1,
+				},
+				success(data) {
+					const like = JSON.parse(data);
+					for (const element2 of like) {
+						let likeLink = document.createElement("a");
+						likeLink.classList.add("likeLink");
+						likeLink.setAttribute(
+							"href",
+							`friendpage.php?account_id=${element2[3]}`,
+						);
+						const likeimg = document.createElement("img");
+						likeimg.classList.add("likeimg");
+						likeimg.setAttribute("src", element2[2]);
+						likeLink.appendChild(likeimg);
+						likeContent.appendChild(likeLink);
+						likeBox.appendChild(likeContent);
+						const temp = `${element2[0]} ${element2[1]}`;
+						likeLink.innerHTML += temp;
+									if (likeContent.innerHTML == "") {
+										likeContent.style.display = "none";
+									}
+					}
+				},
+			});
+		});
+		setInterval(() => {
+			$(".LikeCount").each(function () {
+				const post_id = $(this).attr("post_id");
+				$.ajax({
+					url: "backBone.php",
+					type: "post",
+					data: {
+						refreshLikeCount: 1,
+						post_id,
+					},
+					success(response) {
+						$(this).text(response);
+					},
+				});
+			});
+		}, 30000);
+	});
 });
