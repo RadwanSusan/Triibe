@@ -52,29 +52,104 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
     </div>
     <div class="nav-right">
       <ul>
-        <li>
+        <a class="list2" href="list.php">
+          <li class="more-list">
+            <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more-list.svg" alt="settingIcon" />
+          </li>
+        </a>
+        <li class="settingsList">
           <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
           <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
         </li>
-        <li>
+        <div class="settings" style="display: none;">
+          <p>Settings</p>
+          <div class="forget-pass">
+            <p>Change password</p>
+          </div>
+          <div class="Logout">
+            <p>Logout</p>
+          </div>
+        </div>
+
+        <li class="map">
           <img class="mapIcon-Light" src="Design/Image/home-images/images/mapIcon.svg" alt="mapIcon" />
           <img class="mapIcon-Dark" src="Design/Image/home-images/images/mapIcon2.svg" alt="mapIcon" />
         </li>
-        <li>
+
+        <li class="theme">
           <img class="themeLight" src="Design/Image/home-images/images/theme-light.svg" alt="themeLight" />
           <img class="themeDark" src="Design/Image/home-images/images/theme-dark.svg" alt="themeDark" />
         </li>
-        <li>
+        <li class="NotificationsList">
+          <?php
+          $sql = "SELECT * FROM friends_request WHERE receiver = '" . $_SESSION["std_id"] . "' AND status = '0' ";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            $count = mysqli_num_rows($result);
+            echo "<span class='notificationCount'>$count</span>";
+          }
+          ?>
           <img class="notificationIcon-light" src="Design/Image/home-images/images/notification-logo.svg" alt="notificationIcon" />
           <img class="notificationIcon-dark" src="Design/Image/home-images/images/notification-logo2.svg" alt="notificationIcon1" />
         </li>
+        <div class="Notifications" style="display: none;">
+          <p>Notifications</p>
+          <?php
+          $sql = "SELECT * FROM friends_request WHERE receiver = '" . $_SESSION["std_id"] . "'order by date desc";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["sender"] . "'";
+              $result1 = mysqli_query($conn, $sql1);
+              if (mysqli_num_rows($result1) > 0) {
+                while ($row1 = mysqli_fetch_assoc($result1)) {
+                  $now = new DateTime();
+                  $post = new DateTime($row["date"]);
+                  $diff = $now->diff($post);
+                  $diff->format("%a");
+                  $diffday = $diff->format("%a");
+                  $diffhour = $diff->format("%h");
+                  $diffminute = $diff->format("%i");
+                  $diffsecond = $diff->format("%s");
+                  $diffdaystr = (string)$diffday;
+                  $diffhourstr = (string)$diffhour;
+                  $diffminutestr = (string)$diffminute;
+                  $diffsecondstr = (string)$diffsecond;
+                  $difftime = $diffsecondstr . "second ago";
+                  if ($diffdaystr == "0") {
+                    if ($diffhourstr == "0") {
+                      if ($diffminutestr == "0") {
+                        $difftime = $diffsecondstr . "s ago";
+                      } else {
+                        $difftime = $diffminutestr . "m ago";
+                      }
+                    } else {
+                      $difftime = $diffhourstr . "h ago";
+                    }
+                  } else {
+                    $difftime = $diffdaystr . "d ago";
+                  }
+                  echo "<a href='friendpage.php?account_id=" . $row1["account_id"] . "'><div class='NotificationBox'>
+                  <p>$difftime</p>
+                        <p>" . $row1['std_fname'] . " " . $row1["std_lname"] . " sent you a friend request </p>
+                 </div></a>";
+                }
+              }
+            }
+          }
+
+          ?>
+        </div>
         <li class="chat">
           <img class="chatLight" src="Design/Image/home-images/images/chat-icon.svg" alt="image" />
           <img class="chatDark" src="Design/Image/home-images/images/chat-icon2.svg" alt="image" />
         </li>
+        <li class="more-list">
+          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more2.svg" alt="settingIcon" />
+        </li>
       </ul>
       <div class="nav-user-icon online">
-        <a href='personal.php'><img src="<?php echo $_SESSION["img_name"]; ?>" alt="" /></a>
+        <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" /></a>
         <a href='personal.php'>
           <div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
@@ -198,7 +273,7 @@ $badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس 
       </div>
       <div class="contactBox">
         <div class="chatlink">
-          <p class ="chatPage">chat</p>
+          <p class="chatPage">chat</p>
           <button class="closeContact">close</button>
         </div>
       </div>

@@ -22,9 +22,51 @@ $(document).ready(function() {
       });
     });
   });
+  document.querySelector(".chat").addEventListener("click", () => {
+    window.location.href = "chat.php";
+  });
   document.querySelector(".closeContact").addEventListener("click", function() {
     document.querySelector(".contactBox").style.display = "none";
   });
+  document.querySelector(".settingsList").addEventListener("click", () => {
+		if (document.querySelector(".settings").style.display == "none") {
+			document.querySelector(".settings").style.display = "flex";
+		} else {
+			document.querySelector(".settings").style.display = "none";
+		}
+	});
+  document.querySelector(".NotificationsList").addEventListener("click", () => {
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				notificationsClear: 1,
+			},
+			success(data) {
+				document.querySelector(".notificationCount").style.display = "none";
+			},
+		});
+	});
+	document.querySelector(".SRGS").addEventListener("click", (e) => {
+		e.preventDefault();
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				SRGS: 1,
+			},
+			success(data) {
+				window.location.href = "project/info.php";
+			},
+		});
+	});
+  document.querySelector(".NotificationsList").addEventListener("click", () => {
+		if (document.querySelector(".Notifications").style.display == "none") {
+			document.querySelector(".Notifications").style.display = "flex";
+		} else {
+			document.querySelector(".Notifications").style.display = "none";
+		}
+	});
   document.querySelector(".addProduct").addEventListener("click", function() {
     document.querySelector(".post-card").style.display = "block";
   });

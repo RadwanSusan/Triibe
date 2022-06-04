@@ -56,12 +56,53 @@ body {
   -o-user-select: none;
   user-select: none;
 }
+.more-list {
+  display: none !important;
+}
 
 .box {
   display: flex;
   margin-right: 45px;
   align-items: center;
   position: relative;
+}
+
+@media (max-width: 684px) {
+  .nav-right ul .settingsList {
+    display: none;
+  }
+}
+.mapIcon-Dark {
+  display: none;
+}
+.Notifications {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+.settings {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.settings p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Pridi";
+  font-size: 19px;
 }
 
 .box::after {
