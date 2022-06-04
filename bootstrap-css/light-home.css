@@ -1357,6 +1357,33 @@ body {
   transform: translate(-50%, -50%);
   z-index: 600;
 }
+.commentBox {
+  position: fixed !important;
+  display: none;
+  flex-direction: row;
+  width: 500px;
+  height: 700px;
+  justify-content: space-evenly;
+  align-items: left;
+  font-family: "Pridi";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 501;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(0, 0, 0);
+  overflow: auto;
+}
+.closeBtnComment {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 90px;
+}
 
 .edit-text {
   width: 96%;
@@ -2250,34 +2277,6 @@ canvas {
   margin-bottom: 2px;
 }
 
-.commentBox {
-  position: fixed !important;
-  display: none;
-  flex-direction: row;
-  width: 500px;
-  height: 700px;
-  justify-content: space-evenly;
-  align-items: left;
-  font-family: "Pridi";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 501;
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgb(0, 0, 0);
-  overflow: auto;
-}
-
-.closeBtnComment {
-  display: inline-block;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  margin-left: 5px;
-  margin-right: 90px;
-}
 
 .commentList {
   display: flex;

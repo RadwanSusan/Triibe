@@ -190,6 +190,13 @@ $(document).ready(function () {
 					}
 				},
 			});
+			document.querySelector(".closeBtnComment").addEventListener("click", () => {
+				document.querySelector(".commentBox").style.display = "none";
+				const commentContent = document.querySelectorAll(".commentContent");
+				commentContent.forEach((element) => {
+					element.remove();
+				});
+			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
 				$.ajax({
@@ -201,6 +208,29 @@ $(document).ready(function () {
 						std_id,
 						author,
 						comment,
+					},
+					success(data) {
+						const comment = JSON.parse(data);
+						console.log(comment);
+						const commentContent = document.createElement("div");
+						commentContent.classList.add("commentContent");
+						const commentParagraph = document.createElement("p");
+						commentParagraph.classList.add("commentParagraph");
+						commentParagraph.innerHTML = `${comment[0]} ${comment[1]}`;
+						const commentImg = document.createElement("img");
+						commentImg.classList.add("commentImg");
+						commentImg.src = comment[2];
+						const commentContent2 = document.createElement("p");
+						commentContent2.classList.add("commentContent2");
+						commentContent2.innerHTML = comment[3];
+						const commentDate = document.createElement("p");
+						commentDate.classList.add("commentDate");
+						commentDate.innerHTML = comment[4];
+						commentContent.appendChild(commentImg);
+						commentContent.appendChild(commentParagraph);
+						commentContent.appendChild(commentDate);
+						commentContent.appendChild(commentContent2);
+						document.querySelector(".commentBox").appendChild(commentContent);
 					},
 				});
 			});
