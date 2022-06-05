@@ -182,6 +182,9 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
+	document.querySelector(".CloseStoryBox").addEventListener("click", () => {
+		document.querySelector(".storyUploadBox").style.display = "none";
+	});
 	document.querySelector(".UploadStory").addEventListener("click", () => {
 		document.querySelector(".storyUploadBox").style.display =
 			document.querySelector(".storyUploadBox").style.display == "none"

@@ -117,15 +117,14 @@ if (mysqli_num_rows($result1) > 0) {
   }
   ?>
   <div class="storyUploadBox" style="display: none;">
+    <div class="CloseStoryBox btn">Close</div>
     <h1>Upload A Story</h1>
-    <p>Upload from webcam</p>
-    <p>Upload image From A file</p>
+    <p>Upload image From A file:</p>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="fileimg" id="file" accept=".jpg,.png,.gif,jpeg" />
       <input type="submit" name="UploadStoryImage" value="submit" />
     </form>
-    <p>Upload video From A file</p>
-    <p>(Max Length is 1min)</p>
+    <p>Upload video From A file:</p>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="filevid" id="file2" accept=".mp4,.mkv" />
       <input type="submit" name="UploadStoryVideo" value="submit" />

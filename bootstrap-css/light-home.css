@@ -2776,20 +2776,6 @@ canvas {
   font-size: 15px;
 }
 
-.storyUploadBox {
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 500;
-  width: 400px;
-  height: 700px;
-  background-color: #5e5e5e;
-  color: white;
-  border-radius: 8px;
-}
 
 
 .title {
@@ -3263,4 +3249,61 @@ canvas {
   border-radius: 50%;
   margin: 8px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.storyUploadBox {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 500;
+  width: 400px;
+  height: 330px;
+  background-color: #f8f8f8;
+  color: black;
+  border-radius: 8px;
+  border: 1px solid #4a4a4a;
+}
+
+.storyUploadBox h1 {
+  display: inline-block;
+  font-size: 30px;
+  font-family: 'poppins', sans-serif;
+  margin: 10px;
+  text-align: center;
+}
+
+.storyUploadBox p {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.storyUploadBox input {
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.storyUploadBox input[type="submit"] {
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+  background-color: #4a4a4a;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  border: none;
+}
+
+.storyUploadBox input[type="submit"]:hover {
+  background-color: #282828;
+  color: white;
 }
