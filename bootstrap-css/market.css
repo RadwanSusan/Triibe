@@ -86,6 +86,92 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   align-items: center;
 }
+.NotificationBox {
+  display: flex;
+  width: 90%;
+  height: 40px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+}
+.NotificationBox:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.NotificationBox p {
+  margin: 0;
+}
+.forget-pass {
+  display: flex;
+  width: 95%;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.forget-pass p {
+  margin: 0;
+}
+.forget-pass:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.Logout {
+  display: flex;
+  width: 95%;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.Logout:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.Logout p {
+  margin: 0;
+}
+
+.SettingsIcon-Dark {
+  display: none;
+}
+.notificationIcon-dark {
+  display: none;
+}
+.chatDark {
+  display: none;
+}
+
 .settings {
   display: none;
   position: absolute;
@@ -189,6 +275,58 @@ body {
 
 .nav-user-icon {
   margin-left: 30px;
+}
+.searchArea {
+  position: absolute;
+  left: 11vw;
+  top: 7vh;
+  width: 292px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  background: #cbcbcb62;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  outline: #000;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+}
+.searchItem {
+  width: 96%;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  isolation: isolate;
+  z-index: 202;
+  margin: 6px 0;
+}
+
+.searchItem:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
+
+.searchItem img {
+  position: fixed;
+  left: 11px;
+  width: 40px;
+  height: 40px;
+  margin-right: 9px;
+  border-radius: 50%;
+}
+
+.searchItem p {
+  position: fixed;
+  left: 60px;
+  font-size: 14px;
+  color: #000;
+  margin-top: 18px;
+  font-family: "pridi";
+  font-size: 19px;
 }
 
 .search-box {

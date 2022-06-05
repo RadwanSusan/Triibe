@@ -22,6 +22,9 @@ $(document).ready(function() {
       });
     });
   });
+  document.querySelector(".box").addEventListener("click", () => {
+		window.location.href = "home.php";
+	});
   document
 	.querySelector(".bio2")
 	.addEventListener("click", () => {
@@ -61,6 +64,23 @@ $(document).ready(function() {
 			document.querySelector(".Notifications").style.display = "none";
 		}
 	});
+  document.querySelector(".map").addEventListener("click", () => {
+		window.location.href = "map.php";
+	});
+	document.querySelector(".Logout").addEventListener("click", () => {
+		confirm("Are you sure you want to Logout?", () => {
+			$.ajax({
+				url: "backBone.php",
+				type: "POST",
+				data: {
+					logout: 1,
+				},
+				success() {
+					window.location.href = "login.php";
+				},
+			});
+		});
+	});
   document.querySelector(".addProduct").addEventListener("click", function() {
     document.querySelector(".post-card").style.display = "block";
   });
@@ -71,6 +91,9 @@ $(document).ready(function() {
     document.querySelector(".card-write-post").value = "";
     document.querySelector(".my-textarea").innerHTML = "Write something here...";
   });
+  document.querySelector(".forget-pass").addEventListener("click", () => {
+		window.location.href = "changePassword.php";
+	});
   document.querySelector(".yourProduct").addEventListener("click", function() {
     document.cookie = "yourProduct = 1 "; 
     window.location.href="market.php";
@@ -79,7 +102,27 @@ $(document).ready(function() {
     document.cookie = "yourProduct = 2 "; 
     window.location.href="market.php";
   });
-
+	$("#search").on("input", function () {
+		if ($(this).val() == "") {
+			$(".searchArea").hide();
+		} else {
+			$(".searchArea").show();
+		}
+		const std_id = $(this).attr("std_id");
+		$.ajax({
+			url: "backBone.php",
+			type: "POST",
+			data: {
+				search: 1,
+				name: $("#search").val().toLowerCase(),
+				std_id,
+			},
+			success(response) {
+				const searchArea = document.querySelector(".searchArea");
+				searchArea.innerHTML = response;
+			},
+		});
+	});
    document.querySelectorAll(".chatPage").forEach(function(element) {
     element.addEventListener("click", function() {
       const post_id = element.getAttribute("data-MPID");
