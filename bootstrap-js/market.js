@@ -22,6 +22,13 @@ $(document).ready(function() {
       });
     });
   });
+  document
+	.querySelector(".bio2")
+	.addEventListener("click", () => {
+		document.querySelector(".container1").style.opacity = "20%";
+		document.querySelector(".nav").style.opacity = "20%";
+		document.querySelector(".post-card").style.display = "block";
+	});
   document.querySelector(".chat").addEventListener("click", () => {
     window.location.href = "chat.php";
   });
@@ -47,19 +54,6 @@ $(document).ready(function() {
 			},
 		});
 	});
-	document.querySelector(".SRGS").addEventListener("click", (e) => {
-		e.preventDefault();
-		$.ajax({
-			url: "backBone.php",
-			type: "POST",
-			data: {
-				SRGS: 1,
-			},
-			success(data) {
-				window.location.href = "project/info.php";
-			},
-		});
-	});
   document.querySelector(".NotificationsList").addEventListener("click", () => {
 		if (document.querySelector(".Notifications").style.display == "none") {
 			document.querySelector(".Notifications").style.display = "flex";
@@ -70,8 +64,12 @@ $(document).ready(function() {
   document.querySelector(".addProduct").addEventListener("click", function() {
     document.querySelector(".post-card").style.display = "block";
   });
-  document.querySelector(".exitCard").addEventListener("click", function() {
+  document.querySelector(".exitCard").addEventListener("click", () => {
+    document.querySelector(".container1").style.opacity = "100%";
+    document.querySelector(".nav").style.opacity = "100%";
     document.querySelector(".post-card").style.display = "none";
+    document.querySelector(".card-write-post").value = "";
+    document.querySelector(".my-textarea").innerHTML = "Write something here...";
   });
   document.querySelector(".yourProduct").addEventListener("click", function() {
     document.cookie = "yourProduct = 1 "; 

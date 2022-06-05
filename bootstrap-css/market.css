@@ -627,6 +627,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin: 10px 10px 0px 10px;
 }
 .card-write-post {
+  display: none;
   width: 100%;
   height: 160px;
   background: #d8d8d8;
@@ -636,6 +637,10 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border: none;
   resize: none;
   user-select: none;
+}
+
+.card-write-post:focus {
+  outline: none;
 }
 .my-textarea {
   width: 100%;
@@ -652,6 +657,20 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   font-size: 16px;
   overflow-y: scroll;
   overflow-y: auto;
+}
+.my-textarea div {
+  font-family: "Pridi";
+  text-align: left;
+  font-size: 16px;
+}
+.my-textarea a {
+  font-family: "Pridi";
+  text-align: left;
+  font-size: 16px;
+}
+
+.my-textarea:focus {
+  outline: none;
 }
 .down-card p {
   position: relative;
