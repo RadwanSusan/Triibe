@@ -144,7 +144,7 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>">
+          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
