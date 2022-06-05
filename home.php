@@ -709,7 +709,7 @@ if (mysqli_num_rows($result1) > 0) {
           $resultfriend = mysqli_query($conn, $sqlfriend);
           if (mysqli_num_rows($result) > 0) {
             while ($rowfriend = mysqli_fetch_assoc($resultfriend)) {
-              $sql = "SELECT * FROM post where form_id='" . $form_id . "' AND author = '" . $rowfriend["friend_id"] . "' OR author ='" . $_SESSION["std_id"] . "' order by created_date desc";
+              $sql = "SELECT * FROM post where form_id='" . $form_id . "' AND author = '" . $rowfriend["friend_id"] . "' order by created_date desc";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {

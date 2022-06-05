@@ -189,6 +189,7 @@ body {
 	position: fixed;
 	top: 50%;
 	left: 50%;
+	flex-wrap: nowrap;
 	transform: translate(-50%, -50%);
 	width: 300px;
 	height: 500px;
@@ -201,7 +202,6 @@ body {
 	flex-direction: column;
 	overflow: auto;
 	border: 1px solid #4a4a4a;
-	flex-wrap: wrap;
 	align-content: center;
 }
 
@@ -2305,6 +2305,7 @@ canvas {
 .choiceDropDown:hover {
 	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(107%) contrast(114%) opacity(40%);
 }
+
 .commentBox {
 	position: fixed !important;
 	display: none;

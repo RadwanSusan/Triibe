@@ -1088,6 +1088,7 @@
 .show_Likes_Box {
 	position: fixed;
 	top: 50%;
+	flex-wrap: nowrap;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 300px;
@@ -1101,7 +1102,6 @@
 	flex-direction: column;
 	overflow: auto;
 	border: 1px solid #4a4a4a;
-	flex-wrap: wrap;
 	align-content: center;
 }
 
