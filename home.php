@@ -563,8 +563,18 @@ if (mysqli_num_rows($result1) > 0) {
         </li>
       </ul>
       <div class="nav-user-icon online">
-        <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" /></a>
-        <a href='personal.php'>
+        <?php
+        $sql = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+        if ($row["account_type"] == 3) {
+          $link = "admin.php";
+        } else {
+          $link = "personal.php";
+        }
+        ?>
+        <a href='<?php echo $link ?>'><img src="<?php echo $_SESSION["personalProfile"] ?>" /></a>
+        <a href='<?php echo $link ?>'>
           <div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
           </div>
