@@ -459,7 +459,7 @@ if (isset($_POST["getStory"])) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		array_push($storyArray, $row);
 	}
-	$sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND friend_id != $author_id";
+	$sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
 	$result = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($result) > 0) {
 		while ($row1 = mysqli_fetch_assoc($result)) {
