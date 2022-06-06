@@ -527,7 +527,7 @@ session_start();
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="write-post-container">
         <div class="user-profile">
-          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="">
+          <img src="<?php echo $_SESSION["personalProfile"]; ?>" alt="">
           <div class="write-post-input">
             <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
           </div>

@@ -5,16 +5,19 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap-css/light-home.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="bootstrap-css/light-home.css">
+  <title>Triibe list</title>
 </head>
+
 <body>
 
-    <nav class="nav">
+  <nav class="nav">
     <div class="nav-left">
       <div class="box">
         <img src="Design/Image/home-images/images/logo.svg" alt="logoLight" class="logoLight" /> <img src="Design/Image/home-images/images/logo2.svg" alt="logoDark" class="logoDark" />
@@ -28,13 +31,13 @@ session_start();
     <div class="nav-right">
       <ul>
         <a href="list.php">
-        <li class="more-list">
-          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more-list.svg" alt="settingIcon" />
-        </li>
-        <li>
-          </a>
-          <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
-          <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
+          <li class="more-list">
+            <img class="SettingsIcon-Light" src="Design/Image/home-images/images/more-list.svg" alt="settingIcon" />
+          </li>
+          <li>
+        </a>
+        <img class="SettingsIcon-Light" src="Design/Image/home-images/images/Settings-icon.svg" alt="settingIcon" />
+        <img class="SettingsIcon-Dark" src="Design/Image/home-images/images/Settings-icon2.svg" alt="settingIcon" />
         </li>
         <li>
           <img class="mapIcon-Light" src="Design/Image/home-images/images/mapIcon.svg" alt="mapIcon" />
@@ -63,10 +66,10 @@ session_start();
       </div>
     </div>
   </nav>
-    <div class="contant5">
-     <div class="right-sidebar1">
+  <div class="contant5">
+    <div class="right-sidebar1">
       <div class="imp-link">
-          <a href="friendpage.php?account_id=251986197"><img src="Design\Image\LogoPic0.jpg">Zaid mohamad</a>
+        <a href="friendpage.php?account_id=251986197"><img src="Design\Image\LogoPic0.jpg">Zaid mohamad</a>
         <a href="savedPosts.php">
           <img class="savedPosts-Light" src="Design/Image/home-images/images/saved-posts.svg" alt="" />
           <img class="savedPosts-Dark" src="Design/Image/home-images/images/saved-posts2.svg" alt="" />
@@ -90,6 +93,11 @@ session_start();
           <img class="elearningIcon-Dark" src="Design/Image/home-images/images/elearning-icon2.svg" alt="" />
           <span>E-Learning</span>
         </a>
+        <a class="SRGS" href="#">
+          <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
+          <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
+          <span>Student Reg Guidance System</span>
+        </a>
         <a href="http://sis.ahu.edu.jo/">
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" alt="" />
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" alt="" />
@@ -110,9 +118,13 @@ session_start();
       </div>
     </div>
   </div>
-</div>
-
+  </div>
+  <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
+  <script src="bootstrap-js/all.min.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="bootstrap-js/list.js"></script>
 
 </body>
+
 </html>

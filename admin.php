@@ -6,11 +6,12 @@ session_start();
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="bootstrap-css/admin.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="Design/Image/whiteLogo.svg" type="image/x-icon" />
   <title>Triibe Admin</title>
+  <link rel="stylesheet" href="bootstrap-css/admin.css">
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
@@ -139,7 +140,7 @@ session_start();
               <div class='student-info'>Student name :</div>
             <div class='student-know one'>" . $row["std_fname"] . " " . $row["std_lname"] . "</div>
             </div>
-              <div class='profile-info-know'> 
+              <div class='profile-info-know'>
               <div class='student-info'>Student Number :</div>
               <div class='student-know two'>" . $row["std_id"] . "</div>
             </div>
@@ -221,13 +222,13 @@ session_start();
         ?>
 
         <!-- <div class="right-Admin">
-           <p>Create a new Admin Acc</p>
-           <form action="">
-               <input type="number" placeholder="Account id" >
-                <input type="number"  placeholder="Password">
-                <button>Create</button>
-           </form>
-       </div>  -->
+          <p>Create a new Admin Acc</p>
+          <form action="">
+            <input type="number" placeholder="Account id">
+            <input type="number" placeholder="Password">
+            <button>Create</button>
+          </form>
+        </div> -->
 
 
       </div>
