@@ -143,7 +143,7 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>">
+          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
@@ -579,11 +579,11 @@ if (mysqli_num_rows($result1) > 0) {
         <?php
         $sqlc = "SELECT Coll_Name,Coll_No FROM colleges WHERE Coll_NO = (SELECT Coll_Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "'))";
         $resultc = mysqli_query($conn, $sqlc);
-        if(mysqli_num_rows($resultc) > 0){
-        while($row = mysqli_fetch_array($resultc)){
-          echo "<a href='#' class='group-list-item' data-form_id=" . "0" . $rowc["Coll_No"] . ">" . $rowc["Coll_Name"] . "</a>";
-        } 
-      }
+        if (mysqli_num_rows($resultc) > 0) {
+          while ($rowc = mysqli_fetch_array($resultc)) {
+            echo "<a href='#' class='group-list-item' data-form_id=" . "0" . $rowc["Coll_No"] . ">" . $rowc["Coll_Name"] . "</a>";
+          }
+        }
         ?>
       </div>
       <div class="group-page2">
@@ -591,11 +591,11 @@ if (mysqli_num_rows($result1) > 0) {
         <?php
         $sqlm = "SELECT Major_Name,Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "')";
         $resultm = mysqli_query($conn, $sqlm);
-        if(mysqli_num_rows($resultm) > 0) {
-        while($rowm = mysqli_fetch_assoc($resultm)){
-          echo "<a href='#' class='group-list-item' data-form_id=" . "1" . $rowm["Major_No"] . ">" . $rowm["Major_Name"] . "</a>";
+        if (mysqli_num_rows($resultm) > 0) {
+          while ($rowm = mysqli_fetch_assoc($resultm)) {
+            echo "<a href='#' class='group-list-item' data-form_id=" . "1" . $rowm["Major_No"] . ">" . $rowm["Major_Name"] . "</a>";
+          }
         }
-      }
         ?>
       </div>
       <div class="group-page2">
@@ -610,14 +610,14 @@ if (mysqli_num_rows($result1) > 0) {
         }
         ?>
       </div>
-        <?php
-        $sql = "SELECT * FROM student WHERE std_id = " . $_SESSION["std_id"] . "";
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        if($row["account_type"] == 3){
-          echo "<div class='group-page2 admin'><p> Admin Page </p></div>";
-        }
-        ?>
+      <?php
+      $sql = "SELECT * FROM student WHERE std_id = " . $_SESSION["std_id"] . "";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      if ($row["account_type"] == 3) {
+        echo "<div class='group-page2 admin'><p> Admin Page </p></div>";
+      }
+      ?>
     </div>
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">
@@ -1627,7 +1627,8 @@ if (mysqli_num_rows($result1) > 0) {
         <a class="SRGS" href="#">
           <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
           <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
-          <span>Student Reg Guidance System</span></a>
+          <span>Student Reg Guidance System</span>
+        </a>
         <a href="http://sis.ahu.edu.jo/">
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" />
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" />

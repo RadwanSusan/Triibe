@@ -568,8 +568,8 @@ if (isset($_POST['show_Likes'])) {
 	}
 	echo json_encode($allLikes);
 }
-if(isset($_POST["deleteAccount"])) {
-$std_id = $_POST["std_id"];
-$sql = "DELETE FROM student where std_id = '".$std_id."'";
-$result = mysqli_query($conn,$sql);
+if (isset($_POST["deleteAccount"])) {
+	$std_id = $_POST["std_id"];
+	$sql = "DELETE FROM student where std_id = '" . $std_id . "'";
+	$result = mysqli_query($conn, $sql);
 }
