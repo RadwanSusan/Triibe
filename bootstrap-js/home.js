@@ -257,10 +257,6 @@ $(document).ready(function () {
 			});
 		});
 	});
-	document.querySelector(".admin").addEventListener("click", () => {
-		window.location.href = "admin.php";
-	});
-
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});

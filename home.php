@@ -644,7 +644,10 @@ if (mysqli_num_rows($result1) > 0) {
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
       if ($row["account_type"] == 3) {
-        echo "<div class='group-page2 admin'><p> Admin Page </p></div>";
+        echo "<div class='group-page2 admin'><p> Admin Page </p></div>
+        <script>	document.querySelector('.admin').addEventListener('click', () => {
+          window.location.href = 'admin.php';
+        }); </script>";
       }
       ?>
     </div>
