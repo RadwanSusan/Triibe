@@ -128,6 +128,36 @@ if (isset($_POST['search2'])) {
 		echo "<div class='notFound2'><p>Not Found</p></div>";
 	}
 }
+if (isset($_POST['search3'])) {
+	$sql = "SELECT * FROM student WHERE std_fname LIKE '%" . $_POST['name'] . "%' OR std_lname LIKE '%" . $_POST['name'] . "%'";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			if ($row['std_id'] != $_POST['std_id']) {
+				$imgid = $row["img_id"];
+				$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+				$resultimg = mysqli_query($conn, $sqlimg);
+				$rowimg = mysqli_fetch_assoc($resultimg);
+				if ($rowimg == null) {
+					if ($row['gender'] == 1) {
+						$imgname	= "Design/Image/LogoPic0.jpg";
+					} else {
+						$imgname	= "Design/Image/LogoPic1.jpg";
+					}
+				} else {
+					$imgname = $rowimg['img_name'];
+				}
+				$_COOKIE["profileInfo"] = $row["std_id"];
+				echo "<a href='admin.php?profileInfo=" . $row["std_id"] . "' class='searchItem' data-friend_id='" . $row["std_id"] . "'>
+							<img src='" . $imgname . "' alt=''/>
+							<p>" . $row["std_fname"] . " " . $row["std_lname"] . "</p>
+						</a>";
+			}
+		}
+	} else {
+		echo "<div class='notFound2'><p>Not Found</p></div>";
+	}
+}
 
 if (isset($_POST['share'])) {
 	$post_id = $_POST['sh_post_id'];
@@ -537,4 +567,9 @@ if (isset($_POST['show_Likes'])) {
 		array_pop($like);
 	}
 	echo json_encode($allLikes);
+}
+if(isset($_POST["deleteAccount"])) {
+$std_id = $_POST["std_id"];
+$sql = "DELETE FROM student where std_id = '".$std_id."'";
+$result = mysqli_query($conn,$sql);
 }

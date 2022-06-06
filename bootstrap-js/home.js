@@ -1,3 +1,4 @@
+
 // jshint esversion: 6
 const confirm = (message, function1, function2) => {
 	alertify.defaults.glossary.title = "My Title";
@@ -256,6 +257,9 @@ $(document).ready(function () {
 				},
 			});
 		});
+	});
+	document.querySelector(".admin").addEventListener("click", () => {
+		window.location.href = "admin.php";
 	});
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";

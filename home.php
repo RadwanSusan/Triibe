@@ -143,7 +143,7 @@ if (mysqli_num_rows($result1) > 0) {
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>">
+          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
@@ -579,8 +579,11 @@ if (mysqli_num_rows($result1) > 0) {
         <?php
         $sqlc = "SELECT Coll_Name,Coll_No FROM colleges WHERE Coll_NO = (SELECT Coll_Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "'))";
         $resultc = mysqli_query($conn, $sqlc);
-        $rowc = mysqli_fetch_assoc($resultc);
-        echo "<a href='#' class='group-list-item' data-form_id=" . "0" . $rowc["Coll_No"] . ">" . $rowc["Coll_Name"] . "</a>";
+        if(mysqli_num_rows($resultc) > 0){
+        while($row = mysqli_fetch_array($resultc)){
+          echo "<a href='#' class='group-list-item' data-form_id=" . "0" . $rowc["Coll_No"] . ">" . $rowc["Coll_Name"] . "</a>";
+        } 
+      }
         ?>
       </div>
       <div class="group-page2">
@@ -588,8 +591,11 @@ if (mysqli_num_rows($result1) > 0) {
         <?php
         $sqlm = "SELECT Major_Name,Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "')";
         $resultm = mysqli_query($conn, $sqlm);
-        $rowm = mysqli_fetch_assoc($resultm);
-        echo "<a href='#' class='group-list-item' data-form_id=" . "1" . $rowm["Major_No"] . ">" . $rowm["Major_Name"] . "</a>";
+        if(mysqli_num_rows($resultm) > 0) {
+        while($rowm = mysqli_fetch_assoc($resultm)){
+          echo "<a href='#' class='group-list-item' data-form_id=" . "1" . $rowm["Major_No"] . ">" . $rowm["Major_Name"] . "</a>";
+        }
+      }
         ?>
       </div>
       <div class="group-page2">
@@ -604,35 +610,14 @@ if (mysqli_num_rows($result1) > 0) {
         }
         ?>
       </div>
-      <div class="group-page">
-        <p>Friends</p>
-        <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+        <?php
+        $sql = "SELECT * FROM student WHERE std_id = " . $_SESSION["std_id"] . "";
         $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_assoc($result)) {
-            $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-            $result1 = mysqli_query($conn, $sql1);
-            if (mysqli_num_rows($result1) > 0) {
-              while ($row1 = mysqli_fetch_assoc($result1)) {
-                $imgid = $row1["img_id"];
-                $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-                $resultimg = mysqli_query($conn, $sqlimg);
-                $rowimg = mysqli_fetch_assoc($resultimg);
-                if (isset($rowimg["img_name"])) {
-                  $imgname = $rowimg["img_name"];
-                } else {
-                  if ($row1["gender"] == 1) {
-                    $imgname = "Design\Image\LogoPic0.jpg";
-                  } else {
-                    $imgname = "Design\Image\LogoPic1.jpg";
-                  }
-                }
-                echo "<a href='friendpage.php?account_id=" . $row1["account_id"] . "'><img src='$imgname'/>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</a>";
-              }
-            }
-          }
-        } ?>
-      </div>
+        $row = mysqli_fetch_assoc($result);
+        if($row["account_type"] == 3){
+          echo "<div class='group-page2 admin'><p> Admin Page </p></div>";
+        }
+        ?>
     </div>
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">

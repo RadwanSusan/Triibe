@@ -596,7 +596,7 @@ if (isset($rowcover["img_name"])) {
                     }
                   } else {
                     echo "<img class='likeHollow' src='Design/Image/home-images/images/like1.svg' post_id='" . $row1["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>
-                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' post_id='" . $_SESSION["post_id"] . "' std_id='" . $row["std_id"] . "'>
+                                                  <img class='likeFilled' src='Design/Image/home-images/images/LikeFilled.svg' style='display: none;' post_id='" . $_SESSION["std_id"] . "' std_id='" . $row["std_id"] . "'>
                                                   <p class='LikeCount' post_id='" . $row1["post_id"] . "'>$likenum</p>
                                                   <p class='LikeParagraph' post_id='" . $row1["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
                                                   <p class='UnLikeParagraph' style='display: none;' post_id='" . $row1["post_id"] . "' std_id='" . $_SESSION["std_id"] . "'>likes</p>
