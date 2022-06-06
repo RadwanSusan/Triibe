@@ -1,18 +1,17 @@
-
 // jshint esversion: 6
 const confirm = (message, function1, function2) => {
 	alertify.defaults.glossary.title = "My Title";
 	alertify.confirm("Triibe", message, function1, function2);
 };
-document.addEventListener("DOMContentLoaded", () => {
-	const groupPage = document.querySelector(".group-page");
-	if (groupPage.children.length === 1) {
-		groupPage.style.height = "100px";
-		const noFriends = document.createElement("span");
-		noFriends.innerHTML = "You have no friends yet!";
-		groupPage.appendChild(noFriends);
-	}
-});
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const groupPage = document.querySelector(".group-page");
+// 	if (groupPage.children.length === 1) {
+// 		groupPage.style.height = "100px";
+// 		const noFriends = document.createElement("span");
+// 		noFriends.innerHTML = "You have no friends yet!";
+// 		groupPage.appendChild(noFriends);
+// 	}
+// });
 if (document.cookie.indexOf("form_id") == -1) {
 	document.cookie = "form_id=1";
 }
@@ -261,6 +260,7 @@ $(document).ready(function () {
 	document.querySelector(".admin").addEventListener("click", () => {
 		window.location.href = "admin.php";
 	});
+
 	document.querySelector(".box").addEventListener("click", () => {
 		window.location.href = "home.php";
 	});
@@ -814,7 +814,7 @@ setInterval(() => {
 		url: "backBone.php",
 		type: "post",
 		data: {
-			checkStrory: 1,
+			checkStory: 1,
 		},
 	});
 }, 500000);
@@ -901,8 +901,6 @@ img.forEach((element) => {
 const story = document.querySelectorAll(".story");
 const modalStory = document.querySelector(".modalStory");
 const modalContent = document.querySelector(".modal-content2");
-const videoElement = document.querySelector(".videoElement");
-const vidSource = document.querySelector(".vidSource");
 const storyName = document.querySelector(".storyName");
 const storyTime = document.querySelector(".storyTime");
 const storyImg = document.querySelector(".storyImg");
@@ -919,6 +917,7 @@ story.forEach((element) => {
 			},
 			success(response) {
 				const stories = JSON.parse(response);
+				console.log(stories);
 				$.ajax({
 					url: "backBone.php",
 					type: "post",
