@@ -1702,14 +1702,18 @@ if (mysqli_num_rows($result1) > 0) {
   </div>
   <div class="modalStory">
     <span class="close2">&times;</span>
-    <span class="next_story">&times;</span>
-    <div class="storyInfo">
-      <p class="storyName"></p>
+    <span class="next_story">
+      <img src="Design/Image/home-images/images/rightArrow.svg">
+    </span>
+    <span class="prev_story">
+      <img src="Design/Image/home-images/images/leftArrow.svg">
+    </span>
+    <div class="storyInfo slide-in-elliptic-top-fwd">
       <p class="storyTime"></p>
-      <img src="" class="storyImg">
+      <p class="storyName"></p>
+      <img class="storyImg" src="">
     </div>
     <img class="modal-content2 slide-in-elliptic-top-fwd" id="img01">
-    <span class="prev_story">&times;</span>
     <video width='300px' controls class='videoElement'>
       <source class="vidSource" type='video/mp4'>
     </video>
