@@ -409,13 +409,15 @@ $(document).ready(function () {
 	});
 	document.querySelectorAll(".delete").forEach((element) => {
 		element.addEventListener("click", () => {
+			const account_type = element.getAttribute("data-account_type");
 			const post_id1 = element.dataset.post_id;
 			const author_id = element.dataset.author_id;
 			const std_id1 = element.dataset.std_id;
+			console.log(account_type);
 			confirm(
 				"Are you sure you want to delete this post?<br/>You can't undo this action.",
 				() => {
-					if (author_id == std_id1) {
+					if (author_id == std_id1 || account_type == 3) {
 						$.ajax({
 							url: "backBone.php",
 							type: "post",
