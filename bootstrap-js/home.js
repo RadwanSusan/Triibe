@@ -185,7 +185,10 @@ $(document).ready(function () {
 	document.querySelector(".CloseStoryBox").addEventListener("click", () => {
 		document.querySelector(".storyUploadBox").style.display = "none";
 	});
-	document.querySelector(".UploadStory").addEventListener("click", () => {
+	document.querySelector(".UploadStory").addEventListener("click", (e) => {
+		if (!e) var e = window.event;
+		e.cancelBubble = true;
+		if (e.stopPropagation) e.stopPropagation();
 		document.querySelector(".storyUploadBox").style.display =
 			document.querySelector(".storyUploadBox").style.display == "none"
 				? "block"
