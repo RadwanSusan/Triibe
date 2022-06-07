@@ -69,7 +69,7 @@
 }
 
 .coverImage {
-	width: 1100px;
+	width: 1150px;
 	height: 500px;
 	border-radius: 0px 0px 10px 10px;
 	background-size: cover;
@@ -458,6 +458,7 @@
 
 .left-post .bio2 {
 	border-bottom: none;
+	display: inline;
 }
 
 .content-personal-post .right-post {
@@ -577,7 +578,8 @@
 
 .Friends {
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 }
 
 .namePhoto {

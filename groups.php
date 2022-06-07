@@ -52,7 +52,7 @@ session_start();
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>" alt="">
+          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>" alt="">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
       </div>
