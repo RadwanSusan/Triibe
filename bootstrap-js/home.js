@@ -937,6 +937,7 @@ story.forEach((element) => {
 					stories[i].img_name != ""
 				) {
 					modalStory.style.display = "block";
+					document.querySelector(".close2").style.display = "block";
 					document
 						.querySelector(".next_story")
 						.addEventListener("click", () => {
@@ -979,19 +980,19 @@ story.forEach((element) => {
 						});
 					modalContent.src = stories[i].img_name;
 					document.body.style.overflow = "hidden";
-					if (element.height >= 800) {
-						modalContent.style.maxWidth = "370px";
-					} else if (element.height >= 700 && element.height < 800) {
-						modalContent.style.maxWidth = "500px";
-					} else if (element.height >= 400 && element.height < 700) {
-						modalContent.style.maxWidth = "670px";
-					} else if (element.height >= 300 && element.height < 400) {
-						modalContent.style.maxWidth = "770px";
-					} else if (element.height >= 200 && element.height < 300) {
-						modalContent.style.maxWidth = "1200px";
-					} else {
-						modalContent.style.maxWidth = "1400px";
-					}
+					// if (element.height >= 800) {
+					// 	modalContent.style.maxWidth = "370px";
+					// } else if (element.height >= 700 && element.height < 800) {
+					// 	modalContent.style.maxWidth = "500px";
+					// } else if (element.height >= 400 && element.height < 700) {
+					// 	modalContent.style.maxWidth = "670px";
+					// } else if (element.height >= 300 && element.height < 400) {
+					// 	modalContent.style.maxWidth = "770px";
+					// } else if (element.height >= 200 && element.height < 300) {
+					// 	modalContent.style.maxWidth = "1200px";
+					// } else {
+					// 	modalContent.style.maxWidth = "1400px";
+					// }
 				}
 			},
 		});

@@ -1585,6 +1585,104 @@ body {
 	}
 }
 
+.modalStory {
+	display: none;
+	position: fixed;
+	z-index: 1001;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content2 {
+	margin: 71px auto;
+	display: block;
+	width: 470px;
+	height: 700px;
+	background-color: #000;
+	object-fit: contain;
+	border-radius: 6px;
+	border: 1px solid rgba(90, 90, 90, 0.641);
+}
+
+.next_story {
+	display: flex;
+	position: absolute;
+	left: 91%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 40px;
+	height: 40px;
+	font-size: 22px;
+	border-radius: 50%;
+	background: #000;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+}
+
+.prev_story {
+	display: flex;
+	position: absolute;
+	left: 8%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 40px;
+	height: 40px;
+	font-size: 22px;
+	border-radius: 50%;
+	background: #000;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+}
+
+.storyInfo {
+	width: 240px;
+	height: 60px;
+	position: absolute;
+	top: 11%;
+	left: 38%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	background: #1e1e1ec4;
+	border: 1px solid #7b7b7b;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+	flex-direction: row-reverse;
+	padding: 7px;
+	border-radius: 8px;
+}
+
+.storyImg {
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	padding: 4px;
+}
+
+.storyTime {
+	font-size: 15px;
+	color: rgb(220, 220, 220);
+	margin: 0px 5px 0px 5px !important;
+	font-family: "Pridi";
+}
+
+.storyName {
+	font-size: 17px;
+	color: #fff;
+	margin: 0px 0px 0px 0px !important;
+	font-family: "Pridi";
+}
+
 .tagH1 {
 	display: inline-block;
 	font-family: "Pridi";
