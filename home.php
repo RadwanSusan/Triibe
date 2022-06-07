@@ -663,7 +663,7 @@ if (mysqli_num_rows($result1) > 0) {
     </div>
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">
-        <div class="story" style="background-image: url('<?php echo $_SESSION["personalProfile"]; ?>');">
+        <div class="story" style="background-image: url(<?php echo $_SESSION["personalProfile"]; ?>)">
           <img class="UploadStory" src="Design/Image/home-images/images/upload.png">
           <p>
             <?php

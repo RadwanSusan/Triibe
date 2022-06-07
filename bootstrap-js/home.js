@@ -897,7 +897,7 @@ img.forEach((element) => {
 		}
 	});
 });
-const story = document.querySelectorAll(".story");
+const story = document.querySelectorAll(".storyF");
 const modalStory = document.querySelector(".modalStory");
 const modalContent = document.querySelector(".modal-content2");
 const storyName = document.querySelector(".storyName");
