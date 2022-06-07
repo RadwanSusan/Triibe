@@ -468,6 +468,7 @@ if (isset($_POST["getStory"])) {
 			while ($row2 = mysqli_fetch_assoc($result1)) {
 				array_push($storyArray, $row2);
 			}
+		array_pop($storyArray);
 		}
 	}
 	echo json_encode($storyArray);
