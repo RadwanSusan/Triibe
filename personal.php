@@ -749,7 +749,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/iconmonstr-linkedin-3" alt=""></a>
+            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/iconmonstr-linkedin-3.svg" alt=""></a>
           </div>';
           }
           ?>
@@ -758,7 +758,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/iconmonstr-snapchat-1" alt=""></a>
+            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/iconmonstr-snapchat-1.svg" alt=""></a>
           </div>';
           }
           ?>

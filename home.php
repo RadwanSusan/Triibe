@@ -124,11 +124,6 @@ if (mysqli_num_rows($result1) > 0) {
       <input type="file" name="fileimg" id="file" accept=".jpg,.png,.gif,jpeg" />
       <input type="submit" name="UploadStoryImage" value="submit" />
     </form>
-    <p>Upload video From A file:</p>
-    <form method="post" enctype="multipart/form-data">
-      <input type="file" name="filevid" id="file2" accept=".mp4,.mkv" />
-      <input type="submit" name="UploadStoryVideo" value="submit" />
-    </form>
   </div>
   <div class="commentBox">
     <div class="closeBtnComment btn">Close</div>
