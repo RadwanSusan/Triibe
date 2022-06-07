@@ -824,7 +824,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='button' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -883,7 +883,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -942,7 +942,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1277,7 +1277,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1336,7 +1336,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1395,7 +1395,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
