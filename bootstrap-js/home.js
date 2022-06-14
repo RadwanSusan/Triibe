@@ -1,4 +1,4 @@
-// jshint esversion: 6
+// jshint esversion: 8
 const confirm = (message, function1, function2) => {
 	alertify.defaults.glossary.title = "My Title";
 	alertify.confirm("Triibe", message, function1, function2);
@@ -186,7 +186,9 @@ $(document).ready(function () {
 		document.querySelector(".storyUploadBox").style.display = "none";
 	});
 	document.querySelector(".UploadStory").addEventListener("click", (e) => {
-		if (!e) var e = window.event;
+		if (!e) {
+			e = window.event;
+		}
 		e.cancelBubble = true;
 		if (e.stopPropagation) e.stopPropagation();
 		document.querySelector(".storyUploadBox").style.display =

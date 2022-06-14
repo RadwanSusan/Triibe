@@ -16,7 +16,7 @@
 *:after {
   -webkit-border-sizing: border-box;
   -moz-border-sizing: border-box;
-  border-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ::-ms-reveal {
