@@ -799,14 +799,14 @@ if (mysqli_num_rows($result1) > 0) {
                         echo "
                               <div class= 'post'>
                               <div class='top-post'>
-                              <div class='left-post'>
+                                 <div class='left-post'>
                               <a class='name-photo' href='$href'>
-                                <img src='$postImage'>
+                                 <img src='$postImage'>
                                     <div class='name'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                               </a>
-                                <div class='inside-top2'>
+                                 <div class='inside-top2'>
                                   $difftime
-                                <img src='Design/Image/home-images/images/friends_Post.svg'>
+                                 <img src='Design/Image/home-images/images/friends_Post.svg'>
                               </div>
                               </div>
                               <div class='right-post'>
