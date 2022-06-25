@@ -1,6 +1,8 @@
 <?php
 include_once "connection.php";
 session_start();
+$badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس امك", "قحبة", "شرموطة", "منيك", "شرمط"];
+
 $sql1 = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
 $result1 = mysqli_query($conn, $sql1);
 if (mysqli_num_rows($result1) > 0) {
@@ -170,12 +172,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
     <input type="text" class="linkedinLink" placeholder="linkedinLink" name="linkedinLink" value="<?php echo $row['linkedin'] ?>">
     <input type="text" class="twitterLink" placeholder="twitterLink" name="twitterLink" value="<?php echo $row['twitter'] ?>">
     <input type="submit" name="editProfileSubmit" class="editProfileSubmit" value="editProfileSubmit">
+    <input type="button" name="close" class="closeProf" value="close">
   </form>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>">
+          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
@@ -746,7 +749,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/iconmonstr-linkedin-3" alt=""></a>
+            <a href=' . $row["linkedin"] . '><img src="Design/Image/home-images/images/iconmonstr-linkedin-3.svg" alt=""></a>
           </div>';
           }
           ?>
@@ -755,7 +758,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             echo "";
           } else {
             echo ' <div class="bio bio2">
-            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/iconmonstr-snapchat-1" alt=""></a>
+            <a href=' . $row["snapchat"] . '><img src="Design/Image/home-images/images/iconmonstr-snapchat-1.svg" alt=""></a>
           </div>';
           }
           ?>
@@ -783,37 +786,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
             <div class="see-more seeMoreFriends">See more</div>
           </div>
           <div class="Friends">
-            <div class="left-Friends">
-              <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
-              $result = mysqli_query($conn, $sql);
-              if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                  $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
-                  $result1 = mysqli_query($conn, $sql1);
-                  if (mysqli_num_rows($result1) > 0) {
-                    while ($row1 = mysqli_fetch_assoc($result1)) {
-                      $imgid = $row1["img_id"];
-                      $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
-                      $resultimg = mysqli_query($conn, $sqlimg);
-                      $rowimg = mysqli_fetch_assoc($resultimg);
-                      if (isset($rowimg["img_name"])) {
-                        $imgName = $rowimg["img_name"];
+            <?php $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
+                $result1 = mysqli_query($conn, $sql1);
+                if (mysqli_num_rows($result1) > 0) {
+                  while ($row1 = mysqli_fetch_assoc($result1)) {
+                    $imgid = $row1["img_id"];
+                    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                    $resultimg = mysqli_query($conn, $sqlimg);
+                    $rowimg = mysqli_fetch_assoc($resultimg);
+                    if (isset($rowimg["img_name"])) {
+                      $imgName = $rowimg["img_name"];
+                    } else {
+                      if ($row1["gender"] == 1) {
+                        $imgName = "Design\Image\LogoPic0.jpg";
                       } else {
-                        if ($row1["gender"] == 1) {
-                          $imgName = "Design\Image\LogoPic0.jpg";
-                        } else {
-                          $imgName = "Design\Image\LogoPic1.jpg";
-                        }
+                        $imgName = "Design\Image\LogoPic1.jpg";
                       }
-                      echo "<div class='namePhoto'>
+                    }
+                    echo "<div class='namePhoto'>
                               <img src='" . $imgName . "' alt='image'>
                               <div class='names'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
                             </div>";
-                    }
                   }
                 }
-              } ?>
-            </div>
+              }
+            } ?>
           </div>
         </div>
       </div>
@@ -1280,6 +1281,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
                 }
               }
             }
+          } else if ($_COOKIE["Personal_id"] == 2) {
+            $sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+              echo "<div class='FCont'>";
+              while ($row = mysqli_fetch_assoc($result)) {
+                $sql1 = "SELECT * FROM student WHERE std_id = '" . $row["friend_id"] . "'";
+                $result1 = mysqli_query($conn, $sql1);
+                if (mysqli_num_rows($result1) > 0) {
+                  while ($row1 = mysqli_fetch_assoc($result1)) {
+                    $imgid = $row1["img_id"];
+                    $sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+                    $resultimg = mysqli_query($conn, $sqlimg);
+                    $rowimg = mysqli_fetch_assoc($resultimg);
+                    if (isset($rowimg["img_name"])) {
+                      $imgName = $rowimg["img_name"];
+                    } else {
+                      if ($row1["gender"] == 1) {
+                        $imgName = "Design\Image\LogoPic0.jpg";
+                      } else {
+                        $imgName = "Design\Image\LogoPic1.jpg";
+                      }
+                    }
+                    echo "<div class='namePhoto'>
+                              <img src='" . $imgName . "' alt='image'>
+                              <div class='names'>" . $row1["std_fname"] . " " . $row1["std_lname"] . "</div>
+                            </div>";
+                  }
+                }
+              }
+              echo "</div>";
+            }
+          } else if ($_COOKIE["Personal_id"] == 3) {
+            $sql = "SELECT * FROM img WHERE album_id = '" . $_SESSION["std_id"] . "'";
+            $result = mysqli_query($conn, $sql);
+            echo "<div class='imgContainer'>";
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<img src='" . $row["img_name"] . "' alt='image'>";
+            }
+            echo "</div>";
+          } else {
+            $sql = "SELECT * FROM video WHERE album_id = '" . $_SESSION["std_id"] . "'";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<video width='800px' controls class='video-js vjs-theme-forest vjs-fluid' data-setup='{}'>
+          <source src='" . $row["video_name"] . "' type='video/mp4'>
+       </video>";
+            }
           }
           ?>
         </div>
@@ -1287,15 +1336,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editProfileSubmit"])) 
     </div>
   </div>
   <div class="commentBox">
+    <div class="closeBtnComment btn">Close</div>
     <p class="commentHeader">Comments</p>
     <div class="commentList">
       <!-- <div class="commentContent"></div> -->
-      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
-      <button class="sendComment">Send</button>
+      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10" placeholder="Write your comment..."></textarea>
+      <button class="sendComment btn">Send</button>
     </div>
   </div>
   <button class="scrollToTopBtn">☝️</button>
-  <div class="show_Likes_Box" style="display: none;"></div>
+  <div class="show_Likes_Box" style="display: none;">
+    <div class="LikesExitBtn btn">Close</div>
+    <p class="LikesPara">Likes:</p>
+    <div class="likeContent"></div>
+  </div>
   <div class="modal">
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd">

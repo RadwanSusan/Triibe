@@ -117,33 +117,28 @@ if (mysqli_num_rows($result1) > 0) {
   }
   ?>
   <div class="storyUploadBox" style="display: none;">
+    <div class="CloseStoryBox btn">Close</div>
     <h1>Upload A Story</h1>
-    <p>Upload from webcam</p>
-    <p>Upload image From A file</p>
+    <p>Upload image From A file:</p>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="fileimg" id="file" accept=".jpg,.png,.gif,jpeg" />
       <input type="submit" name="UploadStoryImage" value="submit" />
     </form>
-    <p>Upload video From A file</p>
-    <p>(Max Length is 1min)</p>
-    <form method="post" enctype="multipart/form-data">
-      <input type="file" name="filevid" id="file2" accept=".mp4,.mkv" />
-      <input type="submit" name="UploadStoryVideo" value="submit" />
-    </form>
   </div>
   <div class="commentBox">
+    <div class="closeBtnComment btn">Close</div>
     <p class="commentHeader">Comments</p>
     <div class="commentList">
       <!-- <div class="commentContent"></div> -->
-      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
-      <button class="sendComment">Send</button>
+      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10" placeholder="Write your comment..."></textarea>
+      <button class="sendComment btn">Send</button>
     </div>
   </div>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>">
+          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
         <div class="card-inside-top">
@@ -563,8 +558,18 @@ if (mysqli_num_rows($result1) > 0) {
         </li>
       </ul>
       <div class="nav-user-icon online">
-        <a href='personal.php'><img src="<?php echo $_SESSION["personalProfile"] ?>" /></a>
-        <a href='personal.php'>
+        <?php
+        $sql = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($result);
+        if ($row["account_type"] == 3) {
+          $link = "admin.php";
+        } else {
+          $link = "personal.php";
+        }
+        ?>
+        <a href='<?php echo $link ?>'><img src="<?php echo $_SESSION["personalProfile"] ?>" /></a>
+        <a href='<?php echo $link ?>'>
           <div class="name">
             <?php echo $_SESSION["std_fname"]; ?>
           </div>
@@ -579,8 +584,11 @@ if (mysqli_num_rows($result1) > 0) {
         <?php
         $sqlc = "SELECT Coll_Name,Coll_No FROM colleges WHERE Coll_NO = (SELECT Coll_Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "'))";
         $resultc = mysqli_query($conn, $sqlc);
-        $rowc = mysqli_fetch_assoc($resultc);
-        echo "<a href='#' class='group-list-item' data-form_id=" . "0" . $rowc["Coll_No"] . ">" . $rowc["Coll_Name"] . "</a>";
+        if (mysqli_num_rows($resultc) > 0) {
+          while ($rowc = mysqli_fetch_array($resultc)) {
+            echo "<a href='#' class='group-list-item' data-form_id=" . "0" . $rowc["Coll_No"] . ">" . $rowc["Coll_Name"] . "</a>";
+          }
+        }
         ?>
       </div>
       <div class="group-page2">
@@ -588,8 +596,11 @@ if (mysqli_num_rows($result1) > 0) {
         <?php
         $sqlm = "SELECT Major_Name,Major_No FROM majors WHERE ID = (SELECT Std_Major_No FROM students WHERE std_No = '" . $_SESSION["std_id"] . "')";
         $resultm = mysqli_query($conn, $sqlm);
-        $rowm = mysqli_fetch_assoc($resultm);
-        echo "<a href='#' class='group-list-item' data-form_id=" . "1" . $rowm["Major_No"] . ">" . $rowm["Major_Name"] . "</a>";
+        if (mysqli_num_rows($resultm) > 0) {
+          while ($rowm = mysqli_fetch_assoc($resultm)) {
+            echo "<a href='#' class='group-list-item' data-form_id=" . "1" . $rowm["Major_No"] . ">" . $rowm["Major_Name"] . "</a>";
+          }
+        }
         ?>
       </div>
       <div class="group-page2">
@@ -633,10 +644,21 @@ if (mysqli_num_rows($result1) > 0) {
           }
         } ?>
       </div>
+      <?php
+      $sql = "SELECT * FROM student WHERE std_id = " . $_SESSION["std_id"] . "";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      if ($row["account_type"] == 3) {
+        echo "<div class='group-page2 admin'><p> Admin Page </p></div>
+        <script>	document.querySelector('.admin').addEventListener('click', () => {
+          window.location.href = 'admin.php';
+        }); </script>";
+      }
+      ?>
     </div>
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="story-gallery">
-        <div class="story" style="background-image: url('<?php echo $_SESSION["personalProfile"]; ?>');">
+        <div class="story" style="background-image: url(<?php echo $_SESSION["personalProfile"]; ?>)">
           <img class="UploadStory" src="Design/Image/home-images/images/upload.png">
           <p>
             <?php
@@ -708,7 +730,7 @@ if (mysqli_num_rows($result1) > 0) {
           $resultfriend = mysqli_query($conn, $sqlfriend);
           if (mysqli_num_rows($result) > 0) {
             while ($rowfriend = mysqli_fetch_assoc($resultfriend)) {
-              $sql = "SELECT * FROM post where form_id='" . $form_id . "' AND author = '" . $rowfriend["friend_id"] . "' OR author ='" . $_SESSION["std_id"] . "' order by created_date desc";
+              $sql = "SELECT * FROM post where form_id='" . $form_id . "' AND author = '" . $rowfriend["friend_id"] . "' order by created_date desc";
               $result = mysqli_query($conn, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -802,7 +824,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='button' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -861,7 +883,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -920,7 +942,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1255,7 +1277,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1314,7 +1336,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1373,7 +1395,7 @@ if (mysqli_num_rows($result1) > 0) {
                                   <textarea class='edit-text' name='edit-text' placeholder='Edit your post'></textarea>
                                   <button type='submit' class='btn edit-btn' data-post_id='" . $row["post_id"] . "'data-author_id = '" . $row1["std_id"] . "'>Edit</button>
                                   </div>
-                                  <a class='delete' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
+                                  <a class='delete' data-account_type='" . $_SESSION["account_type"] . "' data-post_id='" . $row["post_id"] . "' data-author_id = '" . $row1["std_id"] . "' data-std_id='" . $_SESSION["std_id"] . "'>Delete the post</a>
                                   </div>
                                   </form>
                                   </div>
@@ -1642,7 +1664,8 @@ if (mysqli_num_rows($result1) > 0) {
         <a class="SRGS" href="#">
           <img class="housingIcon-Light" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
           <img class="housingIcon-Dark" src="Design/Image/home-images/images/iconmonstr-edit-9.svg" />
-          <span>Student Reg Guidance System</span></a>
+          <span>Student Reg Guidance System</span>
+        </a>
         <a href="http://sis.ahu.edu.jo/">
           <img class="infoIcon-Light" src="Design/Image/home-images/images/Info-Icon.svg" />
           <img class="infoIcon-Dark" src="Design/Image/home-images/images/Info-Icon2.svg" />
@@ -1674,19 +1697,27 @@ if (mysqli_num_rows($result1) > 0) {
   </div>
   <div class="modalStory">
     <span class="close2">&times;</span>
-    <span class="next_story">&times;</span>
-    <div class="storyInfo">
-      <p class="storyName"></p>
+    <span class="next_story">
+      <img src="Design/Image/home-images/images/rightArrow.svg">
+    </span>
+    <span class="prev_story">
+      <img src="Design/Image/home-images/images/leftArrow.svg">
+    </span>
+    <div class="storyInfo slide-in-elliptic-top-fwd">
       <p class="storyTime"></p>
-      <img src="" class="storyImg">
+      <p class="storyName"></p>
+      <img class="storyImg" src="">
     </div>
     <img class="modal-content2 slide-in-elliptic-top-fwd" id="img01">
-    <span class="prev_story">&times;</span>
     <video width='300px' controls class='videoElement'>
       <source class="vidSource" type='video/mp4'>
     </video>
   </div>
-  <div class="show_Likes_Box" style="display: none;"></div>
+  <div class="show_Likes_Box" style="display: none;">
+    <div class="LikesExitBtn btn">Close</div>
+    <p class="LikesPara">Likes:</p>
+    <div class="likeContent"></div>
+  </div>
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>

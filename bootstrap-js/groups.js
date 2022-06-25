@@ -27,10 +27,6 @@ document.querySelector(".themeLight").addEventListener("click", () => {
 	document.querySelector(".mapIcon-Light").style.display = "none";
 	document.querySelector(".SettingsIcon-Dark").style.display = "block";
 	document.querySelector(".SettingsIcon-Light").style.display = "none";
-	// document.querySelector(".pagesIcon-Dark").style.display = "block";
-	// document.querySelector(".pagesIcon-Light").style.display = "none";
-	// document.querySelector(".Groups-Dark").style.display = "block";
-	// document.querySelector(".Groups-Light").style.display = "none";
 	document.querySelector(".savedPosts-Dark").style.display = "block";
 	document.querySelector(".savedPosts-Light").style.display = "none";
 	document.querySelector(".marketIcon-Dark").style.display = "block";
@@ -65,10 +61,6 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".mapIcon-Dark").style.display = "none";
 	document.querySelector(".SettingsIcon-Light").style.display = "block";
 	document.querySelector(".SettingsIcon-Dark").style.display = "none";
-	// document.querySelector(".pagesIcon-Light").style.display = "block";
-	// document.querySelector(".pagesIcon-Dark").style.display = "none";
-	// document.querySelector(".Groups-Light").style.display = "block";
-	// document.querySelector(".Groups-Dark").style.display = "none";
 	document.querySelector(".savedPosts-Light").style.display = "block";
 	document.querySelector(".savedPosts-Dark").style.display = "none";
 	document.querySelector(".marketIcon-Light").style.display = "block";
@@ -87,22 +79,17 @@ document.querySelector(".themeDark").addEventListener("click", () => {
 	document.querySelector(".dropDownIcon-Dark").style.display = "none";
 });
 document.querySelector(".themeLight").addEventListener("click", () => {
-	localStorage.setItem("theme", "light");
+	document.cookie = "theme=light; SameSite=None; Secure";
 });
 document.querySelector(".themeDark").addEventListener("click", () => {
-	localStorage.setItem("theme", "dark");
+	document.cookie = "theme=dark; SameSite=None; Secure";
 });
-if (localStorage.getItem("theme") === "light") {
+if (document.cookie.includes("theme=light")) {
 	document.querySelector(".themeLight").click();
 }
-if (localStorage.getItem("theme") === "dark") {
+if (document.cookie.includes("theme=dark")) {
 	document.querySelector(".themeDark").click();
 }
-window.onload = function () {
-	if (localStorage.getItem("like") === "liked") {
-		document.querySelector(".like").classList.add("liked");
-	}
-};
 const hoverAnimation = (
 	hoverElement,
 	eventType,
@@ -160,11 +147,11 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
-  document.querySelector(".box").addEventListener("click", () => {
-    document.cookie = `form_id = 1`;
-    document.cookie = "postBtn= 1";
-    window.location.href = "home.php";
-  });
+	document.querySelector(".box").addEventListener("click", () => {
+		document.cookie = `form_id = 1`;
+		document.cookie = "postBtn= 1";
+		window.location.href = "home.php";
+	});
 	document.querySelector(".settingsList").addEventListener("click", () => {
 		if (document.querySelector(".settings").style.display == "none") {
 			document.querySelector(".settings").style.display = "flex";
@@ -202,9 +189,9 @@ $(document).ready(function () {
 			data: {
 				SRGS: 1,
 			},
-			success (data){
+			success(data) {
 				window.location.href = "project/info.php";
-			} 
+			},
 		});
 	});
 	const group = document.querySelectorAll(".group-list-item");
@@ -216,6 +203,14 @@ $(document).ready(function () {
 			window.location.href = "groups.php";
 		});
 	});
+	document.querySelector(".closeBtnComment").addEventListener("click", () => {
+		document.querySelector(".commentBox").style.display = "none";
+		const commentContent = document.querySelectorAll(".commentContent");
+		commentContent.forEach((element) => {
+			element.remove();
+		});
+	});
+
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
@@ -232,30 +227,28 @@ $(document).ready(function () {
 					author,
 				},
 				success(data) {
-					let newArray = [];
-					const commentArray = data.split("</p>");
-					commentArray.forEach((comment) => {
-						comment += "</p>";
-						newArray.push(comment);
-					});
-					newArray.forEach((comment) => {
-						const commentArray = [];
-						for (let i = 0; i < newArray.length; i += 4) {
-							commentArray.push(newArray.slice(i, i + 4));
-						}
-						// every 4 elements in the array is a comment
-						for (let i = 0; i < commentArray.length; i + 4) {
-							const commentContent = document.createElement("div");
-							commentContent.classList.add("commentContent");
-							commentContent.innerHTML =
-								commentArray[i] +
-								commentArray[i + 1] +
-								commentArray[i + 2] +
-								commentArray[i + 3];
-							document.querySelector(".commentBox").appendChild(commentContent);
-							console.table(newArray);
-						}
-					});
+					const comment = JSON.parse(data);
+					for (let i = 0; i < comment.length; i++) {
+						const commentContent = document.createElement("div");
+						commentContent.classList.add("commentContent");
+						const commentParagraph = document.createElement("p");
+						commentParagraph.classList.add("commentParagraph");
+						commentParagraph.innerHTML = comment[i][0] + " " + comment[i][1];
+						const commentImg = document.createElement("img");
+						commentImg.classList.add("commentImg");
+						commentImg.src = comment[i][2];
+						const commentContent2 = document.createElement("p");
+						commentContent2.classList.add("commentContent2");
+						commentContent2.innerHTML = comment[i][3];
+						const commentDate = document.createElement("p");
+						commentDate.classList.add("commentDate");
+						commentDate.innerHTML = comment[i][4];
+						commentContent.appendChild(commentImg);
+						commentContent.appendChild(commentParagraph);
+						commentContent.appendChild(commentDate);
+						commentContent.appendChild(commentContent2);
+						document.querySelector(".commentBox").appendChild(commentContent);
+					}
 				},
 			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
@@ -269,6 +262,29 @@ $(document).ready(function () {
 						std_id,
 						author,
 						comment,
+					},
+					success(data) {
+						const comment = JSON.parse(data);
+						console.log(comment);
+						const commentContent = document.createElement("div");
+						commentContent.classList.add("commentContent");
+						const commentParagraph = document.createElement("p");
+						commentParagraph.classList.add("commentParagraph");
+						commentParagraph.innerHTML = `${comment[0]} ${comment[1]}`;
+						const commentImg = document.createElement("img");
+						commentImg.classList.add("commentImg");
+						commentImg.src = comment[2];
+						const commentContent2 = document.createElement("p");
+						commentContent2.classList.add("commentContent2");
+						commentContent2.innerHTML = comment[3];
+						const commentDate = document.createElement("p");
+						commentDate.classList.add("commentDate");
+						commentDate.innerHTML = comment[4];
+						commentContent.appendChild(commentImg);
+						commentContent.appendChild(commentParagraph);
+						commentContent.appendChild(commentDate);
+						commentContent.appendChild(commentContent2);
+						document.querySelector(".commentBox").appendChild(commentContent);
 					},
 				});
 			});
@@ -412,14 +428,65 @@ $(document).ready(function () {
 			},
 		});
 	});
+	document.querySelector(".LikesExitBtn").addEventListener("click", (e) => {
+		document.querySelector(".show_Likes_Box").style.display = "none";
+	});
+	document.querySelector(".LikesExitBtn").addEventListener("click", (e) => {
+		document.querySelector(".show_Likes_Box").style.display = "none";
+	});
+	const likeBox = document.querySelector(".show_Likes_Box");
+	const likeContent = document.querySelector(".likeContent");
+	document.querySelectorAll(".show_Likes").forEach((element) => {
+		element.addEventListener("click", () => {
+			document.querySelector(".show_Likes_Box").style.display =
+				document.querySelector(".show_Likes_Box").style.display == "none"
+					? "flex"
+					: "none";
+			while (likeContent.firstChild) {
+				likeContent.removeChild(likeContent.firstChild);
+			}
+			const post_id = element.getAttribute("data-post_id");
+			$.ajax({
+				url: "backBone.php",
+				method: "POST",
+				data: {
+					post_id,
+					show_Likes: 1,
+				},
+				success(data) {
+					const like = JSON.parse(data);
+					for (const element2 of like) {
+						let likeLink = document.createElement("a");
+						likeLink.classList.add("likeLink");
+						likeLink.setAttribute(
+							"href",
+							`friendpage.php?account_id=${element2[3]}`,
+						);
+						const likeimg = document.createElement("img");
+						likeimg.classList.add("likeimg");
+						likeimg.setAttribute("src", element2[2]);
+						likeLink.appendChild(likeimg);
+						likeContent.appendChild(likeLink);
+						likeBox.appendChild(likeContent);
+						const temp = `${element2[0]} ${element2[1]}`;
+						likeLink.innerHTML += temp;
+						if (likeContent.innerHTML == "") {
+							likeContent.style.display = "none";
+						}
+					}
+				},
+			});
+		});
+	});
+
 	const like1 = document.querySelectorAll(".LikeParagraph");
 	like1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -452,11 +519,11 @@ $(document).ready(function () {
 	const likeHollow1 = document.querySelectorAll(".likeHollow");
 	likeHollow1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -489,11 +556,11 @@ $(document).ready(function () {
 	const Unlike1 = document.querySelectorAll(".UnLikeParagraph");
 	Unlike1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({
@@ -526,11 +593,11 @@ $(document).ready(function () {
 	const likeFilled1 = document.querySelectorAll(".likeFilled");
 	likeFilled1.forEach((element) => {
 		element.addEventListener("click", () => {
-			const likeHollow = element.parentElement.children[0];
-			const likeFilled = element.parentElement.children[1];
-			const LikeCount = element.parentElement.children[2];
-			const LikeParagraph = element.parentElement.children[3];
-			const UnLikeParagraph = element.parentElement.children[4];
+			const likeHollow = element.parentElement.children[1];
+			const likeFilled = element.parentElement.children[2];
+			const LikeCount = element.parentElement.children[3];
+			const LikeParagraph = element.parentElement.children[4];
+			const UnLikeParagraph = element.parentElement.children[5];
 			const post_id = $(element).attr("post_id");
 			const std_id = $(element).attr("std_id");
 			$.ajax({

@@ -57,11 +57,151 @@ body {
   user-select: none;
 }
 
+.more-list {
+  display: none !important;
+}
+
 .box {
   display: flex;
   margin-right: 45px;
   align-items: center;
   position: relative;
+}
+
+@media (max-width: 684px) {
+  .nav-right ul .settingsList {
+    display: none;
+  }
+}
+
+.mapIcon-Dark {
+  display: none;
+}
+
+.Notifications {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.NotificationBox {
+  display: flex;
+  width: 90%;
+  height: 40px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.NotificationBox:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.NotificationBox p {
+  margin: 0;
+}
+
+.forget-pass {
+  display: flex;
+  width: 95%;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.forget-pass p {
+  margin: 0;
+}
+
+.forget-pass:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.Logout {
+  display: flex;
+  width: 95%;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  font-family: "Pridi";
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.Logout:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.Logout p {
+  margin: 0;
+}
+
+.SettingsIcon-Dark {
+  display: none;
+}
+
+.notificationIcon-dark {
+  display: none;
+}
+
+.chatDark {
+  display: none;
+}
+
+.settings {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  width: 300px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.settings p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Pridi";
+  font-size: 19px;
 }
 
 .box::after {
@@ -150,6 +290,60 @@ body {
   margin-left: 30px;
 }
 
+.searchArea {
+  position: absolute;
+  left: 11vw;
+  top: 7vh;
+  width: 292px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  background: #cbcbcb62;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  outline: #000;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+}
+
+.searchItem {
+  width: 96%;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  isolation: isolate;
+  z-index: 202;
+  margin: 6px 0;
+}
+
+.searchItem:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
+
+.searchItem img {
+  position: fixed;
+  left: 11px;
+  width: 40px;
+  height: 40px;
+  margin-right: 9px;
+  border-radius: 50%;
+}
+
+.searchItem p {
+  position: fixed;
+  left: 60px;
+  font-size: 14px;
+  color: #000;
+  margin-top: 18px;
+  font-family: "pridi";
+  font-size: 19px;
+}
+
 .search-box {
   background-color: #f8f8f8;
 
@@ -234,253 +428,285 @@ body {
   top: 0;
   right: 90px;
 }
+
 .container1 {
-  /* background-color: #41db51; */
   width: 98%;
   margin: auto;
 }
+
 .main {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
+
 .right {
-    margin-right: 90px;
-    margin-top: 12px;
+  margin-right: 90px;
+  margin-top: 12px;
+  padding-left: 65px;
 }
+
 .right h1 {
-    font-family: 'Pridi';
-font-style: normal;
-font-weight: 600;
-font-size: 32px;
-line-height: 50px;
-color: #151515;
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 50px;
+  color: #151515;
 }
+
 .all-Ele {
   border: 2px solid blanchedalmond;
   padding: 18px;
   border-radius: 27px;
   background-color: #e7e7e7;
+  width: 1300px;
+  height: 700px;
 }
+
 .all-Ele-top {
   display: flex;
 }
+
 .all-Ele-bottom {
   display: flex;
 }
+
 .left-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .main .left {
   margin-top: 20px;
   width: 350px;
-height: fit-content;
-padding-bottom: 10px;
-background: #C4C4C4;
-mix-blend-mode: darken;
-border: 2px solid #AB9E9E;
-box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 23px;
-padding: 10px;
+  height: fit-content;
+  padding-bottom: 10px;
+  background: #C4C4C4;
+  mix-blend-mode: darken;
+  border: 2px solid #AB9E9E;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 23px;
+  padding: 10px;
 }
+
 .left-search {
   display: flex;
   align-items: center;
 }
- .search-box-2 {
+
+.search-box-2 {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-    width: 260px;
-    margin-left: auto;
-    margin-right: auto;
-background: #FFF9F9;
-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-border-radius: 13px;
-height: 35px;
-margin-top: 15px;
-padding-left: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #FFF9F9;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 13px;
+  height: 35px;
+  margin-top: 15px;
+  padding-left: 15px;
 }
 
 .bio {
-    position: relative;
-text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    background: #f8f8f8;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-radius: 14px;
-    font-family: "Pridi";
-    font-style: normal;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 39px;
-    color: #000;
-    text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 14px;
+  font-family: "Pridi";
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 39px;
+  color: #000;
+  text-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
 }
+
 .bio img {
-    width: 30px;
-    height: 30px;
-    margin-left: 20px;
-    /* position: relative; */
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  /* position: relative; */
 }
 
 .name1 {
-    margin: auto;
-    color: rgb(0, 0, 0);
-    transform: translateX(-28px);
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-weight: 400;
-    /* position: relative; */
+  margin: auto;
+  color: rgb(0, 0, 0);
+  transform: translateX(-28px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  /* position: relative; */
 }
+
 .bio::before {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 30px;
-    left: 60px;
-    top: 10px;
-    background-color: #000000;
-    box-shadow: inset 8px 4px 4px rgba(164, 152, 152, 0.25);
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 30px;
+  left: 60px;
+  top: 10px;
+  background-color: #000000;
+  box-shadow: inset 8px 4px 4px rgba(164, 152, 152, 0.25);
 }
+
 .input {
-    width: 100%;
-    background-color: transparent;
-    padding: 10px;
-    outline: none;
-    border: 0;
-    font-size: 18px;
-    font-weight: 400;
-    font-family: "Pridi";
+  width: 100%;
+  background-color: transparent;
+  padding: 10px;
+  outline: none;
+  border: 0;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Pridi";
 }
+
 .left-top h1 {
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 600;
-font-size: 28px;
-line-height: 50px;
-color: #151515;
-border-bottom: 1px solid #3C3636;
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 50px;
+  color: #151515;
+  border-bottom: 1px solid #3C3636;
 }
+
 .img1 img {
-    width: 250px;
-    height: 243px;
+  width: 250px;
+  height: 243px;
 }
+
 .name-photo {
-    display: flex;
-    align-items: center;
-background: #DCDCDC;
-border: 2px solid #B9B9B9;
-border-radius: 35px;
-height: 35px;
-text-decoration: none;
-padding-right: 10px;
+  display: flex;
+  align-items: center;
+  background: #DCDCDC;
+  border: 2px solid #B9B9B9;
+  border-radius: 35px;
+  height: 35px;
+  text-decoration: none;
+  padding-right: 10px;
 }
+
 .name-photo img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
+
 .left-post .top {
-    display: flex;
-    align-items: center;
-background: #B9B9B9;
-border-radius: 200px;
-height: 35px;
-margin: 5px;
+  display: flex;
+  align-items: center;
+  background: #B9B9B9;
+  border-radius: 200px;
+  height: 35px;
+  margin: 5px;
 }
+
 .card1 {
-    background: #FFFFFF;
-    border: 1px solid #878787;
-    border-radius: 17px;
+  background: #FFFFFF;
+  border: 1px solid #878787;
+  border-radius: 17px;
 
 }
+
 .card1 .bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    width: 215px;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  width: 215px;
+  margin-bottom: 10px;
 }
+
 .img1-card1 {
-    margin-right: 20px;
+  margin-right: 20px;
 }
+
 .name-photo .name {
-    font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 31px;
-color: #000000;
-padding-left: 4px;
-text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  color: #000000;
+  padding-left: 4px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .mid p {
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 25px;
-/* identical to box height */
-color: #0E0E0E;
-margin-left: 60px;
-margin-top: 10px;
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+  /* identical to box height */
+  color: #0E0E0E;
+  margin-left: 60px;
+  margin-top: 10px;
 }
-.bottom .price{
-    padding: 5px;
 
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 25px;
-/* identical to box height */
+.bottom .price {
+  padding: 5px;
+
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+  /* identical to box height */
 
 
-color: #000000;
+  color: #000000;
 }
+
 .bottom .contact {
-    padding: 5px;
+  padding: 5px;
 
-font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 25px;
-/* identical to box height */
-color: #000000;
-background: #C4C4C4;
-border-radius: 4px;
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  /* identical to box height */
+  color: #000000;
+  background: #C4C4C4;
+  border-radius: 4px;
 }
+
 .inside-top {
-    font-family: 'Pridi';
-font-style: normal;
-font-weight: 400;
-font-size: 17px;
-line-height: 26px;
-color: #000000;
-text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  color: #000000;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .setting {
-    background-color: white;
-    padding: 1px;
-    border-radius: 50%;
+  background-color: white;
+  padding: 1px;
+  border-radius: 50%;
 }
+
 .setting img {
   margin-left: 2px;
-    border-radius: 50%;
-    margin-top: 7px;
+  border-radius: 50%;
+  margin-top: 7px;
 }
-.contactBox{
+
+.contactBox {
   display: none;
   position: absolute;
   top: 50%;
@@ -497,6 +723,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-right: auto;
   margin-top: 20px;
 }
+
 .post-card {
   position: absolute;
   display: none;
@@ -514,12 +741,14 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   transform: translate(-50%, -50%);
   z-index: 500;
 }
+
 .top-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 10px 10px 10px 10px;
 }
+
 .left-top-card {
   display: flex;
   align-items: center;
@@ -528,6 +757,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   user-select: none;
   cursor: default;
 }
+
 .right-top-card img {
   background: #d8d8d8;
   padding: 9px;
@@ -537,6 +767,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   height: 38px;
   user-select: none;
 }
+
 .card-name-photo {
   display: flex;
   align-items: center;
@@ -545,6 +776,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin: 2px;
   padding-right: 10px;
 }
+
 .card-user-photo {
   width: 35px;
   height: 35px;
@@ -560,6 +792,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-left: 5px;
 }
+
 .card-inside-top {
   padding: 7px 10px 5px 5px;
   cursor: pointer;
@@ -572,6 +805,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 .FriendChoice {
   margin-bottom: 2px;
 }
+
 .right-top-card img {
   background: #d8d8d8;
   padding: 9px;
@@ -581,11 +815,14 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   height: 38px;
   user-select: none;
 }
+
 .mid-card {
   height: 50%;
   margin: 10px 10px 0px 10px;
 }
+
 .card-write-post {
+  display: none;
   width: 100%;
   height: 160px;
   background: #d8d8d8;
@@ -596,6 +833,11 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   resize: none;
   user-select: none;
 }
+
+.card-write-post:focus {
+  outline: none;
+}
+
 .my-textarea {
   width: 100%;
   height: 170px;
@@ -612,6 +854,23 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   overflow-y: scroll;
   overflow-y: auto;
 }
+
+.my-textarea div {
+  font-family: "Pridi";
+  text-align: left;
+  font-size: 16px;
+}
+
+.my-textarea a {
+  font-family: "Pridi";
+  text-align: left;
+  font-size: 16px;
+}
+
+.my-textarea:focus {
+  outline: none;
+}
+
 .down-card p {
   position: relative;
   margin-bottom: 0px;
@@ -622,7 +881,8 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   color: #000000;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
-.closeContact{
+
+.closeContact {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -631,6 +891,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   padding: 5px;
   cursor: pointer;
 }
+
 .left-down-card {
   display: flex;
   align-items: center;
@@ -641,9 +902,10 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   justify-content: space-between;
   user-select: none;
   height: 66px;
-  margin-left :8px;
+  margin-left: 8px;
 }
-.priceInput{
+
+.priceInput {
   position: relative;
   width: 50%;
   height: 25px;
@@ -663,9 +925,10 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: -5px;
   margin-top: 20px;
   top: 2px;
-  left:35px;
+  left: 35px;
 }
-.phone{
+
+.phone {
   position: relative;
   width: 50%;
   height: 25px;
@@ -684,10 +947,10 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin-left: 20px;
   margin-top: -20px;
   top: -7px;
-  left:35px;
+  left: 35px;
 }
 
-.chatlink p{
+.chatlink p {
   position: relative;
   margin-bottom: 0px;
   font-size: 18px;
@@ -706,6 +969,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   width: 21px;
   cursor: pointer;
 }
+
 .form-popup {
   display: none;
   position: fixed;
@@ -725,9 +989,11 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   margin: 10px 6px 0px 5px;
   padding-left: 5px;
 }
+
 .fileUpload_Button {
   display: none;
 }
+
 .FileLink_Button {
   display: none;
 }
@@ -735,6 +1001,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 .form-popup a:last-child {
   margin-bottom: 10px;
 }
+
 .post-write {
   position: relative;
   top: -22px;
@@ -752,6 +1019,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   transition: all 0.4s ease;
 }
+
 .post-write:hover {
   background-color: #d8d8d8;
 }

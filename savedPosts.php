@@ -22,7 +22,7 @@ session_start();
   <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css" />
   <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css" />
-  <link id="theme" rel="stylesheet" href="bootstrap-css/light-home.css" />
+  <link id="theme" rel="stylesheet" href="bootstrap-css/savedPosts-light.css" />
   <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
   <script type="text/javascript">
     function alert(message) {
@@ -715,18 +715,23 @@ session_start();
     </div>
   </div>
   <div class="commentBox">
+    <div class="closeBtnComment btn">Close</div>
     <p class="commentHeader">Comments</p>
     <div class="commentList">
       <!-- <div class="commentContent"></div> -->
-      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
-      <button class="sendComment">Send</button>
+      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10" placeholder="Write your comment..."></textarea>
+      <button class="sendComment btn">Send</button>
     </div>
   </div>
   <div class="modal">
     <span class="close">&times;</span>
     <img class="modal-content slide-in-elliptic-top-fwd" id="img01">
   </div>
-  <div class="show_Likes_Box" style="display: none;"></div>
+  <div class="show_Likes_Box" style="display: none;">
+    <div class="LikesExitBtn btn">Close</div>
+    <p class="LikesPara">Likes:</p>
+    <div class="likeContent"></div>
+  </div>
   <button class="scrollToTopBtn">☝️</button>
   <script src="bootstrap-js/bootstrap.bundle.min.js"></script>
   <script src="bootstrap-js/all.min.js"></script>

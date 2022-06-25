@@ -128,6 +128,36 @@ if (isset($_POST['search2'])) {
 		echo "<div class='notFound2'><p>Not Found</p></div>";
 	}
 }
+if (isset($_POST['search3'])) {
+	$sql = "SELECT * FROM student WHERE std_fname LIKE '%" . $_POST['name'] . "%' OR std_lname LIKE '%" . $_POST['name'] . "%'";
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			if ($row['std_id'] != $_POST['std_id']) {
+				$imgid = $row["img_id"];
+				$sqlimg = "SELECT * FROM img WHERE img_id = '$imgid'";
+				$resultimg = mysqli_query($conn, $sqlimg);
+				$rowimg = mysqli_fetch_assoc($resultimg);
+				if ($rowimg == null) {
+					if ($row['gender'] == 1) {
+						$imgname	= "Design/Image/LogoPic0.jpg";
+					} else {
+						$imgname	= "Design/Image/LogoPic1.jpg";
+					}
+				} else {
+					$imgname = $rowimg['img_name'];
+				}
+				$_COOKIE["profileInfo"] = $row["std_id"];
+				echo "<a href='admin.php?profileInfo=" . $row["std_id"] . "' class='searchItem' data-friend_id='" . $row["std_id"] . "'>
+							<img src='" . $imgname . "' alt=''/>
+							<p>" . $row["std_fname"] . " " . $row["std_lname"] . "</p>
+						</a>";
+			}
+		}
+	} else {
+		echo "<div class='notFound2'><p>Not Found</p></div>";
+	}
+}
 
 if (isset($_POST['share'])) {
 	$post_id = $_POST['sh_post_id'];
@@ -265,6 +295,50 @@ if (isset($_POST['commentsend'])) {
 	$date = date("Y-m-d H:i:s", time());
 	$sql = "INSERT INTO comment (content , post_id, post_std_id, author,  created_date) VALUES ('" . $commentContent . "' , '" . $post_id . "' , '" . $std_id . "' , '" . $author . "' ,  '" . $date . "')";
 	$result = mysqli_query($conn, $sql);
+	$sql2 = "SELECT * FROM student WHERE std_id = '" . $std_id . "'";
+	$result2 = mysqli_query($conn, $sql2);
+	$row2 = mysqli_fetch_assoc($result2);
+	$sql3 = "SELECT * FROM img WHERE img_id = '" . $row2["img_id"] . "'";
+	$result3 = mysqli_query($conn, $sql3);
+	$row3 = mysqli_fetch_assoc($result3);
+	if (isset($row3["img_id"])) {
+		$imgname = $row3["img_name"];
+	} else {
+		if ($row2["gender"] == 1) {
+			$imgname = "Design\Image\LogoPic0.jpg";
+		} else {
+			$imgname = "Design\Image\LogoPic1.jpg";
+		}
+	}
+	$now = new DateTime();
+	$post = new DateTime($date);
+	$diff = $now->diff($post);
+	$diff->format("%a");
+	$diffday = $diff->format("%a");
+	$diffhour = $diff->format("%h");
+	$diffminute = $diff->format("%i");
+	$diffsecond = $diff->format("%s");
+	$diffdaystr = (string)$diffday;
+	$diffhourstr = (string)$diffhour;
+	$diffminutestr = (string)$diffminute;
+	$diffsecondstr = (string)$diffsecond;
+	$difftime = $diffsecondstr . "second ago";
+	if ($diffdaystr == "0") {
+		if ($diffhourstr == "0") {
+			if ($diffminutestr == "0") {
+				$difftime = $diffsecondstr . "s ago";
+			} else {
+				$difftime = $diffminutestr . "m ago";
+			}
+		} else {
+			$difftime = $diffhourstr . "h ago";
+		}
+	} else {
+		$difftime = $diffdaystr . "d ago";
+	}
+	$comment = array();
+	array_push($comment, $row2['std_fname'], $row2['std_lname'], $imgname, $commentContent, $difftime);
+	echo json_encode($comment);
 }
 if (isset($_POST['MPContact'])) {
 	$MPID = $_POST['MPID'];
@@ -385,7 +459,7 @@ if (isset($_POST["getStory"])) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		array_push($storyArray, $row);
 	}
-	$sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "' AND friend_id != $author_id";
+	$sql = "SELECT * FROM friends WHERE user_id = '" . $_SESSION["std_id"] . "'";
 	$result = mysqli_query($conn, $sql);
 	if (mysqli_num_rows($result) > 0) {
 		while ($row1 = mysqli_fetch_assoc($result)) {
@@ -394,6 +468,7 @@ if (isset($_POST["getStory"])) {
 			while ($row2 = mysqli_fetch_assoc($result1)) {
 				array_push($storyArray, $row2);
 			}
+		array_pop($storyArray);
 		}
 	}
 	echo json_encode($storyArray);
@@ -493,4 +568,9 @@ if (isset($_POST['show_Likes'])) {
 		array_pop($like);
 	}
 	echo json_encode($allLikes);
+}
+if (isset($_POST["deleteAccount"])) {
+	$std_id = $_POST["std_id"];
+	$sql = "DELETE FROM student where std_id = '" . $std_id . "'";
+	$result = mysqli_query($conn, $sql);
 }

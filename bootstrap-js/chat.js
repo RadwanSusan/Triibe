@@ -1,4 +1,28 @@
 // jshint esversion: 6
+document.querySelector(".themeLight").addEventListener("click", () => {
+	const theme = document.querySelector("#theme");
+	theme.setAttribute("href", "bootstrap-css/chat-dark.css");
+		document.querySelector(".themeLight").style.display = "none";
+		document.querySelector(".themeDark").style.display = "block";
+});
+document.querySelector(".themeDark").addEventListener("click", () => {
+	const theme = document.querySelector("#theme");
+	theme.setAttribute("href", "bootstrap-css/chat-light.css");
+		document.querySelector(".themeDark").style.display = "none";
+		document.querySelector(".themeLight").style.display = "block";
+});
+document.querySelector(".themeLight").addEventListener("click", () => {
+	document.cookie = "theme=light; SameSite=None; Secure";
+});
+document.querySelector(".themeDark").addEventListener("click", () => {
+	document.cookie = "theme=dark; SameSite=None; Secure";
+});
+if (document.cookie.includes("theme=light")) {
+	document.querySelector(".themeLight").click();
+}
+if (document.cookie.includes("theme=dark")) {
+	document.querySelector(".themeDark").click();
+}
 $(document).ready(function () {
 	if ($(window).width() < 1000) {
 		$(".noUserSelectedPara").css("display", "none");
@@ -34,36 +58,6 @@ $(document).ready(function () {
 			document.querySelector(".Notifications").style.display = "none";
 		}
 	});
-	const hoverAnimation = (
-		hoverElement,
-		eventType,
-		animationElement,
-		animationName,
-	) => {
-		document.querySelector(hoverElement).addEventListener(eventType, () => {
-			document
-				.querySelector(animationElement)
-				.classList.add("animate__animated", animationName);
-		});
-	};
-	const hoverAnimationOut = (
-		hoverElement,
-		eventType,
-		animationElement,
-		animationName,
-	) => {
-		document.querySelector(hoverElement).addEventListener(eventType, () => {
-			document
-				.querySelector(animationElement)
-				.classList.remove("animate__animated", animationName);
-		});
-	};
-	hoverAnimation(".imgIcon", "mouseover", ".imgIcon", "animate__heartBeat");
-	hoverAnimationOut(".imgIcon", "mouseout", ".imgIcon", "animate__heartBeat");
-	hoverAnimation(".locIcon", "mouseover", ".locIcon", "animate__heartBeat");
-	hoverAnimationOut(".locIcon", "mouseout", ".locIcon", "animate__heartBeat");
-	hoverAnimation(".FileLink", "mouseover", ".FileLink", "animate__heartBeat");
-	hoverAnimationOut(".FileLink", "mouseout", ".FileLink", "animate__heartBeat");
 	const searchItem2 = document.querySelectorAll(".searchItem2");
 	searchItem2.forEach((item) => {
 		item.addEventListener("click", (e) => {
@@ -186,7 +180,7 @@ $(document).ready(function () {
 	});
 	particlesJS("particles-js", {
 		particles: {
-			number: { value: 200, density: { enable: true, value_area: 2000 } },
+			number: { value: 120, density: { enable: true, value_area: 2000 } },
 			color: { value: "#ffffff" },
 			shape: {
 				type: "circle",
@@ -224,13 +218,12 @@ $(document).ready(function () {
 				straight: false,
 				out_mode: "out",
 				bounce: true,
-				attract: { enable: true, rotateX: 600, rotateY: 1200 },
+				attract: { enable: false, rotateX: 600, rotateY: 1200 },
 			},
 		},
 		retina_detect: true,
 	});
-});
-
-document.querySelector(".box").addEventListener("click", () => {
-	window.location.href = "home.php";
+	document.querySelector(".box").addEventListener("click", () => {
+		window.location.href = "home.php";
+	});
 });

@@ -3,15 +3,15 @@ const confirm = (message, function1, function2) => {
 	alertify.defaults.glossary.title = "My Title";
 	alertify.confirm("Triibe", message, function1, function2);
 };
-document.addEventListener("DOMContentLoaded", () => {
-	const groupPage = document.querySelector(".group-page");
-	if (groupPage.children.length === 1) {
-		groupPage.style.height = "100px";
-		const noFriends = document.createElement("span");
-		noFriends.innerHTML = "You have no friends yet!";
-		groupPage.appendChild(noFriends);
-	}
-});
+// document.addEventListener("DOMContentLoaded", () => {
+// 	const groupPage = document.querySelector(".group-page");
+// 	if (groupPage.children.length === 1) {
+// 		groupPage.style.height = "100px";
+// 		const noFriends = document.createElement("span");
+// 		noFriends.innerHTML = "You have no friends yet!";
+// 		groupPage.appendChild(noFriends);
+// 	}
+// });
 if (document.cookie.indexOf("form_id") == -1) {
 	document.cookie = "form_id=1";
 }
@@ -182,7 +182,13 @@ hoverAnimationOut(
 	"animate__heartBeat",
 );
 $(document).ready(function () {
-	document.querySelector(".UploadStory").addEventListener("click", () => {
+	document.querySelector(".CloseStoryBox").addEventListener("click", () => {
+		document.querySelector(".storyUploadBox").style.display = "none";
+	});
+	document.querySelector(".UploadStory").addEventListener("click", (e) => {
+		if (!e) var e = window.event;
+		e.cancelBubble = true;
+		if (e.stopPropagation) e.stopPropagation();
 		document.querySelector(".storyUploadBox").style.display =
 			document.querySelector(".storyUploadBox").style.display == "none"
 				? "block"
@@ -291,6 +297,14 @@ $(document).ready(function () {
 			window.location.href = "groups.php";
 		});
 	});
+	document.querySelector(".closeBtnComment").addEventListener("click", () => {
+		document.querySelector(".commentBox").style.display = "none";
+		const commentContent = document.querySelectorAll(".commentContent");
+		commentContent.forEach((element) => {
+			element.remove();
+		});
+	});
+
 	document.querySelectorAll(".comment").forEach((element) => {
 		element.addEventListener("click", () => {
 			document.querySelector(".commentBox").style.display = "block";
@@ -308,13 +322,12 @@ $(document).ready(function () {
 				},
 				success(data) {
 					const comment = JSON.parse(data);
-					console.table(comment);
 					for (let i = 0; i < comment.length; i++) {
 						const commentContent = document.createElement("div");
 						commentContent.classList.add("commentContent");
 						const commentParagraph = document.createElement("p");
 						commentParagraph.classList.add("commentParagraph");
-						commentParagraph.innerHTML = comment[i][0] + " " + comment[0][1];
+						commentParagraph.innerHTML = comment[i][0] + " " + comment[i][1];
 						const commentImg = document.createElement("img");
 						commentImg.classList.add("commentImg");
 						commentImg.src = comment[i][2];
@@ -324,27 +337,54 @@ $(document).ready(function () {
 						const commentDate = document.createElement("p");
 						commentDate.classList.add("commentDate");
 						commentDate.innerHTML = comment[i][4];
-						commentContent.appendChild(commentParagraph);
 						commentContent.appendChild(commentImg);
-						commentContent.appendChild(commentContent2);
+						commentContent.appendChild(commentParagraph);
 						commentContent.appendChild(commentDate);
+						commentContent.appendChild(commentContent2);
 						document.querySelector(".commentBox").appendChild(commentContent);
 					}
 				},
 			});
 			document.querySelector(".sendComment").addEventListener("click", () => {
 				const comment = $(".commentArea").val();
-				$.ajax({
-					url: "backBone.php",
-					type: "POST",
-					data: {
-						commentsend: 1,
-						post_id,
-						std_id,
-						author,
-						comment,
-					},
-				});
+				if (comment === "") {
+					alert("Please write a comment");
+				} else {
+					$.ajax({
+						url: "backBone.php",
+						type: "POST",
+						data: {
+							commentsend: 1,
+							post_id,
+							std_id,
+							author,
+							comment,
+						},
+						success(data) {
+							const comment = JSON.parse(data);
+							console.log(comment);
+							const commentContent = document.createElement("div");
+							commentContent.classList.add("commentContent");
+							const commentParagraph = document.createElement("p");
+							commentParagraph.classList.add("commentParagraph");
+							commentParagraph.innerHTML = `${comment[0]} ${comment[1]}`;
+							const commentImg = document.createElement("img");
+							commentImg.classList.add("commentImg");
+							commentImg.src = comment[2];
+							const commentContent2 = document.createElement("p");
+							commentContent2.classList.add("commentContent2");
+							commentContent2.innerHTML = comment[3];
+							const commentDate = document.createElement("p");
+							commentDate.classList.add("commentDate");
+							commentDate.innerHTML = comment[4];
+							commentContent.appendChild(commentImg);
+							commentContent.appendChild(commentParagraph);
+							commentContent.appendChild(commentDate);
+							commentContent.appendChild(commentContent2);
+							document.querySelector(".commentBox").appendChild(commentContent);
+						},
+					});
+				}
 			});
 		});
 	});
@@ -369,13 +409,15 @@ $(document).ready(function () {
 	});
 	document.querySelectorAll(".delete").forEach((element) => {
 		element.addEventListener("click", () => {
+			const account_type = element.getAttribute("data-account_type");
 			const post_id1 = element.dataset.post_id;
 			const author_id = element.dataset.author_id;
 			const std_id1 = element.dataset.std_id;
+			console.log(account_type);
 			confirm(
 				"Are you sure you want to delete this post?<br/>You can't undo this action.",
 				() => {
-					if (author_id == std_id1) {
+					if (author_id == std_id1 || account_type == 3) {
 						$.ajax({
 							url: "backBone.php",
 							type: "post",
@@ -773,7 +815,7 @@ setInterval(() => {
 		url: "backBone.php",
 		type: "post",
 		data: {
-			checkStrory: 1,
+			checkStory: 1,
 		},
 	});
 }, 500000);
@@ -857,11 +899,9 @@ img.forEach((element) => {
 		}
 	});
 });
-const story = document.querySelectorAll(".story");
+const story = document.querySelectorAll(".storyF");
 const modalStory = document.querySelector(".modalStory");
 const modalContent = document.querySelector(".modal-content2");
-const videoElement = document.querySelector(".videoElement");
-const vidSource = document.querySelector(".vidSource");
 const storyName = document.querySelector(".storyName");
 const storyTime = document.querySelector(".storyTime");
 const storyImg = document.querySelector(".storyImg");
@@ -878,6 +918,7 @@ story.forEach((element) => {
 			},
 			success(response) {
 				const stories = JSON.parse(response);
+				console.log(stories);
 				$.ajax({
 					url: "backBone.php",
 					type: "post",
@@ -898,6 +939,7 @@ story.forEach((element) => {
 					stories[i].img_name != ""
 				) {
 					modalStory.style.display = "block";
+					document.querySelector(".close2").style.display = "block";
 					document
 						.querySelector(".next_story")
 						.addEventListener("click", () => {
@@ -940,19 +982,19 @@ story.forEach((element) => {
 						});
 					modalContent.src = stories[i].img_name;
 					document.body.style.overflow = "hidden";
-					if (element.height >= 800) {
-						modalContent.style.maxWidth = "370px";
-					} else if (element.height >= 700 && element.height < 800) {
-						modalContent.style.maxWidth = "500px";
-					} else if (element.height >= 400 && element.height < 700) {
-						modalContent.style.maxWidth = "670px";
-					} else if (element.height >= 300 && element.height < 400) {
-						modalContent.style.maxWidth = "770px";
-					} else if (element.height >= 200 && element.height < 300) {
-						modalContent.style.maxWidth = "1200px";
-					} else {
-						modalContent.style.maxWidth = "1400px";
-					}
+					// if (element.height >= 800) {
+					// 	modalContent.style.maxWidth = "370px";
+					// } else if (element.height >= 700 && element.height < 800) {
+					// 	modalContent.style.maxWidth = "500px";
+					// } else if (element.height >= 400 && element.height < 700) {
+					// 	modalContent.style.maxWidth = "670px";
+					// } else if (element.height >= 300 && element.height < 400) {
+					// 	modalContent.style.maxWidth = "770px";
+					// } else if (element.height >= 200 && element.height < 300) {
+					// 	modalContent.style.maxWidth = "1200px";
+					// } else {
+					// 	modalContent.style.maxWidth = "1400px";
+					// }
 				}
 			},
 		});
@@ -1077,36 +1119,48 @@ Element.prototype.hasClass = function (className) {
 		new RegExp(`(^|\\s)${className}(\\s|$)`).test(this.className)
 	);
 };
+document.querySelector(".LikesExitBtn").addEventListener("click", (e) => {
+	document.querySelector(".show_Likes_Box").style.display = "none";
+});
 const likeBox = document.querySelector(".show_Likes_Box");
+const likeContent = document.querySelector(".likeContent");
 document.querySelectorAll(".show_Likes").forEach((element) => {
 	element.addEventListener("click", () => {
 		document.querySelector(".show_Likes_Box").style.display =
 			document.querySelector(".show_Likes_Box").style.display == "none"
 				? "flex"
 				: "none";
+		while (likeContent.firstChild) {
+			likeContent.removeChild(likeContent.firstChild);
+		}
 		const post_id = element.getAttribute("data-post_id");
 		$.ajax({
 			url: "backBone.php",
 			method: "POST",
 			data: {
-				post_id: post_id,
+				post_id,
 				show_Likes: 1,
 			},
-			success: function (data) {
+			success(data) {
 				const like = JSON.parse(data);
-				for (let i = 0; i < like.length; i++) {
-					const likeLink = document.createElement("a");
+				for (const element2 of like) {
+					let likeLink = document.createElement("a");
 					likeLink.classList.add("likeLink");
 					likeLink.setAttribute(
 						"href",
-						"friendpage.php?account_id=" + like[i][3],
+						`friendpage.php?account_id=${element2[3]}`,
 					);
-					likeLink.innerHTML = like[i][0] + " " + like[i][1];
 					const likeimg = document.createElement("img");
 					likeimg.classList.add("likeimg");
-					likeimg.setAttribute("src", like[i][2]);
+					likeimg.setAttribute("src", element2[2]);
 					likeLink.appendChild(likeimg);
-					likeBox.appendChild(likeLink);
+					likeContent.appendChild(likeLink);
+					likeBox.appendChild(likeContent);
+					const temp = `${element2[0]} ${element2[1]}`;
+					likeLink.innerHTML += temp;
+					if (likeContent.innerHTML == "") {
+						likeContent.style.display = "none";
+					}
 				}
 			},
 		});

@@ -69,7 +69,7 @@
 }
 
 .coverImage {
-	width: 1100px;
+	width: 1150px;
 	height: 500px;
 	border-radius: 0px 0px 10px 10px;
 	background-size: cover;
@@ -303,7 +303,7 @@
 	background: #b9b9b9;
 	border-radius: 200px;
 	height: 38px;
-	width: 388px;
+	width: 440px;
 }
 
 .inside-top {
@@ -458,6 +458,7 @@
 
 .left-post .bio2 {
 	border-bottom: none;
+	display: inline;
 }
 
 .content-personal-post .right-post {
@@ -577,7 +578,8 @@
 
 .Friends {
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 }
 
 .namePhoto {
@@ -667,7 +669,7 @@
 }
 
 .post-card {
-	position: absolute;
+	position: fixed;
 	display: none;
 	width: 524px;
 	height: 300px;
@@ -1085,6 +1087,71 @@
 	animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
+.show_Likes_Box {
+	position: fixed;
+	top: 50%;
+	flex-wrap: nowrap;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	height: 500px;
+	background: rgba(255, 255, 255, 0.978);
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	flex-direction: column;
+	z-index: 10000;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	border: 1px solid #4a4a4a;
+	align-content: center;
+}
+
+.LikesExitBtn {
+	display: inline-block;
+	width: 90%;
+	margin: 10px !important;
+}
+
+.LikesPara {
+	display: inline-block;
+	width: 100px;
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-left: 8px;
+	font-family: 'Roboto', sans-serif;
+	text-decoration: underline;
+}
+
+.likeContent {
+	background-color: rgba(209, 209, 209, 0.646);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	border-radius: 8px;
+	width: 90%;
+	margin: 10px;
+	padding: 7px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.likeLink {
+	text-decoration: none;
+	color: #000;
+	font-family: "Pridi";
+	font-size: 20px;
+}
+
+.likeLink img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 8px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
 .close {
 	position: fixed;
 	top: 15px;
@@ -1148,6 +1215,21 @@
 	border-radius: 10px;
 	box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
 	border: 1px solid #9B9B9B;
+}
+
+.EditInfoForm input {
+	width: 90%;
+	height: 40px;
+	border: 1px solid #9B9B9B;
+	border-radius: 5px;
+	padding-left: 10px;
+	font-family: "Pridi";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	color: #000000;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	margin-bottom: 10px;
 }
 
 .Photo {
@@ -2108,13 +2190,13 @@
 	margin-left: 5px;
 }
 
-.left-post2 .shareDesc {
+.shareDesc {
 	color: #000000;
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 	font-family: "Pridi";
 	font-style: normal;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 15px;
 	margin-left: 5px;
 }
 
@@ -2460,7 +2542,7 @@
 }
 
 .post-card {
-	position: absolute;
+	position: fixed;
 	display: none;
 	width: 524px;
 	height: 300px;
@@ -3510,6 +3592,7 @@ canvas {
 }
 
 .commentBox {
+	position: fixed !important;
 	display: none;
 	flex-direction: row;
 	width: 500px;
@@ -3526,28 +3609,45 @@ canvas {
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	border: 1px solid rgb(0, 0, 0);
+	overflow: auto;
+}
+
+.closeBtnComment {
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	margin-left: 5px;
+	margin-right: 90px;
+}
+
+.commentHeader {
+	display: inline;
+	font-size: 30px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-family: "Pridi";
 }
 
 .commentList {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	height: 100%;
 	justify-content: flex-start;
 	font-family: "Pridi";
-	align-items: center;
 }
 
 .commentContent {
-	width: 300px;
-	height: 50px;
+	width: 90%;
+	height: auto;
+	margin: 10px auto;
 	border-radius: 8px;
 	background-color: #cfcfcf;
+	padding: 3px;
 }
 
 .commentArea {
-	width: 200px;
-	height: 100px;
+	width: 90%;
+	height: 136px;
 	background: #d8d8d8;
 	border-radius: 9px;
 	font-family: "Pridi";
@@ -3557,6 +3657,47 @@ canvas {
 	outline: none;
 	text-align: left;
 	font-size: 16px;
+	margin: 0 auto;
+	padding: 7px;
+	cursor: auto;
+}
+
+.commentContent2 {
+	width: 96%;
+	height: auto;
+	margin: 10px auto;
+	padding: 7px;
+	background-color: #ffffff;
+	border-radius: 4px;
+	overflow: auto;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.commentDate {
+	display: inline;
+	font-family: "Pridi";
+	margin: 5px;
+}
+
+.sendComment {
+	position: relative;
+	margin: 7px auto;
+	width: 90%;
+}
+
+.commentParagraph {
+	display: inline;
+	font-family: "Pridi";
+	margin: 5px;
+}
+
+.commentImg {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 7px;
+	object-fit: cover;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.23);
 }
 
 .more-list {
@@ -4399,20 +4540,38 @@ canvas {
 	height: 12px !important;
 }
 
-.show_Likes_Box {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 300px;
-	height: 500px;
-	background: #fff;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	flex-direction: column;
+
+.imgContainer {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.imgContainer img {
+	width: 48%;
+	border-radius: 8px;
+	height: 30%;
+	object-fit: cover;
+	margin: 5px;
+}
+
+.FCont {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
 	justify-content: center;
-	align-items: center;
-	z-index: 10000;
+	margin: 8px;
+}
+
+.FCont div {
+	width: 48%;
+	border-radius: 8px;
+	height: 30%;
+	object-fit: cover;
+	margin: 5px;
 }
 @media (max-width: 920px) {
 	.left-post {

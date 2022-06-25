@@ -40,18 +40,19 @@ session_start();
 <body>
   <div id="particles-js"></div>
   <div class="commentBox">
+    <div class="closeBtnComment btn">Close</div>
     <p class="commentHeader">Comments</p>
     <div class="commentList">
       <!-- <div class="commentContent"></div> -->
-      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10"></textarea>
-      <button class="sendComment">Send</button>
+      <textarea class="commentArea" name="commentArea" id="" cols="30" rows="10" placeholder="Write your comment..."></textarea>
+      <button class="sendComment btn">Send</button>
     </div>
   </div>
   <div class="post-card slide-in-elliptic-top-fwd">
     <div class="top-card">
       <div class="left-top-card">
         <div class="card-name-photo">
-          <img class="card-user-photo" src="<?php echo $_SESSION["img_name"] ?>" alt="">
+          <img class="card-user-photo" src="<?php echo $_SESSION["personalProfile"] ?>" alt="">
           <div class="card-name"><?php echo $_SESSION["std_fname"] . " " . $_SESSION["std_lname"] ?></div>
         </div>
       </div>
@@ -526,7 +527,7 @@ session_start();
     <div class="main-content animate__animated animate__fadeIn animate__slower">
       <div class="write-post-container">
         <div class="user-profile">
-          <img src="<?php echo $_SESSION["img_name"]; ?>" alt="">
+          <img src="<?php echo $_SESSION["personalProfile"]; ?>" alt="">
           <div class="write-post-input">
             <textarea class="write-post" rows="3" placeholder="What`s on your mind, <?php echo $_SESSION["std_fname"]; ?>"></textarea>
           </div>
@@ -649,6 +650,7 @@ session_start();
                                     </div>
                                     <div class='likes'>
                                        <div class='like'>
+                                       <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                        ";
                 $sql4 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                 $result3 = mysqli_query($conn, $sql4);
@@ -723,6 +725,7 @@ session_start();
                                     </div>
                                     <div class='likes'>
                                         <div class='like'>
+                                        <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                         ";
                 $sql7 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
                 $result7 = mysqli_query($conn, $sql7);
@@ -788,6 +791,7 @@ session_start();
               echo "<div class='end-post'>
                               <div class='likes'>
                                  <div class='like'>
+                                 <img class='show_Likes' data-post_id='" . $row["post_id"] . "' src='Design/Image/home-images/images/card-down.svg'>
                                   ";
               $sql5 = "SELECT * FROM post_likes WHERE post_id = '" . $row["post_id"] . "' AND std_id = '" . $_SESSION["std_id"] . "'";
               $result4 = mysqli_query($conn, $sql5);
@@ -855,7 +859,11 @@ session_start();
         ?>
       </div>
     </div>
-
+    <div class="show_Likes_Box" style="display: none;">
+      <div class="LikesExitBtn btn">Close</div>
+      <p class="LikesPara">Likes:</p>
+      <div class="likeContent"></div>
+    </div>
     <div class="right-sidebar">
       <div class="imp-link">
         <a href="savedPosts.php">

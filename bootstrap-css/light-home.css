@@ -485,6 +485,7 @@ body {
   margin-bottom: 8px;
   margin-left: 10px;
   margin-top: 9px;
+  padding: 1px;
 }
 
 .group-page2 span {
@@ -1187,7 +1188,7 @@ body {
 }
 
 .post-card {
-  position: absolute;
+  position: fixed;
   display: none;
   width: 524px;
   height: 300px;
@@ -1358,6 +1359,8 @@ body {
   z-index: 600;
 }
 
+
+
 .edit-text {
   width: 96%;
   height: 160px;
@@ -1434,18 +1437,6 @@ body {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modalStory {
-  display: none;
-  position: fixed;
-  z-index: 1001;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-}
 
 .modal-content {
   margin: auto;
@@ -1454,15 +1445,7 @@ body {
   max-width: 700px;
   max-height: fit-content;
   box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
-}
-
-.modal-content2 {
-  margin: auto;
-  display: block;
-  width: 70%;
-  max-width: 700px;
-  max-height: fit-content;
-  box-shadow: 0 0px 40px rgba(0, 0, 0, 1);
+  border-radius: 6px;
 }
 
 .slide-in-elliptic-top-fwd {
@@ -1488,6 +1471,7 @@ body {
 }
 
 .close2 {
+  display: none;
   position: fixed;
   top: 15px;
   left: 35px;
@@ -1513,29 +1497,99 @@ body {
     width: 100%;
   }
 }
-
+.modalStory {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modal-content2 {
+  margin: 71px auto;
+  display: block;
+  width: 470px;
+  height: 700px;
+  background-color: #000;
+  object-fit: contain;
+  border-radius: 6px;
+}
 .next_story {
-  display: inline-block;
+  display: flex;
+  position: absolute;
+  left: 91%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
   font-size: 22px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid #7b7b7b;
+  background: #000;
   box-sizing: border-box;
   box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
 }
 
 .prev_story {
-  display: inline-block;
+  display: flex;
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
   font-size: 22px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #000;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+}
+
+.storyInfo {
+  width: 240px;
+  height: 60px;
+  position: absolute;
+  top: 11%;
+  left: 39%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #1e1e1ec4;
   border: 1px solid #7b7b7b;
   box-sizing: border-box;
   box-shadow: 0px 0px 18px 2px rgb(0 0 0 / 29%);
+  flex-direction: row-reverse;
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.storyImg {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.storyTime {
+  font-size: 15px;
+  color: rgb(220, 220, 220);
+  margin: 0px 5px 0px 5px !important;
+  font-family: "Pridi";
+}
+
+.storyName {
+  font-size: 17px;
+  color: #fff;
+  margin: 0px 0px 0px 0px !important;
+  font-family: "Pridi";
 }
 
 .tagH1 {
@@ -2250,6 +2304,7 @@ canvas {
 }
 
 .commentBox {
+  position: fixed !important;
   display: none;
   flex-direction: row;
   width: 500px;
@@ -2266,28 +2321,69 @@ canvas {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid rgb(0, 0, 0);
+  overflow: auto;
+}
+
+.closeBtnComment {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 90px;
 }
 
 .commentList {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   justify-content: flex-start;
   font-family: "Pridi";
-  align-items: center;
 }
 
 .commentContent {
-  width: 300px;
-  height: 50px;
+  width: 90%;
+  height: auto;
+  margin: 10px auto;
   border-radius: 8px;
   background-color: #cfcfcf;
+  padding: 3px;
+}
+
+.commentContent2 {
+  width: 96%;
+  height: auto;
+  margin: 10px auto;
+  padding: 7px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  overflow: auto;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.commentParagraph {
+  display: inline;
+  font-family: "Pridi";
+  margin: 5px;
+}
+
+.commentDate {
+  display: inline;
+  font-family: "Pridi";
+  margin: 5px;
+}
+
+.commentImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 7px;
+  object-fit: cover;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.23);
 }
 
 .commentArea {
-  width: 200px;
-  height: 100px;
+  width: 90%;
+  height: 136px;
   background: #d8d8d8;
   border-radius: 9px;
   font-family: "Pridi";
@@ -2297,6 +2393,23 @@ canvas {
   outline: none;
   text-align: left;
   font-size: 16px;
+  margin: 0 auto;
+  padding: 7px;
+  cursor: auto;
+}
+
+.commentHeader {
+  display: inline;
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: "Pridi";
+}
+
+.sendComment {
+  position: relative;
+  margin: 7px auto;
+  width: 90%;
 }
 
 .more-list {
@@ -2714,20 +2827,6 @@ canvas {
   font-size: 15px;
 }
 
-.storyUploadBox {
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 500;
-  width: 400px;
-  height: 700px;
-  background-color: #5e5e5e;
-  color: white;
-  border-radius: 8px;
-}
 
 
 .title {
@@ -3138,17 +3237,124 @@ canvas {
 }
 
 .show_Likes_Box {
-  position: absolute;
+  position: fixed;
   top: 50%;
+  flex-wrap: nowrap;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
   height: 500px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.978);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border: 1px solid #4a4a4a;
+  align-content: center;
+}
+
+.LikesExitBtn {
+  display: inline-block;
+  width: 90%;
+  margin: 10px;
+}
+
+.LikesPara {
+  display: inline-block;
+  width: 100px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 8px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: underline;
+}
+
+.likeContent {
+  background-color: rgba(209, 209, 209, 0.646);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  border-radius: 8px;
+  width: 90%;
+  margin: 10px;
+  padding: 7px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.likeLink {
+  text-decoration: none;
+  color: #000;
+  font-family: "Pridi";
+  font-size: 20px;
+
+}
+
+.likeLink img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.storyUploadBox {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 500;
+  width: 400px;
+  height: 330px;
+  background-color: #f8f8f8;
+  color: black;
+  border-radius: 8px;
+  border: 1px solid #4a4a4a;
+}
+
+.storyUploadBox h1 {
+  display: inline-block;
+  font-size: 30px;
+  font-family: 'poppins', sans-serif;
+  margin: 10px;
+  text-align: center;
+}
+
+.storyUploadBox p {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.storyUploadBox input {
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.storyUploadBox input[type="submit"] {
+  display: block;
+  width: 90%;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+  background-color: #4a4a4a;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  border: none;
+}
+
+.storyUploadBox input[type="submit"]:hover {
+  background-color: #282828;
+  color: white;
 }

@@ -65,15 +65,16 @@ session_start();
             $_SESSION["gender"] = $row["gender"];
             $_SESSION["account_id"] = $row["account_id"];
             $_SESSION["created_date"] = $row["created_date"];
+            $_SESSION["account_type"] = $row["account_type"];
             $statusSQL = "UPDATE student SET status = 1 WHERE std_id = '$student_number'";
             $statusResult = mysqli_query($conn, $statusSQL);
             if (isset($rowimg["img_name"])) {
-               $_SESSION["img_name"] = $rowimg["img_name"];
+               $_SESSION["personalProfile"] = $rowimg["img_name"];
             } else {
                if ($row["gender"] == 1) {
-                  $_SESSION["img_name"] = "Design\Image\LogoPic0.jpg";
+                  $_SESSION["personalProfile"] = "Design\Image\LogoPic0.jpg";
                } else {
-                  $_SESSION["img_name"] = "Design\Image\LogoPic1.jpg";
+                  $_SESSION["personalProfile"] = "Design\Image\LogoPic1.jpg";
                }
             }
             if (isset($rowcover["img_name"])) {
