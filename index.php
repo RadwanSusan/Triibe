@@ -106,7 +106,9 @@ session_start();
             <img class="openEye" src="Design/Image/Password-OpenEye.svg" alt="eye" />
             <button type="submit" href="" class="loginBtn hvr-underline-from-center">Log In</button>
             <div class="sign-up">
-               <a href="newaccount.php" class="sign-up-btn hvr-underline-from-center">Create New Account</a>
+               <a href="newaccount.php" class="sign-up-btn hvr-underline-from-center" onclick="alert('Sign-up is disabled at the moment...');
+               return false;
+               ">Create New Account</a>
             </div>
          </form>
       </div>
