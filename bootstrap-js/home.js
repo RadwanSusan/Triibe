@@ -255,7 +255,7 @@ $(document).ready(function () {
 					logout: 1,
 				},
 				success() {
-					window.location.href = "login.php";
+					window.location.href = "index.php";
 				},
 			});
 		});
