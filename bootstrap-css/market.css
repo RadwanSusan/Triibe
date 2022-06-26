@@ -465,6 +465,7 @@ body {
 
 .all-Ele-top {
   display: flex;
+  flex-flow: wrap;
 }
 
 .all-Ele-bottom {

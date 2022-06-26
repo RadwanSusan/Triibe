@@ -88,11 +88,11 @@ session_start();
             }
             $_SESSION["friends"] = $rowfriends;
             if ($row["account_type"] == 1) {
-               header("location: home.php");
+               echo "<script>window.location.href='home.php';</script>";
             } else if ($row["account_type"] == 2) {
-               header("location: home.php");
+               echo "<script>window.location.href='home.php';</script>";
             } else {
-               header("location: admin.php");
+               echo "<script>window.location.href='home.php';</script>";
             }
          } else {
             echo '<script type="text/javascript">alert("Invalid Information, Try again!");</script>';
