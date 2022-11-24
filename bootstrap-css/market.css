@@ -6,6 +6,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 
+::-moz-selection {
+  background-color: #747474;
+  color: white;
+}
+
 ::selection {
   background-color: #747474;
   color: white;
@@ -46,14 +51,16 @@ body {
   border-radius: 10px;
   margin-left: 13px;
   margin-right: 13px;
+  position: -webkit-sticky;
   position: sticky;
   top: 3px;
   z-index: 100;
+  -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -283,6 +290,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   margin-right: 10px;
+  -webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 }
 
@@ -304,6 +312,7 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   outline: #000;
   z-index: 200;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -481,6 +490,8 @@ body {
 .main .left {
   margin-top: 20px;
   width: 350px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding-bottom: 10px;
   background: #C4C4C4;
@@ -719,6 +730,8 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   font-family: "Pridi";
   width: 500px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -755,6 +768,9 @@ body {
   align-items: center;
   background: #d8d8d8;
   border-radius: 200px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   cursor: default;
 }
@@ -766,6 +782,9 @@ body {
   cursor: pointer;
   width: 38px;
   height: 38px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -814,6 +833,9 @@ body {
   cursor: pointer;
   width: 38px;
   height: 38px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -832,6 +854,9 @@ body {
   font-family: "Pridi";
   border: none;
   resize: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -848,6 +873,9 @@ body {
   font-family: "Pridi";
   border: none;
   resize: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   outline: none;
   text-align: left;
@@ -901,6 +929,9 @@ body {
   padding: 13px;
   border-radius: 9px;
   justify-content: space-between;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   height: 66px;
   margin-left: 8px;
@@ -916,6 +947,9 @@ body {
   font-family: "Pridi";
   border: none;
   resize: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   outline: none;
   text-align: left;
@@ -939,6 +973,9 @@ body {
   font-family: "Pridi";
   border: none;
   resize: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   outline: none;
   text-align: left;

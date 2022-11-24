@@ -6,6 +6,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 
+::-moz-selection {
+  background-color: #8c8c8c;
+  color: white;
+}
+
 ::selection {
   background-color: #8c8c8c;
   color: white;
@@ -76,6 +81,9 @@ body {
 .left {
   width: 600px;
   align-items: flex-start;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -83,6 +91,9 @@ body {
   width: 600px;
   align-items: flex-start;
   margin-top: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -201,6 +212,7 @@ body {
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
+  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
 }
@@ -316,6 +328,9 @@ body {
   display: flex;
   flex-direction: column;
   align-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -647,9 +662,6 @@ body::-webkit-scrollbar {
   left: 0;
   background-color: #ffffff;
   padding: 13px 15px;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
@@ -689,6 +701,7 @@ body::-webkit-scrollbar {
   list-style: none;
   background-color: #f3f1f1;
   border-radius: 4px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid #ccc;
 }
@@ -698,9 +711,6 @@ body::-webkit-scrollbar {
   padding: 12px 0;
   text-indent: 15px;
   border-top: 1px solid #ccc;
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
 
@@ -731,27 +741,46 @@ body::-webkit-scrollbar {
 }
 
 .parallax>use {
+  -webkit-animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   animation: move-forever 45s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
 .parallax>use:nth-child(1) {
+  -webkit-animation-delay: -2s;
   animation-delay: -2s;
+  -webkit-animation-duration: 7s;
   animation-duration: 7s;
 }
 
 .parallax>use:nth-child(2) {
+  -webkit-animation-delay: -3s;
   animation-delay: -3s;
+  -webkit-animation-duration: 10s;
   animation-duration: 10s;
 }
 
 .parallax>use:nth-child(3) {
+  -webkit-animation-delay: -4s;
   animation-delay: -4s;
+  -webkit-animation-duration: 13s;
   animation-duration: 13s;
 }
 
 .parallax>use:nth-child(4) {
+  -webkit-animation-delay: -5s;
   animation-delay: -5s;
+  -webkit-animation-duration: 20s;
   animation-duration: 20s;
+}
+
+@-webkit-keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
 }
 
 @keyframes move-forever {
