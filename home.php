@@ -7,7 +7,7 @@ if (isset($_COOKIE['theme'])) {
     $themeStyleSheet = 'dark-home.css';
   }
 }
-$badwords = ["fuck", "shit", "bitch", "asshole", "dick", "pussy", "كس", "كس امك", "قحبة", "شرموطة", "منيك", "شرمط"];
+$badwords = ["bad word"];
 $sql1 = "SELECT * FROM student WHERE std_id = '" . $_SESSION["std_id"] . "'";
 $result1 = mysqli_query($conn, $sql1);
 if (mysqli_num_rows($result1) > 0) {
